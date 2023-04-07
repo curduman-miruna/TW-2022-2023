@@ -29,13 +29,12 @@
         </a>
 
         <nav class="navbar">
-            <a href="#home">Home</a> <!--sectiunea de home din aceeasi pagina -->
+            <a href="index.html">Home</a> <!--sectiunea de home din aceeasi pagina -->
             <a href="#buy">Buy</a>
             <a href="mycultures.html">MyCultures</a>
             <a href="account.html">Account</a>
             <a href="#help">Help</a>
         </nav>
-
 
         <div class="icons">
             <div class="fas fa-search" id="search-btn"></div>
@@ -84,18 +83,52 @@
             </div>
             <a href="#" class="btn">My Basket</a>
         </div>
-
-    </header>
     </header>
     <section>
-        
+
         <div class="card-container">
             <div class="description-container">
-                <h2>
-                    Welcome to our digital assistant for spring flower cultivation and sales! Our web application allows you to manage multiple flower crops simultaneously, providing real-time data from a series of sensors such as soil moisture and ambient temperature, as well as a continuous stream of images tracking the development of your plants. Based on these sensor readings and the growth period of your cultivated plants, our application will suggest actions such as irrigation, temperature or lighting adjustments, and harvest timing to optimize their growth and development. In addition, for optimized sales, potential buyers can express interest in purchasing flowers and will be notified via email and browser notifications when their desired flowers are ready for purchase. Join us today and experience the benefits of our digital assistant for spring flower cultivation and sales!
+                <h2 style="text-indent: 20px;">
+                    Welcome to our digital assistant for spring flower cultivation and sales! Our web application allows
+                    you to manage multiple flower crops simultaneously, providing real-time data from a series of
+                    sensors such as soil moisture and ambient temperature, as well as a continuous stream of images
+                    tracking the development of your plants. Based on these sensor readings and the growth period of
+                    your cultivated plants, our application will suggest actions such as irrigation, temperature or
+                    lighting adjustments, and harvest timing to optimize their growth and development. In addition, for
+                    optimized sales, potential buyers can express interest in purchasing flowers and will be notified
+                    via email and browser notifications when their desired flowers are ready for purchase. Join us today
+                    and experience the benefits of our digital assistant for spring flower cultivation and sales!
                 </h2>
             </div>
             <br>
+            <div class="image-slider-container">
+                <h2>Image slider</h2>
+                <div class="slider">
+                    <button class="btn-slide prev"><i class="fas fa-3x fa-chevron-circle-left"></i></button>
+                    <button class="btn-slide next"><i class="fas fa-3x fa-chevron-circle-right"></i></button>
+                    <div class="slide">
+                        <img src="Miruna/img (4).jpg" alt="Photo1" />
+                    </div>
+                    <div class="slide">
+                        <img src="Miruna/img (3).jpg" alt="Photo2" />
+                    </div>
+                    <div class="slide">
+                        <img src="Miruna/img (1).jpg" alt="Photo3" />
+                    </div>
+                    <div class="slide">
+                        <img src="Miruna/img (2).jpg" alt="Photo4" />
+                    </div>
+
+                </div>
+                <div class="dots-container">
+                    <span class="dot active" data-slide="0"></span>
+                    <span class="dot" data-slide="1"></span>
+                    <span class="dot" data-slide="2"></span>
+                    <span class="dot" data-slide="3"></span>
+                </div>
+            </div>
+            <!-- partial -->
+            <script src="js/test.js"></script>
             <div class="row-title">
                 <h1>Our Features</h1>
             </div>
@@ -143,8 +176,11 @@
             </div>
         </div>
 
-
+        <script src="myJs.js"></script>
 </body>
 
+<footer>
+    <p>WeGa (Web Gardening) 2023</p>
+</footer>
 
 </html>

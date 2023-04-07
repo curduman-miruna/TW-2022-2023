@@ -223,6 +223,18 @@ body {
     text-align: center;
 }
 
+footer {
+    margin-top: 20px;
+    padding-top: 40px;
+    padding-bottom: 40px;
+    background: #333;
+    color: #f7f5f5;
+}
+
+footer p {
+    text-align: center;
+}
+
 /*Account*/
 
 .account-section {
@@ -365,7 +377,8 @@ a {
     justify-content: center;
     align-items: center;
     flex-direction: column;
-    height: 100vh;
+    height: auto;
+    margin-top: 150px;
 }
 
 .card-container h2 {
@@ -401,8 +414,8 @@ a {
 }
 
 .description-container {
-    width: 80%;
-    padding: auto;
+    width: 78%;
+    margin: 0 auto;
     background-color: #b0b06a;
     background-repeat: no-repeat;
     background-position: 0 0.62em;
@@ -432,6 +445,8 @@ a {
 
 .card {
     padding: 3.1em 1.25em;
+    height: 225px;
+    width: 100%;
     text-align: center;
     background: linear-gradient(0deg, #7f981b 10px, transparent 10px);
     background-repeat: no-repeat;
@@ -486,38 +501,197 @@ a {
     width: 2.25em;
 }
 
-@media screen and (min-width: 768px) {
+@media screen and (min-width:470px) {
     .card-container section {
-        padding: 1em 7em;
-    }
-}
-
-@media screen and (min-width:700px) {
-    .card-container section {
+        margin-top: 6rem;
         padding: 1em;
     }
 
     .card {
         padding: 5em 2em;
+        width: 100%;
+    }
+
+    .description-container{
+        padding: 1em 1em;
     }
 
     .column {
+        display: flex;
+        flex: 0 0 50%;
+        width: 200px;
+        padding: 1em 1em;
+    }
+}
+
+@media screen and (min-width:700px) {
+    .card-container section {
+        margin-top: 6rem;
+        padding: 1em;
+    }
+
+    .description-container{
+        padding: 1em 1em;
+    }
+
+    .card {
+        padding: 5em 2em;
+        width: 100%;
+    }
+
+    .description-container{
+        padding: 1em 1em;
+    }
+
+    .column {
+        display: flex;
         flex: 0 0 25%;
-        width: 25%;
-        height: 100%;
+        width: 100%;
         padding: 0 1em;
     }
 }
 
+/*Slider image*/
+.image-slider-container {
+    width: 100%;
+    height: 100%;
+    color: #b62f4f;
+    line-height: 1.9;
+    z-index: 10;
+    background-color: #f7f5f5;
+}
+
+.image-slider-container h2{
+    text-align: center;
+    font-size: 2rem;
+    line-height: 3.5;
+}
+
+.slider{
+    position: relative;
+    max-width: 40rem; 
+    height: 26.625rem; 
+    margin: 0 auto;
+    overflow: hidden;
+}
+
+.slide{ 
+    position: absolute;
+    top:0;
+    width: 100%;
+    height: 26.625rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: transform 1s;
+}
+
+.slide > img{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+button{
+    background: none;
+    border: none;
+}
+
+button .fas{
+    color: #da6e88
+}
+
+.btn-slide{
+    position:absolute;
+    top:50%;
+    z-index: 20;
+    height: 5.5rem;
+    width: 5.5rem;
+    cursor: pointer;
+}
+
+.prev{
+    left: 0;
+    transform: translate(0, -50%);
+}
+
+.next{
+    right: 0;
+    transform: translate(0, -50%); 
+}
+
+.dots-container{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+}
+
+.dot{
+    width: 25px;
+    height: 5px;
+    margin: 15px 5px;
+    border-radius: .5rem;
+    background: #b62f4f;
+    cursor: pointer;
+}
+
+.dot.active{
+    background:#da6e88
+}
+
 /*My cultures page*/
+
+.search {
+    width: 100%;
+    height: 40px;
+    padding: 5px;
+    padding-bottom: 20px;
+    margin-bottom: 20px;
+    display: flex;
+  }
+  
+  .searchTerm {
+    width: 100%;
+    border: 3px solid #b62f4f;
+    border-right: none;
+    padding: 5px;
+    height: 36px;
+    border-radius: 5px 0 0 5px;
+    outline: none;
+    color: #da6e88;
+  }
+  
+  .searchTerm:focus{
+    color: #b62f4f;
+  }
+  
+  .searchButton {
+    width: 40px;
+    height: 36px;
+    border: 1px solid #b62f4f;
+    background: #da6e88;
+    text-align: center;
+    color: #fff;
+    border-radius: 0 5px 5px 0;
+    cursor: pointer;
+    font-size: 20px;
+  }
+  
+  .wrap{
+    width: 88%;
+    top: 50%;
+    left: 50%;
+  }
 
 .mycultures-container {
     display: flex;
-    flex: 0 0 1;
-    justify-content: center;
-    align-items: center;
+    flex: 0 0 33%;
+    justify-content: space-evenly;
+    align-items:center;
     flex-direction: column;
-    height: 100vh;
+    height: auto;
+    padding-top: 150px;
 }
 
 .mycultures-container h2 {
@@ -529,10 +703,10 @@ a {
 
 .culture-row {
     display: flex;
-    flex: 0 0 25%;
+    flex: 0 0 33%;
     flex-wrap: wrap;
-    width: 80%;
-    justify-content: center;
+    width: 90%;
+    justify-content: space-evenly;
     align-items: center;
     margin: 0 auto;
 }
@@ -555,11 +729,13 @@ a {
 
 .culture-column {
     display: flex;
-    padding: 1em;
+    justify-content: space-evenly;
+    padding: 2em;
 }
 
 .culture-card {
     padding: 1.25em 1.25em;
+    height: 200px;
     text-align: center;
     background: linear-gradient(0deg, #7f981b 10px, transparent 10px);
     background-repeat: no-repeat;
@@ -615,25 +791,62 @@ a {
     width: 2.25em;
 }
 
-@media screen and (min-width: 768px) {
+@media screen and (min-width:10px) {
     .mycultures-container section {
-        padding: 1em 7em;
+        margin-top: 6rem;
+        padding: 1em;
+    }
+
+    .culture-container {
+        padding: 5em 2em;
+        width: 100%;
+    }
+
+
+    .culture-column {
+        display: flex;
+        flex: 0 0 100%;
+        width: 200px;
+        padding: 1em 1em;
+    }
+}
+
+@media screen and (min-width:470px) {
+    .mycultures-container section {
+        margin-top: 6rem;
+        padding: 1em;
+    }
+
+    .culture-container {
+        padding: 5em 2em;
+        width: 100%;
+    }
+
+
+    .culture-column {
+        display: flex;
+        flex: 0 0 50%;
+        width: 200px;
+        padding: 1em 1em;
     }
 }
 
 @media screen and (min-width:700px) {
     .mycultures-container section {
+        margin-top: 6rem;
         padding: 1em;
     }
 
     .culture-card {
-        padding: 2em 2em;
+        padding: 5em 2em;
+        width: 100%;
     }
 
     .culture-column {
+        display: flex;
         flex: 0 0 33%;
         width: 100%;
         height: 100%;
-        padding: 0 1em;
+        padding: 1em 1em;
     }
 }

@@ -1,28 +1,57 @@
-let slideIndex = 1;
-showSlides(slideIndex);
+//current position
+var pos = 0;
+//number of slides
+var totalSlides = $('#slider-wrap ul li').length;
+//get the slide width
+var sliderWidth = $('#slider-wrap').width();
 
-// Next/previous controls
-function plusSlides(n) {
-  showSlides(slideIndex += n);
+
+$(document).ready(function(){
+	
+	
+	/*****************
+	 BUILD THE SLIDER
+	*****************/
+	//set width to be 'x' times the number of slides
+	$('#slider-wrap ul#slider').width(sliderWidth*totalSlides);
+	
+    //next slide 	
+	$('#next').click(function(){
+		slideRight();
+	});
+	
+	//previous slide
+	$('#previous').click(function(){
+		slideLeft();
+	});}
+)
+
+
+
+/***********
+ SLIDE LEFT
+************/
+function slideLeft(){
+	pos--;
+	if(pos==-1){ pos = totalSlides-1; }
+	$('#slider-wrap ul#slider').css('left', -(sliderWidth*pos)); 	
+	
+	//*> optional
+	countSlides();
+	pagination();
 }
 
-// Thumbnail image controls
-function currentSlide(n) {
-  showSlides(slideIndex = n);
+
+/************
+ SLIDE RIGHT
+*************/
+function slideRight(){
+	pos++;
+	if(pos==totalSlides){ pos = 0; }
+	$('#slider-wrap ul#slider').css('left', -(sliderWidth*pos)); 
+	
+	//*> optional 
+	countSlides();
+	pagination();
 }
 
-function showSlides(n) {
-  let i;
-  let slides = document.getElementsByClassName("mySlides");
-  let dots = document.getElementsByClassName("dot");
-  if (n > slides.length) {slideIndex = 1}
-  if (n < 1) {slideIndex = slides.length}
-  for (i = 0; i < slides.length; i++) {
-    slides[i].style.display = "none";
-  }
-  for (i = 0; i < dots.length; i++) {
-    dots[i].className = dots[i].className.replace(" active", "");
-  }
-  slides[slideIndex-1].style.display = "block";
-  dots[slideIndex-1].className += " active";
-}
