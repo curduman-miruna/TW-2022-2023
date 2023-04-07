@@ -1,13 +1,14 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins&display=swap');
-:root{
+
+:root {
     --bg: white;
-    --darkerstpink:  #b62f4f;
+    --darkerstpink: #b62f4f;
     --darkpink: #da6e88;
-    --lightpink:#dda1a9;
-    --vivagreen:#32560b;
-    --darkgreen:#323b0b;
-    --green:#7f981b;
-    --lightgreen:.1rem solid #b0b06a;
+    --lightpink: #dda1a9;
+    --vivagreen: #32560b;
+    --darkgreen: #323b0b;
+    --green: #7f981b;
+    --lightgreen: .1rem solid #b0b06a;
 }
 
 * {
@@ -16,9 +17,11 @@
     padding: 0;
     box-sizing: border-box;
 }
-.hidden{
-    display:none;
+
+.hidden {
+    display: none;
 }
+
 html {
     font-size: 62.5%;
     overflow-x: hidden;
@@ -65,7 +68,7 @@ body {
     background: var(--green);
     display: flex;
     align-items: center;
-    justify-content: space-between ;
+    justify-content: space-between;
     padding: 0.5rem 7%;
     border-bottom: var(--lightgreen);
     position: fixed;
@@ -75,23 +78,26 @@ body {
     z-index: 1000;
     height: 15;
     box-shadow: 0px 10px 30px rgba(0, 0, 0, 0.5);
-    
+
 }
+
 /*logo*/
 .header .logo img {
     height: 6rem;
 }
-.header .navbar{
+
+.header .navbar {
     display: flex;
-    justify-content: space-between ;
+    justify-content: space-between;
 }
+
 /* paginile */
 .header .navbar a {
 
     margin-left: 40px;
     font-size: 20px;
     color: #fff;
-    
+
 }
 
 .header .navbar a:hover {
@@ -99,8 +105,9 @@ body {
     border-top: solid var(--darkgreen);
     font-weight: bold;
     font-size: 17px;
-   
+
 }
+
 /*iconite*/
 .header .icons div {
     color: #fff;
@@ -200,10 +207,12 @@ body {
     padding-bottom: .5rem;
 
 }
-.header .cart-items-container .cart-item .content h3:hover{
-    color:var(--green);
+
+.header .cart-items-container .cart-item .content h3:hover {
+    color: var(--green);
     cursor: pointer;
 }
+
 .header .cart-items-container .cart-item .content .price {
     font-size: 15px;
     color: var(--vivagreen);
@@ -222,13 +231,13 @@ body {
     align-items: center;
     flex-direction: column;
     height: 100vh;
-  }
-  
+}
+
 .account-section form {
-	background-color: #fff;
-	border-radius: 10px;
-	padding: 40px;
-	box-shadow: 0px 15px 25px rgba(0, 0, 0, 0.5);
+    background-color: #fff;
+    border-radius: 10px;
+    padding: 40px;
+    box-shadow: 0px 15px 25px rgba(0, 0, 0, 0.5);
 }
 
 .account-section h2 {
@@ -239,78 +248,79 @@ body {
 }
 
 .inputBox {
-	position: relative;
-	margin-bottom: 25px;
+    position: relative;
+    margin-bottom: 25px;
 }
 
 .inputBox input {
-	width: 100%;
-	padding: 10px 0;
-	font-size: 16px;
-	color: #333;
-	letter-spacing: 1px;
-	margin-bottom: 30px;
-	border: none;
-	border-bottom: 1px solid #999;
-	outline: none;
-	background-color: transparent;
+    width: 100%;
+    padding: 10px 0;
+    font-size: 16px;
+    color: #333;
+    letter-spacing: 1px;
+    margin-bottom: 30px;
+    border: none;
+    border-bottom: 1px solid #999;
+    outline: none;
+    background-color: transparent;
 }
 
 .inputBox label {
-	position: absolute;
-	top: 0;
-	left: 0;
-	padding: 10px 0;
-	font-size: 16px;
-	color: #999;
-	pointer-events: none;
-	transition: 0.5s;
+    position: absolute;
+    top: 0;
+    left: 0;
+    padding: 10px 0;
+    font-size: 16px;
+    color: #999;
+    pointer-events: none;
+    transition: 0.5s;
 }
 
-.inputBox input:focus ~ label,
-.inputBox input:valid ~ label {
-	top: -18px;
-	font-size: 12px;
-	color: var(--darkpink);
+.inputBox input:focus~label,
+.inputBox input:valid~label {
+    top: -18px;
+    font-size: 12px;
+    color: var(--darkpink);
 }
 
 input[type="submit"] {
-	background-color: var(--darkerstpink);
-	color: #fff;
-	border: none;
-	border-radius: 5px;
-	padding: 10px 20px;
-	cursor: pointer;
-	transition: 0.5s;
+    background-color: var(--darkerstpink);
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    padding: 10px 20px;
+    cursor: pointer;
+    transition: 0.5s;
 }
 
 input[type="submit"]:hover {
-	background-color: var(--darkpink);
+    background-color: var(--darkpink);
 }
 
 a {
-	display: block;
-	margin-top: 20px;
-	font-size: 14px;
-	color: #fff;
-	text-align: center;
-	text-decoration: none;
+    display: block;
+    margin-top: 20px;
+    font-size: 14px;
+    color: #fff;
+    text-align: center;
+    text-decoration: none;
 }
 
-.account-background{
+.account-background {
     background-color: #323b0b;
     display: flex;
     justify-content: center;
     align-items: center;
-    height:100vh;
-    width:100vw
-;}
-.account-background .account-info{
+    height: 100vh;
+    width: 100vw;
+}
+
+.account-background .account-info {
 
     display: flex;
     justify-content: center;
     align-items: center;
-    float:left;
+    float: left;
     margin-left: 0px;
     flex-direction: row;
     height: 70vh;
@@ -330,18 +340,300 @@ a {
 }
 
 .account-info .column {
-	position: relative;
-	margin-bottom: 25px;
+    position: relative;
+    margin-bottom: 25px;
     border-bottom: #32560b;
-    
+
 }
-.account-info  .column:hover{
+
+.account-info .column:hover {
     color: white;
     font-size: 23px;
 }
-.account-info  .column h2{
-    font-size:25px;
-    color:var(--lightgreen);
+
+.account-info .column h2 {
+    font-size: 25px;
+    color: var(--lightgreen);
     text-align: left;
 
+}
+
+/*Index feature*/
+
+.card-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    height: 100vh;
+}
+
+.card-container h2 {
+    color: var(--darkgreen);
+    font-weight: bold;
+    font-size: 25px;
+    margin-bottom: 30px;
+}
+
+.row {
+    display: flex;
+    flex: 0 0 25%;
+    flex-wrap: wrap;
+    width: 80%;
+    justify-content: center;
+    align-items: center;
+    margin: 0 auto;
+}
+
+.card-container h1,
+.row-title h1 {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    text-align: center;
+    font-size: 2em;
+    font-weight: bold;
+    margin: 0.6em 0;
+    padding-bottom: 10px;
+    padding: auto;
+    font-weight: 600;
+    color: var(--darkgreen);
+}
+
+.description-container {
+    width: 80%;
+    padding: auto;
+    background-color: #b0b06a;
+    background-repeat: no-repeat;
+    background-position: 0 0.62em;
+    box-shadow: 0 0 2.5em rgba(0, 0, 0, 0.15);
+    border-radius: 0.5em;
+}
+
+.description-container h2 {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    text-align: justify;
+    font-size: 1.5em;
+    font-weight: bold;
+    margin: auto;
+    padding: 1em;
+    font-weight: 600;
+    color: var(--darkgreen);
+}
+
+.column {
+    display: flex;
+    padding: 1em;
+}
+
+.card {
+    padding: 3.1em 1.25em;
+    text-align: center;
+    background: linear-gradient(0deg, #7f981b 10px, transparent 10px);
+    background-repeat: no-repeat;
+    background-position: 0 0.62em;
+    box-shadow: 0 0 2.5em rgba(0, 0, 0, 0.15);
+    border-radius: 0.5em;
+    transition: 0.5s;
+    cursor: pointer;
+}
+
+.card .icon {
+    font-size: 2.5em;
+    height: 2em;
+    width: 2em;
+    margin: auto;
+    background-color: #b0b06a;
+    display: grid;
+    place-items: center;
+    border-radius: 50%;
+    color: #ffffff;
+}
+
+.icon:before {
+    position: absolute;
+    content: "";
+    height: 1.5em;
+    width: 1.5em;
+    border: 0.12em solid #7f981b;
+    border-radius: 50%;
+    transition: 0.5s;
+}
+
+.card h3 {
+    font-size: 1.3em;
+    margin: 1em 0 1.4em 0;
+    font-weight: 600;
+    letter-spacing: 0.3px;
+    color: #070024;
+}
+
+.card p {
+    line-height: 2em;
+    color: #625a71;
+}
+
+.card:hover {
+    background-position: 0;
+}
+
+.card:hover .icon:before {
+    height: 2.25em;
+    width: 2.25em;
+}
+
+@media screen and (min-width: 768px) {
+    .card-container section {
+        padding: 1em 7em;
+    }
+}
+
+@media screen and (min-width:700px) {
+    .card-container section {
+        padding: 1em;
+    }
+
+    .card {
+        padding: 5em 2em;
+    }
+
+    .column {
+        flex: 0 0 25%;
+        width: 25%;
+        height: 100%;
+        padding: 0 1em;
+    }
+}
+
+/*My cultures page*/
+
+.mycultures-container {
+    display: flex;
+    flex: 0 0 1;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    height: 100vh;
+}
+
+.mycultures-container h2 {
+    color: var(--darkgreen);
+    font-weight: bold;
+    font-size: 25px;
+    margin-bottom: 30px;
+}
+
+.culture-row {
+    display: flex;
+    flex: 0 0 25%;
+    flex-wrap: wrap;
+    width: 80%;
+    justify-content: center;
+    align-items: center;
+    margin: 0 auto;
+}
+
+.mycultures-container h1,
+.row-title h1 {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    text-align: center;
+    font-size: 2em;
+    font-weight: bold;
+    margin: 0.6em 0;
+    padding-bottom: 10px;
+    padding: auto;
+    font-weight: 600;
+    color: var(--darkgreen);
+}
+
+
+.culture-column {
+    display: flex;
+    padding: 1em;
+}
+
+.culture-card {
+    padding: 1.25em 1.25em;
+    text-align: center;
+    background: linear-gradient(0deg, #7f981b 10px, transparent 10px);
+    background-repeat: no-repeat;
+    background-position: 0 0.62em;
+    box-shadow: 0 0 2.5em rgba(0, 0, 0, 0.15);
+    border-radius: 0.5em;
+    transition: 0.5s;
+    cursor: pointer;
+    width: 100%;
+}
+
+.culture-card .culture-icon {
+    font-size: 2.5em;
+    height: 2.5em;
+    width: 2.5em;
+    margin: auto;
+    background-color: #b0b06a;
+    display: grid;
+    place-items: center;
+    border-radius: 50%;
+    color: #ffffff;
+}
+
+.culture-icon:before {
+    position: absolute;
+    content: "";
+    height: 1.5em;
+    width: 1.5em;
+    border: 0.12em solid #7f981b;
+    border-radius: 50%;
+    transition: 0.5s;
+}
+
+.culture-card h3 {
+    font-size: 1.3em;
+    margin: 1em 0 1.4em 0;
+    font-weight: 600;
+    letter-spacing: 0.3px;
+    color: #070024;
+}
+
+.culture-card p {
+    line-height: 2em;
+    color: #625a71;
+}
+
+.culture-card:hover {
+    background-position: 0;
+}
+
+.culture-card:hover .culture-icon:before {
+    height: 2.25em;
+    width: 2.25em;
+}
+
+@media screen and (min-width: 768px) {
+    .mycultures-container section {
+        padding: 1em 7em;
+    }
+}
+
+@media screen and (min-width:700px) {
+    .mycultures-container section {
+        padding: 1em;
+    }
+
+    .culture-card {
+        padding: 2em 2em;
+    }
+
+    .culture-column {
+        flex: 0 0 33%;
+        width: 100%;
+        height: 100%;
+        padding: 0 1em;
+    }
 }

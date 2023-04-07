@@ -345,3 +345,54 @@ a {
     text-align: left;
 
 }
+
+/*Home\Index Section*/
+.features-section {
+    margin: 50px auto;
+    max-width: 800px;
+    text-align: center;
+    background-color: #f5f5f5;
+    padding: 50px 0;
+  }
+  
+  .features-section h2 {
+    font-size: 36px;
+    margin-bottom: 30px;
+  }
+  
+  .features-section ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+  
+  .features-section li {
+    font-size: 24px;
+    margin-bottom: 15px;
+    text-align: left;
+    line-height: 1.5;
+  }
+  
+  .features-section li:before {
+    content: "✓";
+    color: #34a853;
+    margin-right: 10px;
+  }
+  
+  /* Sample background */
+  .features-section {
+    background-image: url("https://images.unsplash.com/photo-1533571087699-ee735128b981");
+    background-size: cover;
+    background-position: center;
+    color: #fff;
+  }
+  
+  .features-section h2,
+  .features-section li {
+    color: #32560b;
+  }
+  .section-background {
+	background-color: #f7f7f7;
+	padding: 50px;
+    color:  #32560b;
+}
