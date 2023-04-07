@@ -7,7 +7,7 @@
     --vivagreen:#32560b;
     --darkgreen:#323b0b;
     --green:#7f981b;
-    --lightgreen:.1rem solid #b0b06a;
+    --lightgreen: #b0b06a;
 }
 
 * {
@@ -236,6 +236,7 @@ body {
     font-weight: bold;
     font-size: 25px;
     margin-bottom: 30px;
+    margin-top: 100px;
 }
 
 .inputBox {
@@ -246,7 +247,7 @@ body {
 .inputBox input {
 	width: 100%;
 	padding: 10px 0;
-	font-size: 16px;
+	font-size: 20px;
 	color: #333;
 	letter-spacing: 1px;
 	margin-bottom: 30px;
@@ -298,101 +299,250 @@ a {
 }
 
 .account-background{
-    background-color: #323b0b;
+    background-color: white;
     display: flex;
-    justify-content: center;
+    justify-content: flex-start;
     align-items: center;
-    height:100vh;
+    flex-direction: row;
+    height:90vh;
     width:100vw
 ;}
 .account-background .account-info{
 
     display: flex;
-    justify-content: center;
+    justify-content: flex-start;
     align-items: center;
     float:left;
     margin-left: 0px;
-    flex-direction: row;
-    height: 70vh;
-    background-color: white;
-    width: 60vw;
-    border-radius: 10%;
+    flex-direction: column;
+    height: 100vh;
+    background-color: var(--darkgreen);
+    width: 30vw;
     box-shadow: 0px 2px 5px black;
+
+   
 }
 
 .account-background .account-info h2 {
     text-align: center;
-    margin-top: 70px;
+    margin-top: 100px;
     color: white;
     font-weight: bold;
-    font-size: 30px;
-    margin-bottom: 30px;
+    font-size: 25px;
 }
 
-.account-info .column {
-	position: relative;
-	margin-bottom: 25px;
-    border-bottom: #32560b;
+
+.account-background .account-info .column {
+    margin-top:20px;
+    width: 100%;
+    height: 100px;
+    background-color: var(--lightgreen);
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    box-shadow: 0px 10px 30px rgba(0, 0, 0, 0.5);
+    
     
 }
-.account-info  .column:hover{
-    color: white;
-    font-size: 23px;
+.account-background .account-info .column:nth-of-type(2) h2
+{
+    color: rgb(136, 22, 22);
 }
-.account-info  .column h2{
-    font-size:25px;
-    color:var(--lightgreen);
-    text-align: left;
+.account-background .account-info  .column:hover{
+    cursor: pointer;
+    letter-spacing: 2px;
+    font-size: 18px;
+    background-color: #8c8c5a;
+    
+    
+}
+.account-background  .account-info  .column h2{
+color: black;
+   font-size: 20px;
+   text-align:start;
+   margin-left: 20px;
 
 }
-
-/*Home\Index Section*/
-.features-section {
-    margin: 50px auto;
-    max-width: 800px;
-    text-align: center;
-    background-color: #f5f5f5;
-    padding: 50px 0;
-  }
-  
-  .features-section h2 {
-    font-size: 36px;
-    margin-bottom: 30px;
-  }
-  
-  .features-section ul {
-    list-style: none;
-    margin: 0;
-    padding: 0;
-  }
-  
-  .features-section li {
-    font-size: 24px;
-    margin-bottom: 15px;
-    text-align: left;
-    line-height: 1.5;
-  }
-  
-  .features-section li:before {
-    content: "✓";
-    color: #34a853;
-    margin-right: 10px;
-  }
-  
-  /* Sample background */
-  .features-section {
-    background-image: url("https://images.unsplash.com/photo-1533571087699-ee735128b981");
-    background-size: cover;
-    background-position: center;
-    color: #fff;
-  }
-  
-  .features-section h2,
-  .features-section li {
-    color: #32560b;
-  }
-  .section-background {
-	background-color: #f7f7f7;
-	padding: 50px;
-    color:  #32560b;
+.account-background .edit-page{
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    flex-direction: column;
+    height: 100vh;
+    background-color: white;
+    width: 70vw;
 }
+.account-background .edit-page .img-container{
+    margin-top:60px;
+    height:100px;
+    width:100px;
+}
+.account-background .edit-page .img-container img{
+    height: 100%;
+    width:100%;
+}
+
+.account-background .edit-page form {
+    margin-top: 30px;
+	background-color: #fff;
+	border-radius: 10px;
+	padding: 40px;
+	box-shadow: 0px 15px 25px rgba(0, 0, 0, 0.5);
+    width: 50%;
+    height: 50%;
+}
+
+.inputBoxEdit {
+	position: relative;
+	margin-bottom: 25px;
+}
+
+ .inputBoxEdit input {
+	width: 100%;
+	padding: 10px 0;
+	font-size: 25px;
+	color: #333;
+	letter-spacing: 1px;
+	margin-bottom: 30px;
+	border: none;
+	border-bottom: 1px solid #999;
+	outline: none;
+	background-color: transparent;
+}
+ .inputBoxEdit label {
+	position: absolute;
+	top: 0;
+	left: 0;
+	padding: 10px 0;
+	font-size: 16px;
+	color: #999;
+	pointer-events: none;
+	transition: 0.5s;
+}
+
+.inputBoxEdit input:focus ~ label{
+	top: -18px;
+	font-size: 12px;
+	color: var(--darkpink);
+}
+
+.account-background .edit-page form input[type="submit"] {
+	background-color: var(--darkerstpink);
+	color: #fff;
+	border: none;
+	border-radius: 5px;
+	padding: 10px 20px;
+	cursor: pointer;
+	transition: 0.5s;
+}
+
+.account-background .edit-page form input[type="submit"]:hover {
+	background-color: var(--darkpink);
+}
+
+.account-background .edit-page form a {
+    margin-top: 30px;
+	display: block;
+	margin-top: 20px;
+	font-size: 14px;
+	color: var(--darkerstpink);
+	text-align: center;
+	text-decoration: none;
+}
+
+.account-background{
+    background-color: white;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    flex-direction: row;
+    height:90vh;
+    width:100vw
+;}
+.account-background .account-info{
+
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    float:left;
+    margin-left: 0px;
+    flex-direction: column;
+    height: 100vh;
+    background-color: var(--darkgreen);
+    width: 30vw;
+    box-shadow: 0px 2px 5px black;
+
+   
+}
+
+
+/*
+@media (max-width: 930px){
+   
+    .header {
+        background: var(--green);
+        display: flex;
+        align-items: center;
+        justify-content: flex-start ;
+        padding: 0.5rem 7%;
+        border-bottom: var(--lightgreen);
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        z-index: 1000;
+        height: 15vh;
+        box-shadow: 0px 10px 30px rgba(0, 0, 0, 0.5);
+        
+    }
+    .header .navbar.active{
+        right:0;
+    }
+
+    .header .navbar a{
+        color:white;
+        display: block;
+        margin:1.5rem;
+        padding:.5rem;
+        font-size: 20px;
+    }
+    
+    .header .icons div {
+  
+        color: #fff;
+        cursor: pointer;
+        font-size: 20px;
+        margin-left: 20px;
+    }
+
+        
+    .header .logo img {
+        height: 4rem;
+        left:0px;
+    }
+
+     .header .search-form{
+        width: 90%;
+        right: 2rem;
+    }
+    
+    .account-background{
+        background-color: white;
+        display: flex;
+        justify-content: flex-start;
+        align-items: center;
+        height:80vh;
+        width:100vw
+    ;}
+    
+.account-section {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    height: 100vh;
+  }
+  
+
+}
+*/
