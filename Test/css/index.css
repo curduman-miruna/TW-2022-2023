@@ -317,6 +317,7 @@ button .fas{
     flex-direction: column;
     height: auto;
     padding-top: 150px;
+    margin-bottom: 0;
 }
 
 .mycultures-container h2 {
