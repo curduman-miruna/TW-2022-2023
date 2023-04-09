@@ -7,9 +7,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
 
-    <link rel="stylesheet" href="css\all.css">
-    <link rel="stylesheet" href="css\index.css">
-    <script src="js\myJs.js" defer></script>
+    <link rel="stylesheet" href="css/all.css">
+    <script src="js/myJs.js" defer></script>
     <title>My Account</title>
 </head>
 
@@ -21,8 +20,7 @@
             <script src="https://cdn.lordicon.com/ritcuqlt.js"></script>
             <lord-icon src="https://cdn.lordicon.com/zrvxzslu.json" trigger="hover" style="width:70px;height:70px">
             </lord-icon>
-            <p style="color: white; font-size: 12px; font-family: 'Roboto', sans-serif; margin-left: 7px"> ONLINE
-                GARDENING
+            <p style="color: white; font-size: 12px; font-family: 'Roboto', sans-serif; margin-left: 7px"> WEB GARDENing
             </p>
         </a>
 
@@ -35,7 +33,6 @@
         </nav>
 
         <div class="icons">
-            <div class="fas fa-search" id="search-btn"></div>
             <div class="fas fa-shopping-cart" id="cart-btn"></div>
             <div class="fas fa-bars" id="menu-btn"></div>
             <div class="fas fa-solid fa-user" id="account"></div>
@@ -83,43 +80,66 @@
         </div>
 
     </header>
-    <section class="mycultures-container">
-        <div class="wrap">
-            <div class="search">
-               <input type="text" class="searchTerm" placeholder="What culture are you looking for?">
-               <button type="submit" class="searchButton">
-                 <i class="fa fa-search"></i>
-              </button>
-            </div>
-         </div>
-        <div class="culture-row">
-            <div class="culture-column">
-                <div class="culture-card">
-                    <h3>User Friendly</h3>
-                    <p>
-                        Easy-to-use dashboard to manage multiple flower crops.
-                    </p>
+    <section>
+        <div class="account-section">
+            <h2>Login</h2>
+            <form id="login-form">
+                <div class="inputBox">
+                    <input type="text" name="email" required="">
+                    <label>E-mail</label>
                 </div>
-            </div>
-            <div class="culture-column">
-                <div class="culture-card">
-                    <h3>User Friendly</h3>
-                    <p>
-                        Easy-to-use dashboard to manage multiple flower crops.
-                    </p>
+                <div class="inputBox">
+                    <input type="password" name="password" required="">
+                    <label>Password</label>
                 </div>
-            </div>
-            <div class="culture-column">
-                <div class="culture-card">
-                    <h3>Empty Culture</h3>
-                    <p>
-                        Press to introduce details about this culture.
-                    </p>
+                <input type="submit" value="Login">
+                <a href="#">Forgot Password?</a>
+                <a href="#">Create an Account</a>
+            </form>
+            
+            <div class="account-background" id ="account-info" style="display: none;">
+                <div class="account-info">
+                    <h2>
+                        My Account
+                    </h2>
+                    <div class="column" id="edit-button">
+                        <h2>
+                            Edit Profil
+                        </h2>
+                    </div>
+            
+                    <div class="column" id="delete">
+                        <h2>
+                            Delete Account
+                        </h2>
+                    </div>
+                
                 </div>
+                <div class="edit-page" id="edit-page" style="display: none;">
+                    <div class="img-container">
+                        <img src="photo/profil.png" alt=" ">
+                    </div>
+                    <form>
+                        <div class="inputBoxEdit">
+                            <input type="text" name="username">
+                            <label>User Name</label>
+
+                        </div>
+                        <a href="#">Forgot Password?</a>
+
+                    </form>
+                </div>
+            
+                    
+                
             </div>
         </div>
-    </section>
-    <script src="js/myJs.js"></script>
-</body>
 
-</html>
+    </section>
+
+    <script src="js/myJs.js"></script>
+    
+    </body>
+    
+
+    </html>

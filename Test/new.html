@@ -7,22 +7,20 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
 
-    <link rel="stylesheet" href="css\all.css">
-    <link rel="stylesheet" href="css\index.css">
-    <script src="js\myJs.js" defer></script>
-    <title>My Account</title>
+    <link rel="stylesheet" href="css/index.css">
+    <!--<script src="js\myJs.js" defer></script>-->
+    <script src="js/myJs.js" defer></script>
+    <title>My Cultures</title>
 </head>
-
 <body>
-
     <header class="header">
 
         <a href="index.html" class="logo">
             <script src="https://cdn.lordicon.com/ritcuqlt.js"></script>
             <lord-icon src="https://cdn.lordicon.com/zrvxzslu.json" trigger="hover" style="width:70px;height:70px">
             </lord-icon>
-            <p style="color: white; font-size: 12px; font-family: 'Roboto', sans-serif; margin-left: 7px"> ONLINE
-                GARDENING
+            <p style="color: white; font-size: 12px; font-family: 'Roboto', sans-serif; margin-left: 7px"> WEB
+                GARDENing
             </p>
         </a>
 
@@ -35,7 +33,6 @@
         </nav>
 
         <div class="icons">
-            <div class="fas fa-search" id="search-btn"></div>
             <div class="fas fa-shopping-cart" id="cart-btn"></div>
             <div class="fas fa-bars" id="menu-btn"></div>
             <div class="fas fa-solid fa-user" id="account"></div>
@@ -59,7 +56,7 @@
                 <span class="fas fa-times"></span>
                 <img src="images/cart-item-2.png" alt="">
                 <div class="content">
-                    <h3>cart item 02</h3>
+                    <h3></h3>
                     <div class="price">$15.99/-</div>
                 </div>
             </div>
@@ -83,43 +80,42 @@
         </div>
 
     </header>
-    <section class="mycultures-container">
-        <div class="wrap">
-            <div class="search">
-               <input type="text" class="searchTerm" placeholder="What culture are you looking for?">
-               <button type="submit" class="searchButton">
-                 <i class="fa fa-search"></i>
-              </button>
-            </div>
-         </div>
-        <div class="culture-row">
-            <div class="culture-column">
-                <div class="culture-card">
-                    <h3>User Friendly</h3>
-                    <p>
-                        Easy-to-use dashboard to manage multiple flower crops.
-                    </p>
-                </div>
-            </div>
-            <div class="culture-column">
-                <div class="culture-card">
-                    <h3>User Friendly</h3>
-                    <p>
-                        Easy-to-use dashboard to manage multiple flower crops.
-                    </p>
-                </div>
-            </div>
-            <div class="culture-column">
-                <div class="culture-card">
-                    <h3>Empty Culture</h3>
-                    <p>
-                        Press to introduce details about this culture.
-                    </p>
-                </div>
-            </div>
+    <section>
+       <div class="culture-view">
+        <div class="image">
+            
+            <div class="plus-icon">
+                <p>
+                    Pres "+" to add a new culture
+                </p>
+            <img src="photo/plus.png"/>
+             </div>
         </div>
+            <div class="description">
+               <form>
+                <div class="inputBox">
+                    <input type="text" name="description" required="">
+                    <label>Description</label>
+                </div>
+                <div class="inputBox">
+                    <input type="text" name="price" required="">
+                    <label>Price</label>
+                </div>
+                
+               </form>
+            
+                <div class="button">
+                <h2>
+                    Add New Culture
+                </h2>
+               </div>
+            </div>
+            
+           
+    </div>
     </section>
+    
+    
     <script src="js/myJs.js"></script>
 </body>
-
 </html>
