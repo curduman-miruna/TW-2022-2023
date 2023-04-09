@@ -6,13 +6,11 @@ document.querySelector('#menu-btn').onclick = () =>{
     cartItem.classList.remove('active');
 }
 
-let searchForm = document.querySelector('.search-form');
+const accountIcon = document.getElementById("account");
 
-document.querySelector('#search-btn').onclick = () =>{
-    searchForm.classList.toggle('active');
-    navbar.classList.remove('active');
-    cartItem.classList.remove('active');
-}
+accountIcon.addEventListener("click", function() {
+  window.location.href = "account.html";
+});
 
 let cartItem = document.querySelector('.cart-items-container');
 
@@ -27,6 +25,7 @@ window.onscroll = () =>{
     searchForm.classList.remove('active');
     cartItem.classList.remove('active');
 }
+
 
 
 const form = document.getElementById("login-form"); /*formularul de logare */
@@ -44,11 +43,18 @@ if (email === "mariatodirel7@gmail.com" && password === "maria") {
       accountInfo.style.display = "block";
 
       form.style.display = "none";
-    } else {
+    } else if(email === "admin" && password === "admin"){
+        window.location.href="admin.html";
+    }
+    else
+
+    {
       // If the login is incorrect, display an error message
       alert("Incorrect email or password. Please try again.");
     }
+ 
   });
+
 
 const editButton =document.getElementById("edit-button");
 const editPage =document.getElementById("edit-page");
@@ -56,3 +62,4 @@ const editPage =document.getElementById("edit-page");
 editButton.addEventListener("click", function(event){
     editPage.style.display = "flex";
 });
+

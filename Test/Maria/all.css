@@ -225,6 +225,10 @@ body {
   }
   
 .account-section form {
+    display:flex;
+    justify-content: center;
+    align-items:cnetr;
+    flex-direction: column;
 	background-color: #fff;
 	border-radius: 10px;
 	padding: 40px;
@@ -232,7 +236,7 @@ body {
 }
 
 .account-section h2 {
-    color: var(--darkgreen);
+    color: var(--vivagreen);
     font-weight: bold;
     font-size: 25px;
     margin-bottom: 30px;
@@ -473,6 +477,116 @@ color: black;
     box-shadow: 0px 2px 5px black;
 
    
+}
+/*Admin page*/
+.admin-page{
+    background-color:white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    
+}
+.admin-page .header{
+    height: 70px;
+    background-color: #7f981b;
+}
+.admin-page .header p{
+    color:#c5c581;
+    font-size: 25px;
+}
+.admin-page .header h2{
+
+    color:white;
+    font-size:35px;
+}
+.admin-page .dashboard{
+    margin-top: 80px;
+    width:100vw;
+    height: 80vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+.admin-page .dashboard .users{
+    margin-top: 100px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    background-color: #b62f4f;
+    width: 25%;
+    height:25%;
+    box-shadow: 0px 15px 25px rgba(0, 0, 0, 0.5);
+}
+.admin-page .dashboard .users:hover{
+    letter-spacing: 3px;
+    cursor: pointer;
+    background-color: #f5c1cd;
+}
+.admin-page .dashboard .users h2{
+    text-align: center;
+    text-align: center;
+    color:#eea3b4;
+    font-size: 30px;
+    font-weight: bold;
+    text-shadow:#66071d  3px 2px;
+}
+.admin-page .dashboard .content{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    background-color: #e76281;
+    width: 25%;
+    height:25%;
+    margin-top:20px;
+    box-shadow: 0px 15px 25px rgba(0, 0, 0, 0.5);
+}
+.admin-page .dashboard .content:hover{
+    letter-spacing: 3px;
+    cursor: pointer;
+    background-color: #f5c1cd;
+}
+.admin-page .dashboard .content h2{
+    text-align: center;
+    text-align: center;
+    color:white;
+    font-size: 30px;
+    font-weight: bold;
+    text-shadow:var(--darkerstpink) 3px 2px;
+}
+.admin-page .dashboard .reports
+{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    background-color: #eea3b4;
+    width: 25%;
+    height:25%;
+    margin-top:20px;
+    box-shadow: 0px 15px 25px rgba(0, 0, 0, 0.5);
+}
+.admin-page .dashboard .reports:hover{
+    letter-spacing: 3px;
+    cursor: pointer;
+    background-color: #f5c1cd;
+}
+.admin-page .dashboard .reports h2{
+    text-align: center;
+    text-align: center;
+    color:#66071d;
+    font-size: 30px;
+    font-weight: bold;
+    text-shadow:white  3px 2px ;
+}
+.admin-page .dashboard a{
+    margin-top: 50px;
+    color: var(--vivagreen);
+    font-size:15px;
+    font-weight: bold;
 }
 
 
