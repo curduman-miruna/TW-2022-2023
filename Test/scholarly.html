@@ -102,27 +102,34 @@
             <li>Help (help.html) = pagina unde utilizatori pot găsii tutoriale despre caracteristicile aplicatiei.</li>
         </ul>
         <section id="Root">
-            <h3>The root and <code>head</code></h3>
+            <h3>I. General elements</h3>
+            <h3><code>I.1. Root</code></h3>
             <p>
                 Selectorul CSS :root a fost folosit pentru a crea variabile culorilor în fișierul CSS care pot fi
                 utilizate în
                 întregul document.
             </p>
-            <code>
-                :root{ <br>
-                    --bg: white; <br>
-                    --darkerstpink:  #b62f4f; <br>
-                    --darkpink: #da6e88; <br>
-                    --lightpink:#dda1a9; <br>
-                    --vivagreen:#32560b; <br>
-                    --darkgreen:#323b0b; <br>
-                    --green:#7f981b; <br>
-                    --lightgreen: #b0b06a; <br>
-                } <br>
-            </code>
+            <details>
+                <summary><b>Apăsați - Codul pentru Root</b></summary>
+                <pre><code>
+:root{ 
+    --bg: white; 
+    --darkerstpink:  #b62f4f; 
+    --darkpink: #da6e88; 
+    --lightpink:#dda1a9; 
+    --vivagreen:#32560b;
+    --darkgreen:#323b0b; 
+    --green:#7f981b; 
+    --lightgreen: #b0b06a; 
+                } 
+            </code></pre>
+            </details>
+            <h3><code>I.2. Head</code></h3>
             <p>
                 Fiecare pagina și subpagină conține o secțiune de <code>head</code>, similară cu următoare (index.html):
-            <pre><code>
+            <details>
+                <summary><b>Apăsați - Codul pentru Head</b></summary>
+                <pre><code>
 &lt;head>  
 &lt;meta charset="UTF-8"> <
 &lt;meta http-equiv="X-UA-Compatible" content="IE=edge"> 
@@ -137,17 +144,20 @@
 &lt;title>Home</title> 
 &lt;/head> 
             </code></pre>
+            </details>
             </p>
         </section>
         <section id="article">
-            <h3><code>Header</code></h3>
+            <h3><code>I.3. Header</code></h3>
             <p>
                 De asemenea, in cadrul <code> &lt;header></code> contine bara de navigare. Aceasta contine linkuri catre
                 fiecare pagina a aplicatiei și câteva iconițe cu coșul de cumpărături (momentan încărcat cu produse de
                 noi) și pagina utilizatorului. Când pagina are o anumită lățime în locul titlurilor paginilor va apărea
                 un alt icon care va deschide un drop-down meniu.
                 <br>
-            <pre><code>
+            <details>
+                <summary><b>Apăsați - Codul pentru Header</b></summary>
+                <pre><code>
 &lt;header class="header">
     a href="index.html" class="logo"> 
     &lt;script src="https://cdn.lordicon.com/ritcuqlt.js">&lt;/script>
@@ -209,18 +219,416 @@
     &lt;/div> 
 &lt;/header> 
                  </code></pre>
+            </details>
 
             </p>
         </section>
 
+        <section id="footer">
+            <h3><code>I.4. Footer</code></h3>
+            <p>
+                La finalul fiecărei paginii avem si un <code> &lt;footer></code> cu denumirea aplicatiei. Urmand ca pe
+                viitor sa fie introduse mai multe informatii si detalii. </p>
+            <img src="photo/footer.png" width=100% height=auto>
+            <br>
+            <details>
+                <summary><b>Apăsați - Codul pentru Footer</b></summary>
+                <pre><code>
+/*html*/
+&lt;footer>
+    &lt;p>WeGa (Web Gardening) 2023&lt;/p>
+&lt;/footer>
+
+/*css*/
+footer {
+    margin-top: 20px;
+    padding-top: 40px;
+    padding-bottom: 40px;
+    background: #333;
+    color: #f7f5f5;
+}
+
+footer p {
+    text-align: center;
+}
+            </code></pre>
+            </details>
+        </section>
+
         <section id="interactive">
             <!-- Home Page -->
-            <h3>Home Page</h3>
+            <h3>II. Home Page</h3>
             <p>
-                information about iframes to come
-            </p>
-            <p class="issue">
-                Let’s discuss details of iframes with the CG
+                Pagina de acasa este compusă din trei secțiuni principale:
+                <br>
+            <p class="issue" style="font-size: 1.1em;">1. Descrierea = o scurta descrierea a aplicatiei si
+                functionalitatilor ei;</p>
+            <details>
+                <summary><b>Apăsați - Codul pentru descriere:</b></summary>
+                <pre><code>
+/*html*/
+&lt;div class="description-container">
+    &lt;h2 style="text-indent: 20px;">
+        Welcome to our digital assistant for spring flower cultivation and sales! Our web application allows
+        you to manage multiple flower crops simultaneously, providing real-time data from a series of
+        sensors such as soil moisture and ambient temperature, as well as a continuous stream of images
+        tracking the development of your plants. Based on these sensor readings and the growth period of
+        your cultivated plants, our application will suggest actions such as irrigation, temperature or
+        lighting adjustments, and harvest timing to optimize their growth and development. In addition, for
+        optimized sales, potential buyers can express interest in purchasing flowers and will be notified
+        via email and browser notifications when their desired flowers are ready for purchase. Join us today
+        and experience the benefits of our digital assistant for spring flower cultivation and sales!
+    &lt;/h2>
+&lt;/div>  
+
+/*css*/
+.description-container {
+    width: 78%;
+    margin: 0 auto;
+    background-color: #b0b06a;
+    background-repeat: no-repeat;
+    background-position: 0 0.62em;
+    box-shadow: 0 0 2.5em rgb(0 0 0 / 15%);
+    border-radius: 0.5em;
+}
+
+.description-container h2 {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    text-align: justify;
+    font-size: 1.5em;
+    margin: auto;
+    padding: 1em;
+    font-weight: 600;
+    color: var(--darkgreen);
+}
+</details>
+        </code></pre>
+                <p class="issue" style="font-size: 1.1em;">2. Users cultures = o sectiune cu imaginile culturile
+                    utilizatorilor;</p>
+                <details>
+                    <p>
+                        <summary><b>Apăsați - Codul pentru Users Cultures slider:</b></summary>
+                    <pre><code>
+/*html*/
+&lt;div class="image-slider-container">
+    &lt;h1>Users cultures&lt;/h1>
+    &lt;div class="slider">
+        &lt;button class="btn-slide prev">&lt;i class="fas fa-3x fa-chevron-circle-left">&lt;/i>&lt;/button>
+        &lt;button class="btn-slide next"&lt;i class="fas fa-3x fa-chevron-circle-right">&lt;/i>&lt;/button>
+        &lt;div class="slide">
+            &lt;img src="photo/Daffodil-Field.png" alt="Photo1">
+        &lt;/div>
+        &lt;div class="slide">
+            &lt;img src="photo/Tulips-Field-2.png" alt="Photo2">
+        &lt;/div>
+        &lt;div class="slide">
+            &lt;img src="photo/Daffodils-Field-2.png" alt="Photo3">
+        &lt;/div>
+        &lt;div class="slide">
+            &lt;img src="photo/Tulips-Field-3.png" alt="Photo4">
+        &lt;/div>
+
+    &lt;/div>
+    &lt;div class="dots-container">
+        &lt;span class="dot active" data-slide="0">&lt;/span>
+        &lt;span class="dot" data-slide="1">&lt;/span>
+        &lt;span class="dot" data-slide="2">&lt;/span>
+        &lt;span class="dot" data-slide="3">&lt;/span>
+    &lt;/div>
+&lt;/div>
+&lt;script src="js/test.js">&lt;/script>
+
+/*css*/
+.image-slider-container {
+    width: 100%;
+    height: 100%;
+    color: #b62f4f;
+    line-height: 1.9;
+    z-index: 10;
+    background-color: #f7f5f5;
+}
+
+.image-slider-container h2{
+    text-align: center;
+    font-size: 2rem;
+    line-height: 3.5;
+}
+
+.slider{
+    position: relative;
+    max-width: 80rem;
+    height: 50rem;
+    margin: 0 auto;
+    overflow: hidden;
+}
+
+.slide{ 
+    position: absolute;
+    top:0;
+    width: 100%;
+    height: 50rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: transform 1s;
+}
+
+.slide > img{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+button{
+    background: none;
+    border: none;
+}
+
+button .fas{
+    color: #f7f5f5;
+}
+
+.btn-slide{
+    position:absolute;
+    top:50%;
+    z-index: 20;
+    height: 5.5rem;
+    width: 5.5rem;
+    cursor: pointer;
+}
+
+.prev{
+    left: 0;
+    transform: translate(0, -50%);
+}
+
+.next{
+    right: 0;
+    transform: translate(0, -50%); 
+}
+
+.dots-container{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+}
+
+.dot{
+    width: 25px;
+    height: 5px;
+    margin: 15px 5px;
+    border-radius: .5rem;
+    background: #b62f4f;
+    cursor: pointer;
+}
+
+.dot.active{
+    background:#da6e88
+}
+
+</code></pre>
+                    <br>
+                </details>
+                <p class="issue" style="font-size: 1.1em;">3. Features = o sectiune dedicata principalelor
+                    functionalităti.</P>
+                <details>
+                    <summary><b>Apăsați - Codul pentru Features</b></summary>
+                    <pre><code>
+&lt;div class="row-title">
+    &lt;h1>Our Features&lt;/h1>
+&lt;/div>
+&lt;div class="row">
+    &lt;div class="column">
+        &lt;div class="card">
+            &lt;div class="icon">
+            &lt;/div>
+                &lt;h3>User Friendly&lt;/h3>
+                &lt;p>
+                    Easy-to-use dashboard to manage multiple flower crops.
+                &lt;/p>
+            &lt;/div>
+        &lt;/div>
+        &lt;div class="column">
+            &lt;div class="card">
+                &lt;div class="icon">
+                &lt;/div>
+                &lt;h3>Super Secure&lt;/h3>
+                &lt;p>
+                    Secure online store to showcase and sell your flowers.
+                    &lt;/p>
+            &lt;/div>
+        &lt;/div>
+        &lt;div class="column">
+            &lt;div class="card">
+                &lt;div class="icon">
+                &lt;/div>
+                &lt;h3>Quick Support&lt;/h3>
+                &lt;p>
+                    Real-time sensor data for the optimal flower growth.
+                &lt;/p>
+            &lt;/div>
+        &lt;/div>
+        &lt;div class="column">
+            &lt;div class="card">
+                &lt;div class="icon">
+                &lt;/div>
+                &lt;h3>Notifaction System&lt;/h3>
+                &lt;p>
+                    Automatic notifications when your flowers are ready to sell.
+                &lt;/p>
+            &lt;/div>
+        &lt;/div>
+    &lt;/div>
+&lt;/div>
+                    </code></pre>
+                </details>
+        </section>
+    </section>
+    <section id="Root">
+        <h3>III. Buy Page</h3>
+        <section id="Article">
+            <p>
+                Aceasta pagină îi va oferi utilizatorului funcționalățile necesare pentru a achizitiona diferite cultori
+                de la producători, dar și de a le urmări pe cele care nu sunt înca pregătite. Pe pagină se vor încarca
+                un număr finit de culturi, userul trebuind să apese pe Butonul „See More” pentru a mai încarcă câteva.
+                De asemenea, fiecare cartonaș cu culturi are o poză cu aceasta, o scurta descriere a producătorului și
+                stagiul de creștere. În cazul în care acesta dorește să caute o cultură anume, se poate folosi de bara
+                de cautare.
+                <img src="photo/buy-1.png" style="width:100%; height: auto; margin: 20px 20px;">
+                <br>
+                <img src="photo/buy-2.png" style="width:100%; height: auto;">
+            <details>
+                <summary><b>1. Apăsați - Codul pentru Search Bar</b></summary>
+                <details>
+                    <summary>-- Codul HTML --</summary>
+                    <pre><code>
+&lt;div class="wrap">
+    &lt;div class="search">
+        &lt;input type="text" class="search-term" placeholder="What culture are you looking for?">
+        &lt;button type="submit" class="search-button">
+            &lt;i class="fa fa-search">&lt;/i>
+        &lt;/button>
+    &lt;/div>
+&lt;/div>
+                </code></pre>
+                </details>
+                <details>
+                    <summary>-- Codul CSS --</summary>
+                    <pre><code>
+.search {
+    width: 100%;
+    height: 40px;
+    padding: 5px;
+    padding-bottom: 20px;
+    margin-bottom: 20px;
+    display: flex;
+  }
+  
+.search-term {
+    width: 100%;
+    border: 3px solid #b62f4f;
+    border-right: none;
+    padding: 5px;
+    height: 36px;
+    border-radius: 5px 0 0 5px;
+    outline: none;
+    color: #da6e88;
+  }
+  
+.search-term:focus{
+    color: #b62f4f;
+  }
+  
+.search-button {
+    width: 40px;
+    height: 36px;
+    border: 1px solid #b62f4f;
+    background: #da6e88;
+    text-align: center;
+    color: #fff;
+    border-radius: 0 5px 5px 0;
+    cursor: pointer;
+    font-size: 20px;
+  }
+  
+.wrap{
+    width: 88%;
+    top: 50%;
+    left: 50%;
+  }
+                </code></pre>
+                </details>
+            </details>
+            <details>
+                <summary><b>2. Apăsați - Codul pentru Culture Card</b></summary>
+                <details>
+                    <summary>-- Codul HTML --</summary>
+                    <pre><code>
+                </code></pre>
+                </details>
+                <details>
+                    <summary>-- Codul CSS --</summary>
+                    <pre><code>
+                </code></pre>
+                </details>
+            </details>
+            <details>
+                <summary><b>3. Apăsați - Codul pentru Butonul See More</b></summary>
+                <details>
+                    <summary>-- Codul HTML --</summary>
+                    <pre><code>
+&lt;section class="see-more">   
+    &lt;div class="see-more-button">
+        &lt;h2>
+            View more
+        &lt;/h2>
+    &lt;/div>
+&lt;/section>
+                </code></pre>
+                </details>
+                <details>
+                    <summary>-- Codul CSS --</summary>
+                    <pre><code>
+.see-more .see-more-button h2{
+    text-align: center;
+    color:#ffb7c7;
+    font-size:20px;
+    font-weight: bold;
+}
+.see-more{
+    margin-top: 30px;
+    height:20vh;
+    width:100vw;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.see-more .see-more-button{
+    border-radius: 10px;
+    height: 50%;
+    width: 20%;
+    background-color: #7d2b38;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    box-shadow: 0 5px 10px rgb(0 0 0 / 50%);
+}
+
+.see-more .see-more-button:hover{
+    background-color:#dda1a9 ;
+    cursor: pointer;
+}
+                </code></pre>
+                </details>
+            </details>
             </p>
         </section>
     </section>
