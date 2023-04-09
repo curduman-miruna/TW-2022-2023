@@ -1221,7 +1221,7 @@ color:#182d03;
 /*Buy Page*/
 
 .buy-card {
-    height: 400px;
+    height: 450px;
     text-align: center;
     background: linear-gradient(0deg, #476627 20px, transparent 20px);
     background-repeat: no-repeat;
@@ -1291,7 +1291,36 @@ color:#182d03;
     margin-top: 10px;
     flex-direction: column;
     width:80%;
-        border-radius: 0.5em;
+    border-radius: 0.5em;
+}
+
+.see-details{
+    margin: auto;
+    justify-content: center;
+    align-items: center;
+}
+.see-details .see-details-button{
+    border-radius: 10px;
+    height: 2em;
+    width: 20em;
+    background-color: #7d2b38;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.5);
+}
+.see-details .see-details-button h2{
+    margin: auto;
+    text-align: center;
+    justify-content: center;
+    color:#ffb7c7;
+    font-size:1em;
+    font-weight: bold;
+}
+.see-details .see-details-button:hover{
+    background-color:#b62f4f ;
+    cursor: pointer;
 }
 
 .see-more{
@@ -1408,6 +1437,7 @@ color:#182d03;
 }
 
 .description li{
+    text-indent: 20px;
     align-items: center;
     justify-content: center;
     width: 100%;
