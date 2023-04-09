@@ -784,11 +784,12 @@ button .fas{
 
 .culture-card p {
     margin-top: 20px;
+    margin-left: 5px;
+    margin-right: 5px;
+    margin-bottom: 20px;
     line-height: 2em;
     text-align: justify;
     color: #625a71;
-    margin-left: 5px;
-    margin-right: 5px;
 }
 
 .culture-card:hover {
@@ -1237,6 +1238,7 @@ color:#182d03;
     margin-top: 20px;
     margin-left: 5px;
     margin-right: 5px;
+    margin-bottom: 20px;
     text-align: justify;
     line-height: 2em;
     color: #625a71;
