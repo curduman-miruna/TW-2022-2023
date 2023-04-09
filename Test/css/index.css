@@ -802,6 +802,7 @@ button .fas{
     flex-direction: column;
     width:30px;
     height:30px;
+
 }
 
 .culture-card img{
@@ -810,6 +811,7 @@ button .fas{
     flex-direction: column;
     width:150px;
     height:150px;
+        border-radius: 0.5em;
 }
 
 /*culture view*/
@@ -1076,8 +1078,7 @@ color:#182d03;
 .culture-tip .tip-box p{
     text-align: center;
     justify-content: center;
-    margin-top: 30px;
-    margin-bottom: 30px;
+    margin: 30px 30px 30px 30px;
     color: black;
     font-size:20px;
 
@@ -1248,5 +1249,36 @@ color:#182d03;
     margin-top: 10px;
     flex-direction: column;
     width:80%;
+        border-radius: 0.5em;
 }
 
+.see-more{
+    margin-top: 30px;
+    height:20vh;
+    width:100vw;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+.see-more .see-more-button{
+    border-radius: 10px;
+    height: 50%;
+    width: 20%;
+    background-color: #7d2b38;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.5);
+}
+.see-more .see-more-button h2{
+    text-align: center;
+    color:#ffb7c7;
+    font-size:20px;
+    font-weight: bold;
+}
+.see-more .see-more-button:hover{
+    background-color:#dda1a9 ;
+    cursor: pointer;
+}
