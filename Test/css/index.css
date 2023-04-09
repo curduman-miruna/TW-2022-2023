@@ -735,9 +735,9 @@ button .fas{
 
 .culture-card {
     padding: 1.25em 1.25em;
-    height: 200px;
+    height: 300px;
     text-align: center;
-    background: linear-gradient(0deg, #7f981b 10px, transparent 10px);
+    background: linear-gradient(0deg, #7f981b 20px, transparent 10px);
     background-repeat: no-repeat;
     background-position: 0 0.62em;
     box-shadow: 0 0 2.5em rgba(0, 0, 0, 0.15);
@@ -796,13 +796,22 @@ button .fas{
     height: 2.25em;
     width: 2.25em;
 }
-.culture-card img{
+.culture-card .plus img{
 
     margin-top: 40px;
     flex-direction: column;
     width:30px;
     height:30px;
 }
+
+.culture-card img{
+
+    margin-top: 20px;
+    flex-direction: column;
+    width:150px;
+    height:150px;
+}
+
 /*culture view*/
 .culture-view{
     margin-top:90px;
@@ -1043,7 +1052,8 @@ color:#182d03;
 }
 .culture-tip .tip-box{
     border-radius: 10px;
-    margin-top: 30px;;
+    margin-top: 30px;
+    margin-bottom: 30px;
     width:70vw;
     height: auto;
     display: flex;
@@ -1063,7 +1073,9 @@ color:#182d03;
 }
 .culture-tip .tip-box p{
     text-align: center;
+    justify-content: center;
     margin-top: 30px;
+    margin-bottom: 30px;
     color: black;
     font-size:20px;
 
@@ -1152,6 +1164,11 @@ color:#182d03;
         width: 100%;
     }
 
+    .buy-card{
+        padding: 5em 2em;
+        width: 100%;
+    }
+
     .culture-column {
         display: flex;
         flex: 0 0 33%;
@@ -1159,4 +1176,77 @@ color:#182d03;
         height: 100%;
         padding: 1em 1em;
     }
+}
+
+/*Buy Page*/
+
+.buy-card {
+    padding: 1.25em 1.25em;
+    height: 300px;
+    text-align: center;
+    background: linear-gradient(0deg, #476627 20px, transparent 20px);
+    background-repeat: no-repeat;
+    background-position: 0 0.62em;
+    box-shadow: 0 0 2.5em rgba(0, 0, 0, 0.15);
+    border-radius: 0.5em;
+    transition: 0.5s;
+    cursor: pointer;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+
+    align-items: center;
+    flex-direction: column;
+}
+
+.buy-card .buy-icon {
+    font-size: 2.5em;
+    height: 2.5em;
+    width: 2.5em;
+    margin: auto;
+    background-color: #b0b06a;
+    display: grid;
+    place-items: center;
+    border-radius: 50%;
+    color: #ffffff;
+}
+
+.buy-icon:before {
+    position: absolute;
+    content: "";
+    height: 1.5em;
+    width: 1.5em;
+    border: 0.12em solid #7f981b;
+    border-radius: 50%;
+    transition: 0.5s;
+}
+
+.buy-card h3 {
+    font-size: 1.3em;
+    margin: 1em 0 1.4em 0;
+    font-weight: 600;
+    letter-spacing: 0.3px;
+    color: #070024;
+}
+
+.buy-card p {
+    margin-top: 20px;
+    line-height: 2em;
+    color: #625a71;
+}
+
+.buy-card:hover {
+    background-position: 0;
+}
+
+.buy-card:hover .buy-icon:before {
+    height: 2.25em;
+    width: 2.25em;
+}
+.buy-card img{
+
+    margin-top: 10px;
+    flex-direction: column;
+    width:100px;
+    height:100px;
 }
