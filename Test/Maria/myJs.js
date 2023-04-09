@@ -60,6 +60,8 @@ const editButton =document.getElementById("edit-button");
 const editPage =document.getElementById("edit-page");
 
 editButton.addEventListener("click", function(event){
-    editPage.style.display = "flex";
+  editPage.style.display = "flex";
+  /*accountInfo.style.display="none";*/
+    
 });
 

@@ -29,16 +29,14 @@
             <a href="#buy">Buy</a>
             <a href="mycultures.html">MyCultures</a>
             <a href="account.html">Account</a>
-            <a href="#help">Help</a>
+            <a href="help.html">Help</a>
+            <a href="about.html">About</a>
         </nav>
 
         <div class="icons">
-           
             <div class="fas fa-shopping-cart" id="cart-btn"></div>
             <div class="fas fa-bars" id="menu-btn"></div>
             <div class="fas fa-solid fa-user" id="account"></div>
-    
-
         </div>
 
         <div class="search-form">
@@ -84,9 +82,10 @@
 
     </header>
     <section>
-        <div class="account-section">
-            <h2>Login</h2>
+        <div class="account-section" id="login-section">
+            
             <form id="login-form">
+                <h2>Login</h2>
                 <div class="inputBox">
                     <input type="text" name="email" required="">
                     <label>E-mail</label>
@@ -96,12 +95,10 @@
                     <label>Password</label>
                 </div>
                 <input type="submit" value="Login">
-                <a href="#">Forgot Password?</a>
-                <a href="#">Create an Account</a>
             </form>
             
             <div class="account-background" id ="account-info" style="display: none;">
-                <div class="account-info">
+                <div class="account-info" >
                     <h2>
                         My Account
                     </h2>

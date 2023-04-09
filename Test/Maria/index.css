@@ -805,6 +805,7 @@ button .fas{
 }
 /*culture view*/
 .culture-view{
+    margin-top:60px;
     display: flex;
     justify-content: flex-start;
     align-items: center;
@@ -875,7 +876,7 @@ button .fas{
 .culture-view .description .button{
     border-radius: 10px;
     width:70%;
-    height: 10%;
+    height: 15%;
     background-color:#5a0d18;
     display: flex;
     justify-content: center;
@@ -890,7 +891,6 @@ button .fas{
 }
 .culture-view .description .button h2{
 font-size:18px;
-align-items: center;
 text-align:center;
 color:white;
 }
@@ -929,6 +929,7 @@ color:white;
     color:black;
 }
 .culture-view .image{
+
     display:flex;
     justify-content: center;
     align-items: center;
@@ -1191,4 +1192,326 @@ color:white;
         height: 100%;
         padding: 1em 1em;
     }
+}
+
+
+
+/*other*/
+@media (max-width:1024px){
+
+    .culture-view .description form{
+        width: 80%;
+    }
+
+}
+
+@media (max-width:990px){
+
+    html{
+        font-size: 55%;
+    }
+
+    .header{
+        padding:1.5rem 2rem;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    section{
+        padding:2rem;
+    }
+    
+    .header .navbar a{
+        margin:0 0.4rem;
+        margin-left:40px;
+        font-size: 20px;
+
+    }
+    html{
+        font-size: 50%;
+    }
+    .header .icons div {
+        font-size: 25px;
+    }
+    .header .icons div:first-child{
+        margin-left: 15px;
+    }
+    .header .icons div:last-child{
+        margin-right: 10px;
+    }
+    .culture-view{
+        margin-top:60px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        height: 100vh;
+        width:100%;
+    }
+    .culture-view .image{
+        margin-top:80px;
+        margin-left:20px;
+        width:90vw;
+        height: 75vh;
+        align-items: center; 
+
+    }
+    
+.culture-view .image .plus-icon{
+    display:flex;
+    justify-content: flex-start;
+    align-items: center;
+    flex-direction: column;
+    width:100%;
+    height: 90%;
+    align-items: center; 
+    background-color:white;
+
+}
+.culture-view .image .plus-icon img{
+    margin-top:30px;
+    width:50px;
+    height:50px;
+}
+.sync{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+
+}
+.sync .buttonS{
+    margin-left: 0;
+    width:60%;
+    height: 50%;
+    background-color:#9f4252;
+   
+}
+
+
+.culture-tip .tip-box p{
+    font-size: 30px;
+}
+
+    
+.culture-view .description{
+    margin-left:20px;
+    margin-top: 30px;
+    width: 90vw;
+    height: 100vh;
+}
+.culture-view .description .button h2{
+    text-align: center;
+}
+.culture-tip .line h2{
+    font-size:20px;
+}
+.culture-view .image .sell{
+    width:50%;
+    margin-bottom: 5px;;
+}
+.culture-view .description .price{
+    width:50%;
+} 
+.culture-tip{
+    margin-left:32px;
+    width: 90vw;
+}
+.culture-tip .tip-box{
+    margin: auto;
+    width:80vw;
+
+}
+.culture-tip .tip-box p{
+    font-size: 15px;
+}
+.edit-culture{
+    display:flex;
+    align-items: center;
+    justify-content: center;
+}
+.edit-culture .edit-button{
+    width: 70vw;
+    margin-right: 20px;
+}
+.edit-culture .edit-button h2{
+    font-size: 20px;
+}
+.header .icons div {
+    font-size: 20px;
+}
+
+html{
+    font-size: 55%;
+}
+
+.header{
+    padding:1.5rem 2rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+section{
+    padding:2rem;
+}
+
+.header .navbar a{
+    margin:0 0.4rem;
+    margin-left:20px;
+    font-size: 20px;
+
+}
+.culture-tip .tip-box p{
+    font-size: 25px;
+}
+}
+
+@media (max-width:768px){
+
+    #menu-btn{
+        display: inline-block;
+    }
+
+    .header .navbar{
+        position: absolute;
+        top:100%; right: -100%;
+        background: #fff;
+        width: 30rem;
+        height: calc(100vh - 9.5rem);
+    }
+
+    .header .navbar.active{
+        right:0;
+    }
+
+    .header .navbar a{
+        color:var(--black);
+        display: block;
+        margin:1.5rem;
+        padding:.5rem;
+        font-size: 2rem;
+    }
+
+    .header .icons div {
+
+        font-size: 20px;
+    }
+    .header .icons div:first-child{
+        margin-left: 500px;
+    }
+    
+    
+}
+
+@media (max-width:540px)
+{
+    .header .icons div:first-child{
+        margin-left: 200px;
+    }
+    .culture-view{
+        margin-top:60px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        height: 100vh;
+        width:100%;
+    }
+    .culture-view .image{
+        margin-top:80px;
+        margin-left:10px;
+        width:80vw;
+        height: 75vh;
+        align-items: center; 
+
+    }
+    
+.culture-view .image .plus-icon{
+    display:flex;
+    justify-content: flex-start;
+    align-items: center;
+    flex-direction: column;
+    width:100%;
+    height: 90%;
+    align-items: center; 
+    background-color:white;
+
+}
+.culture-view .image .plus-icon img{
+    margin-top:30px;
+    width:50px;
+    height:50px;
+}
+.sync{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+
+}
+.sync .buttonS{
+    margin-left: 0;
+    margin-right: 7px;
+    width:60%;
+    height: 50%;
+    background-color:#9f4252;
+   
+}
+    
+.culture-view .description{
+    margin-left:10px;
+    margin-top: 30px;
+    width: 80vw;
+    height: 100vh;
+}
+.culture-view .description .button h2{
+    text-align: center;
+}
+.culture-tip .line h2{
+    font-size:20px;
+}
+.culture-view .image .sell{
+    width:50%;
+    margin-bottom: 5px;;
+}
+.culture-view .description .price{
+    width:50%;
+} 
+.culture-tip{
+    margin-left:13px;
+    width: 90vw;
+}
+.culture-tip .tip-box{
+    margin: auto;
+    width:80vw;
+
+}
+.culture-tip .tip-box p{
+    font-size: 15px;
+}
+.edit-culture{
+    display:flex;
+    align-items: center;
+    justify-content: center;
+}
+.edit-culture .edit-button{
+    width: 70vw;
+}
+.edit-culture .edit-button h2{
+    font-size: 20px;
+}
+
+}
+@media (max-width:450px){
+
+ 
+    .header .icons div:first-child{
+        margin-left: 10px;
+    }
+    .culture-view .description form{
+        width: 80%;
+    }
+
 }
