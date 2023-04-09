@@ -646,7 +646,7 @@ a {
         top:100%; right: -100%;
         background: #fff;
         width: 30rem;
-        height: calc(100vh - 9.5rem);
+        height: 200px;
     }
 
     .header .navbar.active{
@@ -656,8 +656,8 @@ a {
     .header .navbar a{
         color:var(--black);
         display: block;
-        margin:1.5rem;
-        padding:.5rem;
+        margin: auto;
+        padding:.2rem;
         font-size: 2rem;
     }
 
