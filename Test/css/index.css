@@ -910,12 +910,13 @@ color:white;
 
 .culture-view .description .price{
     margin-top: 20px;
-    margin-bottom: 30px;
+    margin-bottom: 20px;
     width:20vw;
     height: 50px;
     background-color:#f9dee5;
     display: flex;
     justify-content: center;
+    text-align: center;
     align-items: center;
     box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.5);
    }
@@ -926,7 +927,8 @@ color:white;
    }
 
 .culture-view .description h2{
-    margin-top: 20px;
+    margin-top: 10px;
+    margin-bottom: 10px;
     text-align:center;
     font-size:30px;
     color: #5a0d18;
@@ -1143,7 +1145,6 @@ color:#182d03;
         width: 100%;
     }
 
-
     .culture-column {
         display: flex;
         flex: 0 0 50%;
@@ -1181,8 +1182,7 @@ color:#182d03;
 /*Buy Page*/
 
 .buy-card {
-    padding: 1.25em 1.25em;
-    height: 300px;
+    height: 400px;
     text-align: center;
     background: linear-gradient(0deg, #476627 20px, transparent 20px);
     background-repeat: no-repeat;
@@ -1230,7 +1230,7 @@ color:#182d03;
 }
 
 .buy-card p {
-    margin-top: 20px;
+    margin-top: 25px;
     line-height: 2em;
     color: #625a71;
 }
@@ -1244,9 +1244,9 @@ color:#182d03;
     width: 2.25em;
 }
 .buy-card img{
-
+    display: flex;
     margin-top: 10px;
     flex-direction: column;
-    width:100px;
-    height:100px;
+    width:80%;
 }
+
