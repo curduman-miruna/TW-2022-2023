@@ -501,56 +501,6 @@ a {
     width: 2.25em;
 }
 
-@media screen and (min-width:470px) {
-    .card-container section {
-        margin-top: 6rem;
-        padding: 1em;
-    }
-
-    .card {
-        padding: 5em 2em;
-        width: 100%;
-    }
-
-    .description-container{
-        padding: 1em 1em;
-    }
-
-    .column {
-        display: flex;
-        flex: 0 0 50%;
-        width: 200px;
-        padding: 1em 1em;
-    }
-}
-
-@media screen and (min-width:700px) {
-    .card-container section {
-        margin-top: 6rem;
-        padding: 1em;
-    }
-
-    .description-container{
-        padding: 1em 1em;
-    }
-
-    .card {
-        padding: 5em 2em;
-        width: 100%;
-    }
-
-    .description-container{
-        padding: 1em 1em;
-    }
-
-    .column {
-        display: flex;
-        flex: 0 0 25%;
-        width: 100%;
-        padding: 0 1em;
-    }
-}
-
 /*Slider image*/
 .image-slider-container {
     width: 100%;
@@ -858,21 +808,6 @@ button .fas{
     height:100px;
 }
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 .culture-view .description form{
     margin-top:20px;
 }
@@ -898,8 +833,6 @@ font-size:18px;
 text-align:center;
 color:white;
 }
-
-
 
 
 .culture-view .description .price{
@@ -1158,18 +1091,21 @@ color:white;
 }
 
 @media screen and (min-width:470px) {
-    .mycultures-container section {
+    .card-container section {
         margin-top: 6rem;
         padding: 1em;
     }
 
-    .culture-container {
+    .card {
         padding: 5em 2em;
         width: 100%;
     }
 
+    .description-container{
+        padding: 1em 1em;
+    }
 
-    .culture-column {
+    .column {
         display: flex;
         flex: 0 0 50%;
         width: 200px;
@@ -1403,7 +1339,7 @@ section{
         font-size: 20px;
     }
     .header .icons div:first-child{
-        margin-left: 500px;
+        margin-left: 10px;
     }
     
     
@@ -1412,7 +1348,7 @@ section{
 @media (max-width:540px)
 {
     .header .icons div:first-child{
-        margin-left: 200px;
+        margin-left: 10px;
     }
     .culture-view{
         margin-top:60px;

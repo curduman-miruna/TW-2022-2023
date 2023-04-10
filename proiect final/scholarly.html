@@ -157,13 +157,240 @@
                 <details>
                     <summary>-- Codul HTML --</summary>
                     <pre><code>
+ &lt;header class="header">
 
 
+        &lt;a href="index.html" class="logo">
+            &lt;script src="https://cdn.lordicon.com/ritcuqlt.js">&lt;/script>
+            &lt;lord-icon src="https://cdn.lordicon.com/zrvxzslu.json" trigger="hover" style="width:70px;height:70px">
+            &lt;/lord-icon>
+            &lt;p style="color: white; font-size: 12px; font-family: 'Roboto', sans-serif; margin-left: 7px"> WEB
+                GARDENing
+            &lt;/p>
+        &lt;/a>
+
+
+        &lt;nav class="navbar">
+            &lt;a href="index.html">Home&lt;/a> &lt;!--sectiunea de home din aceeasi pagina -->
+            &lt;a href="buy.html">Buy&lt;/a>
+            &lt;a href="mycultures.html">MyCultures&lt;/a>
+            &lt;a href="account.html">Account&lt;/a>
+            &lt;a href="help.html">Help&lt;/a>
+        &lt;/nav>
+
+
+        &lt;div class="icons">
+            &lt;div class="fas fa-shopping-cart" id="cart-btn">&lt;/div>
+            &lt;div class="fas fa-bars" id="menu-btn">&lt;/div>
+            &lt;div class="fas fa-solid fa-user" id="account">&lt;/div>
+        &lt;/div>
+
+
+        &lt;div class="search-form">
+            &lt;input type="search" id="search-box" placeholder="search here...">
+            &lt;label for="search-box" class="fas fa-search">&lt;/label>
+        &lt;/div>
+
+
+        &lt;div class="cart-items-container">
+            &lt;div class="cart-item">
+                &lt;span class="fas fa-times">&lt;/span>
+                &lt;img src="photo/Crocus.png" alt="">
+                &lt;div class="content">
+                    &lt;h3>Crocus Culture&lt;/h3>
+                    &lt;div class="price">$15.99/-&lt;/div>
+                &lt;/div>
+            &lt;/div>
+            &lt;div class="cart-item">
+                &lt;span class="fas fa-times">&lt;/span>
+                &lt;img src="photo/Daffodil.png" alt="">
+                &lt;div class="content">
+                    &lt;h3>Daffodil Culture&lt;/h3>
+                    &lt;div class="price">$15.99/-&lt;/div>
+                &lt;/div>
+            &lt;/div>
+            &lt;div class="cart-item">
+                &lt;span class="fas fa-times">&lt;/span>
+                &lt;img src="photo/Lily.png" alt="">
+                &lt;div class="content">
+                    &lt;h3>Lily Culture&lt;/h3>
+                    &lt;div class="price">$15.99/-&lt;/div>
+                &lt;/div>
+            &lt;/div>
+            &lt;div class="cart-item">
+                &lt;span class="fas fa-times">&lt;/span>
+                &lt;img src="photo/Peonies.png" alt="">
+                &lt;div class="content">
+                    &lt;h3>Peonis Culture&lt;/h3>
+                    &lt;div class="price">$15.99/-&lt;/div>
+                &lt;/div>
+            &lt;/div>
+            &lt;a href="#" class="btn">My Basket&lt;/a>
+        &lt;/div>
+    &lt;/header>
                 </code></pre>
                 </details>
                 <details>
                     <summary>-- Codul CSS --</summary>
                     <pre><code>
+.header {
+    background: var(--green);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0.5rem 7%;
+    border-bottom: var(--lightgreen);
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 1000;
+    height: 15;
+    box-shadow: 0px 10px 30px rgba(0, 0, 0, 0.5);
+
+}
+
+/*logo*/
+.header .logo img {
+    height: 6rem;
+}
+
+.header .navbar {
+    display: flex;
+    justify-content: space-between;
+}
+
+/* paginile */
+.header .navbar a {
+
+    margin-left: 40px;
+    font-size: 20px;
+    color: #fff;
+
+}
+
+.header .navbar a:hover {
+    color: var(--darkgreen);
+    border-top: solid var(--darkgreen);
+    font-weight: bold;
+    font-size: 17px;
+
+}
+
+/*iconite*/
+.header .icons div {
+    color: #fff;
+    cursor: pointer;
+    font-size: 25px;
+    margin-left: 20px;
+}
+
+.header .icons div:hover {
+    color: var(--darkgreen);
+}
+
+#menu-btn {
+    display: none;
+}
+
+
+.header .search-form {
+    position: absolute;
+    top: 115%;
+    right: 7%;
+    background: #fff;
+    width: 50rem;
+    height: 5rem;
+    display: flex;
+    align-items: center;
+    transform: scaleY(0);
+    transform-origin: top;
+}
+
+.header .search-form.active {
+    transform: scaleY(1);
+}
+
+.header .search-form input {
+    height: 100%;
+    width: 100%;
+    font-size: 1.6rem;
+    color: black;
+    padding: 1rem;
+    text-transform: none;
+}
+
+.header .search-form label {
+    cursor: pointer;
+    font-size: 2.2rem;
+    margin-right: 1.5rem;
+    color: black;
+}
+
+.header .search-form label:hover {
+    color: var(--darkgreen);
+}
+
+.header .cart-items-container {
+    position: absolute;
+    top: 100%;
+    right: -100%;
+    height: calc(100vh - 9.5rem);
+    width: 35rem;
+    background: #fff;
+    padding: 0 1.5rem;
+}
+
+.header .cart-items-container.active {
+    right: 0;
+}
+
+.header .cart-items-container .cart-item {
+    position: relative;
+    margin: 2rem 0;
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+}
+
+.header .cart-items-container .cart-item .fa-times {
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+    font-size: 2rem;
+    cursor: pointer;
+    color: var(--darkerstpink);
+}
+
+.header .cart-items-container .cart-item .fa-times:hover {
+    color: var(--lightpink);
+}
+
+.header .cart-items-container .cart-item img {
+    height: 7rem;
+}
+
+.header .cart-items-container .cart-item .content h3 {
+    font-size: 2rem;
+    color: black;
+    padding-bottom: .5rem;
+
+}
+
+.header .cart-items-container .cart-item .content h3:hover {
+    color: var(--green);
+    cursor: pointer;
+}
+
+.header .cart-items-container .cart-item .content .price {
+    font-size: 15px;
+    color: var(--vivagreen);
+}
+
+.header .cart-items-container .btn {
+    width: 100%;
+    text-align: center;
+}
                 </code></pre>
                 </details>
             </details>
@@ -820,7 +1047,7 @@ button .fas{
                 <img src="photo/t-culture-1.jpg" style="width:100%; height: auto; margin: 20px 20px 0 0;">
                 <img src="photo/t-culture-2.jpg" style="width:100%; height: auto; margin: 0px 20px 0 0;">
             <details>
-                <summary><b>1. Apăsați - Codul pentru x</b></summary>
+                <summary><b>1. Apăsați - Codul pentru price, description and view</b></summary>
                 <details>
                     <summary>-- Codul HTML --</summary>
                     <pre><code>
@@ -835,47 +1062,133 @@ button .fas{
                 </details>
             </details>
             <details>
-                <summary><b>2. Apăsați - Codul pentru x</b></summary>
+                <summary><b>2. Apăsați - Codul pentru edit</b></summary>
                 <details>
                     <summary>-- Codul HTML --</summary>
                     <pre><code>
-
-
+  &lt;section>
+        &lt;div class="edit-culture">
+            &lt;div class="edit-button">
+                &lt;h2>
+                    Edit Culture Page
+                &lt;/h2>
+            &lt;/div>
+        &lt;/div>
+    &lt;/section>
                 </code></pre>
                 </details>
                 <details>
                     <summary>-- Codul CSS --</summary>
                     <pre><code>
+.edit-culture{
+    margin-top: 30px;
+    height:20vh;
+    width:100vw;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+.edit-culture .edit-button{
+    border-radius: 10px;
+    height: 50%;
+    width: 20%;
+    background-color: #d7ff35;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.5);
+}
+.edit-culture .edit-button h2{
+    text-align: center;
+    color:#3a4605;
+    font-size:25px;
+    font-weight: bold;
+}
+.edit-culture .edit-button:hover{
+    background-color:#e1fc77 ;
+    cursor: pointer;
+}
                 </code></pre>
                 </details>
             </details>
             <details>
-                <summary><b>3. Apăsați - Codul pentru x</b></summary>
+                <summary><b>3. Apăsați - Codul pentru tip</b></summary>
                 <details>
                     <summary>-- Codul HTML --</summary>
                     <pre><code>
-
-
+ &lt;section>
+        &lt;div class="culture-tip">
+            &lt;div class="line">
+                &lt;h2>
+                    How to grow daffodils?
+                &lt;/h2>
+            &lt;/div>
+            &lt;div class ="tip-box">
+               
+                &lt;p>
+                    Daffodils do best in full sun, though they will grow in partial shade. They're generally not picky about soil,
+                    but good drainage is key. They are
+                    susceptible to rot when kept too wet, so make sure that you plant them in a well-draining spot. Hillsides and raised beds work well.
+                &lt;/p>
+            &lt;/div>
+        &lt;/div>
+    &lt;/section>
                 </code></pre>
                 </details>
                 <details>
                     <summary>-- Codul CSS --</summary>
                     <pre><code>
-                </code></pre>
-                </details>
-            </details>
-            <details>
-                <summary><b>4. Apăsați - Codul pentru x</b></summary>
-                <details>
-                    <summary>-- Codul HTML --</summary>
-                    <pre><code>
+.culture-tip{
+    height:50vh;
+    width:100vw;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    flex-direction: column;
+    
+    background-color:#ffb7c7;
+    box-shadow: 0px 15px 25px rgba(0, 0, 0, 0.5);
 
+}
+.culture-tip .line{
+    
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    background-color:var(--darkerstpink);
+    height:15%;
+    width:100%;
+}
+.culture-tip .tip-box{
+    border-radius: 10px;
+    margin-top: 30px;;
+    width:70vw;
+    height: auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    background-color: white;
+    
+ box-shadow: 0px 15px 25px rgba(0, 0, 0, 0.5);
+}
+.culture-tip .line h2{
+    
+    text-align: center;
+    color:white;
+    font-size: 30px;
+    font-weight: bold;;
+}
+.culture-tip .tip-box p{
+    text-align: center;
+    margin: 30px 30px 30px 30px;
+    color: black;
+    font-size:20px;
 
-                </code></pre>
-                </details>
-                <details>
-                    <summary>-- Codul CSS --</summary>
-                    <pre><code>
+}
                 </code></pre>
                 </details>
             </details>
@@ -981,47 +1294,58 @@ button .fas{
                 </details>
             </details>
             <details>
-                <summary><b>2. Apăsați - Codul pentru x</b></summary>
+                <summary><b>2. Apăsați - Codul pentru Sync</b></summary>
                 <details>
                     <summary>-- Codul HTML --</summary>
                     <pre><code>
-
-
+ &lt;section>
+        &lt;div class="sync">
+            &lt;div class="buttonS">
+                &lt;h2>
+                    Synchronize Sensors
+                &lt;/h2>
+               
+            &lt;/div>
+        &lt;/div>
+    &lt;/section>
                 </code></pre>
                 </details>
                 <details>
                     <summary>-- Codul CSS --</summary>
                     <pre><code>
-                </code></pre>
-                </details>
-            </details>
-            <details>
-                <summary><b>3. Apăsați - Codul pentru x</b></summary>
-                <details>
-                    <summary>-- Codul HTML --</summary>
-                    <pre><code>
+                        
+.sync{
+    margin-top:90px;
+    
+    height:20vh;
+    width:100vw;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    flex-direction: column;
+}
+.sync .buttonS{
+    border-radius: 10px;
+    width:20%;
+    height: 50%;
+    background-color:#9f4252;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+     box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.5);
+}
 
-
-                </code></pre>
-                </details>
-                <details>
-                    <summary>-- Codul CSS --</summary>
-                    <pre><code>
-                </code></pre>
-                </details>
-            </details>
-            <details>
-                <summary><b>4. Apăsați - Codul pentru x</b></summary>
-                <details>
-                    <summary>-- Codul HTML --</summary>
-                    <pre><code>
-
-
-                </code></pre>
-                </details>
-                <details>
-                    <summary>-- Codul CSS --</summary>
-                    <pre><code>
+.sync .buttonS:hover{
+    letter-spacing: 2px;
+    background-color:var(--darkpink);
+    cursor: pointer;
+}
+.sync .buttonS h2{
+font-size:18px;
+align-items: center;
+text-align:center;
+color:white;
+}
                 </code></pre>
                 </details>
             </details>
@@ -1036,84 +1360,270 @@ button .fas{
                 pagina aceasta:
                 <img src="photo/t-buy-culture.png" style="width:100%; height: auto; margin: 20px 20px 0 0;">
             <details>
-                <summary><b>1. Apăsați - Codul pentru x</b></summary>
+                <summary><b>Apăsați - Codul pentru pagina</b></summary>
                 <details>
                     <summary>-- Codul HTML --</summary>
                     <pre><code>
-
+ &lt;section>
+       &lt;div class="culture-view">
+        &lt;div class="image">
+               
+            &lt;img src="photo/narcise.jpg"/>
+       
+            &lt;div class="buy">
+                &lt;h2>
+                    Buy
+                &lt;/h2>
+            &lt;/div>
+            &lt;div class ="interested">
+                &lt;h2>
+                    Interested
+                &lt;/h2>
+            &lt;/div>
+        &lt;/div>
+       
+            &lt;div class="description">
+                    &lt;h2>
+                        Daffodils
+                    &lt;/h2>
+               
+                &lt;p>
+                   Most Beautiful Daffodils
+                &lt;/p>
+                &lt;div class="price">
+                    &lt;h2>
+                        25.09$
+                    &lt;/h2>
+                   
+                &lt;/div>
+            &lt;/div>
+           
+           
+    &lt;/div>
+    &lt;/section>
 
                 </code></pre>
                 </details>
                 <details>
                     <summary>-- Codul CSS --</summary>
                     <pre><code>
+/*culture view*/
+.culture-view{
+    margin-top:60px;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    flex-direction: row;
+    height: 100vh;
+    width:100%;
+}
+
+
+.culture-view .description{
+    margin-left: 40px;
+    width:25vw;
+    height: 60vh;
+    border-bottom: solid  var(--darkerstpink);
+    border-top: solid  var(--darkerstpink);
+    border-width: 10px;
+    align-items: center;
+    box-shadow: 0px 15px 25px rgba(0, 0, 0, 0.5);
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    flex-direction: column;
+    border-radius: 10px;
+    
+}
+.culture-view .image .plus-icon p{
+    margin-top: 50px;
+    font-size:20px;
+    color:black;
+    text-align: center;
+}
+.culture-view .image .plus-icon{
+    display:flex;
+    justify-content: flex-start;
+    align-items: center;
+    flex-direction: column;
+    width:100%;
+    height: 90%;
+    align-items: center; 
+    background-color:white;
+
+}
+.culture-view .image .plus-icon img{
+    margin-top:130px;
+    width:100px;
+    height:100px;
+}
+
+.culture-view .description form{
+    margin-top:20px;
+}
+
+.culture-view .description .button{
+    border-radius: 10px;
+    width:70%;
+    height: 15%;
+    background-color:#5a0d18;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.5);
+    margin-bottom: 20%;
+}
+.culture-view .description .button:hover{
+    letter-spacing: 2px;
+    background-color:#7d2b38;
+    cursor: pointer;
+}
+.culture-view .description .button h2{
+font-size:18px;
+text-align:center;
+color:white;
+}
+
+.culture-view .description .price{
+    margin-top: 20px;
+    margin-bottom: 30px;
+    width:20vw;
+    height: 50px;
+    background-color:#f9dee5;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.5);
+   }
+   .culture-view .description .price h2{
+   font-size:20px;
+   text-align:center;
+   color:#5a0d18;
+   }
+
+.culture-view .description h2{
+    margin:20px 20px 20px 20px;
+    text-align:center;
+    font-size:30px;
+    color: #5a0d18;
+  
+}
+.culture-view .description p{
+    margin:20px 20px 20px 20px;
+    text-align: center;
+    font-size: 16px;
+    color:black;
+}
+.culture-view .image{
+
+    display:flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    margin-left: 150px;
+    width:50vw;
+    height: 75vh;
+    align-items: center; 
+    box-shadow: 0px 15px 25px rgba(0, 0, 0, 0.5);
+    border-radius: 10px;
+    background-color:#bad746;
+}
+.culture-view .image img{
+    margin-top:20px;
+    width:100%;
+    height:80%;
+}
+.culture-view .image .sell{
+    border-radius: 10px;
+ margin-top:15px;
+ width:25vw;
+ height: 50px;
+ background-color: var(--darkgreen);
+ display: flex;
+ justify-content: center;
+ align-items: center;
+ box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.5);
+}
+.culture-view .image .sell:hover{
+    letter-spacing: 2px;
+    background-color: #606a29;
+    cursor: pointer;
+}
+.culture-view .image .sell h2{
+font-size:20px;
+text-align:center;
+color:white;
+}
+
+.culture-view .image .buy{
+    border-radius: 10px;
+    margin-top:10px;
+    width:25vw;
+    height: 50px;
+    background-color: var(--vivagreen);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 0px 15px 10px rgba(0, 0, 0, 0.5);
+}
+.culture-view .image .interested{
+    border-radius: 10px;
+    margin-top:15px;
+    width:20vw;
+    height: 30px;
+    background-color:#beddac;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.5);
+    margin-bottom: 10px;
+}
+
+
+.culture-view .image .buy:hover{
+    letter-spacing: 2px;
+    background-color:#476627;
+    cursor: pointer;
+}
+.culture-view .image .buy h2{
+font-size:25px;
+text-align:center;
+color:white;
+}
+
+
+.culture-view .image .interested:hover{
+    letter-spacing: 2px;
+    background-color:#dcf5cb;
+    cursor: pointer;
+}
+.culture-view .image .interested h2{
+font-size:20px;
+text-align:center;
+color:#182d03;
+}
+
                 </code></pre>
                 </details>
             </details>
-            <details>
-                <summary><b>2. Apăsați - Codul pentru x</b></summary>
-                <details>
-                    <summary>-- Codul HTML --</summary>
-                    <pre><code>
-
-
-                </code></pre>
-                </details>
-                <details>
-                    <summary>-- Codul CSS --</summary>
-                    <pre><code>
-                </code></pre>
-                </details>
-            </details>
-            <details>
-                <summary><b>3. Apăsați - Codul pentru x</b></summary>
-                <details>
-                    <summary>-- Codul HTML --</summary>
-                    <pre><code>
-
-
-                </code></pre>
-                </details>
-                <details>
-                    <summary>-- Codul CSS --</summary>
-                    <pre><code>
-                </code></pre>
-                </details>
-            </details>
-            <details>
-                <summary><b>4. Apăsați - Codul pentru x</b></summary>
-                <details>
-                    <summary>-- Codul HTML --</summary>
-                    <pre><code>
-
-
-                </code></pre>
-                </details>
-                <details>
-                    <summary>-- Codul CSS --</summary>
-                    <pre><code>
-                </code></pre>
-                </details>
-            </details>
-            </p>
         </section>
-    </section>
-    <section id="Root">
-        <h3>VII. Account</h3>
-        <section id="Article">
-            <p>
-                Pentru a se putea conecta la aplicație utilizatorul va trebui să își treacă credințialele
-                (mariatodirel7@gmail.com, maria) în aceasta
-                pagina, ca apoi să fie redirecționat spre pagina sa de profil. Tot de aici, administrator se poate loga
-                cu credințialele sale (admin, admin).
-                <img src="photo/account.png" style="width:100%; height: auto; margin: 20px 20px 0 0;">
-                <img src="photo/profile.png" style="width:100%; height: auto; margin: 0px 20px 0 0;">
-                <img src="photo/admin.jpg" style="width:100%; height: auto; margin: 0px 20px 0 0;">
-            <details>
-                <summary><b>1. Apăsați - Codul pentru Admin page</b></summary>
+        <section id="Root">
+            <h3>VII. Account</h3>
+            <section id="Article">
+                <p>
+                    Pentru a se putea conecta la aplicație utilizatorul va trebui să își treacă credințialele
+                    (mariatodirel7@gmail.com, maria) în aceasta
+                    pagina, ca apoi să fie redirecționat spre pagina sa de profil. Tot de aici, administrator se poate
+                    loga
+                    cu credințialele sale (admin, admin).
+                    <img src="photo/account.png" style="width:100%; height: auto; margin: 20px 20px 0 0;">
+                    <img src="photo/profile.png" style="width:100%; height: auto; margin: 0px 20px 0 0;">
+                    <img src="photo/admin.jpg" style="width:100%; height: auto; margin: 0px 20px 0 0;">
                 <details>
-                    <summary>-- Codul HTML --</summary>
-                    <pre><code>
+                    <summary><b>1. Apăsați - Codul pentru Admin page</b></summary>
+                    <details>
+                        <summary>-- Codul HTML --</summary>
+                        <pre><code>
 &lt;!DOCTYPE html>
 &lt;html>
 &lt;head>
@@ -1167,10 +1677,10 @@ button .fas{
 &lt;/html>
 
                 </code></pre>
-                </details>
-                <details>
-                    <summary>-- Codul CSS --</summary>
-                    <pre><code>
+                    </details>
+                    <details>
+                        <summary>-- Codul CSS --</summary>
+                        <pre><code>
 /*Admin page*/
 .admin-page{
     background-color:white;
@@ -1407,13 +1917,13 @@ button .fas{
     color:white;
     font-size:20px;}
                 </code></pre>
+                    </details>
                 </details>
-            </details>
-            <details>
-                <summary><b>2. Apăsați - Codul pentru Login Form</b></summary>
                 <details>
-                    <summary>-- Codul HTML --</summary>
-                    <pre><code>
+                    <summary><b>2. Apăsați - Codul pentru Login Form</b></summary>
+                    <details>
+                        <summary>-- Codul HTML --</summary>
+                        <pre><code>
 &lt;form id="login-form">
     &lt;h2>Login&lt;/h2>
     &lt;div class="inputBox">
@@ -1444,10 +1954,10 @@ button .fas{
             &lt;/h2>
         &lt;/div>
                 </code></pre>
-                </details>
-                <details>
-                    <summary>-- Codul CSS --</summary>
-                    <pre><code>
+                    </details>
+                    <details>
+                        <summary>-- Codul CSS --</summary>
+                        <pre><code>
 .account-section form{
     width: 80%;
     height: 65%;
@@ -1479,13 +1989,13 @@ button .fas{
     font-size: 15px;
 }
                 </code></pre>
+                    </details>
                 </details>
-            </details>
-            <details>
-                <summary><b>3. Apăsați - Codul pentru Edit Page</b></summary>
                 <details>
-                    <summary>-- Codul HTML --</summary>
-                    <pre><code>
+                    <summary><b>3. Apăsați - Codul pentru Edit Page</b></summary>
+                    <details>
+                        <summary>-- Codul HTML --</summary>
+                        <pre><code>
  &lt;div class="edit-page" id="edit-page" style="display: none;">
     &lt;div class="img-container">
         &lt;img src="photo/profil.png" alt=" ">
@@ -1499,10 +2009,10 @@ button .fas{
      &lt;/form>
 &lt;/div>
                 </code></pre>
-                </details>
-                <details>
-                    <summary>-- Codul CSS --</summary>
-                    <pre><code>
+                    </details>
+                    <details>
+                        <summary>-- Codul CSS --</summary>
+                        <pre><code>
     .account-background .edit-page{
         flex-direction: column;
         display: flex;
@@ -1520,24 +2030,24 @@ button .fas{
         height: 30%;
     }
                 </code></pre>
+                    </details>
                 </details>
-            </details>
-            </p>
+                </p>
+            </section>
         </section>
-    </section>
-    <section id="Root">
-        <h3>VIII. About</h3>
-        <section id="Article">
-            <p>
-                Pagina About le ofera usererilor oportunitatea de a afla mai multe despre aplicația web, dar și de a
-                face cunoștință cu fondatori aplicației.
-                <img src="photo/about-1.png" style="width:100%; height: auto; margin: 20px 20px 0 0;">
-                <img src="photo/about-2.png" style="width:100%; height: auto; margin: 0px 20px 0 0;">
-            <details>
-                <summary><b>1. Apăsați - Codul pentru Descriere</b></summary>
+        <section id="Root">
+            <h3>VIII. About</h3>
+            <section id="Article">
+                <p>
+                    Pagina About le ofera usererilor oportunitatea de a afla mai multe despre aplicația web, dar și de a
+                    face cunoștință cu fondatori aplicației.
+                    <img src="photo/about-1.png" style="width:100%; height: auto; margin: 20px 20px 0 0;">
+                    <img src="photo/about-2.png" style="width:100%; height: auto; margin: 0px 20px 0 0;">
                 <details>
-                    <summary>-- Codul HTML --</summary>
-                    <pre><code>
+                    <summary><b>1. Apăsați - Codul pentru Descriere</b></summary>
+                    <details>
+                        <summary>-- Codul HTML --</summary>
+                        <pre><code>
 &lt;section class="about-us">
 &lt;div class="description">
   &lt;ul>
@@ -1562,10 +2072,10 @@ button .fas{
     &lt;/ul>
 &lt;/div>
                 </code></pre>
-                </details>
-                <details>
-                    <summary>-- Codul CSS --</summary>
-                    <pre><code>
+                    </details>
+                    <details>
+                        <summary>-- Codul CSS --</summary>
+                        <pre><code>
 .description li{
     text-indent: 20px;
     align-items: center;
@@ -1580,13 +2090,13 @@ button .fas{
     color: var(--darkgreen);
 }
                 </code></pre>
+                    </details>
                 </details>
-            </details>
-            <details>
-                <summary><b>2. Apăsați - Codul pentru Our Team</b></summary>
                 <details>
-                    <summary>-- Codul HTML --</summary>
-                    <pre><code>
+                    <summary><b>2. Apăsați - Codul pentru Our Team</b></summary>
+                    <details>
+                        <summary>-- Codul HTML --</summary>
+                        <pre><code>
     &lt;div class="about-row">
       &lt;h1>Our Team&lt;/h1>
     &lt;/div>
@@ -1634,10 +2144,10 @@ button .fas{
     &lt;/div>
   &lt;/section>
                 </code></pre>
-                </details>
-                <details>
-                    <summary>-- Codul CSS --</summary>
-                    <pre><code>
+                    </details>
+                    <details>
+                        <summary>-- Codul CSS --</summary>
+                        <pre><code>
 .about-us .about-row {
 	display: flex;
 	flex-wrap: wrap;
@@ -1708,140 +2218,337 @@ button .fas{
 	transform: scale(1.15);
   }
                 </code></pre>
+                    </details>
                 </details>
-            </details>
-            </p>
+                </p>
+            </section>
         </section>
-    </section>
-    <section id="Root">
-        <h3>IX. Help</h3>
-        <section id="Article">
+        <section id="Root">
+            <h3>IX. Help</h3>
+            <section id="Article">
+                <p>
+                    Pentru a putea înțelege funcționalățile aplicației utilizatorilor li s-a pus la dispoziție o pagina
+                    de
+                    help cu diverse tutoriale pentru anumite acțiuni ce pot fi făcute în aplicație.
+                    <img src="photo/help.png" style="width:100%; height: auto; margin: 20px 20px 0 0;">
+                <details>
+                    <summary><b>Apăsați - Codul pentru Help</b></summary>
+                    <details>
+                        <summary>-- Codul HTML --</summary>
+                        <pre><code>
+ &lt;section>
+        &lt;div class="help">
+            &lt;h2>
+                1.Home Page
+            &lt;/h2>
+
+
+            &lt;p>
+                On the home page you can see several images of several cultures of some users.
+            &lt;/p>
+            &lt;img src="photo/home.jpeg">
+           &lt;/div>
+    &lt;/section>
+    &lt;section>
+        &lt;div class="help">
+        &lt;h2>
+            2.Buy Page
+        &lt;/h2>
+        &lt;p>
+            On the buy page you can search for cultures that you are interested in and see a variety of the cultures from our website.
+        &lt;/p>
+        &lt;img src="photo/buy.jpeg">
+
+
+    &lt;/div>
+   
+    &lt;/section>
+    &lt;section>
+        &lt;div class="help">
+            &lt;h2>
+                3. Click On A Culture
+            &lt;/h2>
+
+
+            &lt;p>
+                If you click on one of the cultures,
+                a new page will appear where you can purchase a culture or mention that you are interested in that culture.
+               
+            &lt;/p>
+            &lt;p>
+                You can also see information about the culture and its price
+            &lt;/p>
+            &lt;img src="photo/buyculture.jpeg">
+           &lt;/div>
+    &lt;/section>
+    &lt;section>
+        &lt;div class="help">
+        &lt;h2>
+            4. My Cultures
+        &lt;/h2>
+        &lt;p>
+            In the "MyCultures" section you can see your cultures.
+        &lt;/p>
+        &lt;img src="photo/myculture.jpeg">
+    &lt;/div>
+   
+    &lt;/section>
+    &lt;section>
+        &lt;div class="help">
+            &lt;h2>
+                5. Click On Your Culture
+            &lt;/h2>
+
+
+            &lt;p>
+                If you click on one of your cultures,
+                a new page will appear where you can see your culture.
+               
+            &lt;/p>
+            &lt;img src="photo/seemyculture.jpeg">
+            &lt;p>
+                You can also see tips for growing your culture.
+                And you can edit your culture page.
+            &lt;/p>
+            &lt;img src="photo/tips.jpeg">
+           
+           &lt;/div>
+    &lt;/section>
+    &lt;section>
+        &lt;div class="help">
+            &lt;h2>
+                6.1 Add A New Culture
+
+
+            &lt;/h2>
+   
+            &lt;p>
+                If you click on the card with the "+" sign on it you can add a new culture.
+            &lt;/p>
+            &lt;img src="photo/add.jpeg">
+            &lt;p>
+                A new page will appear:
+            &lt;/p>
+            &lt;img src="photo/newCulture.jpeg">
+           &lt;/div>
+    &lt;/section>
+    &lt;section>
+        &lt;div class="help">
+            &lt;h2>
+                6.2
+
+
+            &lt;/h2>
+   
+            &lt;p>
+                When you add a new culture, you must synchronize the sensors so that the website can offer you culture care advices.
+            &lt;/p>
+            &lt;img src="photo/sync.jpeg">
+           &lt;/div>
+    &lt;/section>
+    &lt;section>
+        &lt;div class="help">
+        &lt;h2>
+            7. Account
+        &lt;/h2>
+        &lt;p>
+            You can Login if you click on "Account" link, or on the user-icon in the right-top corner.
+        &lt;/p>
+        &lt;img src="photo/login.jpeg">
+       
+    &lt;/div>
+
+
+   
+&lt;/section>
+&lt;section>
+    &lt;div class="help">
+        &lt;h2>
+            8. Admin
+        &lt;/h2>
+
+
+        &lt;p>
+            If you login as admin you have access to reports or you can make changes regarding the users and their content .
+        &lt;/p>
+        &lt;img src="photo/loginAdmin.jpeg">
+        &lt;img src="photo/adminDash.jpeg">
+       &lt;/div>
+&lt;/section>
+&lt;section>
+    &lt;div class="help">
+        &lt;h2>
+            9. User
+        &lt;/h2>
+
+
+        &lt;p>
+            If you login as user you can edit your account or delete your account.
+        &lt;/p>
+        &lt;img src="photo/editProfilUserName.jpeg">
+       &lt;/div>
+&lt;/section>
+&lt;section>
+    &lt;div class="help">
+        &lt;h2>
+            10. My Basket
+        &lt;/h2>
+
+
+        &lt;p>
+            If you click on the shopping cart icon, you can see what you have in your basket.
+        &lt;/p>
+        &lt;img src="photo/basket.jpeg">
+       &lt;/div>
+&lt;/section>
+&lt;section>
+    &lt;div class="help">
+        &lt;h2>
+            11. About
+        &lt;/h2>
+
+
+        &lt;p>
+           
+        On the about page there is some information about the services offered by our website and the names of the founders.
+        &lt;/p>
+        &lt;img src="photo/about.jpeg">
+       &lt;/div>
+&lt;/section>
+
+
+&lt;/body>
+&lt;/html>
+
+                </code></pre>
+                    </details>
+                    <details>
+                        <summary>-- Codul CSS --</summary>
+                        <pre><code>
+.help-body body{
+    text-align: center;
+    justify-content: center;
+    margin: auto;
+}
+
+.space {
+    margin-top: 120px;
+}
+
+.help{
+    margin-top: 20px;
+    display:flex;
+    justify-content: center;
+    align-items: flex-start;
+    flex-direction: column;
+}
+
+.help h2{
+    margin-left:30px;
+    margin-top: 20px;
+    font-size: 30px;
+    color:#323b0b;
+}
+
+.help p{
+    margin-left:30px;
+    margin-top: 5px;
+    font-size:20px;
+    color:black;
+    margin-bottom: 10px;
+}
+
+.help img{
+    margin-left:30px;
+    height:50%;
+    width:50%;
+    margin-bottom: 30px;
+}
+
+@media (width <=450px){
+    .account-background .edit-page .img-container{
+        margin-top:40px;
+        margin-left: 130px;
+    }
+
+    .header .icons div:first-child{
+        margin-left: 10px;
+    }
+
+    .account-background .edit-page form{
+        margin-left: 130px;
+         width:70vw;
+         height: 30%;
+     }
+}
+
+                </code></pre>
+                    </details>
+                </details>
+
+                </details>
+                </p>
+            </section>
+        </section>
+        <section id="authors">
+            <!-- review? -->
+            <h2>Autori &amp; Contribuitori</h2>
             <p>
-                Pentru a putea înțelege funcționalățile aplicației utilizatorilor li s-a pus la dispoziție o pagina de
-                help cu diverse tutoriale pentru anumite acțiuni ce pot fi făcute în aplicație.
-                <img src="photo/Cultures-1.png" style="width:100%; height: auto; margin: 20px 20px 0 0;">
-                <img src="photo/Cultures-2.png" style="width:100%; height: auto; margin: 0px 20px 0 0;">
-            <details>
-                <summary><b>1. Apăsați - Codul pentru x</b></summary>
-                <details>
-                    <summary>-- Codul HTML --</summary>
-                    <pre><code>
-
-
-                </code></pre>
-                </details>
-                <details>
-                    <summary>-- Codul CSS --</summary>
-                    <pre><code>
-                </code></pre>
-                </details>
-            </details>
-            <details>
-                <summary><b>2. Apăsați - Codul pentru x</b></summary>
-                <details>
-                    <summary>-- Codul HTML --</summary>
-                    <pre><code>
-
-
-                </code></pre>
-                </details>
-                <details>
-                    <summary>-- Codul CSS --</summary>
-                    <pre><code>
-                </code></pre>
-                </details>
-            </details>
-            <details>
-                <summary><b>3. Apăsați - Codul pentru x</b></summary>
-                <details>
-                    <summary>-- Codul HTML --</summary>
-                    <pre><code>
-
-
-                </code></pre>
-                </details>
-                <details>
-                    <summary>-- Codul CSS --</summary>
-                    <pre><code>
-                </code></pre>
-                </details>
-            </details>
-            <details>
-                <summary><b>4. Apăsați - Codul pentru x</b></summary>
-                <details>
-                    <summary>-- Codul HTML --</summary>
-                    <pre><code>
-
-
-                </code></pre>
-                </details>
-                <details>
-                    <summary>-- Codul CSS --</summary>
-                    <pre><code>
-                </code></pre>
-                </details>
-            </details>
+                Autori și contribuitori aplicației, reprezentați de aceleași persoane, și-au împărțit atribuțiile pentru
+                a
+                fi cât se poate de eficienți în implementarea acestui proiect. În continuare acestea vor fi descrise:
+                <br>
+                <br>
+                <b>Miruna Curduman</b>
+            <ul>
+                <li> implementarea paginii de index.html;</li>
+                <li> implementarea paginii de buy.html;</li>
+                <li> implementarea paginii de mycultures.html;</li>
+                <li> implementarea paginii de about.html;</li>
+                <li> documentația scholarly.html;</li>
+                <li> fișierele .css și .js necesare paginilor menționate.</li>
+            </ul>
+            <b>Maria Todirel</b>
+            <ul>
+                <li> implementarea paginii de account.html; </li>
+                <li> implementarea paginii de admin.html; </li>
+                <li> implementarea paginii de new.html; </li>
+                <li> implementarea paginii de oneculture.html;</li>
+                <li> implementarea paginii de help.html;</li>
+                <li> fișierele .css și .js necesare paginilor menționate.</li>
+            </ul>
             </p>
         </section>
-    </section>
-    <section id="authors">
-        <!-- review? -->
-        <h2>Autori &amp; Contribuitori</h2>
-        <p>
-            Autori și contribuitori aplicației, reprezentați de aceleași persoane, și-au împărțit atribuțiile pentru a
-            fi cât se poate de eficienți în implementarea acestui proiect. În continuare acestea vor fi descrise:
-            <br>
-            <br>
-            <b>Miruna Curduman</b>
-        <ul>
-            <li> implementarea paginii de index.html;</li>
-            <li> implementarea paginii de buy.html;</li>
-            <li> implementarea paginii de mycultures.html;</li>
-            <li> implementarea paginii de about.html;</li>
-            <li> documentația scholarly.html;</li>
-            <li> fișierele .css și .js necesare paginilor menționate.</li>
-        </ul>
-        <b>Maria Todirel</b>
-        <ul>
-            <li> implementarea paginii de account.html; </li>
-            <li> implementarea paginii de admin.html; </li>
-            <li> implementarea paginii de new.html; </li>
-            <li> implementarea paginii de oneculture.html;</li>
-            <li> implementarea paginii de help.html;</li>
-            <li> fișierele .css și .js necesare paginilor menționate.</li>
-        </ul>
-        </p>
-    </section>
-    <section id="Root">
-        <h2>Planuri de viitor</h2>
-        <p>Dezvoltatorii aplicației își propun ca în viitor să termine de implementat noțiunile de bază ce implică o
-            bună
-            funcționalitate a site-ului, respectiv:
-        <ul>
-            <li> realizare unei baze de date cu culturile userilor; </li>
-            <li> realizarea unei baze de date cu credințialele userilor; </li>
-            <li> implementarea efectiva a rolului de user;</li>
-            <li> implementarea efectiva a rolului de admin;</li>
-            <li> implementarea fictiva a sectiunii de buy;</li>
-            <li> implementarea sincronizarii automate a senzorilor;</li>
-            <li> imbunatirea aspectelor ce tin estetica site-ului;</li>
-            <li> completarea paginii de Help si Scholarly.</li>
-        </ul>
-        </p>
-    </section>
-    <section id="acks">
-        <h2>Acknowledgements</h2>
-        <p>
-            Autorii doresc să-și multumească unul altuia pentru efortul și munca pe care au depus-o în realizarea
-            acestui proiect, dar și celor care le-au oferit oportunitatea de a lucra impreuna la aceasta aplicatie.
-            De asemenea, resursele utilizate de aceștia sunt:
-        <ul>
-            <li><a href="https://www.w3schools.com">https://www.w3schools.com</a> </li>
-            <li><a href="https://codepen.io">https://codepen.io</a> </li>
-            <li><a href="https://codingartistweb.com">https://codingartistweb.com</a> </li>
-        </ul>
-        </p>
-    </section>
+        <section id="Root">
+            <h2>Planuri de viitor</h2>
+            <p>Dezvoltatorii aplicației își propun ca în viitor să termine de implementat noțiunile de bază ce implică o
+                bună
+                funcționalitate a site-ului, respectiv:
+            <ul>
+                <li> realizare unei baze de date cu culturile userilor; </li>
+                <li> realizarea unei baze de date cu credințialele userilor; </li>
+                <li> implementarea efectiva a rolului de user;</li>
+                <li> implementarea efectiva a rolului de admin;</li>
+                <li> implementarea fictiva a sectiunii de buy;</li>
+                <li> implementarea sincronizarii automate a senzorilor;</li>
+                <li> imbunatirea aspectelor ce tin estetica site-ului;</li>
+                <li> completarea paginii de Help si Scholarly.</li>
+            </ul>
+            </p>
+        </section>
+        <section id="acks">
+            <h2>Acknowledgements</h2>
+            <p>
+                Autorii doresc să-și multumească unul altuia pentru efortul și munca pe care au depus-o în realizarea
+                acestui proiect, dar și celor care le-au oferit oportunitatea de a lucra impreuna la aceasta aplicatie.
+                De asemenea, resursele utilizate de aceștia sunt:
+            <ul>
+                <li><a href="https://www.w3schools.com">https://www.w3schools.com</a> </li>
+                <li><a href="https://codepen.io">https://codepen.io</a> </li>
+                <li><a href="https://codingartistweb.com">https://codingartistweb.com</a> </li>
+            </ul>
+            </p>
+        </section>
 </body>
 
 </html>
