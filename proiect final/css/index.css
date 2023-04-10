@@ -82,17 +82,17 @@ body {
 }
 
 /* logo */
-.slide > img{
+.slide>img {
     width: 100%;
     height: 100%;
     object-fit: cover;
 }
 
-.culture-card img{
+.culture-card img {
     margin-top: 40px;
     flex-direction: column;
-    width:30px;
-    height:30px;
+    width: 30px;
+    height: 30px;
 }
 
 .header .logo img {
@@ -251,10 +251,10 @@ a {
 
 
 
-.culture-view .image img{
-    margin-top:20px;
-    width:100%;
-    height:80%;
+.culture-view .image img {
+    margin-top: 20px;
+    width: 100%;
+    height: 80%;
 }
 
 .header .cart-items-container .cart-item img {
@@ -263,7 +263,7 @@ a {
 
 .card h3 {
     font-size: 1.3em;
-    margin: 1em 0 1.4em ;
+    margin: 1em 0 1.4em;
     font-weight: 600;
     letter-spacing: 0.3px;
     color: #070024;
@@ -273,7 +273,7 @@ a {
 
 .culture-card h3 {
     font-size: 1.3em;
-    margin: 1em 0 1.4em ;
+    margin: 1em 0 1.4em;
     font-weight: 600;
     letter-spacing: 0.3px;
     color: #070024;
@@ -291,17 +291,17 @@ a {
     cursor: pointer;
 }
 
-.culture-view .description .price{
+.culture-view .description .price {
     margin-top: 20px;
     margin-bottom: 30px;
-    width:20vw;
+    width: 20vw;
     height: 50px;
-    background-color:#f9dee5;
+    background-color: #f9dee5;
     display: flex;
     justify-content: center;
     align-items: center;
     box-shadow: 0 5px 10px rgba(0 0 0 0/50%);
-   }
+}
 
 .header .cart-items-container .cart-item .content .price {
     font-size: 15px;
@@ -381,7 +381,7 @@ input[type="submit"]:hover {
     width: 100vw;
 }
 
-.image-slider-container h2{
+.image-slider-container h2 {
     text-align: center;
     font-size: 2rem;
     line-height: 3.5;
@@ -573,7 +573,7 @@ input[type="submit"]:hover {
         width: 100%;
     }
 
-    .description-container{
+    .description-container {
         padding: 1em;
     }
 
@@ -591,8 +591,8 @@ input[type="submit"]:hover {
         padding: 1em;
     }
 
-    .description-container{
-        padding: 1em ;
+    .description-container {
+        padding: 1em;
     }
 
     .card {
@@ -620,17 +620,17 @@ input[type="submit"]:hover {
 }
 
 
-.slider{
+.slider {
     position: relative;
-    max-width: 40rem; 
-    height: 26.625rem; 
+    max-width: 40rem;
+    height: 26.625rem;
     margin: 0 auto;
     overflow: hidden;
 }
 
-.slide{ 
+.slide {
     position: absolute;
-    top:0;
+    top: 0;
     width: 100%;
     height: 26.625rem;
     display: flex;
@@ -641,42 +641,42 @@ input[type="submit"]:hover {
 
 
 
-button{
+button {
     background: none;
     border: none;
 }
 
-button .fas{
+button .fas {
     color: #da6e88
 }
 
-.btn-slide{
-    position:absolute;
-    top:50%;
+.btn-slide {
+    position: absolute;
+    top: 50%;
     z-index: 20;
     height: 5.5rem;
     width: 5.5rem;
     cursor: pointer;
 }
 
-.prev{
+.prev {
     left: 0;
     transform: translate(0, -50%);
 }
 
-.next{
+.next {
     right: 0;
-    transform: translate(0, -50%); 
+    transform: translate(0, -50%);
 }
 
-.dots-container{
+.dots-container {
     display: flex;
     justify-content: center;
     align-items: center;
     position: relative;
 }
 
-.dot{
+.dot {
     width: 25px;
     height: 5px;
     margin: 15px 5px;
@@ -685,8 +685,8 @@ button .fas{
     cursor: pointer;
 }
 
-.dot.active{
-    background:#da6e88
+.dot.active {
+    background: #da6e88
 }
 
 /* My cultures page */
@@ -698,9 +698,9 @@ button .fas{
     padding-bottom: 20px;
     margin-bottom: 20px;
     display: flex;
-  }
-  
-  .search-term {
+}
+
+.search-term {
     width: 100%;
     border: 3px solid #b62f4f;
     border-right: none;
@@ -709,13 +709,13 @@ button .fas{
     border-radius: 5px 0 0 5px;
     outline: none;
     color: #da6e88;
-  }
-  
-  .search-term:focus{
+}
+
+.search-term:focus {
     color: #b62f4f;
-  }
-  
-  .search-button {
+}
+
+.search-button {
     width: 40px;
     height: 36px;
     border: 1px solid #b62f4f;
@@ -725,19 +725,19 @@ button .fas{
     border-radius: 0 5px 5px 0;
     cursor: pointer;
     font-size: 20px;
-  }
-  
-  .wrap{
+}
+
+.wrap {
     width: 88%;
     top: 50%;
     left: 50%;
-  }
+}
 
 .mycultures-container {
     display: flex;
     flex: 0 0 33%;
     justify-content: space-evenly;
-    align-items:center;
+    align-items: center;
     flex-direction: column;
     height: auto;
     padding-top: 150px;
@@ -816,7 +816,7 @@ button .fas{
 
 
 .culture-card p {
-    margin-top: 20px;
+    margin: 20px 20px 20px 20px;
     line-height: 2em;
     color: #625a71;
 }
@@ -835,23 +835,23 @@ button .fas{
 
 
 /* culture view */
-.culture-view{
-    margin-top:60px;
+.culture-view {
+    margin-top: 60px;
     display: flex;
     justify-content: flex-start;
     align-items: center;
     flex-direction: row;
     height: 100vh;
-    width:100%;
+    width: 100%;
 }
 
 
-.culture-view .description{
+.culture-view .description {
     margin-left: 40px;
-    width:25vw;
+    width: 25vw;
     height: 60vh;
-    border-bottom: solid  var(--darkerstpink);
-    border-top: solid  var(--darkerstpink);
+    border-bottom: solid var(--darkerstpink);
+    border-top: solid var(--darkerstpink);
     border-width: 10px;
     box-shadow: 0 15px 25px rgba(0 0 0 0/15%);
     display: flex;
@@ -859,178 +859,167 @@ button .fas{
     align-items: center;
     flex-direction: column;
     border-radius: 10px;
-    
+
 }
 
-.culture-view .description p{
-    margin-top:20px;
+.culture-view .description p {
+    margin: 20px 20px 20px 20px;
     text-align: center;
+    justify-content: center;
     font-size: 16px;
-    color:black;
-}
-
-.culture-tip .tip-box p{
-    text-align: center;
-    margin-top: 30px;
     color: black;
-    font-size:20px;
+}
+
+.culture-tip .tip-box p {
+    text-align: center;
+    margin: 30px 30px 30px 30px;
+    justify-content: center;
+    color: black;
+    font-size: 20px;
 
 }
 
-.culture-view .image .plus-icon p{
+.culture-view .image .plus-icon p {
     margin-top: 50px;
-    font-size:20px;
-    color:black;
+    font-size: 20px;
+    color: black;
     text-align: center;
 }
 
-.culture-view .image .plus-icon{
-    display:flex;
+.culture-view .image .plus-icon {
+    display: flex;
     justify-content: flex-start;
     flex-direction: column;
-    width:100%;
+    width: 100%;
     height: 90%;
-    align-items: center; 
-    background-color:white;
+    align-items: center;
+    background-color: white;
 
 }
 
 
-.culture-view .image .plus-icon img{
-    margin-top:130px;
-    width:100px;
-    height:100px;
+.culture-view .image .plus-icon img {
+    margin-top: 130px;
+    width: 100px;
+    height: 100px;
 }
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-.culture-view .description form{
-    margin-top:20px;
+.culture-view .description form {
+    margin-top: 20px;
 }
 
-.culture-tip .line h2{
+.culture-tip .line h2 {
     text-align: center;
-    color:white;
+    color: white;
     font-size: 30px;
-    font-weight: bold;;
+    font-weight: bold;
+    ;
 }
 
 
 
-.culture-view .description .button{
+.culture-view .description .button {
     border-radius: 10px;
-    width:70%;
+    width: 70%;
     height: 15%;
-    background-color:#5a0d18;
+    background-color: #5a0d18;
     display: flex;
     justify-content: center;
     align-items: center;
-    box-shadow: 0 10px 20px rgba(0  0 0 0/15%);
+    box-shadow: 0 10px 20px rgba(0 0 0 0/15%);
     margin-bottom: 20%;
 }
 
-.culture-view .description .button:hover{
+.culture-view .description .button:hover {
     letter-spacing: 2px;
-    background-color:#7d2b38;
+    background-color: #7d2b38;
     cursor: pointer;
 }
 
-.culture-view .description h2{
-    margin-top: 20px;
-    text-align:center;
-    font-size:30px;
+.culture-view .description h2 {
+    margin: 20px 20px 20px 20px;
+    justify-content: center;
+    text-align: center;
+    font-size: 30px;
     color: #5a0d18;
-  
+
 }
 
-.edit-culture .edit-button h2{
+.edit-culture .edit-button h2 {
     text-align: center;
-    color:#3a4605;
-    font-size:25px;
+    color: #3a4605;
+    font-size: 25px;
     font-weight: bold;
 }
 
-.sync .button-s h2{
-font-size:18px;
-align-items: center;
-text-align:center;
-color:white;
+.sync .button-s h2 {
+    font-size: 18px;
+    align-items: center;
+    text-align: center;
+    color: white;
 }
 
 
-.culture-view .description .button h2{
-font-size:18px;
-text-align:center;
-color:white;
+.culture-view .description .button h2 {
+    font-size: 18px;
+    text-align: center;
+    color: white;
 }
 
 
 
 
-   .culture-view .description .price h2{
-   font-size:20px;
-   text-align:center;
-   color:#5a0d18;
-   }
+.culture-view .description .price h2 {
+    font-size: 20px;
+    text-align: center;
+    color: #5a0d18;
+}
 
 
 
 
 
-.culture-view .image{
-    display:flex;
+.culture-view .image {
+    display: flex;
     justify-content: center;
     flex-direction: column;
     margin-left: 150px;
-    width:50vw;
+    width: 50vw;
     height: 75vh;
-    align-items: center; 
+    align-items: center;
     box-shadow: 0 15px 25px rgba(0 0 0 0/15%);
     border-radius: 10px;
-    background-color:#bad746;
+    background-color: #bad746;
 }
 
-.culture-view .image .sell{
+.culture-view .image .sell {
     border-radius: 10px;
- margin-top:15px;
- width:25vw;
- height: 50px;
- background-color: var(--darkgreen);
- display: flex;
- justify-content: center;
- align-items: center;
- box-shadow: 0 5px 10px rgba(0 0 0 0/50%);
+    margin-top: 15px;
+    width: 25vw;
+    height: 50px;
+    background-color: var(--darkgreen);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 0 5px 10px rgba(0 0 0 0/50%);
 }
 
-.culture-view .image .sell:hover{
+.culture-view .image .sell:hover {
     letter-spacing: 2px;
     background-color: #606a29;
     cursor: pointer;
 }
 
-.culture-view .image .sell h2{
-font-size:20px;
-text-align:center;
-color:white;
+.culture-view .image .sell h2 {
+    font-size: 20px;
+    text-align: center;
+    color: white;
 }
 
-.culture-view .image .buy{
+.culture-view .image .buy {
     border-radius: 10px;
-    margin-top:10px;
-    width:25vw;
+    margin-top: 10px;
+    width: 25vw;
     height: 50px;
     background-color: var(--vivagreen);
     display: flex;
@@ -1039,12 +1028,12 @@ color:white;
     box-shadow: 0 15px 10px rgba(0 0 0 0 /50%);
 }
 
-.culture-view .image .interested{
+.culture-view .image .interested {
     border-radius: 10px;
-    margin-top:15px;
-    width:20vw;
+    margin-top: 15px;
+    width: 20vw;
     height: 30px;
-    background-color:#beddac;
+    background-color: #beddac;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -1053,80 +1042,80 @@ color:white;
 }
 
 
-.culture-view .image .buy:hover{
+.culture-view .image .buy:hover {
     letter-spacing: 2px;
-    background-color:#476627;
+    background-color: #476627;
     cursor: pointer;
 }
 
-.culture-view .image .buy h2{
-font-size:25px;
-text-align:center;
-color:white;
+.culture-view .image .buy h2 {
+    font-size: 25px;
+    text-align: center;
+    color: white;
 }
 
 
-.culture-view .image .interested:hover{
+.culture-view .image .interested:hover {
     letter-spacing: 2px;
-    background-color:#dcf5cb;
+    background-color: #dcf5cb;
     cursor: pointer;
 }
 
-.culture-view .image .interested h2{
-font-size:20px;
-text-align:center;
-color:#182d03;
+.culture-view .image .interested h2 {
+    font-size: 20px;
+    text-align: center;
+    color: #182d03;
 }
 
 
 
-.culture-tip{
-    height:50vh;
-    width:100vw;
+.culture-tip {
+    height: 50vh;
+    width: 100vw;
     display: flex;
     justify-content: flex-start;
     align-items: center;
     flex-direction: column;
-    background-color:#ffb7c7;
+    background-color: #ffb7c7;
     box-shadow: 0 15px 25px rgba(0 0 0 0/50%);
 
 }
 
-.culture-tip .line{
+.culture-tip .line {
     display: flex;
     justify-content: center;
     align-items: center;
     flex-direction: column;
-    background-color:var(--darkerstpink);
-    height:15%;
-    width:100%;
+    background-color: var(--darkerstpink);
+    height: 15%;
+    width: 100%;
 }
 
-.culture-tip .tip-box{
+.culture-tip .tip-box {
     border-radius: 10px;
-    margin-top: 30px;;
-    width:70vw;
+    margin: 30px 30px 30px 30px;
+    width: 70vw;
     height: auto;
     display: flex;
     justify-content: center;
     align-items: center;
     flex-direction: column;
     background-color: white;
- box-shadow: 0 15px 25px rgba(0 0 0 0/50%);
+    box-shadow: 0 15px 25px rgba(0 0 0 0/50%);
 }
 
 
-.edit-culture{
+.edit-culture {
     margin-top: 30px;
-    height:20vh;
-    width:100vw;
+    height: 20vh;
+    width: 100vw;
     display: flex;
     justify-content: center;
     align-items: center;
     flex-direction: column;
 }
 
-.edit-culture .edit-button{
+.edit-culture .edit-button {
     border-radius: 10px;
     height: 50%;
     width: 20%;
@@ -1140,35 +1129,35 @@ color:#182d03;
 
 
 
-.edit-culture .edit-button:hover{
-    background-color:#e1fc77 ;
+.edit-culture .edit-button:hover {
+    background-color: #e1fc77;
     cursor: pointer;
 }
 
-.sync{
-    margin-top:90px;
-    height:20vh;
-    width:100vw;
+.sync {
+    margin-top: 90px;
+    height: 20vh;
+    width: 100vw;
     display: flex;
     justify-content: flex-end;
     align-items: center;
     flex-direction: column;
 }
 
-.sync .button-s{
+.sync .button-s {
     border-radius: 10px;
-    width:20%;
+    width: 20%;
     height: 50%;
-    background-color:#9f4252;
+    background-color: #9f4252;
     display: flex;
     justify-content: center;
     align-items: center;
-     box-shadow: 0 5px 10px rgba(0 0 0 0/50%);
+    box-shadow: 0 5px 10px rgba(0 0 0 0/50%);
 }
 
-.sync .button-s:hover{
+.sync .button-s:hover {
     letter-spacing: 2px;
-    background-color:var(--darkpink);
+    background-color: var(--darkpink);
     cursor: pointer;
 }
 
@@ -1239,32 +1228,32 @@ color:#182d03;
 
 
 /* other */
-@media (width <=1024px){
-    .culture-view .description form{
+@media (width <=1024px) {
+    .culture-view .description form {
         width: 80%;
     }
 
 }
 
-@media (width <=990px){
-    html{
+@media (width <=990px) {
+    html {
         font-size: 55%;
     }
 
-    .header{
-        padding:1.5rem 2rem;
+    .header {
+        padding: 1.5rem 2rem;
         display: flex;
         justify-content: space-between;
         align-items: center;
     }
 
-    section{
-        padding:2rem;
+    section {
+        padding: 2rem;
     }
-    
-    .header .navbar a{
-        margin:0 0.4rem;
-        margin-left:40px;
+
+    .header .navbar a {
+        margin: 0 0.4rem;
+        margin-left: 40px;
         font-size: 20px;
 
     }
@@ -1276,140 +1265,142 @@ color:#182d03;
     }
 
 
-    .header .icons div:first-child{
+    .header .icons div:first-child {
         margin-left: 15px;
     }
 
-    .header .icons div:last-child{
+    .header .icons div:last-child {
         margin-right: 10px;
     }
 
-    .culture-view{
-        margin-top:60px;
+    .culture-view {
+        margin-top: 60px;
         display: flex;
         justify-content: center;
         align-items: center;
         flex-direction: column;
         height: 100vh;
-        width:100%;
+        width: 100%;
     }
 
-    .culture-view .image{
-        margin-top:80px;
-        margin-left:20px;
-        width:90vw;
+    .culture-view .image {
+        margin-top: 80px;
+        margin-left: 20px;
+        width: 90vw;
         height: 75vh;
-        align-items: center; 
+        align-items: center;
 
     }
-    
-.culture-view .image .plus-icon{
-    display:flex;
-    justify-content: flex-start;
-    flex-direction: column;
-    width:100%;
-    height: 90%;
-    align-items: center; 
-    background-color:white;
 
+    .culture-view .image .plus-icon {
+        display: flex;
+        justify-content: flex-start;
+        flex-direction: column;
+        width: 100%;
+        height: 90%;
+        align-items: center;
+        background-color: white;
+
+    }
+
+    .culture-view .image .plus-icon img {
+        margin-top: 30px;
+        width: 50px;
+        height: 50px;
+    }
+
+    .sync {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+
+    }
+
+    .sync .button-s {
+        margin-left: 0;
+        width: 60%;
+        height: 50%;
+        background-color: #9f4252;
+
+    }
+
+
+    .culture-tip .tip-box p {
+        font-size: 30px;
+    }
+
+
+    .culture-view .description {
+        margin-left: 20px;
+        margin-top: 30px;
+        width: 90vw;
+        height: 100vh;
+    }
+
+    .culture-view .description .button h2 {
+        text-align: center;
+    }
+
+
+
+    .culture-view .image .sell {
+        width: 50%;
+        margin-bottom: 5px;
+        ;
+    }
+
+    .culture-view .description .price {
+        width: 50%;
+    }
+
+    .culture-tip {
+        margin-left: 32px;
+        width: 90vw;
+    }
+
+    .culture-tip .tip-box {
+        margin: auto;
+        width: 80vw;
+
+    }
+
+
+    .edit-culture {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .edit-culture .edit-button {
+        width: 70vw;
+        margin-right: 20px;
+    }
 }
 
-.culture-view .image .plus-icon img{
-    margin-top:30px;
-    width:50px;
-    height:50px;
-}
-
-.sync{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
-
-}
-
-.sync .button-s{
-    margin-left: 0;
-    width:60%;
-    height: 50%;
-    background-color:#9f4252;
-   
-}
-
-
-.culture-tip .tip-box p{
-    font-size: 30px;
-}
-
-    
-.culture-view .description{
-    margin-left:20px;
-    margin-top: 30px;
-    width: 90vw;
-    height: 100vh;
-}
-
-.culture-view .description .button h2{
-    text-align: center;
-}
-
-
-
-.culture-view .image .sell{
-    width:50%;
-    margin-bottom: 5px;;
-}
-
-.culture-view .description .price{
-    width:50%;
-} 
-
-.culture-tip{
-    margin-left:32px;
-    width: 90vw;
-}
-
-.culture-tip .tip-box{
-    margin: auto;
-    width:80vw;
-
-}
-
-
-.edit-culture{
-    display:flex;
-    align-items: center;
-    justify-content: center;
-}
-
-.edit-culture .edit-button{
-    width: 70vw;
-    margin-right: 20px;
-}
-}
-
-@media (width <=768px){
-    #menu-btn{
+@media (width <=768px) {
+    #menu-btn {
         display: inline-block;
     }
 
-    .header .navbar{
+    .header .navbar {
         position: absolute;
-        top:100%; right: -100%;
+        top: 100%;
+        right: -100%;
         background: #fff;
         width: 30rem;
         height: calc(100vh - 9.5rem);
     }
 
-    .header .navbar.active{
-        right:0;
+    .header .navbar.active {
+        right: 0;
     }
 
-    .header .navbar a{
-        color:var(--black);
+    .header .navbar a {
+        color: var(--black);
         display: block;
-        margin:1.5rem;
-        padding:.5rem;
+        margin: 1.5rem;
+        padding: .5rem;
         font-size: 2rem;
     }
 
@@ -1417,127 +1408,127 @@ color:#182d03;
         font-size: 20px;
     }
 
-    .header .icons div:first-child{
+    .header .icons div:first-child {
         margin-left: 500px;
     }
-    
-    
+
+
 }
 
-@media (width <=540px)
-{
-    .header .icons div:first-child{
+@media (width <=540px) {
+    .header .icons div:first-child {
         margin-left: 200px;
     }
 
-    .culture-view{
-        margin-top:60px;
+    .culture-view {
+        margin-top: 60px;
         display: flex;
         justify-content: center;
         align-items: center;
         flex-direction: column;
         height: 100vh;
-        width:100%;
+        width: 100%;
     }
-    
-		.culture-view .image{
-        margin-top:80px;
-        margin-left:10px;
-        width:80vw;
+
+    .culture-view .image {
+        margin-top: 80px;
+        margin-left: 10px;
+        width: 80vw;
         height: 75vh;
-        align-items: center; 
+        align-items: center;
 
     }
-    
-.culture-view .image .plus-icon{
-    display:flex;
-    justify-content: flex-start;
-    flex-direction: column;
-    width:100%;
-    height: 90%;
-    align-items: center; 
-    background-color:white;
+
+    .culture-view .image .plus-icon {
+        display: flex;
+        justify-content: flex-start;
+        flex-direction: column;
+        width: 100%;
+        height: 90%;
+        align-items: center;
+        background-color: white;
+
+    }
+
+    .culture-view .image .plus-icon img {
+        margin-top: 30px;
+        width: 50px;
+        height: 50px;
+    }
+
+    .sync {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+
+    }
+
+    .sync .button-s {
+        margin-left: 0;
+        margin-right: 7px;
+        width: 60%;
+        height: 50%;
+        background-color: #9f4252;
+
+    }
+
+    .culture-view .description {
+        margin-left: 10px;
+        margin-top: 30px;
+        width: 80vw;
+        height: 100vh;
+    }
+
+    .culture-view .description .button h2 {
+        text-align: center;
+    }
+
+
+    .culture-view .image .sell {
+        width: 50%;
+        margin-bottom: 5px;
+        ;
+    }
+
+    .culture-view .description .price {
+        width: 50%;
+    }
+
+    .culture-tip {
+        margin-left: 13px;
+        width: 90vw;
+    }
+
+    .culture-tip .tip-box {
+        margin: auto;
+        width: 80vw;
+
+    }
+
+    .culture-tip .tip-box p {
+        font-size: 15px;
+    }
+
+    .edit-culture {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .edit-culture .edit-button {
+        width: 70vw;
+    }
+
 
 }
 
-.culture-view .image .plus-icon img{
-    margin-top:30px;
-    width:50px;
-    height:50px;
-}
-
-.sync{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
-
-}
-
-.sync .button-s{
-    margin-left: 0;
-    margin-right: 7px;
-    width:60%;
-    height: 50%;
-    background-color:#9f4252;
-   
-}
-    
-.culture-view .description{
-    margin-left:10px;
-    margin-top: 30px;
-    width: 80vw;
-    height: 100vh;
-}
-
-.culture-view .description .button h2{
-    text-align: center;
-}
-
-
-.culture-view .image .sell{
-    width:50%;
-    margin-bottom: 5px;;
-}
-
-.culture-view .description .price{
-    width:50%;
-} 
-
-.culture-tip{
-    margin-left:13px;
-    width: 90vw;
-}
-
-.culture-tip .tip-box{
-    margin: auto;
-    width:80vw;
-
-}
-
-.culture-tip .tip-box p{
-    font-size: 15px;
-}
-
-.edit-culture{
-    display:flex;
-    align-items: center;
-    justify-content: center;
-}
-
-.edit-culture .edit-button{
-    width: 70vw;
-}
-
-
-}
-
-@media (width <=450px){
-    .header .icons div:first-child{
+@media (width <=450px) {
+    .header .icons div:first-child {
         margin-left: 10px;
     }
-		
-    .culture-view .description form{
+
+    .culture-view .description form {
         width: 80%;
     }
 

@@ -447,8 +447,46 @@ button .fas{
 
 
 
+/* culture view */
+.culture-view{
+    margin-top:90px;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    flex-direction: row;
+    height: 100vh;
+    width:100%;
+}
 
+  .description{
+    width: 78%;
+    margin: auto;
+    margin-top: 150px;
+    margin-bottom: 20px;
+    display: flex;
+    align-items:center;
+    background-color: #b0b06a;
+    background-repeat: no-repeat;
+    background-position: 0 0.62em;
+    box-shadow: 0 0 2.5em rgb(0 0 0 / 15%);
+    border-radius: 0.5em;
+}
 
+.culture-view .description{
+    margin-left: 40px;
+    width:25vw;
+    height: 60vh;
+    border-bottom: solid  var(--darkerstpink);
+    border-top: solid  var(--darkerstpink);
+    border-width: 10px;
+    box-shadow: 0 15px 25px rgb(0 0 0 / 50%);
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    flex-direction: column;
+    border-radius: 10px;
+    
+}
 
 .buy-card p {
     margin: 20px 5px;
@@ -457,7 +495,21 @@ button .fas{
     color: #625a71;
 }
 
+.culture-view .description p{
+    margin-top:20px;
+    text-align: center;
+    font-size: 16px;
+    color:black;
+}
 
+.culture-tip .tip-box p{
+    text-align: center;
+    justify-content: center;
+    margin: 30px;
+    color: black;
+    font-size:20px;
+
+}
 
   .about-us .about-card p {
 	font-weight: 300;
@@ -466,17 +518,84 @@ button .fas{
 	letter-spacing: 2px;
   }
 
+.culture-view .image .plus-icon p{
+    margin-top: 50px;
+    font-size:20px;
+    color:black;
+    text-align: center;
+}
 
+.culture-view .image .plus-icon{
+    display:flex;
+    justify-content: flex-start;
+    flex-direction: column;
+    width:100%;
+    height: 90%;
+    align-items: center; 
+    background-color:white;
+}
+
+.culture-view .image img{
+    margin-top:20px;
+    width:100%;
+    height:80%;
+}
 
   .about-us .about-card img {
 	width: 100%;
 	border-radius: 50%;
   }
 
+.culture-view .image .plus-icon img{
+    margin-top:130px;
+    width:100px;
+    height:100px;
+}
 
+.culture-view .description form{
+    margin-top:20px;
+}
 
+.culture-view .description .button{
+    border-radius: 10px;
+    width:70%;
+    height: 10%;
+    background-color:#5a0d18;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 0 10px 20px rgb(0 0 0 / 50%);
+    margin-bottom: 20%;
+}
 
+.culture-view .description .button:hover{
+    letter-spacing: 2px;
+    background-color:#7d2b38;
+    cursor: pointer;
+}
 
+.culture-view .description h2{
+    margin-top: 10px;
+    margin-bottom: 10px;
+    text-align:center;
+    font-size:30px;
+    color: #5a0d18;
+  
+}
+
+.culture-tip .line h2{
+    text-align: center;
+    color:white;
+    font-size: 30px;
+    font-weight: bold;;
+}
+
+.edit-culture .edit-button h2{
+    text-align: center;
+    color:#3a4605;
+    font-size:25px;
+    font-weight: bold;
+}
 
 .see-details .see-details-button h2{
     margin: auto;
@@ -494,7 +613,186 @@ button .fas{
     font-weight: bold;
 }
 
+.culture-view .description .button h2{
+font-size:18px;
+align-items: center;
+text-align:center;
+color:white;
+}
 
+.culture-view .description .price{
+    margin-top: 20px;
+    margin-bottom: 20px;
+    width:20vw;
+    height: 50px;
+    background-color:#f9dee5;
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    align-items: center;
+    box-shadow: 0 5px 10px rgb(0 0 0 / 50%);
+   }
+
+   .culture-view .description .price h2{
+   font-size:20px;
+   text-align:center;
+   color:#5a0d18;
+   }
+
+.culture-view .image{
+    display:flex;
+    justify-content: center;
+    flex-direction: column;
+    margin-left: 150px;
+    width:50vw;
+    height: 75vh;
+    align-items: center; 
+    box-shadow: 0 15px 25px rgb(0 0 0 / 50%);
+    border-radius: 10px;
+    background-color:#bad746;
+}
+
+.culture-view .image .sell{
+    border-radius: 10px;
+ margin-top:15px;
+ width:25vw;
+ height: 50px;
+ background-color: var(--darkgreen);
+ display: flex;
+ justify-content: center;
+ align-items: center;
+ box-shadow: 0 5px 10px rgb(0 0 0 / 50%);
+}
+
+.culture-view .image .sell:hover{
+    letter-spacing: 2px;
+    background-color: #606a29;
+    cursor: pointer;
+}
+
+.culture-view .image .sell h2{
+font-size:20px;
+text-align:center;
+color:white;
+}
+
+.culture-view .image .buy{
+    border-radius: 10px;
+    margin-top:10px;
+    width:25vw;
+    height: 50px;
+    background-color: var(--vivagreen);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 0 15px 10px rgb(0 0 0 / 50%);
+}
+
+.culture-view .image .interested{
+    border-radius: 10px;
+    margin-top:15px;
+    width:20vw;
+    height: 30px;
+    background-color:#beddac;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 0 5px 10px rgb(0 0 0 / 50%);
+    margin-bottom: 10px;
+}
+
+
+.culture-view .image .buy:hover{
+    letter-spacing: 2px;
+    background-color:#476627;
+    cursor: pointer;
+}
+
+.culture-view .image .buy h2{
+font-size:25px;
+text-align:center;
+color:white;
+}
+
+
+.culture-view .image .interested:hover{
+    letter-spacing: 2px;
+    background-color:#dcf5cb;
+    cursor: pointer;
+}
+
+.culture-view .image .interested h2{
+font-size:20px;
+text-align:center;
+color:#182d03;
+}
+
+
+
+.culture-tip{
+    height:50vh;
+    width:100vw;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    flex-direction: column;
+    background-color:#ffb7c7;
+    box-shadow: 0 15px 25px rgb(0 0 0 / 50%);
+
+}
+
+.culture-tip .line{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    background-color:var(--darkerstpink);
+    height:15%;
+    width:100%;
+}
+
+.culture-tip .tip-box{
+    border-radius: 10px;
+    margin-top: 30px;
+    margin-bottom: 30px;
+    width:70vw;
+    height: auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    background-color: white;
+ box-shadow: 0 15px 25px rgb(0 0 0 / 50%);
+}
+
+.edit-culture{
+    margin-top: 30px;
+    height:20vh;
+    width:100vw;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.edit-culture .edit-button{
+    border-radius: 10px;
+    height: 50%;
+    width: 20%;
+    background-color: #d7ff35;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    box-shadow: 0 5px 10px rgb(0 0 0 / 50%);
+}
+
+
+
+.edit-culture .edit-button:hover{
+    background-color:#e1fc77 ;
+    cursor: pointer;
+}
 
 @media screen and (width >=10px) {
     .mycultures-container section {
@@ -791,9 +1089,4 @@ button .fas{
     padding: 1em;
     font-weight: 600;
     color: var(--darkgreen);
-  
-}
-
-.description li:first-child{
-    margin-top: 120px;
 }
