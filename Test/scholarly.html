@@ -11,29 +11,8 @@
 
 <body prefix="schema: http://schema.org">
     <header>
-        <div class="banner">
-            <img src="scholarly-html.svg" width="227" height="50" alt="Scholarly HTML logo">
-            <div class="status">Community Draft</div>
-        </div>
         <h1>Scholarly HTML</h1>
     </header>
-    <!--
-      XXX
-      - check refs
-      - the math example has too much maths
-      - bring back some of the old style
-      - make semantics, validation, processing sub-sections of each structural element
-      - have a section before that for general constructs
-        - explain why use RDFa
-        - explain our patterns: RDFa, roles
-      - figure captions need to get set throughout
-      - dedication? see doc-dedication
-      - syntactic constraints (prefix)
-      - needs more sthenurines
-      - examples of everything
-      - some notes on using Semantic CSS
-      - needs more RDFa in the spec itself
-    -->
     <div role="contentinfo">
         <dl>
             <dt>Authors</dt>
@@ -47,7 +26,8 @@
     <section typeof="sa:Abstract" id="abstract" role="doc-abstract">
         <h2>Abstract</h2>
         <p>
-            Acest document descrie cum WeGa (Web Gardening) 2023 funcționează, ce a fost detalii au fost implementate și
+            Acest document descrie cum aplicația Web - WeGa (Web Gardening) 2023 - funcționează, ce a fost detalii au
+            fost implementate și
             cum va evolua în continuare.
         </p>
     </section>
@@ -89,6 +69,20 @@
 
     </section>
     <section id="structure">
+        <h2>Motivație</h2>
+        <p>
+            Am ales acest proiect deoarece ni s-a părut interesantă ideea și am vrut să vedem cum o putem pune în
+            practică. În ceea ce privește luarea deciziilor s-au considerat:
+            <ul>
+                <li>o paletă de culori potrivită temei;</li>
+                <li>integrarea unor sectiuni interactive;</li>
+                <li>creearea paginilor necesare funcționări site-uli;</li>
+                <li>menținerea unei corențe în cadrul aplicației.</li>
+            </ul>
+    
+        </p>
+    </section>
+    <section id="structure">
         <h2>Structură</h2>
         <p>
             Documentul nostru este momentan compus din următoarele:
@@ -97,6 +91,8 @@
             <li>Home (index.html) = pagina principala a aplicatiei.</li>
             <li>Buy (buy.html) = pagina unde utilizatori pot achizitiona culturi.</li>
             <li>My Cultures (mycultures.html) = pagina unde utilizatori își pot monitoriza culturile.</li>
+            <li>Culture Template (oneculture.html) = template cum pagina culturilor va arata.</li>
+            <li>Empty Culture Template (new.html) = template cum pagina culturilor goale va arata.</li>
             <li>Account (account.html) = pagina de unde utilizatorul se poate conecta, creea cont.</li>
             <li>About (about.html) = pagina care conține câteva detalii despre proiect și fondatori.</li>
             <li>Help (help.html) = pagina unde utilizatori pot găsii tutoriale despre caracteristicile aplicatiei.</li>
@@ -157,68 +153,18 @@
                 <br>
             <details>
                 <summary><b>Apăsați - Codul pentru Header</b></summary>
-                <pre><code>
-&lt;header class="header">
-    a href="index.html" class="logo"> 
-    &lt;script src="https://cdn.lordicon.com/ritcuqlt.js">&lt;/script>
-     &lt;lord-icon src="https://cdn.lordicon.com/zrvxzslu.json" trigger="hover" style="width:70px;height:70px">
-    &lt;/lord-icon> 
-    &lt;p style="color: white; font-size: 12px; font-family: 'Roboto', sans-serif; margin-left: 7px"> WEB GARDENing
-            &lt;/p> 
-    &lt;/a> 
-    &lt;nav class="navbar"> 
-         &lt;a href="index.html">Home&lt;/a>  
-         &lt;a href="#buy">Buy&lt;/a> 
-         &lt;a href="mycultures.html">MyCultures&lt;/a> 
-         &lt;a href="account.html">Account&lt;/a> 
-        &lt;a href="#help">Help&lt;/a> 
- &lt;/nav> 
-&lt;div class="icons"> 
-    &lt;div class="fas fa-shopping-cart" id="cart-btn">&lt;/div> 
-    &lt;div class="fas fa-bars" id="menu-btn">&lt;/div> 
-    &lt;div class="fas fa-solid fa-user" id="account">&lt;/div> 
- &lt;/div> 
-&lt;div class="search-form"> 
-    &lt;input type="search" id="search-box" placeholder="search here..."> 
-    &lt;label for="search-box" class="fas fa-search">&lt;/label> 
-&lt;/div> 
-&lt;div class="cart-items-container"> 
-    &lt;div class="cart-item"> 
-        &lt;span class="fas fa-times">&lt;/span> 
-        &lt;img src="images/cart-item-1.png" alt=""> 
-        &lt;div class="content"> 
-            &lt;h3>cart item 01&lt;/h3> 
-            &lt;div class="price">$15.99/-&lt;/div> 
-        &lt;/div> 
-    &lt;/div> 
-    &lt;div class="cart-item"> 
-        &lt;span class="fas fa-times">&lt;/span> 
-        &lt;img src="images/cart-item-2.png" alt=""> 
-        &lt;div class="content">
-            &lt;h3>cart item 02&lt;/h3> 
-            &lt;div class="price">$15.99/-&lt;/div> 
-        &lt;/div>
-    &lt;/div>
-    &lt;div class="cart-item"> 
-        &lt;span class="fas fa-times">&lt;/span> 
-        &lt;img src="images/cart-item-3.png" alt=""> 
-        &lt;div class="content"> 
-            &lt;h3>cart item 03&lt;/h3> 
-                &lt;div class="price">$15.99/-&lt;/div> 
-            &lt;/div> 
-        &lt;/div> 
-        &lt;div class="cart-item"> 
-            &lt;span class="fas fa-times">&lt;/span> 
-            &lt;img src="images/cart-item-4.png" alt=""> 
-            &lt;div class="content"> 
-                 &lt;h3>cart item 04&lt;/h3> 
-                &lt;div class="price">$15.99/-&lt;/div> 
-        &lt;/div> 
-        &lt;/div> 
-        &lt;a href="#" class="btn">My Basket&lt;/a> 
-    &lt;/div> 
-&lt;/header> 
-                 </code></pre>
+                <details>
+                    <summary>-- Codul HTML --</summary>
+                    <pre><code>
+
+
+                </code></pre>
+                </details>
+                <details>
+                    <summary>-- Codul CSS --</summary>
+                    <pre><code>
+                </code></pre>
+                </details>
             </details>
 
             </p>
@@ -499,9 +445,8 @@ button .fas{
                 De asemenea, fiecare cartonaș cu culturi are o poză cu aceasta, o scurta descriere a producătorului și
                 stagiul de creștere. În cazul în care acesta dorește să caute o cultură anume, se poate folosi de bara
                 de cautare.
-                <img src="photo/buy-1.png" style="width:100%; height: auto; margin: 20px 20px;">
-                <br>
-                <img src="photo/buy-2.png" style="width:100%; height: auto;">
+                <img src="photo/buy-1.png" style="width:100%; height: auto; margin: 20px 20px 0 0;">
+                <img src="photo/buy-2.png" style="width:100%; height: auto; margin: 0 20px 0 0;">
             <details>
                 <summary><b>1. Apăsați - Codul pentru Search Bar</b></summary>
                 <details>
@@ -632,166 +577,839 @@ button .fas{
             </p>
         </section>
     </section>
+    <section id="Root">
+        <h3>III. My Culture Page</h3>
+        <section id="Article">
+            <p>
+                În cadrul paginii Cultures userul își poate monitoriza culturile utilizând o interfață interactivă și
+                simplă. Printr-o apăsare a Culturii se va deschide subpagina specifică, care va oferii toate detaliile
+                și sfaturile pentru cultivare. Pentru a adauga una nouă, el va apăsa pe secțiunea cu plus. Pentru a i se
+                deschide o pagină noua de completat.
+                <img src="photo/Cultures-1.png" style="width:100%; height: auto; margin: 20px 20px 0 0;">
+                <img src="photo/Cultures-2.png" style="width:100%; height: auto; margin: 0px 20px 0 0;">
+            <details>
+                <summary><b>1. Apăsați - Codul pentru Culture Card</b></summary>
+                <details>
+                    <summary>-- Codul HTML --</summary>
+                    <pre><code>
+&lt;div class="culture-column">
+    &lt;div class="culture-card">
+        &lt;div class="plus">
+         &lt;img src="photo/plus.png" alt=""/>
+    &lt;/div>
+        &lt;p>
+            Press to introduce details about a NEW culture.
+        &lt;/p>
+    &lt;/div>
+&lt;/div>
+                </code></pre>
+                </details>
+                <details>
+                    <summary>-- Codul CSS --</summary>
+                    <pre><code>
+.mycultures-container {
+    display: flex;
+    flex: 0 0 33%;
+    justify-content: space-evenly;
+    align-items:center;
+    flex-direction: column;
+    height: auto;
+    padding-top: 150px;
+    margin-bottom: 0;
+}
+
+.mycultures-container h2 {
+    color: var(--darkgreen);
+    font-weight: bold;
+    font-size: 25px;
+    margin-bottom: 30px;
+}
+
+.culture-row {
+    display: flex;
+    flex: 0 0 33%;
+    flex-wrap: wrap;
+    width: 90%;
+    justify-content: space-evenly;
+    align-items: center;
+    margin: 0 auto;
+}
+
+.mycultures-container h1,
+.row-title h1 {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    text-align: center;
+    font-size: 2em;
+    margin: 0.6em 0;
+    padding-bottom: auto 10px auto auto;
+    font-weight: 600;
+    color: var(--darkgreen);
+}
+
+
+.culture-column {
+    display: flex;
+    justify-content: space-evenly;
+    padding: 2em;
+}
+
+.culture-card {
+    padding: 1.25em;
+    height: 300px;
+    text-align: center;
+    background: linear-gradient(0deg, #7f981b 20px, transparent 10px);
+    background-repeat: no-repeat;
+    background-position: 0 0.62em;
+    box-shadow: 0 0 2.5em rgb(0 0 0 / 15%);
+    border-radius: 0.5em;
+    transition: 0.5s;
+    cursor: pointer;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.culture-card .culture-icon {
+    font-size: 2.5em;
+    height: 2.5em;
+    width: 2.5em;
+    margin: auto;
+    background-color: #b0b06a;
+    display: grid;
+    place-items: center;
+    border-radius: 50%;
+    color: #fff;
+}
+
+.culture-icon::before {
+    position: absolute;
+    content: "";
+    height: 1.5em;
+    width: 1.5em;
+    border: 0.12em solid #7f981b;
+    border-radius: 50%;
+    transition: 0.5s;
+}
+
+.culture-card h3 {
+    font-size: 1.3em;
+    margin: 1em 0 1.4em;
+    font-weight: 600;
+    letter-spacing: 0.3px;
+    color: #070024;
+}
+
+.culture-card p {
+    margin: 20px 5px;
+    line-height: 2em;
+    text-align: justify;
+    color: #625a71;
+}
+
+.culture-card:hover {
+    background-position: 0;
+}
+
+.culture-card:hover .culture-icon::before {
+    height: 2.25em;
+    width: 2.25em;
+}
+
+.culture-card img{
+    margin-top: 20px;
+    flex-direction: column;
+    width:150px;
+    height:150px;
+        border-radius: 0.5em;
+}
+
+.buy-card img{
+    display: flex;
+    margin-top: 10px;
+    flex-direction: column;
+    width:80%;
+    border-radius: 0.5em;
+}
+
+.culture-card .plus img{
+    margin-top: 40px;
+    flex-direction: column;
+    width:30px;
+    height:30px;
+
+}
+                </code></pre>
+                </details>
+            </details>
+            <details>
+                <summary><b>2. Apăsați - Codul pentru Search Bar</b></summary>
+                <details>
+                    <summary>-- Codul HTML --</summary>
+                    <pre><code>
+&lt;div class="wrap">
+    &lt;div class="search">
+        &lt;input type="text" class="search-term" placeholder="What culture are you looking for?">
+        &lt;button type="submit" class="search-button">
+            &lt;i class="fa fa-search">&lt;/i>
+        &lt;/button>
+    &lt;/div>
+&lt;/div>
+                </code></pre>
+                </details>
+                <details>
+                    <summary>-- Codul CSS --</summary>
+                    <pre><code>
+.search {
+    width: 100%;
+    height: 40px;
+    padding: 5px;
+    padding-bottom: 20px;
+    margin-bottom: 20px;
+    display: flex;
+  }
+  
+.search-term {
+    width: 100%;
+    border: 3px solid #b62f4f;
+    border-right: none;
+    padding: 5px;
+    height: 36px;
+    border-radius: 5px 0 0 5px;
+    outline: none;
+    color: #da6e88;
+  }
+  
+.search-term:focus{
+    color: #b62f4f;
+  }
+  
+.search-button {
+    width: 40px;
+    height: 36px;
+    border: 1px solid #b62f4f;
+    background: #da6e88;
+    text-align: center;
+    color: #fff;
+    border-radius: 0 5px 5px 0;
+    cursor: pointer;
+    font-size: 20px;
+  }
+  
+.wrap{
+    width: 88%;
+    top: 50%;
+    left: 50%;
+  }
+                </code></pre>
+                </details>
+                </p>
+        </section>
+    </section>
+    <section id="Root">
+        <h3>IV. A culture Page</h3>
+        <section id="Article">
+            <p>
+                Fiecare cultura a utilizatorului are o pagina dedicata, care va contine imagini cu cultura, pretul pe
+                care aceste il doreste, sfaturi despre cultivare si analiza senzorilor. Fiecare user are posibilitatea
+                de a-și edita pagina după cum crede de cuvinta.
+                <img src="photo/Cultures-1.png" style="width:100%; height: auto; margin: 20px 20px 0 0;">
+                <img src="photo/Cultures-2.png" style="width:100%; height: auto; margin: 0px 20px 0 0;">
+            <details>
+                <summary><b>1. Apăsați - Codul pentru x</b></summary>
+                <details>
+                    <summary>-- Codul HTML --</summary>
+                    <pre><code>
+
+
+                </code></pre>
+                </details>
+                <details>
+                    <summary>-- Codul CSS --</summary>
+                    <pre><code>
+                </code></pre>
+                </details>
+            </details>
+            <details>
+                <summary><b>2. Apăsați - Codul pentru x</b></summary>
+                <details>
+                    <summary>-- Codul HTML --</summary>
+                    <pre><code>
+
+
+                </code></pre>
+                </details>
+                <details>
+                    <summary>-- Codul CSS --</summary>
+                    <pre><code>
+                </code></pre>
+                </details>
+            </details>
+            <details>
+                <summary><b>3. Apăsați - Codul pentru x</b></summary>
+                <details>
+                    <summary>-- Codul HTML --</summary>
+                    <pre><code>
+
+
+                </code></pre>
+                </details>
+                <details>
+                    <summary>-- Codul CSS --</summary>
+                    <pre><code>
+                </code></pre>
+                </details>
+            </details>
+            <details>
+                <summary><b>4. Apăsați - Codul pentru x</b></summary>
+                <details>
+                    <summary>-- Codul HTML --</summary>
+                    <pre><code>
+
+
+                </code></pre>
+                </details>
+                <details>
+                    <summary>-- Codul CSS --</summary>
+                    <pre><code>
+                </code></pre>
+                </details>
+            </details>
+            </p>
+        </section>
+    </section>
+    <section id="Root">
+        <h3>V. Empty Culture Page</h3>
+        <section id="Article">
+            <p>
+                Când utilizatorul dorește să introducă o nouă cultură el va ajunge la pagina aceasta:
+                <img src="photo/Cultures-1.png" style="width:100%; height: auto; margin: 20px 20px 0 0;">
+                <img src="photo/Cultures-2.png" style="width:100%; height: auto; margin: 0px 20px 0 0;">
+            <details>
+                <summary><b>1. Apăsați - Codul pentru x</b></summary>
+                <details>
+                    <summary>-- Codul HTML --</summary>
+                    <pre><code>
+
+
+                </code></pre>
+                </details>
+                <details>
+                    <summary>-- Codul CSS --</summary>
+                    <pre><code>
+                </code></pre>
+                </details>
+            </details>
+            <details>
+                <summary><b>2. Apăsați - Codul pentru x</b></summary>
+                <details>
+                    <summary>-- Codul HTML --</summary>
+                    <pre><code>
+
+
+                </code></pre>
+                </details>
+                <details>
+                    <summary>-- Codul CSS --</summary>
+                    <pre><code>
+                </code></pre>
+                </details>
+            </details>
+            <details>
+                <summary><b>3. Apăsați - Codul pentru x</b></summary>
+                <details>
+                    <summary>-- Codul HTML --</summary>
+                    <pre><code>
+
+
+                </code></pre>
+                </details>
+                <details>
+                    <summary>-- Codul CSS --</summary>
+                    <pre><code>
+                </code></pre>
+                </details>
+            </details>
+            <details>
+                <summary><b>4. Apăsați - Codul pentru x</b></summary>
+                <details>
+                    <summary>-- Codul HTML --</summary>
+                    <pre><code>
+
+
+                </code></pre>
+                </details>
+                <details>
+                    <summary>-- Codul CSS --</summary>
+                    <pre><code>
+                </code></pre>
+                </details>
+            </details>
+            </p>
+        </section>
+    </section>
+    <section id="Root">
+        <h3>VI. Buy Culture Page</h3>
+        <section id="Article">
+            <p>
+                Când utilizatorul dorește să cumpere sau urmărească cultură el va apăsa pe See Details și va ajunge la
+                pagina aceasta:
+                <img src="photo/Cultures-1.png" style="width:100%; height: auto; margin: 20px 20px 0 0;">
+                <img src="photo/Cultures-2.png" style="width:100%; height: auto; margin: 0px 20px 0 0;">
+            <details>
+                <summary><b>1. Apăsați - Codul pentru x</b></summary>
+                <details>
+                    <summary>-- Codul HTML --</summary>
+                    <pre><code>
+
+
+                </code></pre>
+                </details>
+                <details>
+                    <summary>-- Codul CSS --</summary>
+                    <pre><code>
+                </code></pre>
+                </details>
+            </details>
+            <details>
+                <summary><b>2. Apăsați - Codul pentru x</b></summary>
+                <details>
+                    <summary>-- Codul HTML --</summary>
+                    <pre><code>
+
+
+                </code></pre>
+                </details>
+                <details>
+                    <summary>-- Codul CSS --</summary>
+                    <pre><code>
+                </code></pre>
+                </details>
+            </details>
+            <details>
+                <summary><b>3. Apăsați - Codul pentru x</b></summary>
+                <details>
+                    <summary>-- Codul HTML --</summary>
+                    <pre><code>
+
+
+                </code></pre>
+                </details>
+                <details>
+                    <summary>-- Codul CSS --</summary>
+                    <pre><code>
+                </code></pre>
+                </details>
+            </details>
+            <details>
+                <summary><b>4. Apăsați - Codul pentru x</b></summary>
+                <details>
+                    <summary>-- Codul HTML --</summary>
+                    <pre><code>
+
+
+                </code></pre>
+                </details>
+                <details>
+                    <summary>-- Codul CSS --</summary>
+                    <pre><code>
+                </code></pre>
+                </details>
+            </details>
+            </p>
+        </section>
+    </section>
+    <section id="Root">
+        <h3>VII. Account</h3>
+        <section id="Article">
+            <p>
+                Pentru a se putea conecta la aplicație utilizatorul va trebui să își treacă credințialele
+                (mariatodirel7@gmail.com, maria) în aceasta
+                pagina, ca apoi să fie redirecționat spre pagina sa de profil. Tot de aici, administrator se poate loga
+                cu credințialele sale (admin, admin).
+                <img src="photo/Cultures-1.png" style="width:100%; height: auto; margin: 20px 20px 0 0;">
+                <img src="photo/Cultures-2.png" style="width:100%; height: auto; margin: 0px 20px 0 0;">
+            <details>
+                <summary><b>1. Apăsați - Codul pentru x</b></summary>
+                <details>
+                    <summary>-- Codul HTML --</summary>
+                    <pre><code>
+
+
+                </code></pre>
+                </details>
+                <details>
+                    <summary>-- Codul CSS --</summary>
+                    <pre><code>
+                </code></pre>
+                </details>
+            </details>
+            <details>
+                <summary><b>2. Apăsați - Codul pentru x</b></summary>
+                <details>
+                    <summary>-- Codul HTML --</summary>
+                    <pre><code>
+
+
+                </code></pre>
+                </details>
+                <details>
+                    <summary>-- Codul CSS --</summary>
+                    <pre><code>
+                </code></pre>
+                </details>
+            </details>
+            <details>
+                <summary><b>3. Apăsați - Codul pentru x</b></summary>
+                <details>
+                    <summary>-- Codul HTML --</summary>
+                    <pre><code>
+
+
+                </code></pre>
+                </details>
+                <details>
+                    <summary>-- Codul CSS --</summary>
+                    <pre><code>
+                </code></pre>
+                </details>
+            </details>
+            <details>
+                <summary><b>4. Apăsați - Codul pentru x</b></summary>
+                <details>
+                    <summary>-- Codul HTML --</summary>
+                    <pre><code>
+
+
+                </code></pre>
+                </details>
+                <details>
+                    <summary>-- Codul CSS --</summary>
+                    <pre><code>
+                </code></pre>
+                </details>
+            </details>
+            </p>
+        </section>
+    </section>
+    <section id="Root">
+        <h3>VIII. About</h3>
+        <section id="Article">
+            <p>
+                Pagina About le ofera usererilor oportunitatea de a afla mai multe despre aplicația web, dar și de a
+                face cunoștință cu fondatori aplicației.
+                <img src="photo/about-1.png" style="width:100%; height: auto; margin: 20px 20px 0 0;">
+                <img src="photo/about-2.png" style="width:100%; height: auto; margin: 0px 20px 0 0;">
+            <details>
+                <summary><b>1. Apăsați - Codul pentru Descriere</b></summary>
+                <details>
+                    <summary>-- Codul HTML --</summary>
+                    <pre><code>
+&lt;section class="about-us">
+&lt;div class="description">
+  &lt;ul>
+    &lt;li> Welcome to our digital assistant for spring flower cultivation and sales! We are dedicated to providing you with
+      a seamless and efficient experience in managing your flower crops. Our web application allows you to monitor
+      multiple flower crops simultaneously, providing you with real-time data from a variety of sensors such as soil
+      moisture and ambient temperature.&lt;/li>
+    &lt;li>Our application utilizes cutting-edge technology to provide you with a continuous stream of images, allowing you
+          to track the development of your plants with ease. Based on these sensor readings and growth periods of your
+          cultivated plants, our application will suggest actions to optimize their growth and development. This
+          includes
+          suggestions for irrigation, temperature or lighting adjustments, and harvest timing, all tailored to the
+          specific needs of your plants.&lt;/li>
+    &lt;li> In addition to optimizing plant growth, we also offer a streamlined sales process. Potential buyers can
+          express
+          interest in purchasing flowers, and will be notified via email and browser notifications when their desired
+          flowers are ready for purchase. This allows for optimized sales and ensures that you are able to maximize your
+          profits.&lt;/li>
+    &lt;li> Join us today and experience the benefits of our digital assistant for spring flower cultivation and sales.
+          Our user-friendly interface and advanced technology will provide you with a stress-free experience in managing
+          your flower crops, all while maximizing their growth potential and profitability.&lt;/li>
+    &lt;/ul>
+&lt;/div>
+                </code></pre>
+                </details>
+                <details>
+                    <summary>-- Codul CSS --</summary>
+                    <pre><code>
+.description li{
+    text-indent: 20px;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    list-style-type: none;
+    text-align: justify;
+    font-size: 1.5em;
+    margin: auto;
+    padding: 1em;
+    font-weight: 600;
+    color: var(--darkgreen);
+}
+                </code></pre>
+                </details>
+            </details>
+            <details>
+                <summary><b>2. Apăsați - Codul pentru Our Team</b></summary>
+                <details>
+                    <summary>-- Codul HTML --</summary>
+                    <pre><code>
+    &lt;div class="about-row">
+      &lt;h1>Our Team&lt;/h1>
+    &lt;/div>
+    &lt;div class="about-row">
+      &lt;div class="about-column">
+        &lt;div class="about-card">
+          &lt;div class="about-img-container">
+            &lt;img src="photo/Maria.jpg" alt="">
+          &lt;/div>
+          &lt;h3>Maria Todirel&lt;/h3>
+          &lt;p>Founder&lt;/p>
+          &lt;div class="about-icons">
+            &lt;a href="#">
+              &lt;i class="fab fa-linkedin">&lt;/i>
+            &lt;/a>
+            &lt;a href="#">
+              &lt;i class="fab fa-github">&lt;/i>
+            &lt;/a>
+            &lt;a href="#">
+              &lt;i class="fas fa-envelope">&lt;/i>
+            &lt;/a>
+          &lt;/div>
+        &lt;/div>
+      &lt;/div>
+      &lt;div class="about-column">
+        &lt;div class="about-card">
+          &lt;div class="about-img-container">
+            &lt;img src="photo/Miruna.jpg" alt="">
+          &lt;/div>
+          &lt;h3>Miruna Curduman&lt;/h3>
+          &lt;p>Founder&lt;/p>
+          &lt;div class="about-icons">
+            &lt;a href="#">
+              &lt;i class="fab fa-linkedin">&lt;/i>
+            &lt;/a>
+            &lt;a href="#">
+              &lt;i class="fab fa-github">&lt;/i>
+            &lt;/a>
+            &lt;a href="#">
+              &lt;i class="fas fa-envelope">&lt;/i>
+            &lt;/a>
+          &lt;/div>
+        &lt;/div>
+      &lt;/div>
+    &lt;/div>
+  &lt;/section>
+                </code></pre>
+                </details>
+                <details>
+                    <summary>-- Codul CSS --</summary>
+                    <pre><code>
+.about-us .about-row {
+	display: flex;
+	flex-wrap: wrap;
+	align-items: center;
+	justify-content: space-evenly;
+	padding: 2em 1em;
+	text-align: center;
+  }
+
+  .about-us .about-column {
+	width: 100%;
+	padding: 0.5em 0;
+  }
+
+  .about-us h1 {
+	width: 100%;
+	text-align: center;
+	font-size: 3.5em;
+	color: #7d2b38;
+  }
+
+  .about-us .about-card {
+	box-shadow: 0 0 2.4em rgb(25 0 58 / 10%);
+	padding: 3.5em 1em;
+	border-radius: 0.6em;
+	color: #7d2b38;
+	cursor: pointer;
+	transition: 0.3s;
+	background-color: #ffb7c7;
+  }
+
+  .about-us .about-card .about-img-container {
+	width: 10em;
+	height: 10em;
+	background-color: #ffb7c7;
+	padding: 0.5em;
+	border-radius: 50%;
+	margin: 0 auto 2em;
+  }
+
+
+
+  .about-us .about-card h3 {
+	font-weight: 500;
+  }
+
+
+
+  .about-us .about-icons {
+	width: 30%;
+	margin: auto;
+	display: flex;
+	justify-content: space-between;
+  }
+
+  .about-us .about-card a {
+	text-decoration: none;
+	color: inherit;
+	font-size: 1.4em;
+  }
+
+  .about-us .about-card:hover {
+	background: linear-gradient(#b62f4f, #da6e88);
+	color: #fff;
+  }
+
+  .about-us .about-card:hover .about-img-container {
+	transform: scale(1.15);
+  }
+                </code></pre>
+                </details>
+            </details>
+            </p>
+        </section>
+    </section>
+    <section id="Root">
+        <h3>IX. Help</h3>
+        <section id="Article">
+            <p>
+                Pentru a putea înțelege funcționalățile aplicației utilizatorilor li s-a pus la dispoziție o pagina de
+                help cu diverse tutoriale pentru anumite acțiuni ce pot fi făcute în aplicație.
+                <img src="photo/Cultures-1.png" style="width:100%; height: auto; margin: 20px 20px 0 0;">
+                <img src="photo/Cultures-2.png" style="width:100%; height: auto; margin: 0px 20px 0 0;">
+            <details>
+                <summary><b>1. Apăsați - Codul pentru x</b></summary>
+                <details>
+                    <summary>-- Codul HTML --</summary>
+                    <pre><code>
+
+
+                </code></pre>
+                </details>
+                <details>
+                    <summary>-- Codul CSS --</summary>
+                    <pre><code>
+                </code></pre>
+                </details>
+            </details>
+            <details>
+                <summary><b>2. Apăsați - Codul pentru x</b></summary>
+                <details>
+                    <summary>-- Codul HTML --</summary>
+                    <pre><code>
+
+
+                </code></pre>
+                </details>
+                <details>
+                    <summary>-- Codul CSS --</summary>
+                    <pre><code>
+                </code></pre>
+                </details>
+            </details>
+            <details>
+                <summary><b>3. Apăsați - Codul pentru x</b></summary>
+                <details>
+                    <summary>-- Codul HTML --</summary>
+                    <pre><code>
+
+
+                </code></pre>
+                </details>
+                <details>
+                    <summary>-- Codul CSS --</summary>
+                    <pre><code>
+                </code></pre>
+                </details>
+            </details>
+            <details>
+                <summary><b>4. Apăsați - Codul pentru x</b></summary>
+                <details>
+                    <summary>-- Codul HTML --</summary>
+                    <pre><code>
+
+
+                </code></pre>
+                </details>
+                <details>
+                    <summary>-- Codul CSS --</summary>
+                    <pre><code>
+                </code></pre>
+                </details>
+            </details>
+            </p>
+        </section>
+    </section>
     <section id="authors">
         <!-- review? -->
-        <h4>Authors &amp; Contributors</h4>
+        <h2>Autori &amp; Contribuitori</h2>
         <p>
-            If the document has authors or contributors, they are listed in a <code>section</code>
-            with <code>typeof</code> <a>sa:AuthorsList</a>. The content of that <code>section</code>
-            is an <code>h2</code> title appropriate for it, followed by either a <code>ul</code> or
-            <code>ol</code> (depending on whether the authors are considered ordered, which is
-            highly dependent on the discipline’s culture).
-        </p>
-        <p>
-            Each <code>li</code> in that list must feature a <code>typeof</code> of
-            <a>sa:ContributorRole</a> and a property of either <a>schema:author</a> or
-            <a>schema:contributor</a> depending on which is applicable. Modeling with schema.org
-            roles is explained in the <a href="#roles">Roles</a> section.
-        </p>
-        <p>
-            The <a>sa:ContributorRole</a> <code>span</code> is structured as follows:
-        </p>
+            Autori și contribuitori aplicației, reprezentați de aceleași persoane, și-au împărțit atribuțiile pentru a
+            fi cât se poate de eficienți în implementarea acestui proiect. În continuare acestea vor fi descrise:
+            <br>
+            <br>
+            <b>Miruna Curduman</b>
         <ul>
-            <li>
-                Exactly one <code>span</code> with a <code>property</code> of either
-                <a>schema:author</a> or <a>schema:contributor</a> (matching the one that points to the
-                role) and <code>typeof</code> either <a>schema:Person</a> (if the author is a sentient
-                entity) or <a>schema:Organization</a> (if it is a collective thereof). How to capture
-                persons and organizations is detailed in the creatively-named
-                <a href="#person-org">Persons &amp; Organizations</a> section.
-            </li>
-            <li>
-                Zero or more <code>a</code> elements with a <code>property</code> of
-                <a>sa:roleAffiliation</a>, one for each affiliation of the author in producing the
-                article. Each of those elements needs further to have a <code>resource</code>
-                attribute matching the one on the affiliation it is pointing to and an
-                <code>href</code> attribute linking to the element on which that affiliation is
-                defined. The <code>a</code> element may contain arbitrary text (typically a number,
-                letter, or symbol matching that used by the target in its own list). These should not
-                occur if the agent is an organization.
-            </li>
-            <li>
-                Zero or more <code>a</code> elements with a <code>property</code> of
-                <a>sa:roleAction</a>, one for each comment describing the author’s specific
-                contribution to the work (e.g. "Authors contributed equally" or "Designed the study").
-                Each of those elements needs further to have a <code>resource</code>
-                attribute matching the one on the note it is pointing to and an
-                <code>href</code> attribute linking to the element which contains that note. The
-                <code>a</code> element may contain arbitrary text (typically a number, letter, or
-                symbol matching that used by the target in its own list).
-            </li>
-            <li>
-                Zero or one <code>ul</code> elements. Each of its <code>li</code> children has a
-                <code>property</code> of <a>schema:roleContactPoint</a> and a <code>typeof</code> set
-                to <a>schema:ContactPoint</a>. The content of each <code>li</code> can be anything
-                that describes a manner of contacting the author in question, but it will typically
-                involve properties such as <a>schema:email</a>, <a>schema:telephone</a>,
-                <a>schema:address</a>, <a>schema:description</a> (for arbitrary descriptions of the
-                contact method), or for journals publishing to the Web of the early 1980s
-                <a>schema:faxNumber</a>.
-            </li>
+            <li> implementarea paginii de index.html;</li>
+            <li> implementarea paginii de buy.html;</li>
+            <li> implementarea paginii de mycultures.html;</li>
+            <li> implementarea paginii de about.html;</li>
+            <li> documentația scholarly.html;</li>
+            <li> fișierele .css și .js necesare paginilor menționate.</li>
         </ul>
-    </section>
-    </section>
-    <section id="disclosures">
-        <!-- review? -->
-        <h3>Disclosures</h3>
-        <p>
-            Disclosure information is a list of disclosure actions described in a simple triples
-            structure.
-        </p>
+        <b>Maria Todirel</b>
         <ul>
-            <li>
-                The subject is always one of the contributor roles (example: Author)
-            </li>
-            <li>
-                The name of the action (nerd-talk: predicate, human-speak: verb) is a string describing
-                the action (example: "received beer from")
-            </li>
-            <li>
-                The recipient, or object, is the direct object of the sentence (example: Guinness)
-            </li>
+            <li> implementarea paginii de account.html; </li>
+            <li> implementarea paginii de admin.html; </li>
+            <li> implementarea paginii de new.html; </li>
+            <li> implementarea paginii de oneculture.html;</li>
+            <li> implementarea paginii de help.html;</li>
+            <li> fișierele .css și .js necesare paginilor menționate.</li>
         </ul>
-    </section>
-    <section id="acknowledgements">
-        <!-- review? -->
-        <h3>Acknowledgements</h3>
-        <p>
-            XXX
         </p>
     </section>
-    </section>
-    <section id="scholarly-article">
-        <!-- review? -->
-        <h2>Scholarly Article Vocabulary</h2>
-        <p>
-            A limited number of classes and properties are currently not available from
-            <a role="doc-biblioref">schema.org</a>. In most if not all cases it would be desirable to
-            make them available there, but while work is progressing it is simpler to define them
-            ourselves.
+    <section id="Root">
+        <h2>Planuri de viitor</h2>
+        <p>Dezvoltatorii aplicației își propun ca în viitor să termine de implementat noțiunile de bază ce implică o
+            bună
+            funcționalitate a site-ului, respectiv:
+        <ul>
+            <li> realizare unei baze de date cu culturile userilor; </li>
+            <li> realizarea unei baze de date cu credințialele userilor; </li>
+            <li> implementarea efectiva a rolului de user;</li>
+            <li> implementarea efectiva a rolului de admin;</li>
+            <li> implementarea fictiva a sectiunii de buy;</li>
+            <li> implementarea sincronizarii automate a senzorilor;</li>
+            <li> imbunatirea aspectelor ce tin estetica site-ului;</li>
+            <li> completarea paginii de Help si Scholarly.</li>
+        </ul>
         </p>
-        <p class="issue">
-            The current URL for the Scholarly Article vocabulary is
-            <code>http://ns.science.ai/</code>. It may be desirable (should the vocabulary persist) to
-            use a different URL. But this issue might go away if schema.org steps up.
-        </p>
-        <p>
-            You can read the <a href="http://ns.science.ai/">definitions for the SA vocabulary</a>.
-        </p>
-    </section>
-    <section id="hypermedia">
-        <!-- review? -->
-        <h2>Hypermedia Controls</h2>
-        <!--
-        - explain how to model hypermedia integration, cases:
-          - viewing
-          - paying
-          - annotating
-      -->
-    </section>
-    <section id="processing-model">
-        <!-- review? -->
-        <h2>Processing Model</h2>
-        <!--
-        - basically explain what a processor ignores and what its internal model looks like
-        - the processing extracts (almost) pure HTML, it then uses the RDFa to enrich that
-      -->
     </section>
     <section id="acks">
-        <!-- review? -->
         <h2>Acknowledgements</h2>
         <p>
-            Scholarly HTML would like to thank <a href="http://scholarlyhtml.org/">Scholarly HTML</a>
-            (you read that right) for blazing the trail perhaps a few years too soon. Particularly,
-            the following people were particularly kind and helpful:
-            <a href="https://twitter.com/ptsefton">Peter Sefton</a>,
-            <a href="https://twitter.com/blahah404">Richard Smith-Unna</a>, and
-            <a href="https://twitter.com/petermurrayrust">Peter Murray-Rust</a>.
-        </p>
-        <p>
-            PLOS has a
-            <a href="http://blogs.plos.org/mfenner/2011/03/19/a-very-brief-history-of-scholarly-html/">short
-                history of Scholarly HTML</a> that is worth reading (and would be worth updating).
-        </p>
-        <p>
-            Dan Brickley was kind enough to drop by the office to chat about our usage of
-            <a href="http://schema.org">schema.org</a> even though he was tired and hungry. As
-            always, examples involving fish tanks are the most helpful. Dave Cramer shared ideas
-            that we happily stole.
-        </p>
-        <p>
-            Patrick Johnston’s input has been crucial, notably in modeling authoring. We can only
-            hope that getting those details exactly right have not caused him to lose too much
-            sleep.
-        </p>
-        <p>
-            We also received very useful feedback and pointers from: Kjetil Kjernsmo (DAHUT!),
-            Silvio Peroni, Justin Johansson, Alf Eaton, Raniere Silvia, Kaveh Bazargan and Mike
-            Smith. We are very much indebted to the help provided us by Ivan Herman.
-        </p>
-        <p>
-            If we somehow forgot you in this list and you are too gracious to complain, we love you
-            all the same.
+            Autorii doresc să-și multumească unul altuia pentru efortul și munca pe care au depus-o în realizarea
+            acestui proiect, dar și celor care le-au oferit oportunitatea de a lucra impreuna la aceasta aplicatie.
+            De asemenea, resursele utilizate de aceștia sunt:
+        <ul>
+            <li><a href="https://www.w3schools.com">https://www.w3schools.com</a> </li>
+            <li><a href="https://codepen.io">https://codepen.io</a> </li>
+            <li><a href="https://codingartistweb.com">https://codingartistweb.com</a> </li>
+        </ul>
         </p>
     </section>
 </body>
