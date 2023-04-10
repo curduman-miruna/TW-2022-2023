@@ -1,4 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins&display=swap');
+
 :root{
     --bg: white;
     --darkerstpink:  #b62f4f;
@@ -11,14 +12,16 @@
 }
 
 * {
-    font-family: 'Roboto', sans-serif;
+    font-family: Roboto, sans-serif;
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
+
 .hidden{
     display:none;
 }
+
 html {
     font-size: 62.5%;
     overflow-x: hidden;
@@ -59,7 +62,7 @@ body {
 
 
 
-/*Header-navbar*/
+/* Header-navbar */
 
 .header {
     background: var(--green);
@@ -74,24 +77,45 @@ body {
     right: 0;
     z-index: 1000;
     height: 15;
-    box-shadow: 0px 10px 30px rgba(0, 0, 0, 0.5);
+    box-shadow: 0 10px 30px rgb(0 0 0 / 50%);
     
 }
-/*logo*/
+
+/* logo */
 .header .logo img {
     height: 6rem;
 }
+
 .header .navbar{
     display: flex;
     justify-content: space-between ;
 }
-/* paginile */
-.header .navbar a {
 
+/* paginile */
+
+a {
+	display: block;
+	margin-top: 20px;
+	font-size: 14px;
+	color: #fff;
+	text-align: center;
+	text-decoration: none;
+}
+
+.header .navbar a {
     margin-left: 40px;
     font-size: 20px;
     color: #fff;
     
+}
+
+.account-background .edit-page form a {
+	display: block;
+	margin-top: 20px;
+	font-size: 14px;
+	color: var(--darkerstpink);
+	text-align: center;
+	text-decoration: none;
 }
 
 .header .navbar a:hover {
@@ -101,7 +125,8 @@ body {
     font-size: 17px;
    
 }
-/*iconite*/
+
+/* iconite */
 .header .icons div {
     color: #fff;
     cursor: pointer;
@@ -135,6 +160,33 @@ body {
     transform: scaleY(1);
 }
 
+
+.input-box input {
+	width: 100%;
+	padding: 10px 0;
+	font-size: 20px;
+	color: #333;
+	letter-spacing: 1px;
+	margin-bottom: 30px;
+	border: none;
+	border-bottom: 1px solid #999;
+	outline: none;
+	background-color: transparent;
+}
+
+ .input-box-edit input {
+	width: 100%;
+	padding: 10px 0;
+	font-size: 25px;
+	color: #333;
+	letter-spacing: 1px;
+	margin-bottom: 30px;
+	border: none;
+	border-bottom: 1px solid #999;
+	outline: none;
+	background-color: transparent;
+}
+
 .header .search-form input {
     height: 100%;
     width: 100%;
@@ -144,11 +196,49 @@ body {
     text-transform: none;
 }
 
+
+.input-box label {
+	position: absolute;
+	top: 0;
+	left: 0;
+	padding: 10px 0;
+	font-size: 16px;
+	color: #999;
+	pointer-events: none;
+	transition: 0.5s;
+}
+
+.input-box-edit label {
+	position: absolute;
+	top: 0;
+	left: 0;
+	padding: 10px 0;
+	font-size: 16px;
+	color: #999;
+	pointer-events: none;
+	transition: 0.5s;
+}
+
 .header .search-form label {
     cursor: pointer;
     font-size: 2.2rem;
     margin-right: 1.5rem;
     color: black;
+}
+
+
+
+.input-box input:focus ~ label,
+.input-box input:valid ~ label {
+	top: -18px;
+	font-size: 12px;
+	color: var(--darkpink);
+}
+
+.input-box-edit input:focus ~ label{
+	top: -18px;
+	font-size: 12px;
+	color: var(--darkpink);
 }
 
 .header .search-form label:hover {
@@ -200,10 +290,12 @@ body {
     padding-bottom: .5rem;
 
 }
+
 .header .cart-items-container .cart-item .content h3:hover{
     color:var(--green);
     cursor: pointer;
 }
+
 .header .cart-items-container .cart-item .content .price {
     font-size: 15px;
     color: var(--vivagreen);
@@ -214,7 +306,7 @@ body {
     text-align: center;
 }
 
-/*Account*/
+/* Account */
 
 .account-section {
     display: flex;
@@ -233,7 +325,7 @@ body {
 	background-color: #fff;
 	border-radius: 10px;
 	padding: 40px;
-	box-shadow: 0px 15px 25px rgba(0, 0, 0, 0.5);
+	box-shadow: 0 15px 25px rgb(0 0 0 / 50%);
     height: 60%;
     width: 20%;
 }
@@ -246,41 +338,12 @@ body {
     margin-top: 100px;
 }
 
-.inputBox {
+.input-box {
 	position: relative;
 	margin-bottom: 25px;
 }
 
-.inputBox input {
-	width: 100%;
-	padding: 10px 0;
-	font-size: 20px;
-	color: #333;
-	letter-spacing: 1px;
-	margin-bottom: 30px;
-	border: none;
-	border-bottom: 1px solid #999;
-	outline: none;
-	background-color: transparent;
-}
 
-.inputBox label {
-	position: absolute;
-	top: 0;
-	left: 0;
-	padding: 10px 0;
-	font-size: 16px;
-	color: #999;
-	pointer-events: none;
-	transition: 0.5s;
-}
-
-.inputBox input:focus ~ label,
-.inputBox input:valid ~ label {
-	top: -18px;
-	font-size: 12px;
-	color: var(--darkpink);
-}
 
 input[type="submit"] {
 	background-color: var(--darkerstpink);
@@ -296,14 +359,6 @@ input[type="submit"]:hover {
 	background-color: var(--darkpink);
 }
 
-a {
-	display: block;
-	margin-top: 20px;
-	font-size: 14px;
-	color: #fff;
-	text-align: center;
-	text-decoration: none;
-}
 
 .account-background{
     background-color: white;
@@ -314,19 +369,19 @@ a {
     height:90vh;
     width:100vw
 ;}
-.account-background .account-info{
 
+.account-background .account-info{
     margin-top:30px;
     display: flex;
     justify-content: center;
     align-items: center;
     float:left;
-    margin-left: 0px;
+    margin-left: 0;
     flex-direction: column;
     height: 100vh;
     background-color: var(--darkgreen);
     width: 30vw;
-    box-shadow: 0px 2px 5px black;
+    box-shadow: 0 2px 5px black;
 
    
 }
@@ -341,7 +396,6 @@ a {
 
 
 .account-background .account-info .column {
-  
     margin-top: 60px;
     width: 100%;
     height: 10%;
@@ -350,14 +404,57 @@ a {
     justify-content: center;
     align-items: center;
     flex-direction: column;
-    box-shadow: 0px 10px 30px rgba(0, 0, 0, 0.5);
+    box-shadow: 0 10px 30px rgb(0 0 0 / 50%);
     
     
+
 }
+
+.admin-page .header h2{
+    color:white;
+    font-size:35px;
+}
+
+.account-background  .account-info  .column h2{
+   color: black;
+   font-size: 20px;
+   text-align: center;
+   margin-top: 20px;
+
+}
+
+
+.admin-page .dashboard .users h2{
+    text-align: center;
+    color:#eea3b4;
+    font-size: 30px;
+    font-weight: bold;
+    text-shadow:#66071d  3px 2px;
+}
+
+
+.admin-page .dashboard .content h2{
+    text-align: center;
+    color:white;
+    font-size: 30px;
+    font-weight: bold;
+    text-shadow:var(--darkerstpink) 3px 2px;
+}
+
+.admin-page .dashboard .reports h2{
+    text-align: center;
+    color:#66071d;
+    font-size: 30px;
+    font-weight: bold;
+    text-shadow:white  3px 2px ;
+}
+
+
 .account-background .account-info .column:nth-of-type(2) h2
 {
-    color: rgb(136, 22, 22);
+    color: rgb(136 22 22);
 }
+
 .account-background .account-info  .column:hover{
     cursor: pointer;
     letter-spacing: 2px;
@@ -366,13 +463,9 @@ a {
     
     
 }
-.account-background  .account-info  .column h2{
-   color: black;
-   font-size: 20px;
-   text-align: center;
-   margin-top: 20px;
 
-}
+
+
 .account-background .edit-page{
     display: flex;
     justify-content: flex-start;
@@ -382,59 +475,37 @@ a {
     background-color: white;
     width: 70vw;
 }
+
 .account-background .edit-page .img-container{
     margin-top:150px;
     height:100px;
     width:100px;
 }
+
 .account-background .edit-page .img-container img{
     height: 100%;
     width:100%;
 }
+
+
 
 .account-background .edit-page form {
     margin-top: 30px;
 	background-color: #fff;
 	border-radius: 10px;
 	padding: 40px;
-	box-shadow: 0px 15px 25px rgba(0, 0, 0, 0.5);
+	box-shadow: 0 15px 25px rgb(0 0 0 / 50%);
     width: 50%;
     height: 50%;
 }
 
-.inputBoxEdit {
+.input-box-edit {
 	position: relative;
 	margin-bottom: 25px;
 }
 
- .inputBoxEdit input {
-	width: 100%;
-	padding: 10px 0;
-	font-size: 25px;
-	color: #333;
-	letter-spacing: 1px;
-	margin-bottom: 30px;
-	border: none;
-	border-bottom: 1px solid #999;
-	outline: none;
-	background-color: transparent;
-}
- .inputBoxEdit label {
-	position: absolute;
-	top: 0;
-	left: 0;
-	padding: 10px 0;
-	font-size: 16px;
-	color: #999;
-	pointer-events: none;
-	transition: 0.5s;
-}
+ 
 
-.inputBoxEdit input:focus ~ label{
-	top: -18px;
-	font-size: 12px;
-	color: var(--darkpink);
-}
 
 .account-background .edit-page form input[type="submit"] {
 	background-color: var(--darkerstpink);
@@ -450,41 +521,10 @@ a {
 	background-color: var(--darkpink);
 }
 
-.account-background .edit-page form a {
-    margin-top: 30px;
-	display: block;
-	margin-top: 20px;
-	font-size: 14px;
-	color: var(--darkerstpink);
-	text-align: center;
-	text-decoration: none;
-}
 
-.account-background{
-    background-color: white;
-    display: flex;
-    justify-content: flex-start;
-    align-items: center;
-    flex-direction: row;
-    height:90vh;
-    width:100vw
-;}
-.account-background .account-info{
 
-    display: flex;
-    justify-content: flex-start;
-    align-items: center;
-    float:left;
-    margin-left: 0px;
-    flex-direction: column;
-    height: 100vh;
-    background-color: var(--darkgreen);
-    width: 30vw;
-    box-shadow: 0px 2px 5px black;
 
-   
-}
-/*Admin page*/
+/* Admin page */
 .admin-page{
     background-color:white;
     display: flex;
@@ -493,19 +533,19 @@ a {
     flex-direction: column;
     
 }
+
 .admin-page .header{
     height: 70px;
     background-color: #7f981b;
 }
+
 .admin-page .header p{
     color:#c5c581;
     font-size: 25px;
 }
-.admin-page .header h2{
 
-    color:white;
-    font-size:35px;
-}
+
+
 .admin-page .dashboard{
     margin-top: 80px;
     width:100vw;
@@ -515,6 +555,7 @@ a {
     align-items: center;
     flex-direction: column;
 }
+
 .admin-page .dashboard .users{
     margin-top: 100px;
     display: flex;
@@ -524,21 +565,15 @@ a {
     background-color: #b62f4f;
     width: 25%;
     height:25%;
-    box-shadow: 0px 15px 25px rgba(0, 0, 0, 0.5);
+    box-shadow: 0 15px 25px rgb(0 0 0 / 50%);
 }
+
 .admin-page .dashboard .users:hover{
     letter-spacing: 3px;
     cursor: pointer;
     background-color: #f5c1cd;
 }
-.admin-page .dashboard .users h2{
-    text-align: center;
-    text-align: center;
-    color:#eea3b4;
-    font-size: 30px;
-    font-weight: bold;
-    text-shadow:#66071d  3px 2px;
-}
+
 .admin-page .dashboard .content{
     display: flex;
     justify-content: center;
@@ -548,21 +583,15 @@ a {
     width: 25%;
     height:25%;
     margin-top:20px;
-    box-shadow: 0px 15px 25px rgba(0, 0, 0, 0.5);
+    box-shadow: 0 15px 25px rgb(0 0 0 / 50%);
 }
+
 .admin-page .dashboard .content:hover{
     letter-spacing: 3px;
     cursor: pointer;
     background-color: #f5c1cd;
 }
-.admin-page .dashboard .content h2{
-    text-align: center;
-    text-align: center;
-    color:white;
-    font-size: 30px;
-    font-weight: bold;
-    text-shadow:var(--darkerstpink) 3px 2px;
-}
+
 .admin-page .dashboard .reports
 {
     display: flex;
@@ -573,31 +602,18 @@ a {
     width: 25%;
     height:25%;
     margin-top:20px;
-    box-shadow: 0px 15px 25px rgba(0, 0, 0, 0.5);
+    box-shadow: 0 15px 25px rgb(0 0 0 / 50%);
 }
+
 .admin-page .dashboard .reports:hover{
     letter-spacing: 3px;
     cursor: pointer;
     background-color: #f5c1cd;
 }
-.admin-page .dashboard .reports h2{
-    text-align: center;
-    text-align: center;
-    color:#66071d;
-    font-size: 30px;
-    font-weight: bold;
-    text-shadow:white  3px 2px ;
-}
-.admin-page .dashboard a{
-    margin-top: 50px;
-    color: var(--vivagreen);
-    font-size:15px;
-    font-weight: bold;
-}
 
 
-@media (max-width:991px){
 
+@media (width <=991px){
     html{
         font-size: 55%;
     }
@@ -619,15 +635,17 @@ a {
         font-size: 20px;
 
     }
-    html{
-        font-size: 50%;
-    }
+
+   
+
     .header .icons div {
         font-size: 25px;
     }
+
     .header .icons div:first-child{
         margin-left: 15px;
     }
+
     .header .icons div:last-child{
         margin-right: 10px;
     }
@@ -635,8 +653,7 @@ a {
 
 }
 
-@media (max-width:768px){
-
+@media (width <=768px){
     #menu-btn{
         display: inline-block;
     }
@@ -649,7 +666,7 @@ a {
         height: 200px;
         align-items: flex-end;
         justify-content: flex-end;
-        box-shadow: 0px 15px 25px rgba(0, 0, 0, 0.5);
+        box-shadow: 0 15px 25px rgb(0 0 0 / 50%);
     }
 
     .header .navbar.active{
@@ -665,9 +682,9 @@ a {
     }
 
     .header .icons div {
-
         font-size: 20px;
     }
+
     .header .icons div:first-child{
         margin-left: 500px;
     }
@@ -675,36 +692,57 @@ a {
     
 }
 
-@media (max-width:540px)
+@media (width <=540px)
 {
     .header .icons div:first-child{
         margin-left: 200px;
     }
+
     .navbar{
         display: block;
         align-items: flex-start;
         flex-direction: column;
     }
+
     .navbar a {
-        margin:0 0 0 0;
+        margin:0;
     }
+
+.admin-page .header h2{
+    margin-left: 20px;;
+    color:white;
+    font-size:20px;}
+		
+		.account-background .account-info h2 {
+    text-align: center;
+    margin-top: 20px;
+    color: white;
+    font-weight: bold;
+    font-size: 15px;
+}
+
     .admin-page .dashboard .users h2{
         font-size:20px;
     }
+
     .admin-page .dashboard .reports h2{
         font-size:20px;
     }
+
     .admin-page .dashboard .content{
         width:70%;
         height:10%;
     }
+
     .admin-page .dashboard .content h2{
         font-size:20px;
     }
+
     .admin-page .dashboard .users{
         width:70%;
         height:10%;
     }
+
     .admin-page .dashboard .reports{
         width:70%;
         height:10%;
@@ -714,40 +752,42 @@ a {
     margin-left:50px;
     font-size: 15px;
 }
-.admin-page .header h2{
 
-    margin-left: 20px;;
-    color:white;
-    font-size:20px;}
 
 .account-section form{
     width: 80%;
     height: 65%;
 }
+
 .account-background{
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
 }
+
 .account-background .account-info{
     margin-top:0;
     width:100vw;
     height:30vh;
     }
+
     .account-background .account-info .column{
         margin-top: 50px;
         height:27%;
     }
+
     .account-background .account-info .column:nth-of-type(2){
         margin-top: 10px;
     }
+
     .account-background .edit-page{
         flex-direction: column;
         display: flex;
         justify-content: flex-start;
         align-items: center;
     }
+
     .account-background .edit-page .img-container{
         margin-top:40px;
         margin-left: 110px;
@@ -759,28 +799,24 @@ a {
         height: 30%;
     }
 
-.account-background .account-info h2 {
-    text-align: center;
-    margin-top: 20px;
-    color: white;
-    font-weight: bold;
-    font-size: 15px;
-}
+
 
 
 
 
 
 }
-@media (max-width:450px){
 
+@media (width <=450px){
     .account-background .edit-page .img-container{
         margin-top:40px;
         margin-left: 130px;
     }
+
     .header .icons div:first-child{
         margin-left: 10px;
     }
+
     .account-background .edit-page form{
         margin-left: 130px;
          width:70vw;

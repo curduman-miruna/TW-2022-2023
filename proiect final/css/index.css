@@ -12,7 +12,7 @@
 }
 
 * {
-    font-family: 'Roboto', sans-serif;
+    font-family: Roboto, sans-serif;
     margin: 0;
     padding: 0;
     box-sizing: border-box;
@@ -62,7 +62,7 @@ body {
 
 
 
-/*Header-navbar*/
+/* Header-navbar */
 
 .header {
     background: var(--green);
@@ -77,11 +77,24 @@ body {
     right: 0;
     z-index: 1000;
     height: 15;
-    box-shadow: 0px 10px 30px rgba(0, 0, 0, 0.5);
+    box-shadow: 0 10px 30px rgba(0 0 0 0/50%);
 
 }
 
-/*logo*/
+/* logo */
+.slide > img{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.culture-card img{
+    margin-top: 40px;
+    flex-direction: column;
+    width:30px;
+    height:30px;
+}
+
 .header .logo img {
     height: 6rem;
 }
@@ -92,8 +105,16 @@ body {
 }
 
 /* paginile */
-.header .navbar a {
+a {
+    display: block;
+    margin-top: 20px;
+    font-size: 14px;
+    color: #fff;
+    text-align: center;
+    text-decoration: none;
+}
 
+.header .navbar a {
     margin-left: 40px;
     font-size: 20px;
     color: #fff;
@@ -108,7 +129,7 @@ body {
 
 }
 
-/*iconite*/
+/* iconite */
 .header .icons div {
     color: #fff;
     cursor: pointer;
@@ -142,6 +163,19 @@ body {
     transform: scaleY(1);
 }
 
+.input-box input {
+    width: 100%;
+    padding: 10px 0;
+    font-size: 16px;
+    color: #333;
+    letter-spacing: 1px;
+    margin-bottom: 30px;
+    border: none;
+    border-bottom: 1px solid #999;
+    outline: none;
+    background-color: transparent;
+}
+
 .header .search-form input {
     height: 100%;
     width: 100%;
@@ -151,11 +185,29 @@ body {
     text-transform: none;
 }
 
+.input-box label {
+    position: absolute;
+    top: 0;
+    left: 0;
+    padding: 10px 0;
+    font-size: 16px;
+    color: #999;
+    pointer-events: none;
+    transition: 0.5s;
+}
+
 .header .search-form label {
     cursor: pointer;
     font-size: 2.2rem;
     margin-right: 1.5rem;
     color: black;
+}
+
+.input-box input:focus~label,
+.input-box input:valid~label {
+    top: -18px;
+    font-size: 12px;
+    color: var(--darkpink);
 }
 
 .header .search-form label:hover {
@@ -197,8 +249,34 @@ body {
     color: var(--lightpink);
 }
 
+
+
+.culture-view .image img{
+    margin-top:20px;
+    width:100%;
+    height:80%;
+}
+
 .header .cart-items-container .cart-item img {
     height: 7rem;
+}
+
+.card h3 {
+    font-size: 1.3em;
+    margin: 1em 0 1.4em ;
+    font-weight: 600;
+    letter-spacing: 0.3px;
+    color: #070024;
+}
+
+
+
+.culture-card h3 {
+    font-size: 1.3em;
+    margin: 1em 0 1.4em ;
+    font-weight: 600;
+    letter-spacing: 0.3px;
+    color: #070024;
 }
 
 .header .cart-items-container .cart-item .content h3 {
@@ -212,6 +290,18 @@ body {
     color: var(--green);
     cursor: pointer;
 }
+
+.culture-view .description .price{
+    margin-top: 20px;
+    margin-bottom: 30px;
+    width:20vw;
+    height: 50px;
+    background-color:#f9dee5;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 0 5px 10px rgba(0 0 0 0/50%);
+   }
 
 .header .cart-items-container .cart-item .content .price {
     font-size: 15px;
@@ -235,7 +325,7 @@ footer p {
     text-align: center;
 }
 
-/*Account*/
+/* Account */
 
 .account-section {
     display: flex;
@@ -249,7 +339,7 @@ footer p {
     background-color: #fff;
     border-radius: 10px;
     padding: 40px;
-    box-shadow: 0px 15px 25px rgba(0, 0, 0, 0.5);
+    box-shadow: 0 15px 25px rgba(0 0 0 0 /50%);
 }
 
 .account-section h2 {
@@ -259,41 +349,12 @@ footer p {
     margin-bottom: 30px;
 }
 
-.inputBox {
+.input-box {
     position: relative;
     margin-bottom: 25px;
 }
 
-.inputBox input {
-    width: 100%;
-    padding: 10px 0;
-    font-size: 16px;
-    color: #333;
-    letter-spacing: 1px;
-    margin-bottom: 30px;
-    border: none;
-    border-bottom: 1px solid #999;
-    outline: none;
-    background-color: transparent;
-}
 
-.inputBox label {
-    position: absolute;
-    top: 0;
-    left: 0;
-    padding: 10px 0;
-    font-size: 16px;
-    color: #999;
-    pointer-events: none;
-    transition: 0.5s;
-}
-
-.inputBox input:focus~label,
-.inputBox input:valid~label {
-    top: -18px;
-    font-size: 12px;
-    color: var(--darkpink);
-}
 
 input[type="submit"] {
     background-color: var(--darkerstpink);
@@ -309,14 +370,7 @@ input[type="submit"]:hover {
     background-color: var(--darkpink);
 }
 
-a {
-    display: block;
-    margin-top: 20px;
-    font-size: 14px;
-    color: #fff;
-    text-align: center;
-    text-decoration: none;
-}
+
 
 .account-background {
     background-color: #323b0b;
@@ -327,19 +381,53 @@ a {
     width: 100vw;
 }
 
-.account-background .account-info {
+.image-slider-container h2{
+    text-align: center;
+    font-size: 2rem;
+    line-height: 3.5;
+}
 
+.account-background .account-info {
     display: flex;
     justify-content: center;
     align-items: center;
     float: left;
-    margin-left: 0px;
+    margin-left: 0;
     flex-direction: row;
     height: 70vh;
     background-color: white;
     width: 60vw;
     border-radius: 10%;
-    box-shadow: 0px 2px 5px black;
+    box-shadow: 0 2px 5px black;
+}
+
+.card-container h2 {
+    color: var(--darkgreen);
+    font-weight: bold;
+    font-size: 25px;
+    margin-bottom: 30px;
+}
+
+.description-container h2 {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    text-align: justify;
+    font-size: 1.5em;
+    margin: auto;
+    padding: 1em;
+    font-weight: 600;
+    color: var(--darkgreen);
+}
+
+
+.mycultures-container h2 {
+    color: var(--darkgreen);
+    font-weight: bold;
+    font-size: 25px;
+    margin-bottom: 30px;
 }
 
 .account-background .account-info h2 {
@@ -349,6 +437,11 @@ a {
     font-weight: bold;
     font-size: 30px;
     margin-bottom: 30px;
+}
+
+.column {
+    display: flex;
+    padding: 1em;
 }
 
 .account-info .column {
@@ -370,7 +463,7 @@ a {
 
 }
 
-/*Index feature*/
+/* Index feature */
 
 .card-container {
     display: flex;
@@ -381,12 +474,7 @@ a {
     margin-top: 150px;
 }
 
-.card-container h2 {
-    color: var(--darkgreen);
-    font-weight: bold;
-    font-size: 25px;
-    margin-bottom: 30px;
-}
+
 
 .row {
     display: flex;
@@ -405,9 +493,7 @@ a {
     width: 100%;
     text-align: center;
     font-size: 2em;
-    font-weight: bold;
     margin: 0.6em 0;
-    padding-bottom: 10px;
     padding: auto;
     font-weight: 600;
     color: var(--darkgreen);
@@ -419,29 +505,11 @@ a {
     background-color: #b0b06a;
     background-repeat: no-repeat;
     background-position: 0 0.62em;
-    box-shadow: 0 0 2.5em rgba(0, 0, 0, 0.15);
+    box-shadow: 0 0 2.5em rgba(0 0 0 0/15%);
     border-radius: 0.5em;
 }
 
-.description-container h2 {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    width: 100%;
-    text-align: justify;
-    font-size: 1.5em;
-    font-weight: bold;
-    margin: auto;
-    padding: 1em;
-    font-weight: 600;
-    color: var(--darkgreen);
-}
 
-.column {
-    display: flex;
-    padding: 1em;
-}
 
 .card {
     padding: 3.1em 1.25em;
@@ -451,7 +519,7 @@ a {
     background: linear-gradient(0deg, #7f981b 10px, transparent 10px);
     background-repeat: no-repeat;
     background-position: 0 0.62em;
-    box-shadow: 0 0 2.5em rgba(0, 0, 0, 0.15);
+    box-shadow: 0 0 2.5em rgba(0 0 0 0/15%);
     border-radius: 0.5em;
     transition: 0.5s;
     cursor: pointer;
@@ -466,10 +534,10 @@ a {
     display: grid;
     place-items: center;
     border-radius: 50%;
-    color: #ffffff;
+    color: #fff;
 }
 
-.icon:before {
+.icon::before {
     position: absolute;
     content: "";
     height: 1.5em;
@@ -479,13 +547,6 @@ a {
     transition: 0.5s;
 }
 
-.card h3 {
-    font-size: 1.3em;
-    margin: 1em 0 1.4em 0;
-    font-weight: 600;
-    letter-spacing: 0.3px;
-    color: #070024;
-}
 
 .card p {
     line-height: 2em;
@@ -496,12 +557,59 @@ a {
     background-position: 0;
 }
 
-.card:hover .icon:before {
+.card:hover .icon::before {
     height: 2.25em;
     width: 2.25em;
 }
 
-/*Slider image*/
+@media screen and (width <=470px) {
+    .card-container section {
+        margin-top: 6rem;
+        padding: 1em;
+    }
+
+    .card {
+        padding: 5em 2em;
+        width: 100%;
+    }
+
+    .description-container{
+        padding: 1em;
+    }
+
+    .column {
+        display: flex;
+        flex: 0 0 50%;
+        width: 200px;
+        padding: 1em;
+    }
+}
+
+@media screen and (width >=700px) {
+    .card-container section {
+        margin-top: 6rem;
+        padding: 1em;
+    }
+
+    .description-container{
+        padding: 1em ;
+    }
+
+    .card {
+        padding: 5em 2em;
+        width: 100%;
+    }
+
+
+    .column {
+        display: flex;
+        flex: 0 0 25%;
+        width: 100%;
+        padding: 0 1em;
+    }
+}
+
+/* Slider image */
 .image-slider-container {
     width: 100%;
     height: 100%;
@@ -511,11 +619,6 @@ a {
     background-color: #f7f5f5;
 }
 
-.image-slider-container h2{
-    text-align: center;
-    font-size: 2rem;
-    line-height: 3.5;
-}
 
 .slider{
     position: relative;
@@ -536,11 +639,7 @@ a {
     transition: transform 1s;
 }
 
-.slide > img{
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-}
+
 
 button{
     background: none;
@@ -590,7 +689,7 @@ button .fas{
     background:#da6e88
 }
 
-/*My cultures page*/
+/* My cultures page */
 
 .search {
     width: 100%;
@@ -601,7 +700,7 @@ button .fas{
     display: flex;
   }
   
-  .searchTerm {
+  .search-term {
     width: 100%;
     border: 3px solid #b62f4f;
     border-right: none;
@@ -612,11 +711,11 @@ button .fas{
     color: #da6e88;
   }
   
-  .searchTerm:focus{
+  .search-term:focus{
     color: #b62f4f;
   }
   
-  .searchButton {
+  .search-button {
     width: 40px;
     height: 36px;
     border: 1px solid #b62f4f;
@@ -644,12 +743,6 @@ button .fas{
     padding-top: 150px;
 }
 
-.mycultures-container h2 {
-    color: var(--darkgreen);
-    font-weight: bold;
-    font-size: 25px;
-    margin-bottom: 30px;
-}
 
 .culture-row {
     display: flex;
@@ -668,9 +761,7 @@ button .fas{
     width: 100%;
     text-align: center;
     font-size: 2em;
-    font-weight: bold;
     margin: 0.6em 0;
-    padding-bottom: 10px;
     padding: auto;
     font-weight: 600;
     color: var(--darkgreen);
@@ -684,20 +775,19 @@ button .fas{
 }
 
 .culture-card {
-    padding: 1.25em 1.25em;
+    padding: 1.25em;
     height: 200px;
     text-align: center;
     background: linear-gradient(0deg, #7f981b 10px, transparent 10px);
     background-repeat: no-repeat;
     background-position: 0 0.62em;
-    box-shadow: 0 0 2.5em rgba(0, 0, 0, 0.15);
+    box-shadow: 0 0 2.5em rgba(0 0 0 0/15%);
     border-radius: 0.5em;
     transition: 0.5s;
     cursor: pointer;
     width: 100%;
     display: flex;
     justify-content: center;
-
     align-items: center;
     flex-direction: column;
 }
@@ -711,10 +801,10 @@ button .fas{
     display: grid;
     place-items: center;
     border-radius: 50%;
-    color: #ffffff;
+    color: #fff;
 }
 
-.culture-icon:before {
+.culture-icon::before {
     position: absolute;
     content: "";
     height: 1.5em;
@@ -724,13 +814,6 @@ button .fas{
     transition: 0.5s;
 }
 
-.culture-card h3 {
-    font-size: 1.3em;
-    margin: 1em 0 1.4em 0;
-    font-weight: 600;
-    letter-spacing: 0.3px;
-    color: #070024;
-}
 
 .culture-card p {
     margin-top: 20px;
@@ -742,22 +825,16 @@ button .fas{
     background-position: 0;
 }
 
-.culture-card:hover .culture-icon:before {
+.culture-card:hover .culture-icon::before {
     height: 2.25em;
     width: 2.25em;
 }
-.culture-card img{
-
-    margin-top: 40px;
-    flex-direction: column;
-    width:30px;
-    height:30px;
-}
 
 
 
 
-/*culture view*/
+
+/* culture view */
 .culture-view{
     margin-top:60px;
     display: flex;
@@ -776,8 +853,7 @@ button .fas{
     border-bottom: solid  var(--darkerstpink);
     border-top: solid  var(--darkerstpink);
     border-width: 10px;
-    align-items: center;
-    box-shadow: 0px 15px 25px rgba(0, 0, 0, 0.5);
+    box-shadow: 0 15px 25px rgba(0 0 0 0/15%);
     display: flex;
     justify-content: flex-end;
     align-items: center;
@@ -785,16 +861,32 @@ button .fas{
     border-radius: 10px;
     
 }
+
+.culture-view .description p{
+    margin-top:20px;
+    text-align: center;
+    font-size: 16px;
+    color:black;
+}
+
+.culture-tip .tip-box p{
+    text-align: center;
+    margin-top: 30px;
+    color: black;
+    font-size:20px;
+
+}
+
 .culture-view .image .plus-icon p{
     margin-top: 50px;
     font-size:20px;
     color:black;
     text-align: center;
 }
+
 .culture-view .image .plus-icon{
     display:flex;
     justify-content: flex-start;
-    align-items: center;
     flex-direction: column;
     width:100%;
     height: 90%;
@@ -802,15 +894,41 @@ button .fas{
     background-color:white;
 
 }
+
+
 .culture-view .image .plus-icon img{
     margin-top:130px;
     width:100px;
     height:100px;
 }
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 .culture-view .description form{
     margin-top:20px;
 }
+
+.culture-tip .line h2{
+    text-align: center;
+    color:white;
+    font-size: 30px;
+    font-weight: bold;;
+}
+
+
 
 .culture-view .description .button{
     border-radius: 10px;
@@ -820,14 +938,39 @@ button .fas{
     display: flex;
     justify-content: center;
     align-items: center;
-    box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.5);
+    box-shadow: 0 10px 20px rgba(0  0 0 0/15%);
     margin-bottom: 20%;
 }
+
 .culture-view .description .button:hover{
     letter-spacing: 2px;
     background-color:#7d2b38;
     cursor: pointer;
 }
+
+.culture-view .description h2{
+    margin-top: 20px;
+    text-align:center;
+    font-size:30px;
+    color: #5a0d18;
+  
+}
+
+.edit-culture .edit-button h2{
+    text-align: center;
+    color:#3a4605;
+    font-size:25px;
+    font-weight: bold;
+}
+
+.sync .button-s h2{
+font-size:18px;
+align-items: center;
+text-align:center;
+color:white;
+}
+
+
 .culture-view .description .button h2{
 font-size:18px;
 text-align:center;
@@ -835,55 +978,31 @@ color:white;
 }
 
 
-.culture-view .description .price{
-    margin-top: 20px;
-    margin-bottom: 30px;
-    width:20vw;
-    height: 50px;
-    background-color:#f9dee5;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.5);
-   }
+
+
    .culture-view .description .price h2{
    font-size:20px;
    text-align:center;
    color:#5a0d18;
    }
 
-.culture-view .description h2{
-    margin:20px 20px 20px 20px;
-    text-align:center;
-    font-size:30px;
-    color: #5a0d18;
-  
-}
-.culture-view .description p{
-    margin:20px 20px 20px 20px;
-    text-align: center;
-    font-size: 16px;
-    color:black;
-}
-.culture-view .image{
 
+
+
+
+.culture-view .image{
     display:flex;
     justify-content: center;
-    align-items: center;
     flex-direction: column;
     margin-left: 150px;
     width:50vw;
     height: 75vh;
     align-items: center; 
-    box-shadow: 0px 15px 25px rgba(0, 0, 0, 0.5);
+    box-shadow: 0 15px 25px rgba(0 0 0 0/15%);
     border-radius: 10px;
     background-color:#bad746;
 }
-.culture-view .image img{
-    margin-top:20px;
-    width:100%;
-    height:80%;
-}
+
 .culture-view .image .sell{
     border-radius: 10px;
  margin-top:15px;
@@ -893,13 +1012,15 @@ color:white;
  display: flex;
  justify-content: center;
  align-items: center;
- box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.5);
+ box-shadow: 0 5px 10px rgba(0 0 0 0/50%);
 }
+
 .culture-view .image .sell:hover{
     letter-spacing: 2px;
     background-color: #606a29;
     cursor: pointer;
 }
+
 .culture-view .image .sell h2{
 font-size:20px;
 text-align:center;
@@ -915,8 +1036,9 @@ color:white;
     display: flex;
     justify-content: center;
     align-items: center;
-    box-shadow: 0px 15px 10px rgba(0, 0, 0, 0.5);
+    box-shadow: 0 15px 10px rgba(0 0 0 0 /50%);
 }
+
 .culture-view .image .interested{
     border-radius: 10px;
     margin-top:15px;
@@ -926,7 +1048,7 @@ color:white;
     display: flex;
     justify-content: center;
     align-items: center;
-    box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.5);
+    box-shadow: 0 5px 10px rgba(0 0 0 0/50%);
     margin-bottom: 10px;
 }
 
@@ -936,6 +1058,7 @@ color:white;
     background-color:#476627;
     cursor: pointer;
 }
+
 .culture-view .image .buy h2{
 font-size:25px;
 text-align:center;
@@ -948,6 +1071,7 @@ color:white;
     background-color:#dcf5cb;
     cursor: pointer;
 }
+
 .culture-view .image .interested h2{
 font-size:20px;
 text-align:center;
@@ -963,13 +1087,12 @@ color:#182d03;
     justify-content: flex-start;
     align-items: center;
     flex-direction: column;
-    
     background-color:#ffb7c7;
-    box-shadow: 0px 15px 25px rgba(0, 0, 0, 0.5);
+    box-shadow: 0 15px 25px rgba(0 0 0 0/50%);
 
 }
+
 .culture-tip .line{
-    
     display: flex;
     justify-content: center;
     align-items: center;
@@ -978,6 +1101,7 @@ color:#182d03;
     height:15%;
     width:100%;
 }
+
 .culture-tip .tip-box{
     border-radius: 10px;
     margin-top: 30px;;
@@ -988,23 +1112,9 @@ color:#182d03;
     align-items: center;
     flex-direction: column;
     background-color: white;
-    
- box-shadow: 0px 15px 25px rgba(0, 0, 0, 0.5);
+ box-shadow: 0 15px 25px rgba(0 0 0 0/50%);
 }
-.culture-tip .line h2{
-    
-    text-align: center;
-    color:white;
-    font-size: 30px;
-    font-weight: bold;;
-}
-.culture-tip .tip-box p{
-    text-align: center;
-    margin: 30px 30px 30px 30px;
-    color: black;
-    font-size:20px;
 
-}
 
 .edit-culture{
     margin-top: 30px;
@@ -1015,6 +1125,7 @@ color:#182d03;
     align-items: center;
     flex-direction: column;
 }
+
 .edit-culture .edit-button{
     border-radius: 10px;
     height: 50%;
@@ -1024,21 +1135,18 @@ color:#182d03;
     justify-content: center;
     align-items: center;
     flex-direction: column;
-    box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.5);
+    box-shadow: 0 5px 10px rgba(0 0 0 0/50%);
 }
-.edit-culture .edit-button h2{
-    text-align: center;
-    color:#3a4605;
-    font-size:25px;
-    font-weight: bold;
-}
+
+
+
 .edit-culture .edit-button:hover{
     background-color:#e1fc77 ;
     cursor: pointer;
 }
+
 .sync{
     margin-top:90px;
-    
     height:20vh;
     width:100vw;
     display: flex;
@@ -1046,7 +1154,8 @@ color:#182d03;
     align-items: center;
     flex-direction: column;
 }
-.sync .buttonS{
+
+.sync .button-s{
     border-radius: 10px;
     width:20%;
     height: 50%;
@@ -1054,23 +1163,19 @@ color:#182d03;
     display: flex;
     justify-content: center;
     align-items: center;
-     box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.5);
+     box-shadow: 0 5px 10px rgba(0 0 0 0/50%);
 }
 
-.sync .buttonS:hover{
+.sync .button-s:hover{
     letter-spacing: 2px;
     background-color:var(--darkpink);
     cursor: pointer;
 }
-.sync .buttonS h2{
-font-size:18px;
-align-items: center;
-text-align:center;
-color:white;
-}
 
 
-@media screen and (min-width:10px) {
+
+
+@media screen and (width >=10px) {
     .mycultures-container section {
         margin-top: 6rem;
         padding: 1em;
@@ -1086,35 +1191,32 @@ color:white;
         display: flex;
         flex: 0 0 100%;
         width: 200px;
-        padding: 1em 1em;
+        padding: 1em;
     }
 }
 
-@media screen and (min-width:470px) {
-    .card-container section {
+@media screen and (width >=470px) {
+    .mycultures-container section {
         margin-top: 6rem;
         padding: 1em;
     }
 
-    .card {
+    .culture-container {
         padding: 5em 2em;
         width: 100%;
     }
 
-    .description-container{
-        padding: 1em 1em;
-    }
 
-    .column {
+    .culture-column {
         display: flex;
         flex: 0 0 50%;
         width: 200px;
-        padding: 1em 1em;
+        padding: 1em;
     }
 }
 
 
-@media screen and (min-width:700px) {
+@media screen and (width >=700px) {
     .mycultures-container section {
         margin-top: 6rem;
         padding: 1em;
@@ -1130,23 +1232,21 @@ color:white;
         flex: 0 0 33%;
         width: 100%;
         height: 100%;
-        padding: 1em 1em;
+        padding: 1em;
     }
 }
 
 
 
-/*other*/
-@media (max-width:1024px){
-
+/* other */
+@media (width <=1024px){
     .culture-view .description form{
         width: 80%;
     }
 
 }
 
-@media (max-width:990px){
-
+@media (width <=990px){
     html{
         font-size: 55%;
     }
@@ -1168,18 +1268,22 @@ color:white;
         font-size: 20px;
 
     }
-    html{
-        font-size: 50%;
-    }
+
+
+
     .header .icons div {
         font-size: 25px;
     }
+
+
     .header .icons div:first-child{
         margin-left: 15px;
     }
+
     .header .icons div:last-child{
         margin-right: 10px;
     }
+
     .culture-view{
         margin-top:60px;
         display: flex;
@@ -1189,6 +1293,7 @@ color:white;
         height: 100vh;
         width:100%;
     }
+
     .culture-view .image{
         margin-top:80px;
         margin-left:20px;
@@ -1201,7 +1306,6 @@ color:white;
 .culture-view .image .plus-icon{
     display:flex;
     justify-content: flex-start;
-    align-items: center;
     flex-direction: column;
     width:100%;
     height: 90%;
@@ -1209,11 +1313,13 @@ color:white;
     background-color:white;
 
 }
+
 .culture-view .image .plus-icon img{
     margin-top:30px;
     width:50px;
     height:50px;
 }
+
 .sync{
     display: flex;
     justify-content: center;
@@ -1221,7 +1327,8 @@ color:white;
     flex-direction: column;
 
 }
-.sync .buttonS{
+
+.sync .button-s{
     margin-left: 0;
     width:60%;
     height: 50%;
@@ -1241,75 +1348,47 @@ color:white;
     width: 90vw;
     height: 100vh;
 }
+
 .culture-view .description .button h2{
     text-align: center;
 }
-.culture-tip .line h2{
-    font-size:20px;
-}
+
+
+
 .culture-view .image .sell{
     width:50%;
     margin-bottom: 5px;;
 }
+
 .culture-view .description .price{
     width:50%;
 } 
+
 .culture-tip{
     margin-left:32px;
     width: 90vw;
 }
+
 .culture-tip .tip-box{
     margin: auto;
     width:80vw;
 
 }
-.culture-tip .tip-box p{
-    font-size: 15px;
-}
+
+
 .edit-culture{
     display:flex;
     align-items: center;
     justify-content: center;
 }
+
 .edit-culture .edit-button{
     width: 70vw;
     margin-right: 20px;
 }
-.edit-culture .edit-button h2{
-    font-size: 20px;
-}
-.header .icons div {
-    font-size: 20px;
 }
 
-html{
-    font-size: 55%;
-}
-
-.header{
-    padding:1.5rem 2rem;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-}
-
-section{
-    padding:2rem;
-}
-
-.header .navbar a{
-    margin:0 0.4rem;
-    margin-left:20px;
-    font-size: 20px;
-
-}
-.culture-tip .tip-box p{
-    font-size: 25px;
-}
-}
-
-@media (max-width:768px){
-
+@media (width <=768px){
     #menu-btn{
         display: inline-block;
     }
@@ -1335,21 +1414,22 @@ section{
     }
 
     .header .icons div {
-
         font-size: 20px;
     }
+
     .header .icons div:first-child{
-        margin-left: 10px;
+        margin-left: 500px;
     }
     
     
 }
 
-@media (max-width:540px)
+@media (width <=540px)
 {
     .header .icons div:first-child{
-        margin-left: 10px;
+        margin-left: 200px;
     }
+
     .culture-view{
         margin-top:60px;
         display: flex;
@@ -1359,7 +1439,8 @@ section{
         height: 100vh;
         width:100%;
     }
-    .culture-view .image{
+    
+		.culture-view .image{
         margin-top:80px;
         margin-left:10px;
         width:80vw;
@@ -1371,7 +1452,6 @@ section{
 .culture-view .image .plus-icon{
     display:flex;
     justify-content: flex-start;
-    align-items: center;
     flex-direction: column;
     width:100%;
     height: 90%;
@@ -1379,11 +1459,13 @@ section{
     background-color:white;
 
 }
+
 .culture-view .image .plus-icon img{
     margin-top:30px;
     width:50px;
     height:50px;
 }
+
 .sync{
     display: flex;
     justify-content: center;
@@ -1391,7 +1473,8 @@ section{
     flex-direction: column;
 
 }
-.sync .buttonS{
+
+.sync .button-s{
     margin-left: 0;
     margin-right: 7px;
     width:60%;
@@ -1406,50 +1489,54 @@ section{
     width: 80vw;
     height: 100vh;
 }
+
 .culture-view .description .button h2{
     text-align: center;
 }
-.culture-tip .line h2{
-    font-size:20px;
-}
+
+
 .culture-view .image .sell{
     width:50%;
     margin-bottom: 5px;;
 }
+
 .culture-view .description .price{
     width:50%;
 } 
+
 .culture-tip{
     margin-left:13px;
     width: 90vw;
 }
+
 .culture-tip .tip-box{
     margin: auto;
     width:80vw;
 
 }
+
 .culture-tip .tip-box p{
     font-size: 15px;
 }
+
 .edit-culture{
     display:flex;
     align-items: center;
     justify-content: center;
 }
+
 .edit-culture .edit-button{
     width: 70vw;
 }
-.edit-culture .edit-button h2{
-    font-size: 20px;
-}
+
 
 }
-@media (max-width:450px){
 
- 
+@media (width <=450px){
     .header .icons div:first-child{
         margin-left: 10px;
     }
+		
     .culture-view .description form{
         width: 80%;
     }
