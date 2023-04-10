@@ -73,13 +73,13 @@
         <p>
             Am ales acest proiect deoarece ni s-a părut interesantă ideea și am vrut să vedem cum o putem pune în
             practică. În ceea ce privește luarea deciziilor s-au considerat:
-            <ul>
-                <li>o paletă de culori potrivită temei;</li>
-                <li>integrarea unor sectiuni interactive;</li>
-                <li>creearea paginilor necesare funcționări site-uli;</li>
-                <li>menținerea unei corențe în cadrul aplicației.</li>
-            </ul>
-    
+        <ul>
+            <li>o paletă de culori potrivită temei;</li>
+            <li>integrarea unor sectiuni interactive;</li>
+            <li>creearea paginilor necesare funcționări site-uli;</li>
+            <li>menținerea unei corențe în cadrul aplicației.</li>
+        </ul>
+
         </p>
     </section>
     <section id="structure">
@@ -886,20 +886,97 @@ button .fas{
         <h3>V. Empty Culture Page</h3>
         <section id="Article">
             <p>
-                Când utilizatorul dorește să introducă o nouă cultură el va ajunge la pagina aceasta:
+                Când utilizatorul dorește să introducă o nouă cultură el va ajunge la pagina aceasta dupa ce apasa
+                plusul de pe My Culture:
                 <img src="photo/new-culture.jpg" style="width:100%; height: auto; margin: 20px 20px 0 0;">
             <details>
-                <summary><b>1. Apăsați - Codul pentru x</b></summary>
+                <summary><b>1. Apăsați - Codul pentru Description and Price</b></summary>
                 <details>
                     <summary>-- Codul HTML --</summary>
                     <pre><code>
-
-
+    &lt;section>
+        &lt;div class="culture-view">
+            &lt;div class="image">
+                &lt;div class="plus-icon">
+                    &lt;p>
+                        Pres "+" to add a new culture
+                    &lt;/p>
+                    &lt;img src="photo/plus.png" />
+                &lt;/div>
+            &lt;/div>
+            &lt;div class="description">
+                &lt;form>
+                    &lt;div class="inputBox">
+                        &lt;input type="text" name="description" required="">
+                        &lt;label>Description&lt;/label>
+                    &lt;/div>
+                    &lt;div class="inputBox">
+                        &lt;input type="text" name="price" required="">
+                        &lt;label>Price&lt;/label>
+                    &lt;/div>
+                &lt;/form>
+                &lt;div class="button">
+                    &lt;h2>
+                        Add New Culture
+                    &lt;/h2>
+                &lt;/div>
+            &lt;/div>
+        &lt;/div>
+    &lt;/section>
                 </code></pre>
                 </details>
                 <details>
                     <summary>-- Codul CSS --</summary>
                     <pre><code>
+.culture-view{
+    margin-top:60px;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    flex-direction: row;
+    height: 100vh;
+    width:100%;
+}
+
+
+.culture-view .description{
+    margin-left: 40px;
+    width:25vw;
+    height: 60vh;
+    border-bottom: solid  var(--darkerstpink);
+    border-top: solid  var(--darkerstpink);
+    border-width: 10px;
+    align-items: center;
+    box-shadow: 0px 15px 25px rgba(0, 0, 0, 0.5);
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    flex-direction: column;
+    border-radius: 10px;
+    
+}
+.culture-view .image .plus-icon p{
+    margin-top: 50px;
+    font-size:20px;
+    color:black;
+    text-align: center;
+}
+.culture-view .image .plus-icon{
+    display:flex;
+    justify-content: flex-start;
+    align-items: center;
+    flex-direction: column;
+    width:100%;
+    height: 90%;
+    align-items: center; 
+    background-color:white;
+
+}
+.culture-view .image .plus-icon img{
+    margin-top:130px;
+    width:100px;
+    height:100px;
+}
                 </code></pre>
                 </details>
             </details>
@@ -957,8 +1034,7 @@ button .fas{
             <p>
                 Când utilizatorul dorește să cumpere sau urmărească cultură el va apăsa pe See Details și va ajunge la
                 pagina aceasta:
-                <img src="photo/Cultures-1.png" style="width:100%; height: auto; margin: 20px 20px 0 0;">
-                <img src="photo/Cultures-2.png" style="width:100%; height: auto; margin: 0px 20px 0 0;">
+                <img src="photo/t-buy-culture.png" style="width:100%; height: auto; margin: 20px 20px 0 0;">
             <details>
                 <summary><b>1. Apăsați - Codul pentru x</b></summary>
                 <details>
@@ -1030,65 +1106,419 @@ button .fas{
                 (mariatodirel7@gmail.com, maria) în aceasta
                 pagina, ca apoi să fie redirecționat spre pagina sa de profil. Tot de aici, administrator se poate loga
                 cu credințialele sale (admin, admin).
-                <img src="photo/Cultures-1.png" style="width:100%; height: auto; margin: 20px 20px 0 0;">
-                <img src="photo/Cultures-2.png" style="width:100%; height: auto; margin: 0px 20px 0 0;">
+                <img src="photo/account.png" style="width:100%; height: auto; margin: 20px 20px 0 0;">
+                <img src="photo/profile.png" style="width:100%; height: auto; margin: 0px 20px 0 0;">
+                <img src="photo/admin.jpg" style="width:100%; height: auto; margin: 0px 20px 0 0;">
             <details>
-                <summary><b>1. Apăsați - Codul pentru x</b></summary>
+                <summary><b>1. Apăsați - Codul pentru Admin page</b></summary>
                 <details>
                     <summary>-- Codul HTML --</summary>
                     <pre><code>
+&lt;!DOCTYPE html>
+&lt;html>
+&lt;head>
+    &lt;title>Admin Page&lt;/title>
+    &lt;link rel="stylesheet" href="all.css">
+    &lt;meta charset="UTF-8">
+    &lt;meta http-equiv="X-UA-Compatible" content="IE=edge">
+    &lt;meta name="viewport" content="width=device-width, initial-scale=1.0">
+    &lt;link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    &lt;link rel="stylesheet" href="css/index.css">
+    &lt;link rel="stylesheet" href="css/all.css">
+    &lt;link rel="stylesheet" href="css/index2.css">
+    &lt;script src="js/myJs.js" defer>&lt;/script>
+&lt;/head>
+&lt;body>
 
+
+    &lt;div class="admin-page">
+        &lt;header class="header">
+            &lt;h2>Welcome&lt;/h2>
+            &lt;p>This is the admin dashboard. You can manage your site's content here.&lt;/p>
+       
+        &lt;/header>
+        &lt;div class="dashboard">
+            &lt;div class="users" id="users-button ">
+                &lt;h2>
+                    Users
+                &lt;/h2>
+               
+            &lt;/div>
+            &lt;div class="content" id="content-button">
+                &lt;h2>
+                    Content
+                &lt;/h2>
+            &lt;/div>
+            &lt;div class="reports" id="reports-button">
+                &lt;h2>
+                    Reports
+                &lt;/h2>
+            &lt;/div>
+            &lt;a href="account.html">
+                Log Out
+            &lt;/a>
+        &lt;/div>
+           &lt;/div>
+    &lt;/div>
+    &lt;script src="js/myJs.js">&lt;/script>
+
+
+&lt;/body>
+&lt;/html>
 
                 </code></pre>
                 </details>
                 <details>
                     <summary>-- Codul CSS --</summary>
                     <pre><code>
+/*Admin page*/
+.admin-page{
+    background-color:white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    
+}
+.admin-page .header{
+    height: 70px;
+    background-color: #7f981b;
+}
+.admin-page .header p{
+    color:#c5c581;
+    font-size: 25px;
+}
+.admin-page .header h2{
+
+    color:white;
+    font-size:35px;
+}
+.admin-page .dashboard{
+    margin-top: 80px;
+    width:100vw;
+    height: 80vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+.admin-page .dashboard .users{
+    margin-top: 100px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    background-color: #b62f4f;
+    width: 25%;
+    height:25%;
+    box-shadow: 0px 15px 25px rgba(0, 0, 0, 0.5);
+}
+.admin-page .dashboard .users:hover{
+    letter-spacing: 3px;
+    cursor: pointer;
+    background-color: #f5c1cd;
+}
+.admin-page .dashboard .users h2{
+    text-align: center;
+    text-align: center;
+    color:#eea3b4;
+    font-size: 30px;
+    font-weight: bold;
+    text-shadow:#66071d  3px 2px;
+}
+.admin-page .dashboard .content{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    background-color: #e76281;
+    width: 25%;
+    height:25%;
+    margin-top:20px;
+    box-shadow: 0px 15px 25px rgba(0, 0, 0, 0.5);
+}
+.admin-page .dashboard .content:hover{
+    letter-spacing: 3px;
+    cursor: pointer;
+    background-color: #f5c1cd;
+}
+.admin-page .dashboard .content h2{
+    text-align: center;
+    text-align: center;
+    color:white;
+    font-size: 30px;
+    font-weight: bold;
+    text-shadow:var(--darkerstpink) 3px 2px;
+}
+.admin-page .dashboard .reports
+{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    background-color: #eea3b4;
+    width: 25%;
+    height:25%;
+    margin-top:20px;
+    box-shadow: 0px 15px 25px rgba(0, 0, 0, 0.5);
+}
+.admin-page .dashboard .reports:hover{
+    letter-spacing: 3px;
+    cursor: pointer;
+    background-color: #f5c1cd;
+}
+.admin-page .dashboard .reports h2{
+    text-align: center;
+    text-align: center;
+    color:#66071d;
+    font-size: 30px;
+    font-weight: bold;
+    text-shadow:white  3px 2px ;
+}
+.admin-page .dashboard a{
+    margin-top: 50px;
+    color: var(--vivagreen);
+    font-size:15px;
+    font-weight: bold;
+}
+
+
+@media (max-width:991px){
+
+    html{
+        font-size: 55%;
+    }
+
+    .header{
+        padding:1.5rem 2rem;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    section{
+        padding:2rem;
+    }
+    
+    .header .navbar a{
+        margin:0 0.4rem;
+        margin-left:40px;
+        font-size: 20px;
+
+    }
+    html{
+        font-size: 50%;
+    }
+    .header .icons div {
+        font-size: 25px;
+    }
+    .header .icons div:first-child{
+        margin-left: 15px;
+    }
+    .header .icons div:last-child{
+        margin-right: 10px;
+    }
+    
+
+}
+
+@media (max-width:768px){
+
+    #menu-btn{
+        display: inline-block;
+    }
+
+    .header .navbar{
+        position: absolute;
+        top:100%; right: -100%;
+        background: #fff;
+        width: 30rem;
+        height: 200px;
+        align-items: flex-end;
+        justify-content: flex-end;
+        box-shadow: 0px 15px 25px rgba(0, 0, 0, 0.5);
+    }
+
+    .header .navbar.active{
+        right:0;
+    }
+
+    .header .navbar a{
+        color:var(--black);
+        display: block;
+        margin:auto;
+        padding:.5rem;
+        font-size: 2rem;
+    }
+
+    .header .icons div {
+
+        font-size: 20px;
+    }
+    .header .icons div:first-child{
+        margin-left: 500px;
+    }
+  
+    
+}
+
+@media (max-width:540px)
+{
+    .header .icons div:first-child{
+        margin-left: 200px;
+    }
+    .navbar{
+        display: block;
+        align-items: flex-start;
+        flex-direction: column;
+    }
+    .navbar a {
+        margin:0 0 0 0;
+    }
+    .admin-page .dashboard .users h2{
+        font-size:20px;
+    }
+    .admin-page .dashboard .reports h2{
+        font-size:20px;
+    }
+    .admin-page .dashboard .content{
+        width:70%;
+        height:10%;
+    }
+    .admin-page .dashboard .content h2{
+        font-size:20px;
+    }
+    .admin-page .dashboard .users{
+        width:70%;
+        height:10%;
+    }
+    .admin-page .dashboard .reports{
+        width:70%;
+        height:10%;
+    }
+    
+.admin-page .header p{
+    margin-left:50px;
+    font-size: 15px;
+}
+.admin-page .header h2{
+
+    margin-left: 20px;;
+    color:white;
+    font-size:20px;}
                 </code></pre>
                 </details>
             </details>
             <details>
-                <summary><b>2. Apăsați - Codul pentru x</b></summary>
+                <summary><b>2. Apăsați - Codul pentru Login Form</b></summary>
                 <details>
                     <summary>-- Codul HTML --</summary>
                     <pre><code>
-
-
+&lt;form id="login-form">
+    &lt;h2>Login&lt;/h2>
+    &lt;div class="inputBox">
+        &lt;input type="text" name="email" required="">
+        &lt;label>E-mail&lt;/label>
+    &lt;/div>
+    &lt;div class="inputBox">
+    &lt;input type="password" name="password" required="">
+    &lt;label>Password&lt;/label>
+    &lt;/div>
+    &lt;input type="submit" value="Login">
+&lt;/form>
+           
+&lt;div class="account-background" id ="account-info" style="display: none;">
+    &lt;div class="account-info" >
+        &lt;h2>
+           My Account
+        &lt;/h2>
+        &lt;div class="column" id="edit-button">
+            &lt;h2>
+                Edit Profil
+            &lt;/h2>
+        &lt;/div>
+           
+        &lt;div class="column" id="delete">
+            &lt;h2>
+                Delete Account
+            &lt;/h2>
+        &lt;/div>
                 </code></pre>
                 </details>
                 <details>
                     <summary>-- Codul CSS --</summary>
                     <pre><code>
+.account-section form{
+    width: 80%;
+    height: 65%;
+}
+.account-background{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+.account-background .account-info{
+    margin-top:0;
+    width:100vw;
+    height:30vh;
+    }
+    .account-background .account-info .column{
+        margin-top: 50px;
+        height:27%;
+    }
+    .account-background .account-info .column:nth-of-type(2){
+        margin-top: 10px;
+    }
+
+.account-background .account-info h2 {
+    text-align: center;
+    margin-top: 20px;
+    color: white;
+    font-weight: bold;
+    font-size: 15px;
+}
                 </code></pre>
                 </details>
             </details>
             <details>
-                <summary><b>3. Apăsați - Codul pentru x</b></summary>
+                <summary><b>3. Apăsați - Codul pentru Edit Page</b></summary>
                 <details>
                     <summary>-- Codul HTML --</summary>
                     <pre><code>
-
-
+ &lt;div class="edit-page" id="edit-page" style="display: none;">
+    &lt;div class="img-container">
+        &lt;img src="photo/profil.png" alt=" ">
+    &lt;/div>
+    &lt;form>
+        &lt;div class="inputBoxEdit">
+            &lt;input type="text" name="username">
+                &lt;label>User Name&lt;/label>
+        &lt;/div>
+        &lt;a href="#">Forgot Password?&lt;/a>
+     &lt;/form>
+&lt;/div>
                 </code></pre>
                 </details>
                 <details>
                     <summary>-- Codul CSS --</summary>
                     <pre><code>
-                </code></pre>
-                </details>
-            </details>
-            <details>
-                <summary><b>4. Apăsați - Codul pentru x</b></summary>
-                <details>
-                    <summary>-- Codul HTML --</summary>
-                    <pre><code>
-
-
-                </code></pre>
-                </details>
-                <details>
-                    <summary>-- Codul CSS --</summary>
-                    <pre><code>
+    .account-background .edit-page{
+        flex-direction: column;
+        display: flex;
+        justify-content: flex-start;
+        align-items: center;
+    }
+    .account-background .edit-page .img-container{
+        margin-top:40px;
+        margin-left: 110px;
+    }
+    
+    .account-background .edit-page form{
+       margin-left: 110px;
+        width:70vw;
+        height: 30%;
+    }
                 </code></pre>
                 </details>
             </details>
