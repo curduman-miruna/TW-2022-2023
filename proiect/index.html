@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <link rel="stylesheet" href="css/index.css">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.3/css/all.css"
+        integrity="sha384-qziRS6z5U6F/AKeYwMjNkTvPLm1TFSBp3c5Fk9z1WZAA8eqo+xPwBwYHgR0MWrO1" crossorigin="anonymous">
+    <link rel="stylesheet" href="css/all.css">
+    
+  <link rel="stylesheet" href="css/index2.css">
+    <script src="js/myJs.js" defer></script>
+    <script src="js/sliderJs.js" defer></script>
+    <title>Home</title>
+</head>
+
+<body>
+
+    <header class="header">
+
+        <a href="index.html" class="logo">
+            <script src="https://cdn.lordicon.com/ritcuqlt.js"></script>
+            <lord-icon src="https://cdn.lordicon.com/zrvxzslu.json" trigger="hover" style="width:70px;height:70px">
+            </lord-icon>
+            <p style="color: white; font-size: 12px; font-family: 'Roboto', sans-serif; margin-left: 7px"> WEB
+                GARDENing
+            </p>
+        </a>
+
+        <nav class="navbar">
+            <a href="index.html">Home</a> <!--sectiunea de home din aceeasi pagina -->
+            <a href="buy.html">Buy</a>
+            <a href="mycultures.html">MyCultures</a>
+            <a href="account.html">Account</a>
+            <a href="help.html">Help</a>
+        </nav>
+
+        <div class="icons">
+            <div class="fas fa-shopping-cart" id="cart-btn"></div>
+            <div class="fas fa-bars" id="menu-btn"></div>
+            <div class="fas fa-solid fa-user" id="account"></div>
+        </div>
+
+        <div class="search-form">
+            <input type="search" id="search-box" placeholder="search here...">
+            <label for="search-box" class="fas fa-search"></label>
+        </div>
+
+        <div class="cart-items-container">
+            <div class="cart-item">
+                <span class="fas fa-times"></span>
+                <img src="photo/Crocus.png" alt="">
+                <div class="content">
+                    <h3>Crocus Culture</h3>
+                    <div class="price">$15.99/-</div>
+                </div>
+            </div>
+            <div class="cart-item">
+                <span class="fas fa-times"></span>
+                <img src="photo/Daffodil.png" alt="">
+                <div class="content">
+                    <h3>Daffodil Culture</h3>
+                    <div class="price">$15.99/-</div>
+                </div>
+            </div>
+            <div class="cart-item">
+                <span class="fas fa-times"></span>
+                <img src="photo/Lily.png" alt="">
+                <div class="content">
+                    <h3>Lily Culture</h3>
+                    <div class="price">$15.99/-</div>
+                </div>
+            </div>
+            <div class="cart-item">
+                <span class="fas fa-times"></span>
+                <img src="photo/Peonies.png" alt="">
+                <div class="content">
+                    <h3>Peonis Culture</h3>
+                    <div class="price">$15.99/-</div>
+                </div>
+            </div>
+            <a href="#" class="btn">My Basket</a>
+        </div>
+    </header>
+    <section>
+
+        <div class="card-container">
+            <div class="description-container">
+                <h2 style="text-indent: 20px;">
+                    Welcome to our digital assistant for spring flower cultivation and sales! Our web application allows
+                    you to manage multiple flower crops simultaneously, providing real-time data from a series of
+                    sensors such as soil moisture and ambient temperature, as well as a continuous stream of images
+                    tracking the development of your plants. Based on these sensor readings and the growth period of
+                    your cultivated plants, our application will suggest actions such as irrigation, temperature or
+                    lighting adjustments, and harvest timing to optimize their growth and development. In addition, for
+                    optimized sales, potential buyers can express interest in purchasing flowers and will be notified
+                    via email and browser notifications when their desired flowers are ready for purchase. Join us today
+                    and experience the benefits of our digital assistant for spring flower cultivation and sales!
+                </h2>
+            </div>
+            <br>
+            <div class="image-slider-container">
+                <h1>Users cultures</h1>
+                <div class="slider">
+                    <button class="btn-slide prev"><i class="fas fa-3x fa-chevron-circle-left"></i></button>
+                    <button class="btn-slide next"><i class="fas fa-3x fa-chevron-circle-right"></i></button>
+                    <div class="slide">
+                        <img src="photo/Daffodil-Field.png" alt="Photo1">
+                    </div>
+                    <div class="slide">
+                        <img src="photo/Tulips-Field-2.png" alt="Photo2">
+                    </div>
+                    <div class="slide">
+                        <img src="photo/Daffodils-Field-2.png" alt="Photo3">
+                    </div>
+                    <div class="slide">
+                        <img src="photo/Tulips-Field-3.png" alt="Photo4">
+                    </div>
+
+                </div>
+                <div class="dots-container">
+                    <span class="dot active" data-slide="0"></span>
+                    <span class="dot" data-slide="1"></span>
+                    <span class="dot" data-slide="2"></span>
+                    <span class="dot" data-slide="3"></span>
+                </div>
+            </div>
+            <script src="js/test.js"></script>
+            <div class="row-title">
+                <h1>Our Features</h1>
+            </div>
+            <div class="row">
+                <div class="column">
+                    <div class="card">
+                        <div class="icon">
+                        </div>
+                        <h3>User Friendly</h3>
+                        <p>
+                            Easy-to-use dashboard to manage multiple flower crops.
+                        </p>
+                    </div>
+                </div>
+                <div class="column">
+                    <div class="card">
+                        <div class="icon">
+                        </div>
+                        <h3>Super Secure</h3>
+                        <p>
+                            Secure online store to showcase and sell your flowers.
+                        </p>
+                    </div>
+                </div>
+                <div class="column">
+                    <div class="card">
+                        <div class="icon">
+                        </div>
+                        <h3>Quick Support</h3>
+                        <p>
+                            Real-time sensor data for the optimal flower growth.
+                        </p>
+                    </div>
+                </div>
+                <div class="column">
+                    <div class="card">
+                        <div class="icon">
+                        </div>
+                        <h3>Notifaction System</h3>
+                        <p>
+                            Automatic notifications when your flowers are ready to sell.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <footer class="footer">
+        <p>WeGa (Web Gardening) 2023</p>
+    </footer>
+        <script src="js/myJs.js"></script>
+
+</body>
+
+
+
+</html>
