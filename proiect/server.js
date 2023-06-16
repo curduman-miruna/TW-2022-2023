@@ -92,45 +92,61 @@ const server = http.createServer(async (req, res) => {
         }
       });} 
       else if (req.method === 'PUT' && pathname === '/signup') {
-      let body = '';
+  let body = '';
 
-      req.on('data', (chunk) => {
-        body += chunk.toString();
-      });
+  req.on('data', (chunk) => {
+    body += chunk.toString();
+  });
 
-      req.on('end', async () => {
-        try {
-          const { email, password, name, username } = JSON.parse(body);
-          const role = 'client';
+  req.on('end', async () => {
+    try {
+      const { email, password, name, username } = JSON.parse(body);
+      const role = 'client';
 
-          const hashedPassword = await bcrypt.hash(password, 10); // Hash the password
+      const client = await pool.connect();
 
-          const client = await pool.connect();
-          const result = await client.query('INSERT INTO public.users (email, password, name, username, role) VALUES ($1, $2, $3, $4, $5) RETURNING *', [email, hashedPassword, name, username, role]);
+      // Check if user with the same email already exists
+      const existingUserResult = await client.query('SELECT * FROM public.users WHERE email = $1', [email]);
 
-          client.release();
+      if (existingUserResult.rowCount > 0) {
+        // User with the same email already exists
+        res.setHeader('Content-Type', 'application/json');
+        res.statusCode = 409; // Conflict
+        res.end(JSON.stringify({ success: false, message: 'User with the same email already exists' }));
+      } else {
+        // User with the same email does not exist, proceed with creating the user
 
-          if (result.rowCount === 1) {
-            const user = result.rows[0]; // Newly created user
+        const hashedPassword = await bcrypt.hash(password, 10); // Hash the password
 
-            const token = generateToken(user);
+        const result = await client.query(
+          'INSERT INTO public.users (email, password, name, username, role) VALUES ($1, $2, $3, $4, $5) RETURNING *',
+          [email, hashedPassword, name, username, role]
+        );
 
-            res.setHeader('Content-Type', 'application/json');
-            res.statusCode = 200;
-            res.end(JSON.stringify({ success: true, token }));
-          } else {
-            // Failed to create user
-            res.setHeader('Content-Type', 'application/json');
-            res.statusCode = 500;
-            res.end(JSON.stringify({ success: false }));
-          }
-        } catch (error) {
-          console.error('Error executing query', error);
+        if (result.rowCount === 1) {
+          const user = result.rows[0]; // Newly created user
+
+          const token = generateToken(user);
+
+          res.setHeader('Content-Type', 'application/json');
+          res.statusCode = 200;
+          res.end(JSON.stringify({ success: true, token }));
+        } else {
+          // Failed to create user
+          res.setHeader('Content-Type', 'application/json');
           res.statusCode = 500;
-          res.end();
+          res.end(JSON.stringify({ success: false }));
         }
-      });
-    } else if (req.method === 'GET' && pathname === '/cultures') {
+      }
+
+      client.release();
+    } catch (error) {
+      console.error('Error executing query', error);
+      res.statusCode = 500;
+      res.end();
+    }
+  });
+} else if (req.method === 'GET' && pathname === '/cultures') {
       try {
         const userEmail = parsedUrl.query.email;
 
