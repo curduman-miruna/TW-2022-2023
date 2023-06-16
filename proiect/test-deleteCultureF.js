@@ -9,7 +9,7 @@ const data = JSON.stringify({
 const options = {
   hostname: 'localhost',
   port: 8080,
-  path: '/userCultures',
+  path: '/deleteFollow',
   method: 'DELETE',
   headers: {
     'Content-Type': 'application/json',

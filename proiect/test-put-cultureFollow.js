@@ -9,7 +9,7 @@ const data = JSON.stringify({
 const options = {
   hostname: 'localhost',
   port: 8080,
-  path: '/addCulture',
+  path: '/addFollow',
   method: 'PUT',
   headers: {
     'Content-Type': 'application/json',

@@ -428,7 +428,7 @@ else if (req.method === 'GET' && pathname === '/userFollowed') {
   }
 }
  //Endpoint pentru adaugare in user_cultures -> culturile la care a dat follow
-else if (req.method === 'PUT' && pathname === '/addCulture') {
+else if (req.method === 'PUT' && pathname === '/addFollow') {
   let body = '';
 
   req.on('data', (chunk) => {
@@ -476,7 +476,7 @@ else if (req.method === 'PUT' && pathname === '/addCulture') {
     }
   });
 }
-else if (req.method === 'DELETE' && pathname === '/userCultures') {
+else if (req.method === 'DELETE' && pathname === '/deleteFollow') {
   let body = '';
 
   req.on('data', (chunk) => {
