@@ -95,9 +95,9 @@ body {
 
 a {
 	display: block;
+    color: white;
 	margin-top: 20px;
 	font-size: 14px;
-	color: #fff;
 	text-align: center;
 	text-decoration: none;
 }
