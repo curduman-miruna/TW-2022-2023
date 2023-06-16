@@ -60,7 +60,7 @@ const server = http.createServer(async (req, res) => {
               res.end(JSON.stringify({ success: false }));
             }
           } else {
-            const result2 = await client.query('SELECT * FROM public.users WHERE email = $1 AND password = $2 AND role = $3', [email, password, 'admin']);
+            const result2 = await client.query('SELECT * FROM public.users WHERE email = $1 AND role = $2', [email, 'admin']);
 
             if (result2.rowCount === 1) {
               // Successful login as admin
