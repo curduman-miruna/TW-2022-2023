@@ -8,7 +8,11 @@ const data = JSON.stringify({
   image_url: ['https://example.com/tomato.jpg'],
   culture_type: 'Lily',
   price: 3,
+  status: 'Ready',
+  availability: true,
+  description: 'Daffodils are incredibly versatile and can be planted in borders, beds, or containers, and make lovely cut flowers for floral arrangements. Their hardiness and long blooming season make them an excellent choice for both gardeners and flower enthusiasts alike.',
 });
+
 
 const options = {
   hostname: 'localhost',
@@ -35,4 +39,3 @@ req.on('error', (error) => {
 
 req.write(data);
 req.end();
-
