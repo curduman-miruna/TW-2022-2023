@@ -1,20 +1,19 @@
 const http = require('http');
 
 const data = JSON.stringify({
-  user_email: 'miruna@test.com',
-  culture_id: 7,
-  culture_name: 'Heather'
+  id: 2, // Provide the ID of the culture to update
+  email: 'example@example.com' // Provide the email to assign as the buyer
 });
 
 const options = {
   hostname: 'localhost',
   port: 8080,
-  path: '/addFollow',
-  method: 'PUT',
+  path: '/changeAvailability',
+  method: 'POST',
   headers: {
     'Content-Type': 'application/json',
-    'Content-Length': data.length,
-  },
+    'Content-Length': data.length
+  }
 };
 
 const req = http.request(options, (res) => {

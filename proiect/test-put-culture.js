@@ -1,12 +1,12 @@
 const http = require('http');
 
 const data = JSON.stringify({
-  email: 'miruna@test.com',
-  culture_name: 'Narcise galbene',
+  email: 'bianca.curduman@gmail.com',
+  culture_name: 'Heather',
   soil_moisture: 30,
   ambient_temperature: 25,
   image_url: ['https://example.com/tomato.jpg'],
-  culture_type: 'Lily',
+  culture_type: 'Heather',
   price: 3,
   status: 'Ready',
   availability: true,

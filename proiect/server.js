@@ -468,6 +468,13 @@ else if (req.method === 'PUT' && pathname === '/addFollow') {
 
         if (userCultureResult.rowCount === 1) {
           const userCulture = userCultureResult.rows[0];
+
+          // Increase the followers count of the culture
+          await client.query(
+            'UPDATE public.cultures SET followers = followers + 1 WHERE id = $1',
+            [culture_id]
+          );
+
           res.setHeader('Content-Type', 'application/json');
           res.statusCode = 200;
           res.end(JSON.stringify({ success: true, userCulture }));
@@ -492,6 +499,7 @@ else if (req.method === 'PUT' && pathname === '/addFollow') {
     }
   });
 }
+
 //Endpoint for delete followed culture from preferencess
 else if (req.method === 'DELETE' && pathname === '/deleteFollow') {
   let body = '';
@@ -507,11 +515,19 @@ else if (req.method === 'DELETE' && pathname === '/deleteFollow') {
       const client = await pool.connect();
 
       const deleteResult = await client.query(
-        'DELETE FROM public.user_cultures WHERE user_email = $1 AND culture_id = $2 AND culture_name = $3',
+        'DELETE FROM public.user_cultures WHERE user_email = $1 AND culture_id = $2 AND culture_name = $3 RETURNING *',
         [user_email, culture_id, culture_name]
       );
 
       if (deleteResult.rowCount === 1) {
+        const deletedEntry = deleteResult.rows[0];
+
+        // Decrease the followers count of the culture
+        await client.query(
+          'UPDATE public.cultures SET followers = followers - 1 WHERE id = $1',
+          [deletedEntry.culture_id]
+        );
+
         res.setHeader('Content-Type', 'application/json');
         res.statusCode = 200;
         res.end(JSON.stringify({ success: true, message: 'Entry deleted' }));
@@ -529,6 +545,7 @@ else if (req.method === 'DELETE' && pathname === '/deleteFollow') {
     }
   });
 }
+
 //Endpoint to get a culture, the info in the database
 else if (req.method === 'GET' && pathname === '/culture') {
   const { id } = url.parse(req.url, true).query;
@@ -622,6 +639,41 @@ else if (req.method === 'POST' && pathname === '/culture/edit') {
     }
   });
 }
+
+//Endpoint pentru schimbare availability in false daca cineva cumpara
+else if (req.method === 'POST' && pathname === '/changeAvailability') {
+  let body = '';
+
+  req.on('data', (chunk) => {
+    body += chunk.toString();
+  });
+
+  req.on('end', async () => {
+    try {
+      const { id, email } = JSON.parse(body);
+
+      const client = await pool.connect();
+      const result = await client.query('UPDATE public.cultures SET buyer = $1 WHERE id = $2', [email, id]);
+
+      if (result.rowCount === 1) {
+        res.setHeader('Content-Type', 'application/json');
+        res.statusCode = 200;
+        res.end(JSON.stringify({ success: true }));
+      } else {
+        res.setHeader('Content-Type', 'application/json');
+        res.statusCode = 404;
+        res.end(JSON.stringify({ success: false, message: 'Culture not found' }));
+      }
+
+      client.release();
+    } catch (error) {
+      console.error('Error executing query', error);
+      res.statusCode = 500;
+      res.end();
+    }
+  });
+}
+
 
     else {
       res.statusCode = 404;
