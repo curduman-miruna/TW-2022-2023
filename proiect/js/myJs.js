@@ -2,7 +2,7 @@
   let searchForm = document.querySelector('.search-form');
   let cartItem = document.querySelector('.cart-items-container');
   let accountInfo = document.getElementById('account-info');
-
+  
 
   window.onscroll = () => {
     navbar.classList.remove('active');
@@ -35,8 +35,7 @@
           // Redirect to admin page
           window.location.href = "admin.html";
         } else {
-          accountInfo.style.display = 'block';
-          form.style.display = 'none';
+          window.location.href="home.html";
         }
       } else {
         // Incorrect credentials
