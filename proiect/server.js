@@ -409,6 +409,109 @@ const server = http.createServer(async (req, res) => {
       }
     }
     //Endpoint pentru intoarcere followed of a user
+else if (req.method === 'GET' && pathname === '/userFollowed') {
+  try {
+    const userEmail = parsedUrl.query.user_email;
+
+    const client = await pool.connect();
+    const userCulturesResult = await client.query('SELECT * FROM public.user_cultures WHERE user_email = $1', [userEmail]);
+
+    res.setHeader('Content-Type', 'application/json');
+    res.statusCode = 200;
+    res.end(JSON.stringify(userCulturesResult.rows));
+
+    client.release();
+  } catch (error) {
+    console.error('Error executing query', error);
+    res.statusCode = 500;
+    res.end();
+  }
+}
+ //Endpoint pentru adaugare in user_cultures -> culturile la care a dat follow
+else if (req.method === 'PUT' && pathname === '/addCulture') {
+  let body = '';
+
+  req.on('data', (chunk) => {
+    body += chunk.toString();
+  });
+
+  req.on('end', async () => {
+    try {
+      const { user_email, culture_id, culture_name } = JSON.parse(body);
+
+      const client = await pool.connect();
+      const userResult = await client.query('SELECT id FROM public.users WHERE email = $1', [user_email]);
+
+      if (userResult.rowCount === 1) {
+        const user_id = userResult.rows[0].id;
+
+        const userCultureResult = await client.query(
+          'INSERT INTO public.user_cultures (user_id, user_email, culture_id, culture_name) VALUES ($1, $2, $3, $4) RETURNING *',
+          [user_id, user_email, culture_id, culture_name]
+        );
+
+        if (userCultureResult.rowCount === 1) {
+          const userCulture = userCultureResult.rows[0];
+          res.setHeader('Content-Type', 'application/json');
+          res.statusCode = 200;
+          res.end(JSON.stringify({ success: true, userCulture }));
+        } else {
+          // Failed to insert user culture
+          res.setHeader('Content-Type', 'application/json');
+          res.statusCode = 500;
+          res.end(JSON.stringify({ success: false, message: 'Failed to insert culture' }));
+        }
+      } else {
+        // User not found
+        res.setHeader('Content-Type', 'application/json');
+        res.statusCode = 404;
+        res.end(JSON.stringify({ success: false, message: 'User not found' }));
+      }
+
+      client.release();
+    } catch (error) {
+      console.error('Error executing query', error);
+      res.statusCode = 500;
+      res.end();
+    }
+  });
+}
+else if (req.method === 'DELETE' && pathname === '/userCultures') {
+  let body = '';
+
+  req.on('data', (chunk) => {
+    body += chunk.toString();
+  });
+
+  req.on('end', async () => {
+    try {
+      const { user_email, culture_id, culture_name } = JSON.parse(body);
+
+      const client = await pool.connect();
+
+      const deleteResult = await client.query(
+        'DELETE FROM public.user_cultures WHERE user_email = $1 AND culture_id = $2 AND culture_name = $3',
+        [user_email, culture_id, culture_name]
+      );
+
+      if (deleteResult.rowCount === 1) {
+        res.setHeader('Content-Type', 'application/json');
+        res.statusCode = 200;
+        res.end(JSON.stringify({ success: true, message: 'Entry deleted' }));
+      } else {
+        res.setHeader('Content-Type', 'application/json');
+        res.statusCode = 404;
+        res.end(JSON.stringify({ success: false, message: 'Entry not found' }));
+      }
+
+      client.release();
+    } catch (error) {
+      console.error('Error executing query', error);
+      res.statusCode = 500;
+      res.end();
+    }
+  });
+}
 
     else {
       res.statusCode = 404;
