@@ -10,11 +10,9 @@
 
     
     <link rel="stylesheet" href="css/all.css">
-    <link rel="stylesheet" href="css/signUp.css">
-    <link rel="stylesheet" href="css/index2.css">
-
-    <script src="js/signUp.js" defer></script>
-    <title>Sign Up</title>
+  <link rel="stylesheet" href="css/index2.css">
+    <script src="js/account.js" defer></script>
+    <title>My Account</title>
 </head>
 
 <body>
@@ -28,6 +26,14 @@
             <p style="color: white; font-size: 12px; font-family: 'Roboto', sans-serif; margin-left: 7px"> WEB GARDENing
             </p>
         </a>
+        <nav class="navbar">
+            <a href="home.html">Home</a> <!--sectiunea de home din aceeasi pagina -->
+            <a href="buy.html">Buy</a>
+            <a href="mycultures.html">MyCultures</a>
+            <a href="account.html">Account</a>
+            <a href="help.html">Help</a>
+            <a href="about.html">About</a>
+        </nav>
 
         <div class="title">
             <h2>
@@ -43,29 +49,9 @@
     <section>
         <div class="account-section" id="login-section">
             
-            <form id="login-form">
-                <h2>Sign up</h2>
-
-                <div class="input-box">
-                    <input type="text" name="name" required="">
-                    <label>Name</label>
-                </div>
-                <div class="input-box">
-                    <input type="text" name="email" required="">
-                    <label>E-mail</label>
-                </div>
-                <div class="input-box">
-                    <input type="text" name="username" required="">
-                    <label>Username</label>
-                </div>
-                <div class="input-box">
-                    <input type="password" name="password" required="">
-                    <label>Password</label>
-                </div>
-                <input type="submit" value="Sign up">
-            </form>
+           
             
-            <div class="account-background" id ="account-info" style="display: none;">
+            <div class="account-background" id ="account-info">
                 <div class="account-info" >
                     <h2>
                         My Account
@@ -82,6 +68,9 @@
                         </h2>
                     </div>
                 
+                </div>
+                <div class="user-information">
+                    
                 </div>
                 <div class="edit-page" id="edit-page" style="display: none;">
                     <div class="img-container">
@@ -104,6 +93,7 @@
         </div>
 
     </section>
+    
     </body>
     
     </html>
