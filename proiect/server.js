@@ -156,7 +156,54 @@ const server = http.createServer(async (req, res) => {
         res.statusCode = 500;
         res.end();
       }
-    } 
+    }
+
+     else if (req.method === 'PUT' && pathname === '/culture') {
+  let body = '';
+
+  req.on('data', (chunk) => {
+    body += chunk.toString();
+  });
+
+  req.on('end', async () => {
+    try {
+      const { email, culture_name, soil_moisture, ambient_temperature, image_url, culture_type, price } = JSON.parse(body);
+
+      const client = await pool.connect();
+      const userResult = await client.query('SELECT id FROM public.users WHERE email = $1', [email]);
+
+      if (userResult.rowCount === 1) {
+        const user_id = userResult.rows[0].id;
+
+        const cultureResult = await client.query('INSERT INTO public.cultures (user_id, culture_name, soil_moisture, ambient_temperature, image_url, culture_type, price) VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING *',
+          [user_id, culture_name, soil_moisture, ambient_temperature, image_url, culture_type, price]);
+
+        if (cultureResult.rowCount === 1) {
+          const culture = cultureResult.rows[0];
+          res.setHeader('Content-Type', 'application/json');
+          res.statusCode = 200;
+          res.end(JSON.stringify({ success: true, culture }));
+        } else {
+          // Failed to insert culture
+          res.setHeader('Content-Type', 'application/json');
+          res.statusCode = 500;
+          res.end(JSON.stringify({ success: false, message: 'Failed to insert culture' }));
+        }
+      } else {
+        // User not found
+        res.setHeader('Content-Type', 'application/json');
+        res.statusCode = 404;
+        res.end(JSON.stringify({ success: false, message: 'User not found' }));
+      }
+
+      client.release();
+    } catch (error) {
+      console.error('Error executing query', error);
+      res.statusCode = 500;
+      res.end();
+    }
+  });
+}
 
     else {
       res.statusCode = 404;
