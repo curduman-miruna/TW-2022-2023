@@ -7,25 +7,28 @@ async function fetchUserInfo() {
       method: 'GET',
       headers: {
         'Content-Type': 'application/json',
-      }
+      },
     });
-    const user = await response.json();
-    console.log(user.name);
-    const username = document.createElement('h2');
-    infoBox.appendChild(username);
-    username.setAttribute('user-username', user.username);
 
-    const name = document.createElement('p');
-    infoBox.appendChild(name);
-    name.setAttribute('user-name', user.name);
+    if (response.ok) {
+      const user = await response.json();
+      console.log(user.name);
+      
+      const username = document.createElement('h2');
+      username.textContent ='Hello, '+ user.username;
+      infoBox.appendChild(username);
+      
+      const name = document.createElement('p');
+      name.textContent ='name:     '+ user.name;
+      infoBox.appendChild(name);
 
-    const eMail = document.createElement('p');
-    infoBox.appendChild(eMail);
-    eMail.setAttribute('user-email', user.email);
+      const email = document.createElement('p');
+      email.textContent ='e-mail:     '+ user.email;
+      infoBox.appendChild(email);
 
-    const password = document.createElement('p');
-    infoBox.appendChild(password);
-    password.setAttribute('user-password', user.password);
+    } else {
+      console.error('Failed to fetch user info:', response.status);
+    }
   } catch (error) {
     console.error('Error executing login request', error);
   }

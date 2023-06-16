@@ -358,16 +358,38 @@ input[type="submit"] {
 input[type="submit"]:hover {
 	background-color: var(--darkpink);
 }
+.user-information{
+    margin-top:80px;
+    border: 3px solid #b62f4f;
+    border-radius: 10px;
+    width:40vw;
+    height: 70vh;
+    margin-left: 300px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
 
+}
+.user-information .infoSpan{
+    background-color: #da6e88;
+    color:black;
+    width:20vw;
+    height: 20vh;
+}
+.user-information .infoSpan p{
+    color:black;
+    font-size: 25px;
+    margin-top: 20px;
+}
 .user-information h2{
     color:#66071d;
     font-weight: bold;
     font-size: 50px;
-    margin-top: 100px;
 }
 .user-information p{
     color:black;
-    font-size: 50px;
+    font-size: 25px;
     margin-top: 20px;
 }
 .account-background{
