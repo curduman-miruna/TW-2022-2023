@@ -4,6 +4,7 @@ const { Pool } = require('pg');
 const cors = require('cors');
 const jwt = require('jsonwebtoken');
 const crypto = require('crypto');
+const bcrypt = require('bcrypt');
 
 const pool = new Pool({
   user: 'postgres',
@@ -38,28 +39,45 @@ const server = http.createServer(async (req, res) => {
           const { email, password } = JSON.parse(body);
 
           const client = await pool.connect();
-          const result = await client.query('SELECT * FROM public.users WHERE email = $1 AND password = $2 AND role = $3', [email, password, 'client']);
+          const result = await client.query('SELECT * FROM public.users WHERE email = $1 AND role = $2', [email, 'client']);
 
           client.release();
 
           if (result.rowCount === 1) {
             // Successful login
-            const user = result.rows[0]; // Assuming you have the user data in result.rows[0]
-            const token = generateToken(user);
+            const user = result.rows[0];
+            const hashedPassword = user.password;
+            const isMatch = await bcrypt.compare(password, hashedPassword);
 
-            res.setHeader('Content-Type', 'application/json');
-            res.statusCode = 200;
-            res.end(JSON.stringify({ success: true, token }));
+            if (isMatch) {
+              const token = generateToken(user);
+              res.setHeader('Content-Type', 'application/json');
+              res.statusCode = 200;
+              res.end(JSON.stringify({ success: true, token }));
+            } else {
+              res.setHeader('Content-Type', 'application/json');
+              res.statusCode = 200;
+              res.end(JSON.stringify({ success: false }));
+            }
           } else {
             const result2 = await client.query('SELECT * FROM public.users WHERE email = $1 AND password = $2 AND role = $3', [email, password, 'admin']);
-            if (result2.rowCount === 1) {
-              // Redirect to admin page
-              const user = result2.rows[0]; // Assuming you have the admin user data in result2.rows[0]
-              const token = generateToken(user);
 
-              res.statusCode = 200;
-              res.setHeader('Content-Type', 'application/json');
-              res.end(JSON.stringify({ success: true, isAdmin: true, token }));
+            if (result2.rowCount === 1) {
+              // Successful login as admin
+              const user = result2.rows[0];
+              const hashedPassword = user.password;
+              const isMatch = await bcrypt.compare(password, hashedPassword);
+
+              if (isMatch) {
+                const token = generateToken(user);
+                res.setHeader('Content-Type', 'application/json');
+                res.statusCode = 200;
+                res.end(JSON.stringify({ success: true, isAdmin: true, token }));
+              } else {
+                res.setHeader('Content-Type', 'application/json');
+                res.statusCode = 200;
+                res.end(JSON.stringify({ success: false }));
+              }
             } else {
               // Incorrect credentials
               res.setHeader('Content-Type', 'application/json');
@@ -72,8 +90,75 @@ const server = http.createServer(async (req, res) => {
           res.statusCode = 500;
           res.end();
         }
+      });} 
+      else if (req.method === 'PUT' && pathname === '/signup') {
+      let body = '';
+
+      req.on('data', (chunk) => {
+        body += chunk.toString();
       });
-    } else {
+
+      req.on('end', async () => {
+        try {
+          const { email, password, name, username } = JSON.parse(body);
+          const role = 'client';
+
+          const hashedPassword = await bcrypt.hash(password, 10); // Hash the password
+
+          const client = await pool.connect();
+          const result = await client.query('INSERT INTO public.users (email, password, name, username, role) VALUES ($1, $2, $3, $4, $5) RETURNING *', [email, hashedPassword, name, username, role]);
+
+          client.release();
+
+          if (result.rowCount === 1) {
+            const user = result.rows[0]; // Newly created user
+
+            const token = generateToken(user);
+
+            res.setHeader('Content-Type', 'application/json');
+            res.statusCode = 200;
+            res.end(JSON.stringify({ success: true, token }));
+          } else {
+            // Failed to create user
+            res.setHeader('Content-Type', 'application/json');
+            res.statusCode = 500;
+            res.end(JSON.stringify({ success: false }));
+          }
+        } catch (error) {
+          console.error('Error executing query', error);
+          res.statusCode = 500;
+          res.end();
+        }
+      });
+    } else if (req.method === 'GET' && pathname === '/cultures') {
+      try {
+        const userEmail = parsedUrl.query.email;
+
+        const client = await pool.connect();
+        const userResult = await client.query('SELECT id FROM public.users WHERE email = $1', [userEmail]);
+
+        if (userResult.rowCount === 1) {
+          const userId = userResult.rows[0].id;
+
+          const culturesResult = await client.query('SELECT * FROM public.cultures WHERE user_id = $1', [userId]);
+
+          res.setHeader('Content-Type', 'application/json');
+          res.statusCode = 200;
+          res.end(JSON.stringify(culturesResult.rows));
+        } else {
+          res.statusCode = 404;
+          res.end(JSON.stringify({ error: 'User not found' }));
+        }
+
+        client.release();
+      } catch (error) {
+        console.error('Error executing query', error);
+        res.statusCode = 500;
+        res.end();
+      }
+    } 
+
+    else {
       res.statusCode = 404;
       res.end();
     }

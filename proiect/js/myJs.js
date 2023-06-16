@@ -1,4 +1,3 @@
-document.addEventListener('DOMContentLoaded', function() {
   let navbar = document.querySelector('.navbar');
   let searchForm = document.querySelector('.search-form');
   let cartItem = document.querySelector('.cart-items-container');
@@ -64,4 +63,3 @@ document.addEventListener('DOMContentLoaded', function() {
       console.error('Error executing login request', error);
     }
   });
-});
