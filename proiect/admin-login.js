@@ -16,8 +16,8 @@ const adminLoginOptions = {
 };
 
 const adminLoginPayload = JSON.stringify({
-  email: 'admin@admin.com', // Replace with the admin email for testing
-  password: 'admin', // Replace with the corresponding password for the admin
+  email: 'miruna@test.com', // Replace with the admin email for testing
+  password: 'miruna', // Replace with the corresponding password for the admin
 });
 
 // Admin login function

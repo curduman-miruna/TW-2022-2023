@@ -204,6 +204,99 @@ const server = http.createServer(async (req, res) => {
     }
   });
 }
+else if (req.method === 'POST' && pathname === '/editUser') {
+  let body = '';
+
+  req.on('data', (chunk) => {
+    body += chunk.toString();
+  });
+
+  req.on('end', async () => {
+    try {
+      const { email, username, name, password } = JSON.parse(body);
+
+      const client = await pool.connect();
+
+      // Retrieve the user from the database
+      const userResult = await client.query('SELECT * FROM public.users WHERE email = $1', [email]);
+
+      if (userResult.rowCount === 1) {
+        const user = userResult.rows[0];
+        const hashedPassword = user.password;
+
+        let updatedPassword = hashedPassword;
+
+        if (password && password !== hashedPassword) {
+          // Password is provided and different from the one in the database, encrypt it
+          const hashedNewPassword = await bcrypt.hash(password, 10);
+          updatedPassword = hashedNewPassword;
+        }
+
+        const updateResult = await client.query(
+          'UPDATE public.users SET username = $1, name = $2, password = $3 WHERE email = $4',
+          [username, name, updatedPassword, email]
+        );
+
+        if (updateResult.rowCount === 1) {
+          res.setHeader('Content-Type', 'application/json');
+          res.statusCode = 200;
+          res.end(JSON.stringify({ success: true }));
+        } else {
+          // Failed to update user
+          res.setHeader('Content-Type', 'application/json');
+          res.statusCode = 500;
+          res.end(JSON.stringify({ success: false, message: 'Failed to update user' }));
+        }
+      } else {
+        // User not found
+        res.setHeader('Content-Type', 'application/json');
+        res.statusCode = 404;
+        res.end(JSON.stringify({ success: false, message: 'User not found' }));
+      }
+
+      client.release();
+    } catch (error) {
+      console.error('Error executing query', error);
+      res.statusCode = 500;
+      res.end();
+    }
+  });
+}
+else if (req.method === 'DELETE' && pathname === '/deleteUser') {
+  let body = '';
+
+  req.on('data', (chunk) => {
+    body += chunk.toString();
+  });
+
+  req.on('end', async () => {
+    try {
+      const { email } = JSON.parse(body);
+
+      const client = await pool.connect();
+
+      // Delete the user from the database
+      const deleteResult = await client.query('DELETE FROM public.users WHERE email = $1', [email]);
+
+      if (deleteResult.rowCount === 1) {
+        res.setHeader('Content-Type', 'application/json');
+        res.statusCode = 200;
+        res.end(JSON.stringify({ success: true }));
+      } else {
+        // User not found
+        res.setHeader('Content-Type', 'application/json');
+        res.statusCode = 404;
+        res.end(JSON.stringify({ success: false, message: 'User not found' }));
+      }
+
+      client.release();
+    } catch (error) {
+      console.error('Error executing query', error);
+      res.statusCode = 500;
+      res.end();
+    }
+  });
+}
 
     else {
       res.statusCode = 404;

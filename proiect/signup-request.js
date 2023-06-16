@@ -11,10 +11,10 @@ const options = {
 };
 
 const data = JSON.stringify({
-  email: 'admin@admin.com',
-  password: 'admin',
-  name: 'admin',
-  username: 'admin',
+  email: 'maria@gmail.com',
+  password: 'maria',
+  name: 'maria',
+  username: 'maria',
 });
 
 const req = http.request(options, (res) => {

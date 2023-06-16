@@ -1,20 +1,14 @@
 const http = require('http');
 
 const data = JSON.stringify({
-  email: 'miruna@test.com',
-  culture_name: 'Narcise galbene',
-  soil_moisture: 30,
-  ambient_temperature: 25,
-  image_url: ['https://example.com/tomato.jpg'],
-  culture_type: 'Lily',
-  price: 3,
+  email: 'test@example.com'
 });
 
 const options = {
   hostname: 'localhost',
   port: 8080,
-  path: '/culture',
-  method: 'PUT',
+  path: '/deleteUser',
+  method: 'DELETE',
   headers: {
     'Content-Type': 'application/json',
     'Content-Length': data.length,
@@ -35,4 +29,3 @@ req.on('error', (error) => {
 
 req.write(data);
 req.end();
-
