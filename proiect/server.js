@@ -5,12 +5,12 @@ const cors = require('cors');
 const jwt = require('jsonwebtoken');
 const crypto = require('crypto');
 const bcrypt = require('bcrypt');
-
+let loggedInUser = null;
 const pool = new Pool({
   user: 'postgres',
   host: 'localhost',
   database: 'Gardening_database',
-  password: 'tgbml',
+  password: 'parola',
 });
 
 // Function to generate the token
@@ -51,6 +51,7 @@ const server = http.createServer(async (req, res) => {
 
             if (isMatch) {
               const token = generateToken(user);
+              loggedInUser = user;
               res.setHeader('Content-Type', 'application/json');
               res.statusCode = 200;
               res.end(JSON.stringify({ success: true, token }));
@@ -90,63 +91,64 @@ const server = http.createServer(async (req, res) => {
           res.statusCode = 500;
           res.end();
         }
-      });} 
-      else if (req.method === 'PUT' && pathname === '/signup') {
-  let body = '';
-
-  req.on('data', (chunk) => {
-    body += chunk.toString();
-  });
-
-  req.on('end', async () => {
-    try {
-      const { email, password, name, username } = JSON.parse(body);
-      const role = 'client';
-
-      const client = await pool.connect();
-
-      // Check if user with the same email already exists
-      const existingUserResult = await client.query('SELECT * FROM public.users WHERE email = $1', [email]);
-
-      if (existingUserResult.rowCount > 0) {
-        // User with the same email already exists
-        res.setHeader('Content-Type', 'application/json');
-        res.statusCode = 409; // Conflict
-        res.end(JSON.stringify({ success: false, message: 'User with the same email already exists' }));
-      } else {
-        // User with the same email does not exist, proceed with creating the user
-
-        const hashedPassword = await bcrypt.hash(password, 10); // Hash the password
-
-        const result = await client.query(
-          'INSERT INTO public.users (email, password, name, username, role) VALUES ($1, $2, $3, $4, $5) RETURNING *',
-          [email, hashedPassword, name, username, role]
-        );
-
-        if (result.rowCount === 1) {
-          const user = result.rows[0]; // Newly created user
-
-          const token = generateToken(user);
-
-          res.setHeader('Content-Type', 'application/json');
-          res.statusCode = 200;
-          res.end(JSON.stringify({ success: true, token }));
-        } else {
-          // Failed to create user
-          res.setHeader('Content-Type', 'application/json');
-          res.statusCode = 500;
-          res.end(JSON.stringify({ success: false }));
-        }
-      }
-
-      client.release();
-    } catch (error) {
-      console.error('Error executing query', error);
-      res.statusCode = 500;
-      res.end();
+      });
     }
-  });
-} else if (req.method === 'GET' && pathname === '/cultures') {
+    else if (req.method === 'PUT' && pathname === '/signup') {
+      let body = '';
+
+      req.on('data', (chunk) => {
+        body += chunk.toString();
+      });
+
+      req.on('end', async () => {
+        try {
+          const { email, password, name, username } = JSON.parse(body);
+          const role = 'client';
+
+          const client = await pool.connect();
+
+          // Check if user with the same email already exists
+          const existingUserResult = await client.query('SELECT * FROM public.users WHERE email = $1', [email]);
+
+          if (existingUserResult.rowCount > 0) {
+            // User with the same email already exists
+            res.setHeader('Content-Type', 'application/json');
+            res.statusCode = 409; // Conflict
+            res.end(JSON.stringify({ success: false, message: 'User with the same email already exists' }));
+          } else {
+            // User with the same email does not exist, proceed with creating the user
+
+            const hashedPassword = await bcrypt.hash(password, 10); // Hash the password
+
+            const result = await client.query(
+              'INSERT INTO public.users (email, password, name, username, role) VALUES ($1, $2, $3, $4, $5) RETURNING *',
+              [email, hashedPassword, name, username, role]
+            );
+
+            if (result.rowCount === 1) {
+              const user = result.rows[0]; // Newly created user
+
+              const token = generateToken(user);
+
+              res.setHeader('Content-Type', 'application/json');
+              res.statusCode = 200;
+              res.end(JSON.stringify({ success: true, token }));
+            } else {
+              // Failed to create user
+              res.setHeader('Content-Type', 'application/json');
+              res.statusCode = 500;
+              res.end(JSON.stringify({ success: false }));
+            }
+          }
+
+          client.release();
+        } catch (error) {
+          console.error('Error executing query', error);
+          res.statusCode = 500;
+          res.end();
+        }
+      });
+    } else if (req.method === 'GET' && pathname === '/cultures') {
       try {
         const userEmail = parsedUrl.query.email;
 
@@ -174,145 +176,157 @@ const server = http.createServer(async (req, res) => {
       }
     }
 
-     else if (req.method === 'PUT' && pathname === '/culture') {
-  let body = '';
+    else if (req.method === 'PUT' && pathname === '/culture') {
+      let body = '';
 
-  req.on('data', (chunk) => {
-    body += chunk.toString();
-  });
+      req.on('data', (chunk) => {
+        body += chunk.toString();
+      });
 
-  req.on('end', async () => {
-    try {
-      const { email, culture_name, soil_moisture, ambient_temperature, image_url, culture_type, price } = JSON.parse(body);
+      req.on('end', async () => {
+        try {
+          const { email, culture_name, soil_moisture, ambient_temperature, image_url, culture_type, price } = JSON.parse(body);
 
-      const client = await pool.connect();
-      const userResult = await client.query('SELECT id FROM public.users WHERE email = $1', [email]);
+          const client = await pool.connect();
+          const userResult = await client.query('SELECT id FROM public.users WHERE email = $1', [email]);
 
-      if (userResult.rowCount === 1) {
-        const user_id = userResult.rows[0].id;
+          if (userResult.rowCount === 1) {
+            const user_id = userResult.rows[0].id;
 
-        const cultureResult = await client.query('INSERT INTO public.cultures (user_id, culture_name, soil_moisture, ambient_temperature, image_url, culture_type, price) VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING *',
-          [user_id, culture_name, soil_moisture, ambient_temperature, image_url, culture_type, price]);
+            const cultureResult = await client.query('INSERT INTO public.cultures (user_id, culture_name, soil_moisture, ambient_temperature, image_url, culture_type, price) VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING *',
+              [user_id, culture_name, soil_moisture, ambient_temperature, image_url, culture_type, price]);
 
-        if (cultureResult.rowCount === 1) {
-          const culture = cultureResult.rows[0];
-          res.setHeader('Content-Type', 'application/json');
-          res.statusCode = 200;
-          res.end(JSON.stringify({ success: true, culture }));
-        } else {
-          // Failed to insert culture
-          res.setHeader('Content-Type', 'application/json');
+            if (cultureResult.rowCount === 1) {
+              const culture = cultureResult.rows[0];
+              res.setHeader('Content-Type', 'application/json');
+              res.statusCode = 200;
+              res.end(JSON.stringify({ success: true, culture }));
+            } else {
+              // Failed to insert culture
+              res.setHeader('Content-Type', 'application/json');
+              res.statusCode = 500;
+              res.end(JSON.stringify({ success: false, message: 'Failed to insert culture' }));
+            }
+          } else {
+            // User not found
+            res.setHeader('Content-Type', 'application/json');
+            res.statusCode = 404;
+            res.end(JSON.stringify({ success: false, message: 'User not found' }));
+          }
+
+          client.release();
+        } catch (error) {
+          console.error('Error executing query', error);
           res.statusCode = 500;
-          res.end(JSON.stringify({ success: false, message: 'Failed to insert culture' }));
+          res.end();
         }
-      } else {
-        // User not found
-        res.setHeader('Content-Type', 'application/json');
-        res.statusCode = 404;
-        res.end(JSON.stringify({ success: false, message: 'User not found' }));
-      }
-
-      client.release();
-    } catch (error) {
-      console.error('Error executing query', error);
-      res.statusCode = 500;
-      res.end();
+      });
     }
-  });
-}
-else if (req.method === 'POST' && pathname === '/editUser') {
-  let body = '';
+    else if (req.method === 'POST' && pathname === '/editUser') {
+      let body = '';
 
-  req.on('data', (chunk) => {
-    body += chunk.toString();
-  });
+      req.on('data', (chunk) => {
+        body += chunk.toString();
+      });
 
-  req.on('end', async () => {
-    try {
-      const { email, username, name, password } = JSON.parse(body);
+      req.on('end', async () => {
+        try {
+          const { email, username, name, password } = JSON.parse(body);
 
-      const client = await pool.connect();
+          const client = await pool.connect();
 
-      // Retrieve the user from the database
-      const userResult = await client.query('SELECT * FROM public.users WHERE email = $1', [email]);
+          // Retrieve the user from the database
+          const userResult = await client.query('SELECT * FROM public.users WHERE email = $1', [email]);
 
-      if (userResult.rowCount === 1) {
-        const user = userResult.rows[0];
-        const hashedPassword = user.password;
+          if (userResult.rowCount === 1) {
+            const user = userResult.rows[0];
+            const hashedPassword = user.password;
 
-        let updatedPassword = hashedPassword;
+            let updatedPassword = hashedPassword;
 
-        if (password && password !== hashedPassword) {
-          // Password is provided and different from the one in the database, encrypt it
-          const hashedNewPassword = await bcrypt.hash(password, 10);
-          updatedPassword = hashedNewPassword;
-        }
+            if (password && password !== hashedPassword) {
+              // Password is provided and different from the one in the database, encrypt it
+              const hashedNewPassword = await bcrypt.hash(password, 10);
+              updatedPassword = hashedNewPassword;
+            }
 
-        const updateResult = await client.query(
-          'UPDATE public.users SET username = $1, name = $2, password = $3 WHERE email = $4',
-          [username, name, updatedPassword, email]
-        );
+            const updateResult = await client.query(
+              'UPDATE public.users SET username = $1, name = $2, password = $3 WHERE email = $4',
+              [username, name, updatedPassword, email]
+            );
 
-        if (updateResult.rowCount === 1) {
-          res.setHeader('Content-Type', 'application/json');
-          res.statusCode = 200;
-          res.end(JSON.stringify({ success: true }));
-        } else {
-          // Failed to update user
-          res.setHeader('Content-Type', 'application/json');
+            if (updateResult.rowCount === 1) {
+              res.setHeader('Content-Type', 'application/json');
+              res.statusCode = 200;
+              res.end(JSON.stringify({ success: true }));
+            } else {
+              // Failed to update user
+              res.setHeader('Content-Type', 'application/json');
+              res.statusCode = 500;
+              res.end(JSON.stringify({ success: false, message: 'Failed to update user' }));
+            }
+          } else {
+            // User not found
+            res.setHeader('Content-Type', 'application/json');
+            res.statusCode = 404;
+            res.end(JSON.stringify({ success: false, message: 'User not found' }));
+          }
+
+          client.release();
+        } catch (error) {
+          console.error('Error executing query', error);
           res.statusCode = 500;
-          res.end(JSON.stringify({ success: false, message: 'Failed to update user' }));
+          res.end();
         }
-      } else {
-        // User not found
-        res.setHeader('Content-Type', 'application/json');
-        res.statusCode = 404;
-        res.end(JSON.stringify({ success: false, message: 'User not found' }));
-      }
-
-      client.release();
-    } catch (error) {
-      console.error('Error executing query', error);
-      res.statusCode = 500;
-      res.end();
+      });
     }
-  });
-}
-else if (req.method === 'DELETE' && pathname === '/deleteUser') {
-  let body = '';
+    else if (req.method === 'DELETE' && pathname === '/deleteUser') {
+      let body = '';
 
-  req.on('data', (chunk) => {
-    body += chunk.toString();
-  });
+      req.on('data', (chunk) => {
+        body += chunk.toString();
+      });
 
-  req.on('end', async () => {
-    try {
-      const { email } = JSON.parse(body);
+      req.on('end', async () => {
+        try {
+          const { email } = JSON.parse(body);
 
-      const client = await pool.connect();
+          const client = await pool.connect();
 
-      // Delete the user from the database
-      const deleteResult = await client.query('DELETE FROM public.users WHERE email = $1', [email]);
+          // Delete the user from the database
+          const deleteResult = await client.query('DELETE FROM public.users WHERE email = $1', [email]);
 
-      if (deleteResult.rowCount === 1) {
+          if (deleteResult.rowCount === 1) {
+            res.setHeader('Content-Type', 'application/json');
+            res.statusCode = 200;
+            res.end(JSON.stringify({ success: true }));
+          } else {
+            // User not found
+            res.setHeader('Content-Type', 'application/json');
+            res.statusCode = 404;
+            res.end(JSON.stringify({ success: false, message: 'User not found' }));
+          }
+
+          client.release();
+        } catch (error) {
+          console.error('Error executing query', error);
+          res.statusCode = 500;
+          res.end();
+        }
+      });
+    }
+    else if (req.method === 'GET' && pathname === '/userInfo') {
+      if (loggedInUser) {
         res.setHeader('Content-Type', 'application/json');
         res.statusCode = 200;
-        res.end(JSON.stringify({ success: true }));
+        res.end(JSON.stringify(loggedInUser));
       } else {
-        // User not found
         res.setHeader('Content-Type', 'application/json');
-        res.statusCode = 404;
-        res.end(JSON.stringify({ success: false, message: 'User not found' }));
+        res.statusCode = 401;
+        res.end(JSON.stringify({ error: 'User not logged in' }));
       }
-
-      client.release();
-    } catch (error) {
-      console.error('Error executing query', error);
-      res.statusCode = 500;
-      res.end();
     }
-  });
-}
+
 
     else {
       res.statusCode = 404;

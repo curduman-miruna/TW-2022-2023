@@ -13,13 +13,7 @@
   const form = document.getElementById('login-form');
 
   form.addEventListener('submit', async function(event) {
-    //daca nu esti logat nu poti accesa site ul 
-    /*
-    const token = localStorage.getItem("token");
-    if(token === null){
-      window.location.href = 'index.html'; //login/sign up
-      return;
-  }*/
+ 
     event.preventDefault();
 
     const email = form.email.value;
