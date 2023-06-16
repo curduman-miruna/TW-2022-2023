@@ -359,12 +359,12 @@ input[type="submit"]:hover {
 	background-color: var(--darkpink);
 }
 .user-information{
+    margin-left: 20vw;
     margin-top:80px;
     border: 3px solid #b62f4f;
     border-radius: 10px;
     width:40vw;
     height: 70vh;
-    margin-left: 300px;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -499,6 +499,7 @@ input[type="submit"]:hover {
 
 
 .account-background .edit-page{
+    margin-left: 25vw;
     display: flex;
     justify-content: flex-start;
     align-items: center;

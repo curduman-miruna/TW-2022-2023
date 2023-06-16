@@ -1,4 +1,5 @@
 const infoBox = document.getElementById('infoBox');
+const editButton = document.getElementById('edit-button');
 
 
 async function fetchUserInfo() {
@@ -13,18 +14,26 @@ async function fetchUserInfo() {
     if (response.ok) {
       const user = await response.json();
       console.log(user.name);
-      
+
       const username = document.createElement('h2');
-      username.textContent ='Hello, '+ user.username;
+      username.textContent = 'Hello, ' + user.username;
       infoBox.appendChild(username);
-      
+
       const name = document.createElement('p');
-      name.textContent ='name:     '+ user.name;
+      name.textContent = 'name:     ' + user.name;
       infoBox.appendChild(name);
 
       const email = document.createElement('p');
-      email.textContent ='e-mail:     '+ user.email;
+      email.textContent = 'e-mail:     ' + user.email;
       infoBox.appendChild(email);
+
+      const usernameInput = document.querySelector('input[name="username"]');
+      const nameInput = document.querySelector('input[name="name"]');
+      const passwordInput = document.querySelector('input[name="password"]');
+
+      passwordInput.value = user.password;
+      usernameInput.value = user.username;
+      nameInput.value = user.name;
 
     } else {
       console.error('Failed to fetch user info:', response.status);
@@ -36,30 +45,10 @@ async function fetchUserInfo() {
 
 fetchUserInfo(); // Call the async function to fetch user info
 
+const editPage=document.getElementById('edit-page');
+editButton.addEventListener('click', function (event) {
+  event.preventDefault();
+  infoBox.style.display='none';
+  editPage.style.display = 'block';
+});
 
-
-
-
-/*
-async function loadProfile() {
-    const token = localStorage.getItem('token');
-    const Email = getEmailFromJWT(token);
-    const response = await fetch("http://16.16.174.129:8080/api/userByEmail/", {
-        method: "POST",
-        headers:{
-            'Content-Type': 'text/plain',
-            'Authorization': `Bearer ${token}`
-        },
-        body: Email
-    });
-    const data = await response.json();
-    fullName.innerHTML = "";
-    userName.innerHTML = "";
-    email.innerHTML = "";
-    address.innerHTML = "";
-
-    fullName.innerHTML = data.name;
-    userName.innerHTML = data.username;
-    email.innerHTML = data.email;
-    address.innerHTML = data.location;
-}*/
