@@ -1,18 +1,12 @@
 const http = require('http');
 
-const data = JSON.stringify({
-  email: 'test'
-});
+const cultureId = 1; // Specify the culture ID to retrieve
 
 const options = {
   hostname: 'localhost',
   port: 8080,
-  path: '/deleteUser',
-  method: 'DELETE',
-  headers: {
-    'Content-Type': 'application/json',
-    'Content-Length': data.length,
-  },
+  path: `/culture?id=${cultureId}`,
+  method: 'GET',
 };
 
 const req = http.request(options, (res) => {
@@ -27,5 +21,4 @@ req.on('error', (error) => {
   console.error('Error:', error);
 });
 
-req.write(data);
 req.end();

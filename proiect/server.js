@@ -290,41 +290,57 @@ const server = http.createServer(async (req, res) => {
       });
     }
     //Endpoint delete user
-    else if (req.method === 'DELETE' && pathname === '/deleteUser') {
-      let body = '';
+else if (req.method === 'DELETE' && pathname === '/deleteUser') {
+  let body = '';
 
-      req.on('data', (chunk) => {
-        body += chunk.toString();
-      });
+  req.on('data', (chunk) => {
+    body += chunk.toString();
+  });
 
-      req.on('end', async () => {
-        try {
-          const { email } = JSON.parse(body);
+  req.on('end', async () => {
+    try {
+      const { email } = JSON.parse(body);
 
-          const client = await pool.connect();
+      const client = await pool.connect();
 
-          // Delete the user from the database
-          const deleteResult = await client.query('DELETE FROM public.users WHERE email = $1', [email]);
+      // Get the user ID
+      const userResult = await client.query('SELECT id FROM public.users WHERE email = $1', [email]);
 
-          if (deleteResult.rowCount === 1) {
-            res.setHeader('Content-Type', 'application/json');
-            res.statusCode = 200;
-            res.end(JSON.stringify({ success: true }));
-          } else {
-            // User not found
-            res.setHeader('Content-Type', 'application/json');
-            res.statusCode = 404;
-            res.end(JSON.stringify({ success: false, message: 'User not found' }));
-          }
+      if (userResult.rowCount === 1) {
+        const userId = userResult.rows[0].id;
 
-          client.release();
-        } catch (error) {
-          console.error('Error executing query', error);
-          res.statusCode = 500;
-          res.end();
+        // Delete entries from user_cultures table first
+        await client.query('DELETE FROM public.user_cultures WHERE user_id = $1', [userId]);
+
+        // Delete the user from the database
+        const deleteResult = await client.query('DELETE FROM public.users WHERE email = $1', [email]);
+
+        if (deleteResult.rowCount === 1) {
+          res.setHeader('Content-Type', 'application/json');
+          res.statusCode = 200;
+          res.end(JSON.stringify({ success: true }));
+        } else {
+          // User not found
+          res.setHeader('Content-Type', 'application/json');
+          res.statusCode = 404;
+          res.end(JSON.stringify({ success: false, message: 'User not found' }));
         }
-      });
+      } else {
+        // User not found
+        res.setHeader('Content-Type', 'application/json');
+        res.statusCode = 404;
+        res.end(JSON.stringify({ success: false, message: 'User not found' }));
+      }
+
+      client.release();
+    } catch (error) {
+      console.error('Error executing query', error);
+      res.statusCode = 500;
+      res.end();
     }
+  });
+}
+
     //Endpoint pentru searchul de pe pagina buy
     else if (req.method === 'GET' && pathname === '/buySearch') {
       try {
@@ -476,6 +492,7 @@ else if (req.method === 'PUT' && pathname === '/addFollow') {
     }
   });
 }
+//Endpoint for delete followed culture from preferencess
 else if (req.method === 'DELETE' && pathname === '/deleteFollow') {
   let body = '';
 
@@ -502,6 +519,99 @@ else if (req.method === 'DELETE' && pathname === '/deleteFollow') {
         res.setHeader('Content-Type', 'application/json');
         res.statusCode = 404;
         res.end(JSON.stringify({ success: false, message: 'Entry not found' }));
+      }
+
+      client.release();
+    } catch (error) {
+      console.error('Error executing query', error);
+      res.statusCode = 500;
+      res.end();
+    }
+  });
+}
+//Endpoint to get a culture, the info in the database
+else if (req.method === 'GET' && pathname === '/culture') {
+  const { id } = url.parse(req.url, true).query;
+
+  const client = await pool.connect();
+  const cultureResult = await client.query('SELECT * FROM public.cultures WHERE id = $1', [id]);
+
+  if (cultureResult.rowCount === 1) {
+    const culture = cultureResult.rows[0];
+    res.setHeader('Content-Type', 'application/json');
+    res.statusCode = 200;
+    res.end(JSON.stringify({ success: true, culture }));
+  } else {
+    // Culture not found
+    res.setHeader('Content-Type', 'application/json');
+    res.statusCode = 404;
+    res.end(JSON.stringify({ success: false, message: 'Culture not found' }));
+  }
+
+  client.release();
+}
+
+//Endpoint to delete a culture
+else if (req.method === 'DELETE' && pathname === '/culture') {
+  const { id } = url.parse(req.url, true).query;
+
+  try {
+    const client = await pool.connect();
+
+    // Delete entries from user_cultures table first
+    await client.query('DELETE FROM public.user_cultures WHERE culture_id = $1', [id]);
+
+    // Delete the culture from cultures table
+    const deleteResult = await client.query('DELETE FROM public.cultures WHERE id = $1', [id]);
+
+    if (deleteResult.rowCount === 1) {
+      res.setHeader('Content-Type', 'application/json');
+      res.statusCode = 200;
+      res.end(JSON.stringify({ success: true, message: 'Culture deleted successfully' }));
+    } else {
+      res.setHeader('Content-Type', 'application/json');
+      res.statusCode = 404;
+      res.end(JSON.stringify({ success: false, message: 'Culture not found' }));
+    }
+
+    client.release();
+  } catch (error) {
+    console.error('Error executing query', error);
+    res.statusCode = 500;
+    res.end();
+  }
+}
+
+
+//endpoint to update a culture
+else if (req.method === 'POST' && pathname === '/culture/edit') {
+  let body = '';
+
+  req.on('data', (chunk) => {
+    body += chunk.toString();
+  });
+
+  req.on('end', async () => {
+    try {
+      const { id, culture_name, price, status, description } = JSON.parse(body);
+
+      const client = await pool.connect();
+
+      const cultureResult = await client.query(
+        'UPDATE public.cultures SET culture_name = $1, price = $2, status = $3, description = $4 WHERE id = $5 RETURNING *',
+        [culture_name, price, status, description, id]
+      );
+
+      if (cultureResult.rowCount === 1) {
+        const culture = cultureResult.rows[0];
+        res.setHeader('Content-Type', 'application/json');
+        res.statusCode = 200;
+        res.end(JSON.stringify({ success: true, culture }));
+      } else {
+        // Failed to update culture
+        res.setHeader('Content-Type', 'application/json');
+        res.statusCode = 500;
+        res.end(JSON.stringify({ success: false, message: 'Failed to update culture' }));
       }
 
       client.release();

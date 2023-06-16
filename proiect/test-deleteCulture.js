@@ -1,18 +1,12 @@
 const http = require('http');
 
-const data = JSON.stringify({
-  email: 'test'
-});
+const cultureId = 1; // Specify the ID of the culture to delete
 
 const options = {
   hostname: 'localhost',
   port: 8080,
-  path: '/deleteUser',
+  path: `/culture?id=${cultureId}`,
   method: 'DELETE',
-  headers: {
-    'Content-Type': 'application/json',
-    'Content-Length': data.length,
-  },
 };
 
 const req = http.request(options, (res) => {
@@ -27,5 +21,4 @@ req.on('error', (error) => {
   console.error('Error:', error);
 });
 
-req.write(data);
 req.end();

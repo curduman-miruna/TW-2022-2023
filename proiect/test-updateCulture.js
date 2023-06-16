@@ -1,14 +1,18 @@
 const http = require('http');
 
 const data = JSON.stringify({
-  email: 'test'
+  id: 1,
+  culture_name: 'Updated Culture',
+  price: 5,
+  status: 'In Progress',
+  description: 'Updated description of the culture',
 });
 
 const options = {
   hostname: 'localhost',
   port: 8080,
-  path: '/deleteUser',
-  method: 'DELETE',
+  path: '/culture/edit',
+  method: 'POST',
   headers: {
     'Content-Type': 'application/json',
     'Content-Length': data.length,
