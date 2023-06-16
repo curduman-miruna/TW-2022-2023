@@ -3,23 +3,6 @@
   let cartItem = document.querySelector('.cart-items-container');
   let accountInfo = document.getElementById('account-info');
 
-  document.querySelector('#menu-btn').onclick = () => {
-    navbar.classList.toggle('active');
-    searchForm.classList.remove('active');
-    cartItem.classList.remove('active');
-  };
-
-  const accountIcon = document.getElementById('account');
-
-  accountIcon.addEventListener('click', function() {
-    window.location.href = 'account.html';
-  });
-
-  document.querySelector('#cart-btn').onclick = () => {
-    cartItem.classList.toggle('active');
-    navbar.classList.remove('active');
-    searchForm.classList.remove('active');
-  };
 
   window.onscroll = () => {
     navbar.classList.remove('active');
