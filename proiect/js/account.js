@@ -75,13 +75,36 @@ editInfo.addEventListener('click', async function (event) {
     });
 
     if (response.ok) {
-      const successMessage = document.getElementById('success-message');
+      const successMessage = document.getElementById('edit-message');
       successMessage.style.display = 'block';
 
     } else {
       console.error('Failed to fetch user info:', response.status);
     }
   } catch (error) {
+    console.error('Error executing login request', error);
+  }
+});
+
+const deleteUser=document.getElementById('delete-button');
+deleteUser.addEventListener('click', async function(event){
+  event.preventDefault();
+  try{
+    const emailConst = localStorage.getItem('userEmail');
+    const response =await fetch('http://localhost:8080/deleteUser',{
+      method: 'DELETE',
+      headers:{
+        'Content-Type': 'application/json',
+      },
+      body:JSON.stringify({ email: emailConst })
+    });
+    if(response.ok){
+      const successMessage = document.getElementById('delete-message');
+      successMessage.style.display = 'block';
+    }else{
+      console.error('Failed to fetch user info:', response.status);
+    }
+  }catch(error){
     console.error('Error executing login request', error);
   }
 });
