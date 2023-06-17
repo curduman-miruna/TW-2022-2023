@@ -414,17 +414,27 @@ else if (req.method === 'DELETE' && pathname === '/deleteUser') {
   const { email } = url.parse(req.url, true).query;
 
   if (email !== null) {
-    // Logic to retrieve user info based on the email
-    const userInfo = getUserInfo(email);
+    try {
+      const client = await pool.connect();
+      const userResult = await client.query('SELECT * FROM public.users WHERE email = $1', [email]);
 
-    if (userInfo) {
-      res.setHeader('Content-Type', 'application/json');
-      res.statusCode = 200;
-      res.end(JSON.stringify(userInfo));
-    } else {
-      res.setHeader('Content-Type', 'application/json');
-      res.statusCode = 404;
-      res.end(JSON.stringify({ error: 'User not found' }));
+      if (userResult.rowCount === 1) {
+        const userInfo = userResult.rows[0];
+
+        res.setHeader('Content-Type', 'application/json');
+        res.statusCode = 200;
+        res.end(JSON.stringify(userInfo));
+      } else {
+        res.setHeader('Content-Type', 'application/json');
+        res.statusCode = 404;
+        res.end(JSON.stringify({ error: 'User not found' }));
+      }
+
+      client.release();
+    } catch (error) {
+      console.error('Error executing query', error);
+      res.statusCode = 500;
+      res.end();
     }
   } else {
     res.setHeader('Content-Type', 'application/json');
@@ -432,6 +442,7 @@ else if (req.method === 'DELETE' && pathname === '/deleteUser') {
     res.end(JSON.stringify({ error: 'User not logged in' }));
   }
 }
+
 
     //Endpoint pentru intoarcere followed of a user
 else if (req.method === 'GET' && pathname === '/userFollowed') {
