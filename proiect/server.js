@@ -760,7 +760,8 @@ else if (req.method === 'GET' && pathname === '/MyCulture') {
       if (isSoilMoistureInRange && isAmbientTemperatureInRange) {
         res.setHeader('Content-Type', 'application/json');
         res.statusCode = 200;
-        res.end(JSON.stringify({ success: true, culture }));
+        tips = ["Optimal Soil Moisture", "Optimal Ambiental Temperature"];
+        res.end(JSON.stringify({ success: true, culture, tips }));
       } else {
         res.setHeader('Content-Type', 'application/json');
         res.statusCode = 200;
