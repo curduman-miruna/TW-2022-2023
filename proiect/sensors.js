@@ -12,10 +12,9 @@ const pool = new Pool({
 async function analyzeImage(url) {
   try {
     const image = await Jimp.read(url);
-
-    // Check if the image is in a supported format (JPEG, PNG, GIF)
-    const supportedFormats = ['image/jpeg', 'image/png', 'image/gif'];
-    if (!supportedFormats.includes(image.getMIME())) {
+    console.log('analyzing imagae ${url}');
+    // Check if the image is in a supported format (JPEG)
+    if (image.getMIME() !== 'image/jpeg') {
       console.log(`Skipping analysis for image with unsupported format: ${url}`);
       return { brownPercentage: 0, greenPercentage: 0 };
     }
@@ -33,9 +32,10 @@ async function analyzeImage(url) {
     return { brownPercentage, greenPercentage };
   } catch (error) {
     console.error('Error analyzing image', error);
-    return { brownPercentage: 0, greenPercentage: 0 };
+    return { brownPercentage: 50, greenPercentage: 30 };
   }
 }
+
 
 
 async function updateCultureData() {
@@ -62,7 +62,7 @@ async function updateCultureData() {
       const { brownPercentage, greenPercentage } = await analyzeImage(imageUrl);
       const updatedImageUrlArray = [imageUrl]; // Wrap the URL in an array
       await client.query('UPDATE public.cultures SET image_url = $1 WHERE id = $2', [updatedImageUrlArray, id]);
-      if (brownPercentage < 15 && greenPercentage < 40) {
+      if (brownPercentage < 30 && greenPercentage < 50) {
         await client.query('UPDATE public.cultures SET status = $1 WHERE id = $2', ['Ready', id]);
         console.log(`Status updated for culture ID ${id}`);
       } else {
@@ -82,5 +82,5 @@ function getRandomInt(min, max) {
 }
 
 // Run the update every 2 days
-const twoDaysInMilliseconds = 10 * 1000;
+const twoDaysInMilliseconds = 120 * 1000;
 setInterval(updateCultureData, twoDaysInMilliseconds);

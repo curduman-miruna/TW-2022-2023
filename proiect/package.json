@@ -9,7 +9,6 @@
     "jimp": "^0.22.8",
     "jimp-compact": "^0.16.1-2",
     "jsonwebtoken": "^9.0.0",
-    "node-fetch": "^3.3.1",
     "node-vibrant": "^3.2.1-alpha.1",
     "path": "^0.12.7",
     "pg": "^8.11.0",

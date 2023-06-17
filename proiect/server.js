@@ -673,7 +673,78 @@ else if (req.method === 'POST' && pathname === '/changeAvailability') {
     }
   });
 }
+// Endpoint GetCultureTipis
+else if (req.method === 'GET' && pathname === '/MyCulture') {
+  const { id } = url.parse(req.url, true).query;
 
+  const client = await pool.connect();
+
+  // Fetch the culture details
+  const cultureResult = await client.query('SELECT * FROM public.cultures WHERE id = $1', [id]);
+
+  if (cultureResult.rowCount === 1) {
+    const culture = cultureResult.rows[0];
+
+    // Fetch the optimal conditions for the culture type
+    const optimConditionsResult = await client.query('SELECT * FROM public.optim_conditions WHERE culture_type = $1', [culture.culture_type]);
+
+    if (optimConditionsResult.rowCount === 1) {
+      const optimConditions = optimConditionsResult.rows[0];
+      const optimalSoilMoisture = optimConditions.soil_moisture;
+      const optimalAmbientTemperature = optimConditions.ambient_temperature;
+
+      const soilMoistureDiff = culture.soil_moisture - optimalSoilMoisture;
+      const temperatureDiff = culture.ambient_temperature - optimalAmbientTemperature;
+
+      const isSoilMoistureInRange = Math.abs(soilMoistureDiff) <= 2;
+      const isAmbientTemperatureInRange = Math.abs(temperatureDiff) <= 2;
+
+      let tips = [];
+
+      if (!isSoilMoistureInRange) {
+        let moistureTip;
+        if (soilMoistureDiff < 0) {
+          moistureTip = `Soil moisture is lower than optimal. Increase watering frequency to achieve the recommended range: ${optimalSoilMoisture - 2} - ${optimalSoilMoisture + 2}.`;
+        } else {
+          moistureTip = `Soil moisture is higher than optimal. Reduce watering frequency to achieve the recommended range: ${optimalSoilMoisture - 2} - ${optimalSoilMoisture + 2}.`;
+        }
+        tips.push(moistureTip);
+      }
+
+      if (!isAmbientTemperatureInRange) {
+        let temperatureTip;
+        if (temperatureDiff < 0) {
+          temperatureTip = `Ambient temperature is lower than optimal. Provide additional heating to maintain the recommended range: ${optimalAmbientTemperature - 2} - ${optimalAmbientTemperature + 2}.`;
+        } else {
+          temperatureTip = `Ambient temperature is higher than optimal. Provide additional cooling to maintain the recommended range: ${optimalAmbientTemperature - 2} - ${optimalAmbientTemperature + 2}.`;
+        }
+        tips.push(temperatureTip);
+      }
+
+      if (isSoilMoistureInRange && isAmbientTemperatureInRange) {
+        res.setHeader('Content-Type', 'application/json');
+        res.statusCode = 200;
+        res.end(JSON.stringify({ success: true, culture }));
+      } else {
+        res.setHeader('Content-Type', 'application/json');
+        res.statusCode = 200;
+        res.end(JSON.stringify({ success: true, culture, tips }));
+      }
+    } else {
+      // Optimal conditions not found
+      res.setHeader('Content-Type', 'application/json');
+      res.statusCode = 404;
+      res.end(JSON.stringify({ success: false, message: 'Optimal conditions not found for the culture type' }));
+    }
+  } else {
+    // Culture not found
+    res.setHeader('Content-Type', 'application/json');
+    res.statusCode = 404;
+    res.end(JSON.stringify({ success: false, message: 'Culture not found' }));
+  }
+
+  client.release();
+}
 
     else {
       res.statusCode = 404;
