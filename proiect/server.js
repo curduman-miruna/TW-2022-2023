@@ -410,7 +410,23 @@ else if (req.method === 'DELETE' && pathname === '/deleteUser') {
         res.statusCode = 500;
         res.end();
       }
-    } else if (req.method === 'GET' && pathname === '/userInfo') {
+    } else if(req.method === 'GET' && pathname === '/users'){
+      const emailAdmin='admin@admin.com';
+      try{
+        const client=await pool.connect();
+        const usersResult=await client.query('SELECT * FROM public.users WHERE email !=$1',[emailAdmin]);
+        res.setHeader('Content-Type', 'application/json');
+        res.statusCode = 200;
+        res.end(JSON.stringify(usersResult.rows));
+        client.release();
+        console.log(usersResult.rowCount);
+      }catch(error){
+        console.error('Error executing query', error);
+        res.statusCode = 500;
+        res.end();
+      }
+    }
+    else if (req.method === 'GET' && pathname === '/userInfo') {
   const { email } = url.parse(req.url, true).query;
 
   if (email !== null) {

@@ -2,7 +2,7 @@
 <html>
 <head>
     <title>Admin Page</title>
-    <link rel="stylesheet" href="all.css">
+    <link rel="stylesheet" href="css/all.css">
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -11,40 +11,29 @@
     <link rel="stylesheet" href="css/all.css">
     <link rel="stylesheet" href="css/index2.css">
     <script src="js/tokenExpiration.js"></script>
-    <script src="js/myJs.js" defer></script>
 </head>
 <body>
-
     <div class="admin-page">
         <header class="header">
             <h2>Welcome</h2>
             <p>This is the admin dashboard. You can manage your site's content here.</p>
        
         </header>
-        <div class="dashboard">
-            <div class="users" id="users-button ">
-                <h2>
-                    Users
-                </h2>
-                
-            </div>
-            <div class="content" id="content-button">
-                <h2>
-                    Content
-                </h2>
-            </div>
-            <div class="reports" id="reports-button">
-                <h2>
-                    Reports
-                </h2>
-            </div>
-            <a href="account.html">
-                Log Out
-            </a>
-        </div>
-           </div>
     </div>
-    <script src="js/myJs.js"></script>
+    <table id="users-table">
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Username</th>
+                <th>Name</th>
+                <th>Email</th>
+            </tr>
+        </thead>
+        <tbody>
 
+        </tbody>
+    </table>
+
+    <script src="js/admin.js"></script>
 </body>
 </html>
