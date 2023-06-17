@@ -8,16 +8,12 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
     <link rel="stylesheet" href="css/all.css">
     <link rel="stylesheet" href="css/index.css">
-    
-  <link rel="stylesheet" href="css/index2.css">
-    <script src="js/myJs.js" defer></script>
-    <script src="js/mycultures.js" defer></script>
+    <link rel="stylesheet" href="css/index2.css">
     <title>My Cultures</title>
 </head>
 
 <body>
     <header class="header">
-
         <a href="home.html" class="logo">
             <script src="https://cdn.lordicon.com/ritcuqlt.js"></script>
             <lord-icon src="https://cdn.lordicon.com/zrvxzslu.json" trigger="hover" style="width:70px;height:70px">
@@ -39,7 +35,8 @@
         <div class="icons">
             <div class="fas fa-shopping-cart" id="cart-btn"></div>
             <div class="fas fa-bars" id="menu-btn"></div>
-            <div class="fas fa-solid fa-user" id="account"></div>
+            <a href="account.html">
+            <div class="fas fa-solid fa-user" id="account"></div></a>
         </div>
 
         <div class="search-form">
@@ -83,72 +80,18 @@
             <a href="#" class="btn">My Basket</a>
         </div>
     </header>
+
     <section class="mycultures-container">
         <div class="wrap">
             <div class="search">
-               <input type="text" class="search-term" placeholder="What culture are you looking for?">
-               <button type="submit" class="search-button">
-                 <i class="fa fa-search"></i>
-              </button>
-            </div>
-         </div>
-        <div class="culture-row">
-            <div class="culture-column" id="">
-                <div class="culture-card">
-                    <h3>Tulips</h3>
-                    <img src="photo/Tulip.png" alt=""/>
-                    <p>
-                        Easy-to-use dashboard to manage multiple flower crops.
-                    </p>
-                </div>
-            </div>
-            <div class="culture-column" >
-                <div class="culture-card" id="narcise">
-                    <h3>Daffodils</h3>
-                    <img src="photo/Daffodil.png" alt=""/>
-                    <p>
-                        Easy-to-use dashboard to manage multiple flower crops.
-                    </p>
-                </div>
-            </div>
-            <div class="culture-column" id="">
-                <div class="culture-card">
-                    <h3>Lilies</h3>
-                    <img src="photo/Lily.png" alt=""/>
-                    <p>
-                        Easy-to-use dashboard to manage multiple flower crops.
-                    </p>
-                </div>
-            </div>
-            <div class="culture-column" id="">
-                <div class="culture-card">
-                    <h3>Peonies</h3>
-                    <img src="photo/Peonies.png" alt=""/>
-                    <p>
-                        Easy-to-use dashboard to manage multiple flower crops.
-                    </p>
-                </div>
-            </div>
-            <div class="culture-column" >
-                <div class="culture-card">
-                    <h3>Crocuses</h3>
-                    <img src="photo/Crocus.png" alt=""/>
-                    <p>
-                        Easy-to-use dashboard to manage multiple flower crops.
-                    </p>
-                </div>
-            </div>
-            <div class="culture-column">
-                <div class="culture-card" id="newCulture">
-                    <div class="plus">
-                    <img src="photo/plus.png" alt=""/>
-                    </div>
-                    <p>
-                        Press to introduce details about a NEW culture.
-                    </p>
-                </div>
+                <input type="text" class="search-term" placeholder="What culture are you looking for?">
+                <button type="submit" class="search-button">
+                    <i class="fa fa-search"></i>
+                </button>
             </div>
         </div>
+        <div id="culture-row" class="culture-row">
+            <!-- Aici se vor adăuga rândurile și coloanele de culturi dinamic -->
         </div>
     </section>
     <script src="js/mycultures.js"></script>
