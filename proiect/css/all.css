@@ -654,7 +654,13 @@ input[type="submit"]:hover {
 }
 
 
+@media (width <=1024px){
+    .account-section form{
+        width: 30%;
+        height:70%;
+    }
 
+}
 @media (width <=991px) {
     html {
         font-size: 55%;
@@ -692,7 +698,7 @@ input[type="submit"]:hover {
         margin-right: 10px;
     }
     .account-section form{
-        width:40%;
+        width:30%;
         height:60%;
     }
 
@@ -735,7 +741,7 @@ input[type="submit"]:hover {
         margin-left: 500px;
     }
     .account-section form{
-        width:40%;
+        width:45%;
         height:60%;
     }
 
@@ -804,10 +810,6 @@ input[type="submit"]:hover {
     }
 
 
-    .account-section form {
-        width: 80%;
-        height: 65%;
-    }
 
     .account-background {
         display: flex;
@@ -849,7 +851,7 @@ input[type="submit"]:hover {
         height: 30%;
     }
     .account-section form{
-        width:40%;
+        width:60%;
         height:60%;
     }
 
@@ -876,7 +878,13 @@ input[type="submit"]:hover {
         height: 30%;
     }
     .account-section form{
-        width:40%;
-        height:60%;
+        width:80%;
+        height:65%;
+    }
+}
+@media (width <=280px){
+    .account-section form{
+        width:95%;
+        height:65%;
     }
 }
