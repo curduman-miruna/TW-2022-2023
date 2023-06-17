@@ -17,7 +17,7 @@ async function fetchUserInfo() {
       method: 'GET',
       headers: {
         'Content-Type': 'application/json',
-      },
+      }
     });
 
     if (response.ok) {

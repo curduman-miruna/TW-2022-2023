@@ -1,21 +1,9 @@
-
-/*
-const narciseCard = document.getElementById("narcise");
-
-narciseCard.addEventListener("click", function() {
-    window.location.href = "oneculture.html";
-});
-const newCard =document.getElementById("newCulture");
-newCard.addEventListener("click", function() {
-    window.location.href = "new.html";
-});
-*/
 let navbar = document.querySelector('.navbar');
 
 document.querySelector('#menu-btn').onclick = () => {
-    navbar.classList.toggle('active');
-    searchForm.classList.remove('active');
-    favoriteItem.classList.remove('active');
+  navbar.classList.toggle('active');
+  searchForm.classList.remove('active');
+  favoriteItem.classList.remove('active');
 }
 
 const cultureRow = document.getElementById('culture-row');
@@ -43,26 +31,47 @@ function createCultureColumn(culture) {
   card.appendChild(description);
 
   column.appendChild(card);
-
+  column.addEventListener('click', () => redirectToMyCulture(culture.id));
   return column;
+}
+
+async function redirectToMyCulture(cultureId) {
+  try {
+    const response = await fetch(`http://localhost:8080/MyCulture?id=${cultureId}`, {
+      method: 'GET',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+    });
+    const data = await response.json();
+
+    if (response.ok) {
+      // Redirecționează către pagina "oneculture" și furnizează ID-ul culturii ca parametru de căutare
+      window.location.href = `oneculture.html?id=${cultureId}`;
+    } else {
+      console.error('Error:', data.error);
+    }
+  } catch (error) {
+    console.error('Error:', error);
+  }
 }
 
 // Funcția pentru obținerea culturilor prin cerere GET la endpoint
 async function getCultures() {
-    const emailConst = localStorage.getItem('userEmail');
+  const emailConst = localStorage.getItem('userEmail');
   try {
-    const response = await fetch(`http://localhost:8080/cultures?email=${encodeURIComponent(emailConst)}`,{
-        method: 'GET',
+    const response = await fetch(`http://localhost:8080/cultures?email=${encodeURIComponent(emailConst)}`, {
+      method: 'GET',
       headers: {
         'Content-Type': 'application/json',
-      }
+      },
     });
     const data = await response.json();
 
     if (response.ok) {
       data.forEach((culture) => {
         console.log(culture.user_id);
-        
+
         const cultureColumn = createCultureColumn(culture);
         cultureRow.appendChild(cultureColumn);
       });
