@@ -1,75 +1,98 @@
-// Obține elementul cu clasa "culture-view"
-const cultureView = document.querySelector('.culture-view');
 
-// Funcția pentru construirea paginii unei culturi
-function createCulturePage(culture) {
-  // Creează conținutul paginii
-  const cultureViewContent = document.createElement('div');
-  cultureViewContent.classList.add('culture-view-content');
+window.addEventListener('DOMContentLoaded', () => {
+    const urlParams = new URLSearchParams(window.location.search);
+    const cultureId = urlParams.get('id');
+    let navbar = document.querySelector('.navbar');
 
-  const imageView = document.createElement('div');
-  imageView.classList.add('image');
-  const image = document.createElement('img');
-  image.src = culture.image_url;
-  imageView.appendChild(image);
-  cultureViewContent.appendChild(imageView);
+    document.querySelector('#menu-btn').onclick = () => {
+        navbar.classList.toggle('active');
+        searchForm.classList.remove('active');
+        favoriteItem.classList.remove('active');
+    };
 
-  const sellDiv = document.createElement('div');
-  sellDiv.classList.add('sell');
-  const sellHeading = document.createElement('h2');
-  sellHeading.textContent = 'Sell';
-  sellDiv.appendChild(sellHeading);
-  cultureViewContent.appendChild(sellDiv);
-
-  const description = document.createElement('div');
-  description.classList.add('description');
-  const cultureName = document.createElement('h2');
-  cultureName.textContent = culture.culture_name;
-  const cultureDescription = document.createElement('p');
-  cultureDescription.textContent = culture.description;
-  const price = document.createElement('div');
-  price.classList.add('price');
-  const priceHeading = document.createElement('h2');
-  priceHeading.textContent = culture.price;
-  price.appendChild(priceHeading);
-  description.appendChild(cultureName);
-  description.appendChild(cultureDescription);
-  description.appendChild(price);
-  cultureViewContent.appendChild(description);
-
-  // Șterge conținutul existent al paginii
-  cultureView.innerHTML = '';
-
-  // Adaugă conținutul paginii în elementul "culture-view"
-  cultureView.appendChild(cultureViewContent);
-}
-
-// Funcția pentru obținerea culturii prin cerere GET la endpoint
-async function fetchCultureById(cultureId) {
-  try {
-    const response = await fetch(`http://localhost:8080/MyCulture?id=${cultureId}`, {
-      method: 'GET',
-      headers: {
-        'Content-Type': 'application/json',
-      },
-    });
-    const data = await response.json();
-
-    if (response.ok) {
-      createCulturePage(data);
-    } else {
-      console.error('Error:', data.error);
+    if (cultureId) {
+        fetchCultureById(cultureId);
     }
-  } catch (error) {
-    console.error('Error:', error);
-  }
+    console.log(cultureId);
+});
+
+async function fetchCultureById(cultureId) {
+    console.log(cultureId);
+    try {
+        const response = await fetch(`http://localhost:8080/MyCulture?id=${cultureId}`, {
+            method: 'GET',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+        });
+        const data = await response.json();
+        console.log(data.culture.culture_name);
+        if (response.ok) {
+            createCultureView(data);
+            showTips(data);
+            const tipsElement = showTips(data);
+            const cultureTip = document.querySelector('.culture-tip');
+            cultureTip.appendChild(tipsElement);
+        } else {
+            console.error('Error:', data.error);
+        }
+    } catch (error) {
+        console.error('Error:', error);
+    }
 }
+function showTips(data) {
+    console.log(data.tips);
+    const cultureTip = document.createElement('div');
+    cultureTip.classList.add('culture-tip');
 
-// Obține ID-ul culturii din parametrii URL
-const urlParams = new URLSearchParams(window.location.search);
-const cultureId = urlParams.get('id');
+    const lineDiv = document.createElement('div');
+    lineDiv.classList.add('line');
+    const tipsHeading = document.createElement('h2');
+    tipsHeading.textContent = 'How to grow '+ data.culture.culture_name;
+    lineDiv.appendChild(tipsHeading);
+    cultureTip.appendChild(lineDiv);
 
-// Verifică dacă există un ID de cultură în parametrii URL și apelează funcția fetchCultureById
-if (cultureId) {
-  fetchCultureById(cultureId);
+    const tipBox = document.createElement('div');
+    tipBox.classList.add('tip-box');
+    const tipParagraph = document.createElement('p');
+    tipParagraph.textContent = data.tips;
+    tipBox.appendChild(tipParagraph);
+    cultureTip.appendChild(tipBox);
+
+
+    return cultureTip;
+}
+function createCultureView(data) {
+    const cultureView = document.querySelector('.culture-view');
+
+    const imageView = document.createElement('div');
+    imageView.classList.add('image');
+    const image = document.createElement('img');
+    image.src = data.culture.image_url;
+    imageView.appendChild(image);
+
+    const sellDiv = document.createElement('div');
+    sellDiv.classList.add('sell');
+    const sellHeading = document.createElement('h2');
+    sellHeading.textContent = 'Sell';
+    sellDiv.appendChild(sellHeading);
+    imageView.appendChild(sellDiv);
+    cultureView.appendChild(imageView);
+
+    const description = document.createElement('div');
+    description.classList.add('description');
+    const cultureName = document.createElement('h2');
+    cultureName.textContent = data.culture.culture_name;
+    const cultureDescription = document.createElement('p');
+    cultureDescription.textContent = data.culture.description;
+    const price = document.createElement('div');
+    price.classList.add('price');
+    const priceHeading = document.createElement('h2');
+    priceHeading.textContent = data.culture.price + '  lei';
+    price.appendChild(priceHeading);
+    description.appendChild(cultureName);
+    description.appendChild(cultureDescription);
+    description.appendChild(price);
+    cultureView.appendChild(description);
+
 }
