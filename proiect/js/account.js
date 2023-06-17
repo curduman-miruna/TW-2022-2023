@@ -1,10 +1,12 @@
 const infoBox = document.getElementById('infoBox');
 const editButton = document.getElementById('edit-button');
-let emailConst=null;
+const emailConst = localStorage.getItem('userEmail');
 
 async function fetchUserInfo() {
   try {
-    const response = await fetch('http://localhost:8080/userInfo', {
+    const emailConst = localStorage.getItem('userEmail');
+
+    const response = await fetch(`http://localhost:8080/userInfo?email=${encodeURIComponent(emailConst)}`, {
       method: 'GET',
       headers: {
         'Content-Type': 'application/json',
@@ -20,12 +22,11 @@ async function fetchUserInfo() {
       infoBox.appendChild(username);
 
       const name = document.createElement('p');
-      name.textContent = 'name:     ' + user.name;
+      name.textContent = 'Name: ' + user.name;
       infoBox.appendChild(name);
 
       const email = document.createElement('p');
-      email.textContent = 'e-mail:     ' + user.email;
-      emailConst=user.email;
+      email.textContent = 'Email: ' + user.email;
       infoBox.appendChild(email);
 
       const usernameInput = document.querySelector('input[name="username"]');
@@ -43,8 +44,7 @@ async function fetchUserInfo() {
   }
 }
 
-fetchUserInfo(); // Call the async function to fetch user info
-
+fetchUserInfo();
 const editPage = document.getElementById('edit-page');
 editButton.addEventListener('click', function (event) {
   event.preventDefault();
@@ -64,12 +64,14 @@ editInfo.addEventListener('click', async function (event) {
   console.log(usernameValue);
 
   try {
+    const emailConst = localStorage.getItem('userEmail');
+
     const response = await fetch('http://localhost:8080/editUser', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
       },
-      body: JSON.stringify({ emailConst, passwordValue, nameValue, usernameValue })
+      body: JSON.stringify({ email: emailConst, password: passwordValue, name: nameValue, username: usernameValue })
     });
 
     if (response.ok) {
