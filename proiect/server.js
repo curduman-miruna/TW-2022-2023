@@ -782,6 +782,43 @@ else if (req.method === 'GET' && pathname === '/MyCulture') {
   client.release();
 }
 
+// Get all Cultures that are available and the user is not the same
+
+else if (req.method === 'GET' && pathname === '/buyPage') {
+  try {
+    const userEmail = parsedUrl.query.email;
+    const limit = 30;
+
+    const client = await pool.connect();
+    const userResult = await client.query('SELECT id FROM public.users WHERE email = $1', [userEmail]);
+
+    if (userResult.rowCount === 1) {
+      const userId = userResult.rows[0].id;
+
+      const culturesResult = await client.query(
+        `SELECT * FROM public.cultures 
+        WHERE user_id != $1 
+        AND availability = true
+        LIMIT $2`,
+        [userId, limit]
+      );
+
+      res.setHeader('Content-Type', 'application/json');
+      res.statusCode = 200;
+      res.end(JSON.stringify(culturesResult.rows));
+    } else {
+      res.statusCode = 404;
+      res.end(JSON.stringify({ error: 'User not found' }));
+    }
+
+    client.release();
+  } catch (error) {
+    console.error('Error executing query', error);
+    res.statusCode = 500;
+    res.end();
+  }
+}
+
     else {
       res.statusCode = 404;
       res.end();
