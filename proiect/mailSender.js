@@ -9,12 +9,13 @@ const pool = new Pool({
 });
 
 // Create a transporter object using the SMTP transport
-const transporter = nodemailer.createTransport({
-  service: 'gmail',
+var transport = nodemailer.createTransport({
+  host: "sandbox.smtp.mailtrap.io",
+  port: 2525,
   auth: {
-    user: 'webgardeningapp@gmail.com',
-    pass: 'AppGardeningWeb_321',
-  },
+    user: "b9fca5aa0fe45d",
+    pass: "5759039b77c7ef"
+  }
 });
 
 
@@ -22,12 +23,12 @@ const transporter = nodemailer.createTransport({
 function sendEmail(retrive, subject2, text2) {
   const mailOptions = {
     from: 'webgardeningapp@gmail.com',
-    to: retrive,
+    to: 'webgardeningapp@gmail.com',
     subject: subject2,
     text: text2,
   };
 
-  transporter.sendMail(mailOptions, (error, info) => {
+  transport.sendMail(mailOptions, (error, info) => { // Update from transporter to transport
     if (error) {
       console.error('Error sending email:', error);
     } else {
@@ -35,6 +36,7 @@ function sendEmail(retrive, subject2, text2) {
     }
   });
 }
+
 
 
 // Check for cultures with status "Ready"
