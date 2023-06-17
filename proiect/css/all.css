@@ -214,7 +214,6 @@ a {
 .input-box-edit label {
     position: absolute;
     top: -25px;
-    /* Ajustează această valoare pentru a plasa eticheta la înălțimea dorită */
     left: 0;
     padding: 10px 0;
     font-size: 20px;
@@ -692,7 +691,10 @@ input[type="submit"]:hover {
     .header .icons div:last-child {
         margin-right: 10px;
     }
-
+    .account-section form{
+        width:40%;
+        height:60%;
+    }
 
 }
 
@@ -732,7 +734,10 @@ input[type="submit"]:hover {
     .header .icons div:first-child {
         margin-left: 500px;
     }
-
+    .account-section form{
+        width:40%;
+        height:60%;
+    }
 
 }
 
@@ -843,7 +848,10 @@ input[type="submit"]:hover {
         width: 70vw;
         height: 30%;
     }
-
+    .account-section form{
+        width:40%;
+        height:60%;
+    }
 
 
 
@@ -866,5 +874,9 @@ input[type="submit"]:hover {
         margin-left: 130px;
         width: 70vw;
         height: 30%;
+    }
+    .account-section form{
+        width:40%;
+        height:60%;
     }
 }
