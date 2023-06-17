@@ -86,25 +86,29 @@ editInfo.addEventListener('click', async function (event) {
   }
 });
 
-const deleteUser=document.getElementById('delete-button');
-deleteUser.addEventListener('click', async function(event){
+const deleteUser = document.getElementById('delete-button');
+deleteUser.addEventListener('click', async function(event) {
   event.preventDefault();
-  try{
+  try {
     const emailConst = localStorage.getItem('userEmail');
-    const response =await fetch('http://localhost:8080/deleteUser',{
+    //const requestData = { email: emailConst };
+    console.log(emailConst);
+
+    const response = await fetch(`http://localhost:8080/deleteUser`, {
       method: 'DELETE',
-      headers:{
+      headers: {
         'Content-Type': 'application/json',
-      },
-      body:JSON.stringify({ email: emailConst })
+      },body: JSON.stringify({email: emailConst})
     });
-    if(response.ok){
+
+    if (response.ok) {
       const successMessage = document.getElementById('delete-message');
       successMessage.style.display = 'block';
-    }else{
-      console.error('Failed to fetch user info:', response.status);
+    } else {
+      console.error('Failed to delete user:', response.status);
     }
-  }catch(error){
-    console.error('Error executing login request', error);
+  } catch (error) {
+    console.error('Error executing delete request', error);
   }
 });
+
