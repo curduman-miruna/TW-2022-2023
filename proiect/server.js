@@ -646,13 +646,13 @@ else if (req.method === 'POST' && pathname === '/culture/edit') {
 
   req.on('end', async () => {
     try {
-      const { id, culture_name, price, status, description } = JSON.parse(body);
+      const { id, culture_name, price, description } = JSON.parse(body);
 
       const client = await pool.connect();
 
       const cultureResult = await client.query(
-        'UPDATE public.cultures SET culture_name = $1, price = $2, status = $3, description = $4 WHERE id = $5 RETURNING *',
-        [culture_name, price, status, description, id]
+        'UPDATE public.cultures SET culture_name = $1, price = $2, description = $3 WHERE id = $4 RETURNING *',
+        [culture_name, price, description, id]
       );
 
       if (cultureResult.rowCount === 1) {
@@ -675,6 +675,7 @@ else if (req.method === 'POST' && pathname === '/culture/edit') {
     }
   });
 }
+
 
 //Endpoint pentru schimbare availability in false daca cineva cumpara
 else if (req.method === 'POST' && pathname === '/changeAvailability') {
