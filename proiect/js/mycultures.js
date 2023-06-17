@@ -35,25 +35,8 @@ function createCultureColumn(culture) {
   return column;
 }
 
-async function redirectToMyCulture(cultureId) {
-  try {
-    const response = await fetch(`http://localhost:8080/MyCulture?id=${cultureId}`, {
-      method: 'GET',
-      headers: {
-        'Content-Type': 'application/json',
-      },
-    });
-    const data = await response.json();
-
-    if (response.ok) {
-      // Redirecționează către pagina "oneculture" și furnizează ID-ul culturii ca parametru de căutare
-      window.location.href = `oneculture.html?id=${cultureId}`;
-    } else {
-      console.error('Error:', data.error);
-    }
-  } catch (error) {
-    console.error('Error:', error);
-  }
+ function redirectToMyCulture(cultureId) {
+    window.location.href = `oneculture.html?id=${cultureId}`;
 }
 
 // Funcția pentru obținerea culturilor prin cerere GET la endpoint
