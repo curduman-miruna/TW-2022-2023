@@ -32,6 +32,7 @@
 
       if (result.success) {
         localStorage.setItem('token', result.token);
+        localStorage.setItem('userEmail', email);
         if (result.isAdmin) {
           // Redirect to admin page
           window.location.href = "admin.html";

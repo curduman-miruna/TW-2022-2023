@@ -6,8 +6,6 @@ const jwt = require('jsonwebtoken');
 const crypto = require('crypto');
 const bcrypt = require('bcrypt');
 
-let loggedInUser = null;
-
 const pool = new Pool({
   user: 'postgres',
   host: 'localhost',
@@ -53,8 +51,7 @@ const server = http.createServer(async (req, res) => {
 
             if (isMatch) {
               const token = generateToken(user);
-              loggedInUser = user;
-              console.log(loggedInUser.name);
+              console.log(user.name);
               res.setHeader('Content-Type', 'application/json');
               res.statusCode = 200;
               res.end(JSON.stringify({ success: true, token }));
@@ -414,16 +411,28 @@ else if (req.method === 'DELETE' && pathname === '/deleteUser') {
         res.end();
       }
     } else if (req.method === 'GET' && pathname === '/userInfo') {
-      if (loggedInUser) {
-        res.setHeader('Content-Type', 'application/json');
-        res.statusCode = 200;
-        res.end(JSON.stringify(loggedInUser));
-      } else {
-        res.setHeader('Content-Type', 'application/json');
-        res.statusCode = 401;
-        res.end(JSON.stringify({ error: 'User not logged in' }));
-      }
+  const { email } = url.parse(req.url, true).query;
+
+  if (email !== null) {
+    // Logic to retrieve user info based on the email
+    const userInfo = getUserInfo(email);
+
+    if (userInfo) {
+      res.setHeader('Content-Type', 'application/json');
+      res.statusCode = 200;
+      res.end(JSON.stringify(userInfo));
+    } else {
+      res.setHeader('Content-Type', 'application/json');
+      res.statusCode = 404;
+      res.end(JSON.stringify({ error: 'User not found' }));
     }
+  } else {
+    res.setHeader('Content-Type', 'application/json');
+    res.statusCode = 401;
+    res.end(JSON.stringify({ error: 'User not logged in' }));
+  }
+}
+
     //Endpoint pentru intoarcere followed of a user
 else if (req.method === 'GET' && pathname === '/userFollowed') {
   try {
