@@ -1,3 +1,10 @@
+let navbar = document.querySelector('.navbar');
+
+document.querySelector('#menu-btn').onclick = () => {
+    navbar.classList.toggle('active');
+    searchForm.classList.remove('active');
+    favoriteItem.classList.remove('active');
+}
 const infoBox = document.getElementById('infoBox');
 const editButton = document.getElementById('edit-button');
 const emailConst = localStorage.getItem('userEmail');

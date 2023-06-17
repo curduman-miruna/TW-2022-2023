@@ -1,8 +1,14 @@
-  let navbar = document.querySelector('.navbar');
+ /* let navbar = document.querySelector('.navbar');
   let searchForm = document.querySelector('.search-form');
   let cartItem = document.querySelector('.cart-items-container');
-  let accountInfo = document.getElementById('account-info');
-  
+  let accountInfo = document.getElementById('account-info');*/
+  let navbar = document.querySelector('.navbar');
+
+document.querySelector('#menu-btn').onclick = () => {
+    navbar.classList.toggle('active');
+    searchForm.classList.remove('active');
+    favoriteItem.classList.remove('active');
+}
 
   window.onscroll = () => {
     navbar.classList.remove('active');

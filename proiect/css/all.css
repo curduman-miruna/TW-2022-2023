@@ -130,11 +130,17 @@ a {
 }
 
 /* iconite */
+.header .icons {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+}
+
 .header .icons div {
     color: #fff;
     cursor: pointer;
     font-size: 25px;
-    margin-left: 20px;
+    margin-right: 10px;
 }
 
 .header .icons div:hover {
@@ -365,7 +371,7 @@ input[type="submit"]:hover {
 
 .user-information {
     margin-left: 20vw;
-    margin-top: 80px;
+    margin-top: 20vh;
     border: 3px solid #b62f4f;
     border-radius: 10px;
     width: 40vw;
@@ -377,18 +383,9 @@ input[type="submit"]:hover {
 
 }
 
-.user-information .infoSpan {
-    background-color: #da6e88;
-    color: black;
-    width: 20vw;
-    height: 20vh;
-}
 
-.user-information .infoSpan p {
-    color: black;
-    font-size: 25px;
-    margin-top: 20px;
-}
+
+
 
 .user-information h2 {
     color: #66071d;
@@ -712,26 +709,32 @@ input[type="submit"]:hover {
     .header .navbar {
         position: absolute;
         top: 100%;
-        right: -100%;
+        right: 0;
         background: #fff;
-        width: 30rem;
-        height: 200px;
-        align-items: flex-end;
-        justify-content: flex-end;
-        box-shadow: 0 15px 25px rgb(0 0 0 / 50%);
+        width: 20%;
+        height: 70vh;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        align-items: flex-start;
+        box-shadow: 0 15px 25px rgba(0, 0, 0, 0.5);
+        padding: 1rem;
     }
+    
+    
+    .header .navbar a {
+        color: var(--black);
+        display: block;
+        margin-bottom: 1rem;
+        font-size: 1.5rem;
+    }
+    
 
     .header .navbar.active {
         right: 0;
     }
 
-    .header .navbar a {
-        color: var(--black);
-        display: block;
-        margin: auto;
-        padding: .5rem;
-        font-size: 2rem;
-    }
+    
 
     .header .icons div {
         font-size: 20px;
@@ -768,7 +771,9 @@ input[type="submit"]:hover {
         color: white;
         font-size: 20px;
     }
+    .account-background .account-info{
 
+    }
     .account-background .account-info h2 {
         text-align: center;
         margin-top: 20px;
@@ -854,7 +859,6 @@ input[type="submit"]:hover {
         width:60%;
         height:60%;
     }
-
 
 
 
