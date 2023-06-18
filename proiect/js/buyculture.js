@@ -1,4 +1,6 @@
 let idConst;
+
+const emailConst = localStorage.getItem('userEmail');
 window.addEventListener('DOMContentLoaded', () => {
     const urlParams = new URLSearchParams(window.location.search);
     const cultureId = urlParams.get('id');
@@ -53,7 +55,12 @@ function createCultureView(data) {
     sellDiv.classList.add('buy');
 
     const sellHeading = document.createElement('h2');
-    sellHeading.textContent = 'Buy';
+    if (data.culture.availability === true &&data.culture.buyer==='not bought') {
+        sellHeading.textContent = 'Buy';
+    } else {
+        sellHeading.textContent = 'No longer available';
+    }
+
 
     sellDiv.appendChild(sellHeading);
     imageView.appendChild(sellDiv);
@@ -82,30 +89,31 @@ function createCultureView(data) {
     description.appendChild(cultureDescription);
     description.appendChild(price);
     cultureView.appendChild(description);
-    /*sellDiv.addEventListener('click', async function (event) {
-event.preventDefault();
-try {
-const response = await fetch('http://localhost:8080/changeAvailabilityTrue', {
-  method: 'POST',
-  headers: {
-    'Content-Type': 'application/json',
-  },
-  body: JSON.stringify({ id: idConst })
-});
+    console.log(idConst);
+    sellDiv.addEventListener('click', async function (event) {
+        event.preventDefault();
+        try {
+            const response = await fetch('http://localhost:8080/changeAvailabilityFalse', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify({ id: idConst, email: emailConst })
+            });
 
-if (response.ok) {
-    sellHeading.textContent = 'Sold';
-} else {
-  const data = await response.json();
-  console.error('Error:', data.error);
-}
-} catch (error) {
-console.error('Error:', error);
-}
-console.log('Sell button clicked');
-console.log(idConst);
-});
-*/
- 
- 
+            if (response.ok) {
+                sellHeading.textContent = 'Purchased';
+            } else {
+                const data = await response.json();
+                console.error('Error:', data.error);
+            }
+        } catch (error) {
+            console.error('Error:', error);
+        }
+        console.log('Buy button clicked');
+        console.log(idConst);
+    });
+
+
+
 }

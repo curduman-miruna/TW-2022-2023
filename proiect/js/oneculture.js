@@ -3,7 +3,7 @@ window.addEventListener('DOMContentLoaded', () => {
     const urlParams = new URLSearchParams(window.location.search);
     const cultureId = urlParams.get('id');
     let navbar = document.querySelector('.navbar');
-idConst=cultureId;
+    idConst = cultureId;
     document.querySelector('#menu-btn').onclick = () => {
         navbar.classList.toggle('active');
         searchForm.classList.remove('active');
@@ -37,7 +37,7 @@ idConst=cultureId;
 
             editBtn.classList.add('edit-mode');
             editBtn.textContent = 'Save changes';
-            
+
         } else {
             // Exit edit mode and send changes to the server
             const priceInt = parseInt(priceHeading.textContent.split(' ')[0]);
@@ -91,9 +91,9 @@ idConst=cultureId;
 
         isEditMode = !isEditMode;
     });
-   
 
-    
+
+
 
 
 });
@@ -156,13 +156,13 @@ function createCultureView(data) {
     const sellDiv = document.createElement('div');
     sellDiv.classList.add('sell');
     const sellHeading = document.createElement('h2');
-    if(data.culture.availability==false){
+    if (data.culture.availability == false) {
         sellHeading.textContent = 'Sell';
     }
-    else{
+    else {
         sellHeading.textContent = 'Sold';
     }
-    
+
     sellDiv.appendChild(sellHeading);
     imageView.appendChild(sellDiv);
     cultureView.appendChild(imageView);
@@ -182,30 +182,31 @@ function createCultureView(data) {
     description.appendChild(cultureDescription);
     description.appendChild(price);
     cultureView.appendChild(description);
+
     sellDiv.addEventListener('click', async function (event) {
-  event.preventDefault();
-  try {
-    const response = await fetch('http://localhost:8080/changeAvailabilityTrue', {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-      },
-      body: JSON.stringify({ id: idConst })
+        event.preventDefault();
+        try {
+            const response = await fetch('http://localhost:8080/changeAvailabilityTrue', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify({ id: idConst })
+            });
+
+            if (response.ok) {
+                sellHeading.textContent = 'Sold';
+            } else {
+                const data = await response.json();
+                console.error('Error:', data.error);
+            }
+        } catch (error) {
+            console.error('Error:', error);
+        }
+        console.log('Sell button clicked');
+        console.log(idConst);
     });
 
-    if (response.ok) {
-        sellHeading.textContent = 'Sold';
-    } else {
-      const data = await response.json();
-      console.error('Error:', data.error);
-    }
-  } catch (error) {
-    console.error('Error:', error);
-  }
-  console.log('Sell button clicked');
-  console.log(idConst);
-});
 
-    
-    
+
 }
