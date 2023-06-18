@@ -176,30 +176,31 @@ function createCultureView(data) {
     description.appendChild(cultureDescription);
     description.appendChild(price);
     cultureView.appendChild(description);
-    sellDiv.addEventListener('click',   function(event) {
-        event.preventDefault();
-        try {
-            const response =  fetch('http://localhost:8080/changeAvailabilityTrue', {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json',
-                },
-                body: JSON.stringify(data.culture.id)
-            });
-
-            if (response.ok) {
-                const successMessage = document.getElementById('sell-message');
-                successMessage.style.display = 'block';
-            } else {
-                console.error('Error:', data.error);
-
-            }
-        } catch (error) {
-            console.error('Error:', error);
-        }
-        console.log('Sell button clicked');
-        console.log(idConst);
+    sellDiv.addEventListener('click', async function (event) {
+  event.preventDefault();
+  try {
+    const response = await fetch('http://localhost:8080/changeAvailabilityTrue', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({ id: idConst })
     });
+
+    if (response.ok) {
+      const successMessage = document.getElementById('sell-message');
+      successMessage.style.display = 'block';
+    } else {
+      const data = await response.json();
+      console.error('Error:', data.error);
+    }
+  } catch (error) {
+    console.error('Error:', error);
+  }
+  console.log('Sell button clicked');
+  console.log(idConst);
+});
+
     
     
 }
