@@ -1,4 +1,12 @@
 async function fetchUsers() {
+  let token = localStorage.getItem('token');
+  console.log(token);
+
+  if (token === null) {
+      window.location.href = 'index.html'; 
+      return;
+  }
+
   try {
     const response = await fetch('http://localhost:8080/users', {
       method: 'GET',

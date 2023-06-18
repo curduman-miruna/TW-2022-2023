@@ -10,6 +10,13 @@ const editButton = document.getElementById('edit-button');
 const emailConst = localStorage.getItem('userEmail');
 
 async function fetchUserInfo() {
+  let token = localStorage.getItem('token');
+  console.log(token);
+
+  if (token === null) {
+      window.location.href = 'index.html'; 
+      return;
+  }
   try {
     const emailConst = localStorage.getItem('userEmail');
 

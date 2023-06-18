@@ -7,7 +7,6 @@ document.querySelector('#menu-btn').onclick = () => {
 
 const cultureRow = document.getElementById('culture-row');
 
-// Funcția pentru crearea coloanei de cultură
 function createCultureColumn(culture) {
   const column = document.createElement('div');
   column.classList.add('culture-column');
@@ -57,6 +56,14 @@ async function redirectToMyCulture(cultureId) {
 
 // Funcția pentru obținerea culturilor prin cerere GET la endpoint
 async function getCultures() {
+  let token = localStorage.getItem('token');
+  console.log(token);
+
+  if (token === null) {
+      window.location.href = 'index.html'; //login/sign up
+      return;
+  }
+
   const emailConst = localStorage.getItem('userEmail');
   try {
     const response = await fetch(`http://localhost:8080/cultures?email=${encodeURIComponent(emailConst)}`, {

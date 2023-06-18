@@ -2,6 +2,14 @@ const addButton = document.getElementById('add-culture');
 const emailConst = localStorage.getItem('userEmail');
 
 addButton.addEventListener('click', async function(event) {
+    let token = localStorage.getItem('token');
+    console.log(token);
+
+    if (token === null) {
+        window.location.href = 'index.html'; //login/sign up
+        return;
+    }
+
     event.preventDefault(); 
     const form1 = document.getElementById('form1');
     const form2 = document.getElementById('form2');

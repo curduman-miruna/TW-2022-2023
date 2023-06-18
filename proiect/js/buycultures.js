@@ -1,10 +1,18 @@
 const emailConst = localStorage.getItem('userEmail');
 const cultureContainer = document.getElementById('cultureRow');
-function generateCultureContent() {
+async function generateCultureContent() {
   // Facem o cerere GET către endpoint
+  let token = localStorage.getItem('token');
+  console.log(token);
+
+  if (token === null) {
+      window.location.href = 'index.html'; //login/sign up
+      return;
+  }
+
   console.log(emailConst);
   try { 
-    fetch(`http://localhost:8080/buyPage?email=${encodeURIComponent(emailConst)}`, {
+   await fetch(`http://localhost:8080/buyPage?email=${encodeURIComponent(emailConst)}`, {
       method: 'GET',
       headers: {
         'Content-Type': 'application/json',
