@@ -1,7 +1,11 @@
 const http = require('http');
 
 const data = JSON.stringify({
+<<<<<<< HEAD
   email: 'maria@gmail.com',
+=======
+  email: 'miruna@test.com',
+>>>>>>> e71633e8b6daa3667286b7b60e83973016aa2938
   culture_name: 'Heather',
   soil_moisture: 30,
   ambient_temperature: 25,
