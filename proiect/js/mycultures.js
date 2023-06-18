@@ -83,3 +83,9 @@ async function getCultures() {
 }
 
 window.addEventListener('DOMContentLoaded', getCultures);
+
+const addButton = document.getElementById('add-culture');
+addButton.addEventListener('click', event=>{
+ event.preventDefault();
+ window.location.href='new.html';
+});

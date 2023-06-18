@@ -14,7 +14,7 @@ function generateCultureContent() {
       .then(data => {
         
         data.forEach(culture => {
-          console.log(data.culture.id);
+          console.log(culture.id);
           const cultureColumn = document.createElement('div');
           cultureColumn.classList.add('culture-column');
   
@@ -25,7 +25,7 @@ function generateCultureContent() {
           cultureName.textContent = culture.culture_name;
   
           const stageOfGrowth = document.createElement('h2');
-          stageOfGrowth.textContent = `Stage of growth: ${culture.stageOfGrowth}`;
+          stageOfGrowth.textContent = `Stage of growth: ${culture.status}`;
   
           const cultureImage = document.createElement('img');
           cultureImage.src = culture.image_url;
