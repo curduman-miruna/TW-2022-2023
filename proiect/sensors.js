@@ -12,9 +12,10 @@ const pool = new Pool({
 async function analyzeImage(url) {
   try {
     const image = await Jimp.read(url);
-    console.log('analyzing imagae ${url}');
-    // Check if the image is in a supported format (JPEG)
-    if (image.getMIME() !== 'image/jpeg') {
+    console.log(`Analyzing image: ${url}`);
+
+    // Check if the image is in a supported format (JPEG or PNG)
+    if (image.getMIME() !== 'image/jpeg' && image.getMIME() !== 'image/png') {
       console.log(`Skipping analysis for image with unsupported format: ${url}`);
       return { brownPercentage: 0, greenPercentage: 0 };
     }
@@ -57,7 +58,7 @@ async function updateCultureData() {
         [newSoilMoisture, newAmbientTemperature, id]
       );
 
-      const imageUrl = `https://raw.githubusercontent.com/curduman-miruna/TW-2022-2023/main/proiect/Culture_Photos/${culture_type}${getRandomInt(1, 3)}.jpeg`;
+      const imageUrl = `https://raw.githubusercontent.com/curduman-miruna/TW-2022-2023/main/proiect/Culture_Photos/${culture_type}${getRandomInt(1, 3)}.png`;
 
       const { brownPercentage, greenPercentage } = await analyzeImage(imageUrl);
       const updatedImageUrlArray = [imageUrl]; // Wrap the URL in an array
