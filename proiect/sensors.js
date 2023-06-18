@@ -110,5 +110,5 @@ function getRandomInt(min, max) {
 }
 
 // Run the update every 2 days
-const twoDaysInMilliseconds = 5 * 1000;
+const twoDaysInMilliseconds = 120 * 1000;
 setInterval(updateCultureData, twoDaysInMilliseconds);

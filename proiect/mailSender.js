@@ -23,7 +23,7 @@ var transport = nodemailer.createTransport({
 function sendEmail(retrive, subject2, text2) {
   const mailOptions = {
     from: 'webgardeningapp@gmail.com',
-    to: 'webgardeningapp@gmail.com',
+    to: retrive,
     subject: subject2,
     text: text2,
   };
@@ -78,5 +78,5 @@ async function checkReadyCultures() {
 }
 
 // Run the check every 24 hours
-const twentyFourHoursInMilliseconds = 5 * 1000;
+const twentyFourHoursInMilliseconds = 120 * 1000;
 setInterval(checkReadyCultures, twentyFourHoursInMilliseconds);

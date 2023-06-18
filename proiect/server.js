@@ -678,7 +678,7 @@ else if (req.method === 'POST' && pathname === '/culture/edit') {
 
 
 //Endpoint pentru schimbare availability in false daca cineva cumpara
-else if (req.method === 'POST' && pathname === '/changeAvailability') {
+else if (req.method === 'POST' && pathname === '/changeAvailabilityFalse') {
   let body = '';
 
   req.on('data', (chunk) => {
@@ -690,7 +690,7 @@ else if (req.method === 'POST' && pathname === '/changeAvailability') {
       const { id, email } = JSON.parse(body);
 
       const client = await pool.connect();
-      const result = await client.query('UPDATE public.cultures SET buyer = $1 WHERE id = $2', [email, id]);
+      const result = await client.query('UPDATE public.cultures SET availability = false, buyer = $1 WHERE id = $2', [email, id]);
 
       if (result.rowCount === 1) {
         res.setHeader('Content-Type', 'application/json');
@@ -710,6 +710,42 @@ else if (req.method === 'POST' && pathname === '/changeAvailability') {
     }
   });
 }
+
+
+// Change Availability
+else if (req.method === 'POST' && pathname === '/changeAvailabilityTrue') {
+  let body = '';
+
+  req.on('data', (chunk) => {
+    body += chunk.toString();
+  });
+
+  req.on('end', async () => {
+    try {
+      const { id } = JSON.parse(body);
+
+      const client = await pool.connect();
+      const result = await client.query('UPDATE public.cultures SET availability = true WHERE id = $1', [id]);
+
+      if (result.rowCount === 1) {
+        res.setHeader('Content-Type', 'application/json');
+        res.statusCode = 200;
+        res.end(JSON.stringify({ success: true }));
+      } else {
+        res.setHeader('Content-Type', 'application/json');
+        res.statusCode = 404;
+        res.end(JSON.stringify({ success: false, message: 'Culture not found' }));
+      }
+
+      client.release();
+    } catch (error) {
+      console.error('Error executing query', error);
+      res.statusCode = 500;
+      res.end();
+    }
+  });
+}
+
 // Endpoint GetCultureTipis
 else if (req.method === 'GET' && pathname === '/MyCulture') {
   const { id } = url.parse(req.url, true).query;

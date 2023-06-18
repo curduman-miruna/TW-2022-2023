@@ -1,6 +1,6 @@
 const http = require('http');
 
-const cultureId = 2; // Specify the culture ID to retrieve
+const cultureId = 4; // Specify the culture ID to retrieve
 
 const options = {
   hostname: 'localhost',
