@@ -23,7 +23,7 @@ var transport = nodemailer.createTransport({
 function sendEmail(retrive, subject2, text2) {
   const mailOptions = {
     from: 'webgardeningapp@gmail.com',
-    to: retrive,
+    to: 'webgardeningapp@gmail.com',
     subject: subject2,
     text: text2,
   };
