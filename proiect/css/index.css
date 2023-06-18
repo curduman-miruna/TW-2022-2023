@@ -623,12 +623,7 @@ button .fas {
     font-weight: bold;
 }
 
-.sync .button-s h2 {
-    font-size: 18px;
-    align-items: center;
-    text-align: center;
-    color: white;
-}
+
 
 
 .culture-view .description .button h2 {
@@ -814,34 +809,6 @@ button .fas {
     cursor: pointer;
 }
 
-.sync {
-    margin-top: 90px;
-    height: 20vh;
-    width: 100vw;
-    display: flex;
-    justify-content: flex-end;
-    align-items: center;
-    flex-direction: column;
-}
-
-.sync .button-s {
-    border-radius: 10px;
-    width: 20%;
-    height: 50%;
-    background-color: #9f4252;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    box-shadow: 0 5px 10px rgba(0 0 0 0/50%);
-}
-
-.sync .button-s:hover {
-    letter-spacing: 2px;
-    background-color: var(--darkpink);
-    cursor: pointer;
-}
-
-
 
 
 @media screen and (width >=10px) {
@@ -989,22 +956,7 @@ button .fas {
         height: 50px;
     }
 
-    .sync {
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        flex-direction: column;
-
-    }
-
-    .sync .button-s {
-        margin-left: 0;
-        width: 60%;
-        height: 50%;
-        background-color: #9f4252;
-
-    }
-
+   
 
     .culture-tip .tip-box p {
         font-size: 30px;
@@ -1132,22 +1084,7 @@ button .fas {
         height: 50px;
     }
 
-    .sync {
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        flex-direction: column;
-
-    }
-
-    .sync .button-s {
-        margin-left: 0;
-        margin-right: 7px;
-        width: 60%;
-        height: 50%;
-        background-color: #9f4252;
-
-    }
+   
 
     .culture-view .description {
         margin-left: 10px;

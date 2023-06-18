@@ -7,15 +7,15 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
 
-    <link rel="stylesheet" href="css/index.css">
+
     <link rel="stylesheet" href="css/all.css">
-    
-  <link rel="stylesheet" href="css/index2.css">
-    
+    <link rel="stylesheet" href="css/index2.css">
+
     <!--<script src="js\myJs.js" defer></script>-->
     <script src="js/myJs.js" defer></script>
     <title>My Cultures</title>
 </head>
+
 <body>
     <header class="header">
 
@@ -40,7 +40,8 @@
         <div class="icons">
             <div class="fas fa-bars" id="menu-btn"></div>
             <a href="account.html">
-            <div class="fas fa-solid fa-user" id="account"></div></a>
+                <div class="fas fa-solid fa-user" id="account"></div>
+            </a>
         </div>
 
         <div class="search-form">
@@ -55,46 +56,84 @@
                 <h2>
                     Synchronize Sensors
                 </h2>
-               
+
             </div>
         </div>
     </section>
     <section>
-       <div class="culture-view">
-        <div class="image">
-            
-            <div class="plus-icon">
-                <p>
-                    Pres "+" to add a new culture
-                </p>
-            <img src="photo/plus.png"/>
-             </div>
-        </div>
+        <div class="culture-view">
             <div class="description">
-               <form>
-                <div class="input-box">
-                    <input type="text" name="description" required="">
-                    <label>Description</label>
+                <div class="column">
+                    <form>
+                        <div class="input-box">
+                            <input type="text" name="description" required="">
+                            <label>Name</label>
+                        </div>
+                        <div class="input-box">
+                            <input type="text" name="description" required="">
+                            <label>Description</label>
+                        </div>
+                        <div class="input-box">
+                            <input type="text" name="price" required="">
+                            <label>Price</label>
+                        </div>
+                        
+                    </form>
                 </div>
-                <div class="input-box">
-                    <input type="text" name="price" required="">
-                    <label>Price</label>
+
+                <div class="column">
+                    <form>
+                        <div class="category">
+                            <input type="radio" name="category" id="category1" value="category1" required="">
+                            <label for="category1">Crocus</label>
+                        </div>
+                        <div class="category">
+                            <input type="radio" name="category" id="category2" value="category2" required="">
+                            <label for="category2">Daffodil</label>
+                        </div>
+                        <div class="category">
+                            <input type="radio" name="category" id="category2" value="category2" required="">
+                            <label for="category2">Heather</label>
+                        </div>
+                        <div class="category">
+                            <input type="radio" name="category" id="category1" value="category1" required="">
+                            <label for="category1">Lily</label>
+                        </div>
+                       
+
+                    </form>
+
                 </div>
-                
-               </form>
-            
-                <div class="button">
-                <h2>
-                    Add New Culture
-                </h2>
-               </div>
+                <div class="column">
+                    <form>
+                        <div class="category">
+                            <input type="radio" name="category" id="category2" value="category2" required="">
+                            <label for="category2">Hyacinth</label>
+                        </div>
+                        <div class="category">
+                            <input type="radio" name="category" id="category2" value="category2" required="">
+                            <label for="category2">Peonies</label>
+                        </div>
+                        <div class="category">
+                            <input type="radio" name="category" id="category2" value="category2" required="">
+                            <label for="category2">Tulip</label>
+                        </div>
+                    </form>
+                </div>
+
             </div>
-            
-           
-    </div>
+        </div>
     </section>
-    
-    
+    <section>
+        <div class="edit-culture">
+            <div class="edit-button">
+                <h2>
+                    Add new culture
+                </h2>
+            </div>
+        </div>
+    </section>
     <script src="myJs.js"></script>
 </body>
+
 </html>
