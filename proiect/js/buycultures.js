@@ -56,6 +56,27 @@ function generateCultureContent() {
 
         cultureColumn.appendChild(buyCard);
         cultureContainer.appendChild(cultureColumn);
+        buyCard.addEventListener('click',async function(event){
+            event.preventDefault();
+            try {
+                const response = await fetch(`http://localhost:8080/culture?id=${culture.id}`, {
+                  method: 'GET',
+                  headers: {
+                    'Content-Type': 'application/json',
+                  },
+                });
+                const data = await response.json();
+            
+                if (response.ok) {
+                  // Redirecționează către pagina "oneculture" și furnizează ID-ul culturii ca parametru de căutare
+                  window.location.href = `buyculture.html?id=${culture.id}`;
+                } else {
+                  console.error('Error:', data.error);
+                }
+              } catch (error) {
+                console.error('Error:', error);
+              }
+        });
       });
         
       })
