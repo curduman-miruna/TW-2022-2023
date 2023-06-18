@@ -179,54 +179,56 @@ const server = http.createServer(async (req, res) => {
       }
     }
     //Enpoint adaugare cultura cand dam una noua
-    else if (req.method === 'PUT' && pathname === '/culture') {
-      let body = '';
+   else if (req.method === 'PUT' && pathname === '/culture') {
+  let body = '';
 
-      req.on('data', (chunk) => {
-        body += chunk.toString();
-      });
+  req.on('data', (chunk) => {
+    body += chunk.toString();
+  });
 
-      req.on('end', async () => {
-        try {
-          const { email, culture_name, soil_moisture, ambient_temperature, image_url, culture_type, price, status, availability, description } = JSON.parse(body);
+  req.on('end', async () => {
+    try {
+      const { email, culture_name, soil_moisture, ambient_temperature, image_url, culture_type, price, description } = JSON.parse(body);
+      const status = 'in progress';
+      const availability = false;
 
-          const client = await pool.connect();
-          const userResult = await client.query('SELECT id FROM public.users WHERE email = $1', [email]);
+      const client = await pool.connect();
+      const userResult = await client.query('SELECT id FROM public.users WHERE email = $1', [email]);
 
-          if (userResult.rowCount === 1) {
-            const user_id = userResult.rows[0].id;
+      if (userResult.rowCount === 1) {
+        const user_id = userResult.rows[0].id;
 
-            const cultureResult = await client.query(
-              'INSERT INTO public.cultures (user_id, culture_name, soil_moisture, ambient_temperature, image_url, culture_type, price, status, availability, description) VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10) RETURNING *',
-              [user_id, culture_name, soil_moisture, ambient_temperature, image_url, culture_type, price, status, availability, description]
-            );
+        const cultureResult = await client.query(
+          'INSERT INTO public.cultures (user_id, culture_name, soil_moisture, ambient_temperature, image_url, culture_type, price, status, availability, description) VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10) RETURNING *',
+          [user_id, culture_name, soil_moisture, ambient_temperature, image_url, culture_type, price, status, availability, description]
+        );
 
-            if (cultureResult.rowCount === 1) {
-              const culture = cultureResult.rows[0];
-              res.setHeader('Content-Type', 'application/json');
-              res.statusCode = 200;
-              res.end(JSON.stringify({ success: true, culture }));
-            } else {
-              // Failed to insert culture
-              res.setHeader('Content-Type', 'application/json');
-              res.statusCode = 500;
-              res.end(JSON.stringify({ success: false, message: 'Failed to insert culture' }));
-            }
-          } else {
-            // User not found
-            res.setHeader('Content-Type', 'application/json');
-            res.statusCode = 404;
-            res.end(JSON.stringify({ success: false, message: 'User not found' }));
-          }
-
-          client.release();
-        } catch (error) {
-          console.error('Error executing query', error);
+        if (cultureResult.rowCount === 1) {
+          const culture = cultureResult.rows[0];
+          res.setHeader('Content-Type', 'application/json');
+          res.statusCode = 200;
+          res.end(JSON.stringify({ success: true, culture }));
+        } else {
+          // Failed to insert culture
+          res.setHeader('Content-Type', 'application/json');
           res.statusCode = 500;
-          res.end();
+          res.end(JSON.stringify({ success: false, message: 'Failed to insert culture' }));
         }
-      });
+      } else {
+        // User not found
+        res.setHeader('Content-Type', 'application/json');
+        res.statusCode = 404;
+        res.end(JSON.stringify({ success: false, message: 'User not found' }));
+      }
+
+      client.release();
+    } catch (error) {
+      console.error('Error executing query', error);
+      res.statusCode = 500;
+      res.end();
     }
+  });
+}
     // Endpoint editare user
     else if (req.method === 'POST' && pathname === '/editUser') {
       let body = '';
@@ -286,6 +288,7 @@ const server = http.createServer(async (req, res) => {
         }
       });
     }
+    
     //Endpoint delete user
 else if (req.method === 'DELETE' && pathname === '/deleteUser') {
   let body = '';

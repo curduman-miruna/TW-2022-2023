@@ -507,7 +507,7 @@ button .fas{
 
 
 .culture-view .description{
-    width:70vw;
+    width:95vw;
     height: 100%;
     border-bottom: solid  var(--darkerstpink);
     border-top: solid  var(--darkerstpink);
@@ -521,8 +521,12 @@ button .fas{
     
 }
 .culture-view .description .column{
-    width: 50%; 
-    margin-left: 5vw;
+    width: 15%; 
+    margin-left: 1vw;
+}
+.culture-view .description .column-radio{
+    width: 10%; 
+    margin-left: 1vw;
 }
 .buy-card p {
     margin: 20px 5px;

@@ -173,7 +173,9 @@ a {
 .header .search-form.active {
     transform: scaleY(1);
 }
-
+.input-box{
+    width: 20vw;
+}
 
 .input-box input {
     width: 100%;
