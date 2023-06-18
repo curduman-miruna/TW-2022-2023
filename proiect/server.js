@@ -288,7 +288,7 @@ const server = http.createServer(async (req, res) => {
         }
       });
     }
-    
+
     //Endpoint delete user
 else if (req.method === 'DELETE' && pathname === '/deleteUser') {
   let body = '';
@@ -501,27 +501,32 @@ else if (req.method === 'PUT' && pathname === '/addFollow') {
         const user_id = userResult.rows[0].id;
 
         const userCultureResult = await client.query(
-          'INSERT INTO public.user_cultures (user_id, user_email, culture_id, culture_name) VALUES ($1, $2, $3, $4) RETURNING *',
+          'INSERT INTO public.user_cultures (user_id, user_email, culture_id, culture_name) ' +
+          'SELECT $1, $2, $3, $4 ' +
+          'WHERE NOT EXISTS (SELECT 1 FROM public.user_cultures WHERE user_id = $1 AND culture_id = $3) ' +
+          'RETURNING *',
           [user_id, user_email, culture_id, culture_name]
         );
 
-        if (userCultureResult.rowCount === 1) {
+        if (userCultureResult.rowCount > 0) {
           const userCulture = userCultureResult.rows[0];
 
-          // Increase the followers count of the culture
-          await client.query(
-            'UPDATE public.cultures SET followers = followers + 1 WHERE id = $1',
-            [culture_id]
-          );
+          // Increase the followers count of the culture only if a new record was inserted
+          if (userCultureResult.rowCount === 1) {
+            await client.query(
+              'UPDATE public.cultures SET followers = followers + 1 WHERE id = $1',
+              [culture_id]
+            );
+          }
 
           res.setHeader('Content-Type', 'application/json');
           res.statusCode = 200;
           res.end(JSON.stringify({ success: true, userCulture }));
         } else {
-          // Failed to insert user culture
+          // Culture already exists for the user
           res.setHeader('Content-Type', 'application/json');
-          res.statusCode = 500;
-          res.end(JSON.stringify({ success: false, message: 'Failed to insert culture' }));
+          res.statusCode = 200;
+          res.end(JSON.stringify({ success: false, message: 'Culture already exists for the user' }));
         }
       } else {
         // User not found
@@ -538,6 +543,7 @@ else if (req.method === 'PUT' && pathname === '/addFollow') {
     }
   });
 }
+
 
 //Endpoint for delete followed culture from preferencess
 else if (req.method === 'DELETE' && pathname === '/deleteFollow') {
