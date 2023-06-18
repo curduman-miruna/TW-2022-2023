@@ -45,7 +45,11 @@ html::-webkit-scrollbar-thumb {
 body {
     background: var(--bg);
 }
-
+.editable {
+    border: 1px solid #ccc;
+    padding: 5px;
+    cursor: text;
+  }
 .btn {
     margin-top: 1rem;
     display: inline-block;

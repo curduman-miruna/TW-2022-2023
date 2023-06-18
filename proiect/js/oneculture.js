@@ -14,6 +14,85 @@ window.addEventListener('DOMContentLoaded', () => {
         fetchCultureById(cultureId);
     }
     console.log(cultureId);
+
+    const editBtn = document.querySelector('.edit-culture .edit-button');
+    let isEditMode = false;
+    let originalButtonText = editBtn.textContent;
+
+    editBtn.addEventListener('click', function (event) {
+        event.preventDefault();
+        const cultureDescription = document.querySelector('.description p');
+        const priceHeading = document.querySelector('.price h2');
+        const cultureName = document.querySelector('.description h2');
+
+        if (!isEditMode) {
+            // Enter edit mode
+            cultureDescription.setAttribute('contenteditable', 'true');
+            priceHeading.setAttribute('contenteditable', 'true');
+            cultureName.setAttribute('contenteditable', 'true');
+
+            cultureDescription.classList.add('editable');
+            priceHeading.classList.add('editable');
+            cultureName.classList.add('editable');
+
+            editBtn.classList.add('edit-mode');
+            editBtn.textContent = 'Save changes';
+            
+        } else {
+            // Exit edit mode and send changes to the server
+            const priceInt = parseInt(priceHeading.textContent.split(' ')[0]);
+
+            const id = cultureId;
+            const updatedCulture = {
+                id,
+                culture_name: cultureName.textContent,
+                price: priceInt,
+                description: cultureDescription.textContent
+            };
+            console.log(updatedCulture.culture_name);
+            console.log(updatedCulture.id);
+            console.log(updatedCulture.description);
+
+
+            fetch('http://localhost:8080/culture/edit', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify(updatedCulture)
+            })
+                .then(response => response.json())
+                .then(data => {
+                    if (data.success) {
+                        // Changes saved successfully
+                        console.log('Changes saved:', data.culture);
+                        // You can perform any additional actions here
+                    } else {
+                        // Failed to save changes
+                        console.error('Failed to save changes:', data.message);
+                        // You can handle the error or display a message to the user
+                    }
+                })
+                .catch(error => {
+                    console.error('Error:', error);
+                    // Handle the error or display a message to the user
+                });
+
+            cultureDescription.removeAttribute('contenteditable');
+            priceHeading.removeAttribute('contenteditable');
+            cultureName.removeAttribute('contenteditable');
+
+            cultureDescription.classList.remove('editable');
+            priceHeading.classList.remove('editable');
+            cultureName.classList.remove('editable');
+            editBtn.classList.remove('edit-mode');
+            editBtn.textContent = originalButtonText;
+        }
+
+        isEditMode = !isEditMode;
+    });
+
+
 });
 
 async function fetchCultureById(cultureId) {
@@ -48,7 +127,7 @@ function showTips(data) {
     const lineDiv = document.createElement('div');
     lineDiv.classList.add('line');
     const tipsHeading = document.createElement('h2');
-    tipsHeading.textContent = 'How to grow '+ data.culture.culture_name;
+    tipsHeading.textContent = 'How to grow ' + data.culture.culture_type;
     lineDiv.appendChild(tipsHeading);
     cultureTip.appendChild(lineDiv);
 
@@ -96,5 +175,3 @@ function createCultureView(data) {
     cultureView.appendChild(description);
 
 }
-
-cell.setAttribute('contenteditable', 'true');

@@ -789,16 +789,25 @@ button .fas {
 .edit-culture .edit-button {
     border-radius: 10px;
     height: 50%;
-    width: 20%;
+    width: 22%;
     background-color: #d7ff35;
     display: flex;
     justify-content: center;
     align-items: center;
     flex-direction: column;
     box-shadow: 0 5px 10px rgba(0 0 0 0/50%);
+    font-weight: bold;
+    font-size:25px;
+}
+.edit-culture .edit-button.edit-mode{
+  
+    background-color: #476627;
+    color:#f2ffbc;
 }
 
-
+.edit-culture .edit-button.edit-mode:hover{
+    background-color: #5c7642;
+}
 
 .edit-culture .edit-button:hover {
     background-color: #e1fc77;
