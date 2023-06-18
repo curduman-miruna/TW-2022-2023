@@ -21,28 +21,24 @@ window.addEventListener('DOMContentLoaded', () => {
 });
 
 async function fetchCultureById(cultureId) {
-    console.log(cultureId);
-    try {
-        const response = await fetch(`http://localhost:8080/culture?id=${cultureId}`, {
-            method: 'GET',
-            headers: {
-                'Content-Type': 'application/json',
-            },
-        });
-        const data = await response.json();
-        nameConst=data.culture.culture_name;
-        console.log(nameConst);
-        if (response.ok) {
-            createCultureView(data);
-
-        } else {
-            console.error('Error:', data.error);
-        }
-    } catch (error) {
-        console.error('Error:', error);
-
+  console.log(cultureId);
+  try {
+    const response = await fetch(`http://localhost:8080/culture?id=${cultureId}`, {
+      method: 'GET',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+    });
+    const data = await response.json();
+    nameConst = data.culture.culture_name;
+    if (response.ok) {
+      createCultureView(data);
+    } else {
+      console.error('Error:', data.error);
     }
-  
+  } catch (error) {
+    console.error('Error:', error);
+  }
 }
 
 function createCultureView(data) {
@@ -124,20 +120,17 @@ function createCultureView(data) {
     console.log(idConst);
   });
 
+  iDiv.addEventListener('click', async function (event) {
+    event.preventDefault();
+    try {
+      const response = await fetch('http://localhost:8080/addFollow', {
+        method: 'PUT',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({ user_email: emailConst, culture_id: idConst, culture_name: nameConst }),
+      });
 
-          
-    console.log(nameConst);
-    iDiv.addEventListener('click',async function(event){
-        
-        event.preventDefault();
-        try {
-            const response = await fetch('http://localhost:8080/addFollow', {
-                method: 'PUT',
-                headers: {
-                    'Content-Type': 'application/json',
-                },
-                body: JSON.stringify({email: emailConst, id: idConst, culture_name: nameConst})
-            });
       if (response.ok) {
         followed = true;
         iHeading.textContent = 'Followed';
