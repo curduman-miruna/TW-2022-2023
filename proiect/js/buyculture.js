@@ -1,5 +1,6 @@
 let idConst;
-
+let nameConst;
+let followed =false;
 const emailConst = localStorage.getItem('userEmail');
 window.addEventListener('DOMContentLoaded', () => {
     const urlParams = new URLSearchParams(window.location.search);
@@ -28,7 +29,7 @@ async function fetchCultureById(cultureId) {
             },
         });
         const data = await response.json();
-        console.log(data.culture_name);
+        nameConst=data.culture.culture_name;
         if (response.ok) {
             createCultureView(data);
 
@@ -69,7 +70,12 @@ function createCultureView(data) {
     iDiv.classList.add('interested');
     const iHeading = document.createElement('h2');
 
-    iHeading.textContent = 'Interested';
+    if(followed===false){
+        iHeading.textContent = 'Follow';
+    }else{
+        iHeading.textContent = 'Followed';
+    }
+    
     iDiv.appendChild(iHeading);
     imageView.appendChild(iDiv);
     cultureView.appendChild(imageView);
@@ -112,6 +118,29 @@ function createCultureView(data) {
         }
         console.log('Buy button clicked');
         console.log(idConst);
+    });
+    iDiv.addEventListener('click',async function(event){
+        
+        event.preventDefault();
+        try {
+            const response = await fetch('http://localhost:8080/addFollow', {
+                method: 'PUT',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify({  email: emailConst,id: idConst, culture_name: nameConst})
+            });
+
+            if (response.ok) {
+                followed=true;
+                iHeading.textContent = 'Followed';
+            } else {
+                const data = await response.json();
+                console.error('Error:', data.error);
+            }
+        } catch (error) {
+            console.error('Error:', error);
+        }
     });
 
 

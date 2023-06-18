@@ -169,6 +169,10 @@ function createCultureView(data) {
 
     const description = document.createElement('div');
     description.classList.add('description');
+
+    const followers =document.createElement('p');
+    followers.textContent='Followers: '+data.culture.followers;
+
     const cultureName = document.createElement('h2');
     cultureName.textContent = data.culture.culture_name;
     const cultureDescription = document.createElement('p');
@@ -178,9 +182,11 @@ function createCultureView(data) {
     const priceHeading = document.createElement('h2');
     priceHeading.textContent = data.culture.price + '  lei';
     price.appendChild(priceHeading);
+    
     description.appendChild(cultureName);
     description.appendChild(cultureDescription);
     description.appendChild(price);
+    description.appendChild(followers);
     cultureView.appendChild(description);
 
     sellDiv.addEventListener('click', async function (event) {
