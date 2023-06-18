@@ -14,27 +14,54 @@ async function analyzeImage(url) {
     const image = await Jimp.read(url);
     console.log(`Analyzing image: ${url}`);
 
-    // Check if the image is in a supported format (JPEG or PNG)
-    if (image.getMIME() !== 'image/jpeg' && image.getMIME() !== 'image/png') {
+    // Check if the image is in a supported format (PNG)
+    if (image.getMIME() !== 'image/png') {
       console.log(`Skipping analysis for image with unsupported format: ${url}`);
       return { brownPercentage: 0, greenPercentage: 0 };
     }
 
-    const convertedImage = await image.getBufferAsync(Jimp.MIME_JPEG);
+    const width = image.getWidth();
+    const height = image.getHeight();
 
-    const palette = await Vibrant.from(convertedImage).getPalette();
-    const brownColor = palette.Vibrant._rgb;
-    const greenColor = palette.DarkVibrant._rgb;
+    let brownPixels = 0;
+    let greenPixels = 0;
 
-    const totalPixels = palette.Vibrant._population + palette.DarkVibrant._population;
-    const brownPercentage = (palette.Vibrant._population / totalPixels) * 100;
-    const greenPercentage = (palette.DarkVibrant._population / totalPixels) * 100;
+    // Define color ranges for brown and green
+    const brownRange = { min: { r: 100, g: 80, b: 0 }, max: { r: 180, g: 150, b: 100 } };
+    const greenRange = { min: { r: 0, g: 120, b: 0 }, max: { r: 100, g: 220, b: 100 } };
+
+    image.scan(0, 0, width, height, (x, y, idx) => {
+      const red = image.bitmap.data[idx];
+      const green = image.bitmap.data[idx + 1];
+      const blue = image.bitmap.data[idx + 2];
+
+      if (isColorInRange(red, green, blue, brownRange)) {
+        // Brown pixel
+        brownPixels++;
+      } else if (isColorInRange(red, green, blue, greenRange)) {
+        // Green pixel
+        greenPixels++;
+      }
+    });
+
+    const totalPixels = width * height;
+    const brownPercentage = (brownPixels / totalPixels) * 100;
+    const greenPercentage = (greenPixels / totalPixels) * 100;
 
     return { brownPercentage, greenPercentage };
   } catch (error) {
     console.error('Error analyzing image', error);
     return { brownPercentage: 50, greenPercentage: 30 };
   }
+}
+
+function isColorInRange(red, green, blue, colorRange) {
+  const { min, max } = colorRange;
+  return (
+    red >= min.r && red <= max.r &&
+    green >= min.g && green <= max.g &&
+    blue >= min.b && blue <= max.b
+  );
 }
 
 
@@ -63,7 +90,7 @@ async function updateCultureData() {
       const { brownPercentage, greenPercentage } = await analyzeImage(imageUrl);
       const updatedImageUrlArray = [imageUrl]; // Wrap the URL in an array
       await client.query('UPDATE public.cultures SET image_url = $1 WHERE id = $2', [updatedImageUrlArray, id]);
-      if (brownPercentage < 30 && greenPercentage < 50) {
+      if (brownPercentage < 10 && greenPercentage < 20) {
         await client.query('UPDATE public.cultures SET status = $1 WHERE id = $2', ['Ready', id]);
         console.log(`Status updated for culture ID ${id}`);
       } else {
@@ -83,5 +110,5 @@ function getRandomInt(min, max) {
 }
 
 // Run the update every 2 days
-const twoDaysInMilliseconds = 120 * 1000;
+const twoDaysInMilliseconds = 5 * 1000;
 setInterval(updateCultureData, twoDaysInMilliseconds);
