@@ -1,11 +1,8 @@
 const http = require('http');
 
 const data = JSON.stringify({
-<<<<<<< HEAD
-  email: 'maria@gmail.com',
-=======
-  email: 'miruna@test.com',
->>>>>>> e71633e8b6daa3667286b7b60e83973016aa2938
+
+  email: 'd.maria@example.com',
   culture_name: 'Heather',
   soil_moisture: 30,
   ambient_temperature: 25,
@@ -14,7 +11,7 @@ const data = JSON.stringify({
   price: 3,
   status: 'Ready',
   availability: true,
-  description: 'Daffodils are incredibly versatile and can be planted in borders, beds, or containers, and make lovely cut flowers for floral arrangements. Their hardiness and long blooming season make them an excellent choice for both gardeners and flower enthusiasts alike.',
+  description: '',
 });
 
 
