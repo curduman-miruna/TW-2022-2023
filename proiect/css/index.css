@@ -507,7 +507,7 @@ button .fas {
 
 /* culture view */
 .culture-view {
-    margin-top: 60px;
+    margin-top: 12vh;
     display: flex;
     justify-content: flex-start;
     align-items: center;
@@ -955,7 +955,6 @@ button .fas {
     }
 */
     .culture-view {
-        margin-top: 60px;
         display: flex;
         justify-content: center;
         align-items: center;
@@ -1099,7 +1098,6 @@ button .fas {
 @media (width <=540px) {
 
     .culture-view {
-        margin-top: 60px;
         display: flex;
         justify-content: center;
         align-items: center;
