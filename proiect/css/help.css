@@ -23,6 +23,14 @@
     color:#323b0b;
 }
 
+.help summary{
+    margin-left:30px;
+    margin-top: 20px;
+    font-size: 30px;
+    color:#323b0b;
+      font-weight: bold;
+}
+
 .help p{
     margin-left:30px;
     margin-top: 5px;
@@ -37,6 +45,7 @@
     width:50%;
     margin-bottom: 30px;
 }
+
 
 @media (width <=450px){
     .account-background .edit-page .img-container{
