@@ -156,7 +156,13 @@ function createCultureView(data) {
     const sellDiv = document.createElement('div');
     sellDiv.classList.add('sell');
     const sellHeading = document.createElement('h2');
-    sellHeading.textContent = 'Sell';
+    if(data.culture.availability==false){
+        sellHeading.textContent = 'Sell';
+    }
+    else{
+        sellHeading.textContent = 'Sold';
+    }
+    
     sellDiv.appendChild(sellHeading);
     imageView.appendChild(sellDiv);
     cultureView.appendChild(imageView);
@@ -188,8 +194,7 @@ function createCultureView(data) {
     });
 
     if (response.ok) {
-      const successMessage = document.getElementById('sell-message');
-      successMessage.style.display = 'block';
+        sellHeading.textContent = 'Sold';
     } else {
       const data = await response.json();
       console.error('Error:', data.error);

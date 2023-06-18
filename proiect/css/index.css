@@ -1,5 +1,13 @@
+#sell-message-section{
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+}
+.sell-message{
 
-
+    font-size:25px;
+    font-weight:bold;
+}
 
 
 /* logo */
