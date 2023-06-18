@@ -57,7 +57,7 @@ async function fetchUsers() {
         const editCell = tr.querySelector('td:nth-child(5)');
         editCell.appendChild(editButton);
 
-        // Adaugă butonul de ștergere în celula corespunzătoare
+        
         const deleteCell = tr.querySelector('td:nth-child(6)');
         deleteCell.appendChild(deleteButton);
         tableBody.appendChild(tr);

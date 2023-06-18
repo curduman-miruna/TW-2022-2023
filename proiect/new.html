@@ -57,11 +57,19 @@
             </div>
         </div>
     </section>
+    
+        
+    
+    
     <section>
+       
         <div class="culture-view">
+            <div class="success-message" id="mesaj-add" style="display: none;">
+                You have a new culture now, congrats!
+            </div>
             <div class="description">
-                <div class="column">
-                    <form>
+                <div class="row">
+                    <form id="form1">
                         <div class="input-box">
                             <input type="text" name="name" required="">
                             <label>Name</label>
@@ -74,11 +82,6 @@
                             <input type="text" name="price" required="">
                             <label>Price</label>
                         </div>
-                        
-                    </form>
-                </div>
-                <div class="column">
-                    <form>
                         <div class="input-box">
                             <input type="text" name="temperature" required="">
                             <label>
@@ -93,62 +96,57 @@
                             <input type="text" name="image" required="">
                             <label>Image URL</label>
                         </div>
-                    </form>
-                </div>
-                <div class="column-radio">
-                    <form>
-                        <div class="category">
-                            <input type="radio" name="category" id="Crocus" value="Crocus" required>
-                            <label for="category1">Crocus</label>
-                        </div>
-                        <div class="category">
-                            <input type="radio" name="category" id="Daffodil" value="Daffodil" required>
-                            <label for="category2">Daffodil</label>
-                        </div>
-                        <div class="category">
-                            <input type="radio" name="category" id="Heather" value="Heather" required>
-                            <label for="category3">Heather</label>
-                        </div>
-                        <div class="category">
-                            <input type="radio" name="category" id="Lily" value="Lily" required>
-                            <label for="category4">Lily</label>
-                        </div>
-                        
-
-                    </form>
-
-                </div>
-                <div class="column-radio">
-                    <form>
-                        <div class="category">
-                            <input type="radio" name="category" id="Hyacinth" value="Hyacinth" required>
-                            <label for="category2-1">Hyacinth</label>
-                        </div>
-                        <div class="category">
-                            <input type="radio" name="category" id="Peonies" value="Peonies" required>
-                            <label for="category2-2">Peonies</label>
-                        </div>
-                        <div class="category">
-                            <input type="radio" name="category" id="Tulip" value="Tulip" required>
-                            <label for="category2-3">Tulip</label>
-                        </div>
                         
                     </form>
                 </div>
-
+                <div class="row">
+                    <form id="form2">
+                    <div class="category">
+                        <input type="radio" name="category" id="Crocus" value="Crocus" required>
+                        <label for="category1">Crocus</label>
+                    </div>
+                    <div class="category">
+                        <input type="radio" name="category" id="Daffodil" value="Daffodil" required>
+                        <label for="category2">Daffodil</label>
+                    </div>
+                    <div class="category">
+                        <input type="radio" name="category" id="Heather" value="Heather" required>
+                        <label for="category3">Heather</label>
+                    </div>
+                    <div class="category">
+                        <input type="radio" name="category" id="Lily" value="Lily" required>
+                        <label for="category4">Lily</label>
+                    </div>
+                    <div class="category">
+                        <input type="radio" name="category" id="Hyacinth" value="Hyacinth" required>
+                        <label for="category2-1">Hyacinth</label>
+                    </div>
+                    <div class="category">
+                        <input type="radio" name="category" id="Peonies" value="Peonies" required>
+                        <label for="category2-2">Peonies</label>
+                    </div>
+                    <div class="category">
+                        <input type="radio" name="category" id="Tulip" value="Tulip" required>
+                        <label for="category2-3">Tulip</label>
+                    </div>
+                </form>
+                </div>
+                
             </div>
+               
+            
         </div>
     </section>
     <section>
         <div class="edit-culture">
-            <div class="edit-button">
+            <div class="edit-button" id="add-culture">
                 <h2>
                     Add new culture
                 </h2>
             </div>
         </div>
     </section>
-    <script src="new.js"></script>
+    <script src="js/new.js"></script>
 </body>
 
 </html>

@@ -64,18 +64,15 @@ window.addEventListener('DOMContentLoaded', () => {
                 .then(response => response.json())
                 .then(data => {
                     if (data.success) {
-                        // Changes saved successfully
                         console.log('Changes saved:', data.culture);
-                        // You can perform any additional actions here
                     } else {
-                        // Failed to save changes
+                        
                         console.error('Failed to save changes:', data.message);
-                        // You can handle the error or display a message to the user
+                        
                     }
                 })
                 .catch(error => {
                     console.error('Error:', error);
-                    // Handle the error or display a message to the user
                 });
 
             cultureDescription.removeAttribute('contenteditable');

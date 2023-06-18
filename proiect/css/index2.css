@@ -1,4 +1,6 @@
+
 /* Index feature */
+
 .category{
    
     padding: 10px 0;
@@ -500,34 +502,46 @@ button .fas{
     display: flex;
     justify-content: center;
     align-items: center;
-    flex-direction: row;
+    flex-direction: column;
     height: 60vh;
     width:100%;
 }
 
-
-.culture-view .description{
-    width:95vw;
+.culture-view .description {
+    width: 90vw;
     height: 100%;
-    border-bottom: solid  var(--darkerstpink);
-    border-top: solid  var(--darkerstpink);
+    border-bottom: solid var(--darkerstpink);
+    border-top: solid var(--darkerstpink);
     border-width: 10px;
     box-shadow: 0 15px 25px rgb(0 0 0 / 50%);
     display: flex;
-    justify-content: space-between;
+    justify-content: center;
     align-items: center;
-    flex-direction: row;
+    flex-direction: column;
     border-radius: 10px;
-    
 }
-.culture-view .description .column{
-    width: 15%; 
-    margin-left: 1vw;
+
+.culture-view .description .row form {
+    display: flex;
+    justify-content: space-between;
 }
-.culture-view .description .column-radio{
-    width: 10%; 
-    margin-left: 1vw;
+
+.culture-view .description .row form .input-box {
+    width:10vw;
+    flex: 1;
+    margin-right: 5vw;
 }
+.culture-view .description .row form .category{
+    width:5vw;
+    flex: 1;
+    margin-right: 5vw;
+}
+
+.culture-view .description .row form .input-box:last-child {
+    margin-right: 0;
+}
+
+
 .buy-card p {
     margin: 20px 5px;
     text-align: justify;
