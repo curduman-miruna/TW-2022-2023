@@ -96,3 +96,5 @@ function createCultureView(data) {
     cultureView.appendChild(description);
 
 }
+
+cell.setAttribute('contenteditable', 'true');

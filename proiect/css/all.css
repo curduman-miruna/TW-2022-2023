@@ -659,6 +659,9 @@ input[type="submit"]:hover {
 
 }
 @media (width <=991px) {
+    #account {
+        display: none;
+    }
     html {
         font-size: 55%;
     }
@@ -699,24 +702,44 @@ input[type="submit"]:hover {
         height:60%;
     }
 
+
 }
 
 @media (width <=768px) {
+    
+
+    #account {
+        display: none;
+    }
+
+    .header .icons div {
+        font-size: 20px;
+    }
+
+    .account-section form{
+        width:45%;
+        height:60%;
+    }
+
+
+}
+
+@media (width <=540px) {
     #menu-btn {
         display: inline-block;
     }
-
+    #account {
+        display: none;
+    }
     .header .navbar {
         position: absolute;
         top: 100%;
-        right: 0;
+        right: -100%;
         background: #fff;
-        width: 20%;
+        width: 40%;
         height: 70vh;
-        display: flex;
         flex-direction: column;
-        justify-content: space-between;
-        align-items: flex-start;
+        align-items: flex-end;
         box-shadow: 0 15px 25px rgba(0, 0, 0, 0.5);
         padding: 1rem;
     }
@@ -725,7 +748,7 @@ input[type="submit"]:hover {
     .header .navbar a {
         color: var(--black);
         display: block;
-        margin-bottom: 1rem;
+        margin-bottom: 0.25rem;
         font-size: 1.5rem;
     }
     
@@ -734,45 +757,12 @@ input[type="submit"]:hover {
         right: 0;
     }
 
-    
 
-    .header .icons div {
-        font-size: 20px;
-    }
-
-    .header .icons div:first-child {
-        margin-left: 500px;
-    }
-    .account-section form{
-        width:45%;
-        height:60%;
-    }
-
-}
-
-@media (width <=540px) {
-    .header .icons div:first-child {
-        margin-left: 200px;
-    }
-
-    .navbar {
-        display: block;
-        align-items: flex-start;
-        flex-direction: column;
-    }
-
-    .navbar a {
-        margin: 0;
-    }
 
     .admin-page .header h2 {
         margin-left: 20px;
-        ;
         color: white;
         font-size: 20px;
-    }
-    .account-background .account-info{
-
     }
     .account-background .account-info h2 {
         text-align: center;
@@ -861,20 +851,47 @@ input[type="submit"]:hover {
     }
 
 
-
-
-
 }
 
 @media (width <=450px) {
+    #menu-btn {
+        display: inline-block;
+    }
+    #account {
+        display: none;
+    }
+    
+    .header .navbar {
+        position: absolute;
+        top: 100%;
+        right: -100%;
+        background: #fff;
+        width: 40%;
+        height: 60vh;
+        flex-direction: column;
+        align-items: flex-end;
+        box-shadow: 0 15px 25px rgba(0, 0, 0, 0.5);
+        padding: 1rem;
+    }
+    
+    
+    .header .navbar a {
+        color: var(--black);
+        display: block;
+        margin-bottom: 0.25rem;
+        font-size: 1.5rem;
+    }
+    
+
+    .header .navbar.active {
+        right: 0;
+    }
+
     .account-background .edit-page .img-container {
         margin-top: 40px;
         margin-left: 130px;
     }
 
-    .header .icons div:first-child {
-        margin-left: 10px;
-    }
 
     .account-background .edit-page form {
         margin-left: 130px;
@@ -887,6 +904,39 @@ input[type="submit"]:hover {
     }
 }
 @media (width <=280px){
+    #menu-btn {
+        display: inline-block;
+    }
+    #account {
+        display: none;
+    }
+    .header .navbar {
+        position: absolute;
+        top: 100%;
+        right: -100%;
+        background: #fff;
+        width: 40%;
+        height: 70vh;
+        flex-direction: column;
+        align-items: flex-end;
+        box-shadow: 0 15px 25px rgba(0, 0, 0, 0.5);
+        padding: 1rem;
+    }
+    
+    
+    .header .navbar a {
+        color: var(--black);
+        display: block;
+        margin-bottom: 0.25rem;
+        font-size: 1.5rem;
+    }
+    
+
+    .header .navbar.active {
+        right: 0;
+    }
+   
+
     .account-section form{
         width:95%;
         height:65%;
