@@ -1,9 +1,9 @@
-
+let idConst;
 window.addEventListener('DOMContentLoaded', () => {
     const urlParams = new URLSearchParams(window.location.search);
     const cultureId = urlParams.get('id');
     let navbar = document.querySelector('.navbar');
-
+idConst=cultureId;
     document.querySelector('#menu-btn').onclick = () => {
         navbar.classList.toggle('active');
         searchForm.classList.remove('active');
@@ -91,6 +91,9 @@ window.addEventListener('DOMContentLoaded', () => {
 
         isEditMode = !isEditMode;
     });
+   
+
+    
 
 
 });
@@ -173,5 +176,30 @@ function createCultureView(data) {
     description.appendChild(cultureDescription);
     description.appendChild(price);
     cultureView.appendChild(description);
+    sellDiv.addEventListener('click',   function(event) {
+        event.preventDefault();
+        try {
+            const response =  fetch('http://localhost:8080/changeAvailabilityTrue', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify(data.culture.id)
+            });
 
+            if (response.ok) {
+                const successMessage = document.getElementById('sell-message');
+                successMessage.style.display = 'block';
+            } else {
+                console.error('Error:', data.error);
+
+            }
+        } catch (error) {
+            console.error('Error:', error);
+        }
+        console.log('Sell button clicked');
+        console.log(idConst);
+    });
+    
+    
 }
