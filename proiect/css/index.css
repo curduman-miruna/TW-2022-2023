@@ -3,8 +3,8 @@
     align-items: flex-start;
     justify-content: center;
 }
-.sell-message{
 
+.sell-message{
     font-size:25px;
     font-weight:bold;
 }
@@ -495,7 +495,7 @@ button .fas {
 
 
 .culture-card p {
-    margin: 20px 20px 20px 20px;
+    margin: 20px;
     line-height: 2em;
     color: #625a71;
 }
@@ -542,7 +542,7 @@ button .fas {
 }
 
 .culture-view .description p {
-    margin: 20px 20px 20px 20px;
+    margin: 20px;
     text-align: center;
     justify-content: center;
     font-size: 16px;
@@ -551,7 +551,7 @@ button .fas {
 
 .culture-tip .tip-box p {
     text-align: center;
-    margin: 30px 30px 30px 30px;
+    margin: 30px;
     justify-content: center;
     color: black;
     font-size: 20px;
@@ -616,7 +616,7 @@ button .fas {
 }
 
 .culture-view .description h2 {
-    margin: 20px 20px 20px 20px;
+    margin: 20px;
     justify-content: center;
     text-align: center;
     font-size: 30px;
@@ -767,7 +767,7 @@ button .fas {
 
 .culture-tip .tip-box {
     border-radius: 10px;
-    margin: 30px 30px 30px 30px;
+    margin: 30px;
     width: 70vw;
     height: auto;
     display: flex;
@@ -802,8 +802,8 @@ button .fas {
     font-weight: bold;
     font-size:25px;
 }
+
 .edit-culture .edit-button.edit-mode{
-  
     background-color: #476627;
     color:#f2ffbc;
 }
@@ -894,6 +894,7 @@ button .fas {
     html {
         font-size: 55%;
     }
+
     section {
         padding: 2rem;
     }
@@ -1018,6 +1019,7 @@ button .fas {
         margin-right: 20px;
     }
 }
+
 /*
 @media (width <=768px) {
     #menu-btn {
@@ -1054,18 +1056,18 @@ button .fas {
     }
 
 
-}*/
+} */
 
 @media (width <=540px) {
-
-    
 .culture-view .image .buy h2{
     font-size: 18px;
 }
 
+
 .culture-view .image .interested h2 {
     font-size: 15px;
 }
+
     .culture-view {
         display: flex;
         justify-content: center;
@@ -1126,13 +1128,13 @@ button .fas {
         width: 50%;
     }
 
-    .culture-view .image .buy h2{
-    font-size: 18px;
+    
+
+.culture-view .image .interested{
+    width:40vw;
 }
 
-.culture-view .image .interested h2 {
-    font-size: 15px;
-}
+
 
 .culture-tip {
     width: 100%;
@@ -1163,7 +1165,6 @@ button .fas {
 }
 
 @media (width <=450px) {
-
     .culture-view .description form {
         width: 80%;
     }

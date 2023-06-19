@@ -45,11 +45,13 @@ html::-webkit-scrollbar-thumb {
 body {
     background: var(--bg);
 }
+
 .editable {
     border: 1px solid #ccc;
     padding: 5px;
     cursor: text;
   }
+
 .btn {
     margin-top: 1rem;
     display: inline-block;
@@ -67,7 +69,6 @@ body {
 
 
 .success-message{
-
     font-size: 15px;
     color:#32560b;
 }
@@ -175,6 +176,7 @@ a {
 .header .search-form.active {
     transform: scaleY(1);
 }
+
 .input-box input {
     width: 100%;
     padding: 10px 0;
@@ -345,6 +347,13 @@ a {
     width: 20%;
 }
 
+.user-information h2 {
+    color: #66071d;
+    font-weight: bold;
+    font-size: 50px;
+}
+
+
 .account-section form h2 {
     color: #66071d;
     font-weight: bold;
@@ -389,14 +398,6 @@ input[type="submit"]:hover {
 }
 
 
-
-
-
-.user-information h2 {
-    color: #66071d;
-    font-weight: bold;
-    font-size: 50px;
-}
 
 .user-information p {
     color: black;
@@ -661,16 +662,19 @@ input[type="submit"]:hover {
         margin-left:10px;
         width:9vw;
     }
+
     .account-section form{
         width: 30%;
         height:70%;
     }
 
 }
+
 @media (width <=991px) {
     #account {
         display: none;
     }
+
     html {
         font-size: 55%;
     }
@@ -714,6 +718,7 @@ input[type="submit"]:hover {
     .header .icons div:last-child {
         margin-right: 10px;
     }
+
     .account-section form{
         width:30%;
         height:60%;
@@ -722,8 +727,6 @@ input[type="submit"]:hover {
 }
 
 @media (width <=768px) {
-    
-
     #account {
         display: none;
     }
@@ -754,9 +757,11 @@ input[type="submit"]:hover {
     #menu-btn {
         display: inline-block;
     }
+
     #account {
         display: none;
     }
+
     .header .navbar {
         position: absolute;
         top: 100%;
@@ -766,7 +771,7 @@ input[type="submit"]:hover {
         height: 30vh;
         flex-direction: column;
         align-items: flex-end;
-        box-shadow: 0 15px 25px rgba(0, 0, 0, 0.5);
+        box-shadow: 0 15px 25px rgb(0 0 0 / 50%);
         padding: 1rem;
     }
     
@@ -799,6 +804,7 @@ input[type="submit"]:hover {
         color: white;
         font-size: 20px;
     }
+
     .account-background .account-info h2 {
         text-align: center;
         margin-top: 20px;
@@ -863,17 +869,12 @@ input[type="submit"]:hover {
         margin-top: 10px;
     }
 
-    .account-background{
-        flex-direction: column;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-    }
+    
+
     .account-background .edit-page {
         width:100%;
         height: 60%;
         margin-top: 15vh;
-        
         display: flex;
         flex-direction: column;
         justify-content: center;
@@ -884,15 +885,18 @@ input[type="submit"]:hover {
         margin-top: 5vh;
     }
 
+.account-section form{
+        width:60%;
+        height:60%;
+    }
+
     .account-background .edit-page form {
         margin-top: 5vh;
         width:60%;
         height:60%;
     }
-    .account-section form{
-        width:60%;
-        height:60%;
-    }
+
+    
 
     .user-information {
         margin-left: 0;
@@ -915,6 +919,7 @@ input[type="submit"]:hover {
     #menu-btn {
         display: inline-block;
     }
+
     #account {
         display: none;
     }
@@ -928,7 +933,7 @@ input[type="submit"]:hover {
         height: 30vh;
         flex-direction: column;
         align-items: flex-end;
-        box-shadow: 0 15px 25px rgba(0, 0, 0, 0.5);
+        box-shadow: 0 15px 25px rgb(0 0 0 / 50%);
         padding: 1rem;
     }
     
@@ -945,9 +950,7 @@ input[type="submit"]:hover {
         right: 0;
     }
 
-        .header .navbar.active {
-        right: 0;
-    }
+    
 
     .btn#logout{
             width:80px;
@@ -967,8 +970,8 @@ input[type="submit"]:hover {
         justify-content: center;
         align-items: center;
     }
+
     .account-background .account-info {
-        width:100vw;
         height: 40%;
         margin-top: 15vh;
         width: 100vw;
@@ -988,6 +991,11 @@ input[type="submit"]:hover {
     .account-background .edit-page .img-container {
         margin-left:30%;
     }
+		
+		.account-section form{
+        width:80%;
+        height:62%;
+    }
 
     .account-background .edit-page form {
         margin-top: 15%;
@@ -995,10 +1003,7 @@ input[type="submit"]:hover {
         width: 100%;
     }
     
-    .account-section form{
-        width:80%;
-        height:62%;
-    }
+    
 
 
     .input-box-edit input {
@@ -1029,13 +1034,16 @@ input[type="submit"]:hover {
 
     
 }
+
 @media (width <=280px){
     #menu-btn {
         display: inline-block;
     }
+
     #account {
         display: none;
     }
+
     .header .navbar {
         position: absolute;
         top: 100%;
@@ -1045,7 +1053,7 @@ input[type="submit"]:hover {
         height: 30vh;
         flex-direction: column;
         align-items: flex-end;
-        box-shadow: 0 15px 25px rgba(0, 0, 0, 0.5);
+        box-shadow: 0 15px 25px rgb(0 0 0 / 50%);
         padding: 1rem;
     }
     
@@ -1061,11 +1069,7 @@ input[type="submit"]:hover {
     .header .navbar.active {
         right: 0;
     }
-   
-       .header .navbar.active {
-        right: 0;
-    }
-
+		
     .btn#logout{
             width:80px;
             text-align: center;
