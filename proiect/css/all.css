@@ -375,17 +375,17 @@ input[type="submit"]:hover {
 }
 
 .user-information {
-    margin-left: 20vw;
-    margin-top: 20vh;
+    margin-left: 10vw;
+    margin-top: 10vh;
     border: 3px solid #b62f4f;
     border-radius: 10px;
-    width: 40vw;
+    width: 50vw;
     height: 70vh;
     display: flex;
     justify-content: center;
     align-items: center;
     flex-direction: column;
-
+    TEXT-ALIGN: center;
 }
 
 
@@ -896,7 +896,8 @@ input[type="submit"]:hover {
 
     .user-information {
         margin-left: 0;
-        margin-top: 5vh;
+        margin-top: 15vh;
+        padding-bottom: 5vh;
         border: 3px solid #b62f4f;
         border-radius: 10px;
         width: 90vw;
@@ -905,7 +906,7 @@ input[type="submit"]:hover {
         justify-content: center;
         align-items: center;
         flex-direction: column;
-    
+        text-align: center;
     }
 
 }
