@@ -23,4 +23,46 @@
   }
   
  
+@media (width <=540px) {
+  table {
+    font-size: 0.8rem;
+}
+
+table thead {
+    display: none;
+}
+
+table tr {
+    display: block;
+    margin-bottom: 1rem;
+    border: 1px solid black;
+}
+
+table td {
+    display: block;
+    text-align: right;
+    font-size: 1.7rem;
+    border: none;
+}
+
+table td::before {
+    content: attr(data-label);
+    float: left;
+    font-weight: bold;
+    text-transform: uppercase;
+}
+
+button {
+    margin-left: 1vw;
+    height: 6vh;
+    width: 30vw;
+}
+.buttonContainer {
+    display: flex;
+    flex-direction: row;
+  }
+
+
+}
+
   
