@@ -24,6 +24,9 @@
   
  
 @media (width <=540px) {
+  .btn{
+    width: 40vw;
+  }
   table {
     font-size: 0.8rem;
 }
