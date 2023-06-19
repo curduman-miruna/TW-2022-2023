@@ -693,7 +693,15 @@ input[type="submit"]:hover {
 
     }
 
+    .btn#logout{
+            width:80px;
+            text-align: center;
+        }
 
+    .btn#edit-info{
+        width:80px;
+        text-align: center;
+    }
 
     .header .icons div {
         font-size: 25px;
@@ -729,6 +737,16 @@ input[type="submit"]:hover {
         height:60%;
     }
 
+    .btn#logout{
+            width:80px;
+            text-align: center;
+        }
+
+    .btn#edit-info{
+    width: 100px;
+    text-align: center;
+    margin: 0;
+    }
 
 }
 
@@ -745,7 +763,7 @@ input[type="submit"]:hover {
         right: -100%;
         background: #fff;
         width: 40%;
-        height: 70vh;
+        height: 30vh;
         flex-direction: column;
         align-items: flex-end;
         box-shadow: 0 15px 25px rgba(0, 0, 0, 0.5);
@@ -765,7 +783,16 @@ input[type="submit"]:hover {
         right: 0;
     }
 
+    .btn#logout{
+            width:80px;
+            text-align: center;
+        }
 
+    .btn#edit-info{
+    width: 100px;
+    text-align: center;
+    margin: 0;
+    }
 
     .admin-page .header h2 {
         margin-left: 20px;
@@ -897,7 +924,7 @@ input[type="submit"]:hover {
         right: -100%;
         background: #fff;
         width: 40%;
-        height: 60vh;
+        height: 30vh;
         flex-direction: column;
         align-items: flex-end;
         box-shadow: 0 15px 25px rgba(0, 0, 0, 0.5);
@@ -916,6 +943,22 @@ input[type="submit"]:hover {
     .header .navbar.active {
         right: 0;
     }
+
+        .header .navbar.active {
+        right: 0;
+    }
+
+    .btn#logout{
+            width:80px;
+            text-align: center;
+        }
+
+    .btn#edit-info{
+    width: 100px;
+    text-align: center;
+    margin: 0;
+    }
+
     .account-background{
         width: 100vw;
         flex-direction: column;
@@ -998,7 +1041,7 @@ input[type="submit"]:hover {
         right: -100%;
         background: #fff;
         width: 40%;
-        height: 70vh;
+        height: 30vh;
         flex-direction: column;
         align-items: flex-end;
         box-shadow: 0 15px 25px rgba(0, 0, 0, 0.5);
@@ -1018,6 +1061,20 @@ input[type="submit"]:hover {
         right: 0;
     }
    
+       .header .navbar.active {
+        right: 0;
+    }
+
+    .btn#logout{
+            width:80px;
+            text-align: center;
+        }
+
+    .btn#edit-info{
+    width: 100px;
+    text-align: center;
+    margin: 0;
+    }
 
     .account-section form{
         width:95%;
