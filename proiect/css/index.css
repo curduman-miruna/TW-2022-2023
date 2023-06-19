@@ -936,6 +936,7 @@ button .fas {
         flex-direction: column;
         height: 100vh;
         width: 100%;
+        margin-bottom: 110px;
     }
 
     .culture-view .image {
@@ -967,7 +968,7 @@ button .fas {
    
 
     .culture-tip .tip-box p {
-        font-size: 30px;
+        font-size: 25px;
     }
 
 
@@ -994,10 +995,10 @@ button .fas {
         width: 50%;
     }
 
-    .culture-tip {
-        margin-left: 32px;
-        width: 90vw;
-    }
+.culture-tip {
+    width: 100%;
+    margin-left: 3px;
+}
 
     .culture-tip .tip-box {
         margin: auto;
@@ -1072,6 +1073,7 @@ button .fas {
         flex-direction: column;
         height: 100vh;
         width: 100%;
+        margin-bottom: 30px;
     }
 
     .culture-view .image {
@@ -1124,10 +1126,18 @@ button .fas {
         width: 50%;
     }
 
-    .culture-tip {
-        margin-left: 13px;
-        width: 90vw;
-    }
+    .culture-view .image .buy h2{
+    font-size: 18px;
+}
+
+.culture-view .image .interested h2 {
+    font-size: 15px;
+}
+
+.culture-tip {
+    width: 100%;
+    margin-left: 3px;
+}
 
     .culture-tip .tip-box {
         margin: auto;
