@@ -674,7 +674,7 @@ input[type="submit"]:hover {
     html {
         font-size: 55%;
     }
-
+    
     .header {
         padding: 1.5rem 2rem;
         display: flex;
@@ -836,22 +836,31 @@ input[type="submit"]:hover {
         margin-top: 10px;
     }
 
-    .account-background .edit-page {
+    .account-background{
         flex-direction: column;
         display: flex;
-        justify-content: flex-start;
+        justify-content: center;
+        align-items: center;
+    }
+    .account-background .edit-page {
+        width:100%;
+        height: 60%;
+        margin-top: 15vh;
+        
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
         align-items: center;
     }
 
     .account-background .edit-page .img-container {
-        margin-top: 40px;
-        margin-left: 110px;
+        margin-top: 5vh;
     }
 
     .account-background .edit-page form {
-        margin-left: 110px;
-        width: 70vw;
-        height: 30%;
+        margin-top: 5vh;
+        width:60%;
+        height:60%;
     }
     .account-section form{
         width:60%;
@@ -907,23 +916,74 @@ input[type="submit"]:hover {
     .header .navbar.active {
         right: 0;
     }
+    .account-background{
+        width: 100vw;
+        flex-direction: column;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+    .account-background .account-info {
+        width:100vw;
+        height: 40%;
+        margin-top: 15vh;
+        width: 100vw;
+    }
 
+    .account-background .edit-page {
+        width:70vw;
+        height: 50%;
+        margin-left: 0;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        
+    }
 
     .account-background .edit-page .img-container {
-        margin-top: 40px;
-        margin-left: 130px;
+        margin-left:30%;
     }
-
 
     .account-background .edit-page form {
-        margin-left: 130px;
-        width: 70vw;
-        height: 30%;
+        margin-top: 15%;
+        height:120%;
+        width: 100%;
     }
+    
     .account-section form{
-        width:80%;
-        height:65%;
+        width:60%;
+        height:60%;
     }
+
+
+    .input-box-edit input {
+        width: 100%;
+        padding: 10px 0;
+        font-size: 10px;
+        color: #333;
+        letter-spacing: 1px;
+        margin-bottom: 30px;
+        border: none;
+        border-bottom: 1px solid #999;
+        outline: none;
+        background-color: transparent;
+    }
+
+    .input-box-edit label {
+        position: absolute;
+        top: -25px;
+        left: 0;
+        padding: 10px 0;
+        font-size: 15px;
+        color: #999;
+        pointer-events: none;
+        transition: 0.5s;
+    
+    }
+
+
+    
 }
 @media (width <=280px){
     #menu-btn {
