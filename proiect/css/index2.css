@@ -19,6 +19,8 @@
     align-items: center;
     flex-direction: column;
     height: 32vh;
+    margin-bottom: 10px;
+    
 }
 
 
@@ -833,6 +835,7 @@ color:#182d03;
     align-items: center;
     flex-direction: column;
     box-shadow: 0 5px 10px rgb(0 0 0 / 50%);
+    margin-top: 10px;
 }
 
 
@@ -1137,4 +1140,68 @@ color:#182d03;
     padding: 1em;
     font-weight: 600;
     color: var(--darkgreen);
+}
+
+@media (width <=450px) {
+    .culture-view{
+        margin-right: 0;
+        margin-left:2vw;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+    .culture-view .description {
+        position: relative;
+        width: 90vw;
+        height: fit-content;
+        border-bottom: solid var(--darkerstpink);
+        border-top: solid var(--darkerstpink);
+        border-width: 10px;
+        box-shadow: 0 15px 25px rgb(0 0 0 / 50%);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        border-radius: 10px;
+        margin-top: 80vh; /* Adăugați o margine superioară pentru a separa de secțiunea de mai sus */
+        margin-bottom: 10px; /* Adăugați o margine inferioară pentru a separa de secțiunea de mai jos */
+      }
+      
+    
+   
+    .culture-view .description .row form {
+        flex-direction: column;
+    }
+    
+    .culture-view .description .row form .input-box {
+        width: 100%;
+        margin-bottom: 2vh;
+    }
+    
+    .culture-view .description .row form .category {
+        width: 100%;
+        margin-bottom: 2vh;
+    }
+    .edit-culture .edit-button{
+        margin-right: 10vw;
+        margin-top: 160vh;
+        width: 40vw;
+    }
+    .edit-culture .edit-button h2{
+        text-align: center;
+        color:#3a4605;
+        font-size:20px;
+        
+    }
+    .sync .button-s {
+        margin-top: 25vh;
+        width:40%;
+    }
+    .sync .button-s h2{
+        font-size: 17px;
+    }
+}
+@media (width <=280px){
+   
 }
