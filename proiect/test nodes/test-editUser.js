@@ -1,10 +1,10 @@
 const http = require('http');
 
 const data = JSON.stringify({
-  email: 'admin@admin.com',
-  username: 'admin',
-  name: 'admin',
-  password: 'admin',
+  email: 'test',
+  username: 'test',
+  name: 'test',
+  password: 'test',
 });
 
 const options = {

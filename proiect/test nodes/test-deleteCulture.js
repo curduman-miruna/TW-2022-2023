@@ -1,6 +1,6 @@
 const http = require('http');
 
-const cultureId = 1; // Specify the ID of the culture to delete
+const cultureId = 4; // Specify the ID of the culture to delete
 
 const options = {
   hostname: 'localhost',

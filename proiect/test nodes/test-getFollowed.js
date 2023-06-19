@@ -1,6 +1,6 @@
 const http = require('http');
 
-const userEmail = 'bianca.curduman@gmail.com'; // Provide the user email for testing
+const userEmail = 'miruna@test.com'; // Provide the user email for testing
 
 const options = {
   hostname: 'localhost',
