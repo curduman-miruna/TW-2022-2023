@@ -1142,7 +1142,7 @@ color:#182d03;
     color: var(--darkgreen);
 }
 
-@media (width <=450px) {
+@media (width <=540px) {
     .culture-view{
         margin-right: 0;
         margin-left:2vw;
@@ -1203,5 +1203,11 @@ color:#182d03;
     }
 }
 @media (width <=280px){
-   
+    .sync .button-s h2{
+        font-size: 12px;
+    }
+    .edit-culture .edit-button h2{
+        font-size:15px;
+        
+    }
 }

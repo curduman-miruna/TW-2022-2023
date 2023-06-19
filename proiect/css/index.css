@@ -1057,6 +1057,14 @@ button .fas {
 
 @media (width <=540px) {
 
+    
+.culture-view .image .buy h2{
+    font-size: 18px;
+}
+
+.culture-view .image .interested h2 {
+    font-size: 15px;
+}
     .culture-view {
         display: flex;
         justify-content: center;
